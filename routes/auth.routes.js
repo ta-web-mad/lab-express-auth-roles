@@ -12,11 +12,12 @@ router.get("/login", (req, res) =>
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/profile",
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true,
   })
 )
 
+router.get("/profile", (req, res) => res.render("profile"))
 module.exports = router
