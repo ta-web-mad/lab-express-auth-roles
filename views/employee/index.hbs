@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <a href="/employee/edit">Edit your profile</a>
+        </div>
+
+        {{#each users}}
+        <div class="col-3">
+            <h4 align='center'>{{name}}</h4>
+            <ul>
+                <li>Username: {{username}}</li>
+                <li>Role: {{role}}</li>
+            </ul>
+            <hr>
+        </div>
+        
+       
+        {{/each}}
+    </div>
+</div>

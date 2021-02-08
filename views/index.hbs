@@ -1,2 +1,8 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="container">
+    <h1>Welcome to {{title}}</h1>
+    <p>Use de navbar to navigate</p>
+</div>
+
+{{#if errorMsg}}
+    <div class="error-msg">{{errorMsg}}</div>
+{{/if}}

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+
+            <h2>Create user</h2>
+
+            <form action="/general-manager/create" method="POST">
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control" id="role" name="role">
+                </div>
+                <small id="emailHelp" class="form-text text-muted">Must be DEV, TA, STUDENT or GUEST</a></small>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+
+                <button type="submit" class="btn btn-dark">Create</button>
+                
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{{#if errorMsg}}
+    <div class="error-msg">{{errorMsg}}</div>
+{{/if}}

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <a href="/general-manager/create">Create new user</a>
+        </div>
+
+        {{#each users}}
+        <div class="col-3">
+            <h4 align='center'>{{name}}</h4>
+            <ul>
+                <li>Username: {{username}}</li>
+                <li>Role: {{role}}</li>
+            </ul>
+            <hr>
+            <form method="POST" align='center' action="general-manager/{{id}}/delete">
+                <button class='btn btn-danger' type="submit">Delete</button>
+            </form>
+        </div>
+        
+       
+        {{/each}}
+    </div>
+</div>
