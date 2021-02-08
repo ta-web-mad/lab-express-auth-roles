@@ -5,14 +5,40 @@
             <h1>Add employee</h1>
             <hr>
 
-            <form action="/login" method="post">
+            <form action="/my-platform/add-employee" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username">
                 </div>
                 <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="profileImg">Route to profile img</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="textarea" class="form-control" id="description" name="description">
+                </div>
+                <div class="form-group">
+                    <label for="facebookId">Facebook Id</label>
+                    <input type="textarea" class="form-control" id="facebookId" name="facebookId">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select name="role" class="form-control" id="role">
+                        <option value="GUEST">Guest</option>
+                        <option value="STUDENT">Student</option>
+                        <option value="DEV">Dev</option>
+                        <option value="TA">TA</option>
+                        <option value="BOSS">Boss</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-dark btn-block">Save</button><br>
             </form>
