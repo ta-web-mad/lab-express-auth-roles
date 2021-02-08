@@ -1,3 +1,3 @@
-module.exports = app => {
-    app.locals.title = 'Express generator'
+module.exports = (app) => {
+  app.locals.title = "Ironhack Bureau Investigation"
 }
