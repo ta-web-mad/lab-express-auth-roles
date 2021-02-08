@@ -1,0 +1,27 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Log in</h1>
+            <hr>
+
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Log in</button><br>
+                <small class="text-muted">Not yet registered? <a href="/signup">Register here!</a></small><br>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{{#if errorMsg}}
+<div class="error-message">{{ errorMsg }}</div>
+{{/if}}

@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h2>Users's list Page</h2>
+
+    <hr>
+
+    <ul>
+        {{#each users}}
+        <li>{{username}}
+            <br>
+            <a class="btn btn-dark" href="/all-users-details/{{id}}">See more</a>
+            <p><br>
+                <a class="btn btn-dark" href="/users/{{id}}/edit">Edit</a>
+            <form method="POST" action="/user/{{id}}/delete">
+                <button type="submit" class="btn btn-dark">Delete</button>
+            </form>
+            </p>
+        </li>
+        <hr>
+        {{/each}}
+        <li>
+            <a class="btn btn-dark" href="/users/add-new-user">Add a new user</a>
+        </li>
+
+    </ul>
+
+    {{#if error}}
+    <div class="error-message">{{error}}</div>
+    {{/if}}
+</div>

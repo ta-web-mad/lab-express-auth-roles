@@ -1,0 +1,31 @@
+<div class="container">
+
+    <h2>{{user.username}}'s details Page</h2>
+    <p> {{user.profileImg}}</p>
+    
+    <hr>
+    
+    <p> {{user.profileImg}}</p>
+    <p>UserName: {{user.username}}</p>
+    <p>Name: {{user.name}}</p>
+    <p>Description: {{user.description}}</p>
+    <p>FacebookId: {{user.facebookId}}</p>
+    <p>Role: {{user.role}}</p>
+    
+    <hr>
+
+
+  {{#if isAdmin }}
+  <a href="/admin" class="btn btn-dark">Create and erase employers</a>
+  {{/if}}
+
+  {{#if isEditor}}
+  <a href="/admin" class="btn btn-dark">Create and erase employers</a>
+  {{/if}}
+
+  {{!-- {{#if}}
+  <a href="/admin" class="btn btn-dark">Edit your profile</a>
+  {{/if}} --}}
+
+</div>
+

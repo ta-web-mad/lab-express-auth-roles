@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Add new user</h1>
+
+            <hr>
+
+            <form method="POST" action="/add-new-user">
+
+                <div class="form-group">
+                    <label for="username">UserName</label>
+                    <input name="username" type="text" class="form-control" id="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="name" type="text" class="form-control" id="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input name="description" type="text" class="form-control" id="description">
+                </div>
+
+                <div class="form-group">
+                    <label for="facebookId">FacebookId</label>
+                    <input name="facebookId" type="text" class="form-control" id="facebookId">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    {{#if isEditor}}
+                    <select class="form-control">
+                        <option>DEV</option>
+                        <option>TA</option>
+                    </select>
+                    {{#else}}
+                    <input name="role" type="text" class="form-control" id="role">
+                    {{/if}}
+                </div>
+
+
+                <button type="submit" class="btn btn-dark">Add new user</button>
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
