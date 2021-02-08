@@ -1,0 +1,19 @@
+<h3>Profile page of the <code>{{userPage.role}}</code> {{userPage.username}}</h3>
+<hr>
+{{#if isBoss}}
+<form action="/delete/{{userPage.username}}" method="POST">
+    <button type="submit" class="btn btn-danger btn-sm mb-4">Delete user</button><br>
+</form>
+<form action="/profile/{{userPage.username}}" method="POST">
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Type of user</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="role">
+            <option>STUDENT</option>
+            <option>DEV</option>
+            <option>TA</option>
+            <option>BOSS</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-info btn-sm">Change user</button><br>
+</form>
+{{/if}}

@@ -1,0 +1,46 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>User registration</h1>
+            <hr>
+
+            <form action="/signup" method="post">
+                <div class="form-group">
+                    <label for="username">Username*</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name*</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password*</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="profileImg">Profile image</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description">
+                </div>
+                <div class="form-group">
+                    <label for="facebookId">Facebook Id</label>
+                    <input type="text" class="form-control" id="facebookId" name="facebookId">
+                </div>
+                <small class="text-muted">* Required fields</small>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-dark btn-block">Sign up</button><br>
+                <small class="text-muted">Already a member? <a href="/login">Log in here!</a></small>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{{#if errorMsg}}
+<div class="error-message">{{ errorMsg }}</div>
+{{/if}}
