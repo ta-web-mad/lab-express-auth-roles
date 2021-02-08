@@ -1,4 +1,4 @@
 node_modules/
 .prettierrc
 .env
-bin/seeds.js
+bin/seed.js
