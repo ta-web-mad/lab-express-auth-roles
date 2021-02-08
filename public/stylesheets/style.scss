@@ -1,8 +1,40 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.error-message {
+  background-color: rgb(255, 149, 149);
+  position: fixed;
+  bottom: 10px;
+  left: 30%;
+  width: 40%;
+  padding: 5px 0;
+  font-size: .9em;
+  text-align: center;
+  transform: translateY(100%);
+  animation: showMessage 2s forwards
 }
 
-a {
-  color: #00B7FF;
+
+@keyframes showMessage {
+  0% {
+    transform: translateY(100%);
+  }
+
+  10% {
+    transform: translateY(0px);
+  }
+
+  90% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.button{
+  margin: 10px;
+}
+
+.list{
+  list-style: none;
 }

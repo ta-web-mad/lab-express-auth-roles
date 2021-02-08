@@ -1,0 +1,32 @@
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1>Welcome to {{ user.username}} ´s page</h1>
+            <hr>
+            <a href="/private/{{user.id}}/edit-page" class="btn btn-danger button">Edit </a>
+            <hr>
+
+            {{#if isBoss}}
+            <div>
+                <a href="/add-page" class="btn btn-danger button">Add employees</a>
+                <hr>
+                <a href="/remove-page" class="btn btn-danger button">Remove employees</a>
+            </div>
+            {{/if}}
+            <ul class="list">
+                {{#each users}}
+                <li>
+                    {{this.username}}
+                </li>
+                <li>
+                    <img src="{{this.profileImg}}" alt="Img">
+                </li>
+                <li>
+                    {{this.role}}
+                </li>
+                <hr>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>

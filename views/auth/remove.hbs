@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Remove employee</h1>
+
+            <hr>
+
+            <form method="POST" action="/remove-page">
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <select name="username" class="form-control" id="username">
+                        {{#each users}}
+                        <option>{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Remove employee</button>
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
