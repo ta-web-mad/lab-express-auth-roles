@@ -1,12 +1,14 @@
 <div class="container">
-    <h1>Hola! {{user.username}}</h1>
+    <h1>Hello! {{user.username}}</h1>
+    <h5>Name: {{user.name}}</h5>
     <hr>
+    
     <div>
         <img src="{{user.profileImg}}" alt="profile photo">
     </div>
     <hr>
 
-    {{#if isAdmin}}
-    <a href="/" class="btn btn-danger">Banear usuario</a>
-    {{/if}}
+    <section>
+        <a href="/edit/{{user.id}}" class="btn btn-dark">Edit profile</a>
+    </section>
 </div>

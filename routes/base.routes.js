@@ -18,12 +18,12 @@ router.get('/boss-page', checkLoggedIn, checkRole('BOSS'), (req, res) => res.ren
 router.get('/register', checkLoggedIn, checkRole('BOSS'), (req, res) => res.render('auth/register', { user: req.user, isBoss: isBoss(req.user) }))
 
 // Users list
-router.get('users/users-list', checkLoggedIn, checkRole('BOSS'), (req, res) => {
+router.get('/users-list', checkLoggedIn, checkRole('BOSS'), (req, res) => {
 
     User
         .find()
         .select('username')
-        .then(users => res.render('users-list', { users, error: req.query.error }))
+        .then(users => res.render('users/users-list', { users, error: req.query.error }))
         .catch(err => console.log('ERROR:', err))
 })
 
@@ -55,7 +55,7 @@ router.post('/edit/:user_id', (req, res) => {
 
     User
         .findByIdAndUpdate(user_id, { name, profileImg })
-        .then(user => res.redirect(`/edit/${user._id}`))
+        .then(user => res.redirect(`/profile`))
         .catch(err => console.log(err))
 })
 
