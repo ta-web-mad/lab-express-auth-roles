@@ -7,11 +7,11 @@ const User = require("../models/user.model")
 
 // Create employee from BOSS role
 
-router.get("/my-platform/add-employee", checkBoss, (req, res) =>
+router.get("/add-employee", checkBoss, (req, res) =>
   res.render("employees-mgmt/create-employee")
 )
 
-router.post("/my-platform/add-employee", (req, res, next) => {
+router.post("/add-employee", (req, res, next) => {
   const { password } = req.body
   const newHashedPassword = hashPassword(password)
   const { username, name, profileImg, description, facebookId, role } = req.body
@@ -35,11 +35,11 @@ router.post("/my-platform/add-employee", (req, res, next) => {
 })
 
 // Remove employee from BOSS role
-router.get("/my-platform/remove-employee", checkBoss, (req, res) =>
+router.get("/remove-employee", checkBoss, (req, res) =>
   res.render("employees-mgmt/remove-employee")
 )
 
-router.post("/my-platform/remove-employee", (req, res) => {
+router.post("/remove-employee", (req, res) => {
   User.findOneAndDelete({ username: req.body.username })
     .then(
       res.render("my-platform", {

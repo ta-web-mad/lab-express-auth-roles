@@ -1,9 +1,11 @@
 module.exports = {
-  isBoss: (user) => (user.role === "BOSS" ? true : false),
+  isBoss: (user) => user.role === "BOSS",
   hashPassword: (password) => {
-    const bcrypt = require("bcrypt")
-    const bcryptSalt = 10
-    const salt = bcrypt.genSaltSync(bcryptSalt)
-    return bcrypt.hashSync(password, salt)
+    if (password) {
+      const bcrypt = require("bcrypt")
+      const bcryptSalt = 10
+      const salt = bcrypt.genSaltSync(bcryptSalt)
+      return bcrypt.hashSync(password, salt)
+    }
   },
 }

@@ -1,20 +1,49 @@
 <div class="container">
+    <div class="row justify-content-center">
+        <div class="col mb-2">
+            <h1>My platform</h1>
+        </div>
+    </div>
     <div class="row">
-        <div class="col">
-            <h1>My pannel</h1>
+        <div class="col mb-2">
+            <h2>View my profile</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-2 ">
+            <a class="btn btn-dark" href="/my-platform/my-profile">My profile</a>
         </div>
     </div>
     {{#if isBoss}}
     <div class="row">
         <div class="col">
+            <h2>Employees management:</h2>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-start">
+        <div class="col-3 mb-2">
             <a class="btn btn-dark" href="/my-platform/add-employee">Add employee</a>
         </div>
-        <div class="col">
+        <div class="col-3 mb-2">
             <a class="btn btn-dark" href="/my-platform/remove-employee">Remove employee</a>
         </div>
     </div>
     {{/if}}
+    <div class="row">
+        <div class="col mb-2">
+            <h2>Seach user by username</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col mb-2">
+            <a href="/my-platform/search" class="btn btn-dark">Search user</a>
+        </div>
+    </div>
     {{#if successMessage}}
-    {{successMessage}}
+    <div class="success message">{{successMessage}}</div>
+
+    {{/if}}
+    {{#if errorMessage}}
+    <div class="error message">{{ errorMessage }}</div>
     {{/if}}
 </div>

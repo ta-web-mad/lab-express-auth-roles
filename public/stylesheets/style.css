@@ -2,7 +2,35 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a {
-  color: #00B7FF; }
+.success {
+  background-color: #cdff95; }
+
+.error {
+  background-color: #ff9595; }
+
+.message {
+  position: fixed;
+  bottom: 10px;
+  left: 30%;
+  width: 40%;
+  padding: 5px 0;
+  font-size: 0.9em;
+  text-align: center;
+  transform: translateY(calc(100% + 20px));
+  animation: showMessage 2s forwards; }
+
+@keyframes showMessage {
+  0% {
+    transform: translateY(calc(100% + 20px)); }
+  10% {
+    transform: translateY(0px); }
+  90% {
+    transform: translateY(0px); }
+  100% {
+    transform: translateY(calc(100% + 20px)); } }
+
+.btn-index {
+  background-color: #2d6698;
+  border-color: #254159; }
 
 /*# sourceMappingURL=style.css.map */

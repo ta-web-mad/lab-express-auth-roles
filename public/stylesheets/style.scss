@@ -3,6 +3,43 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.success {
+  background-color: rgb(205, 255, 149);
+}
+.error {
+  background-color: rgb(255, 149, 149);
+}
+.message {
+  position: fixed;
+  bottom: 10px;
+  left: 30%;
+  width: 40%;
+  padding: 5px 0;
+  font-size: 0.9em;
+  text-align: center;
+  transform: translateY(calc(100% + 20px));
+  animation: showMessage 2s forwards;
+}
+
+@keyframes showMessage {
+  0% {
+    transform: translateY(calc(100% + 20px));
+  }
+
+  10% {
+    transform: translateY(0px);
+  }
+
+  90% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(calc(100% + 20px));
+  }
+}
+
+.btn-index {
+  background-color: rgb(45, 102, 152);
+  border-color: rgb(37, 65, 89);
 }

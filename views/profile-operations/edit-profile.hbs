@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h1>Edit profile</h1>
+            <form action="/my-platform/my-profile/edit" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{user.username}}">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{user.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="password">Type new password in case you want to change it</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="profileImg">Route to profile img</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg"
+                        value="{{user.profileImg}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="textarea" class="form-control" id="description" name="description"
+                        value="{{user.description}}">
+                </div>
+                <div class="form-group">
+                    <label for="facebookId">Facebook Id</label>
+                    <input type="textarea" class="form-control" id="facebookId" name="facebookId"
+                        value="{{user.facebookId}}">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Save</button><br>
+            </form>
+        </div>
+    </div>
+</div>

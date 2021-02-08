@@ -3,12 +3,12 @@ const router = express.Router()
 const passport = require("passport")
 
 // User login
-router.get("/login", (req, res) =>
+router.get("/", (req, res) =>
   res.render("auth/login", { errorMsg: req.flash("error") })
 )
 
 router.post(
-  "/login",
+  "/",
   passport.authenticate("local", {
     successRedirect: "/my-platform",
     failureRedirect: "/login",
