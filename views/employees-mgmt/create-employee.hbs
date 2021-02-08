@@ -2,7 +2,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h1>Login</h1>
+            <h1>Add employee</h1>
             <hr>
 
             <form action="/login" method="post">
@@ -14,13 +14,9 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
-                <button type="submit" class="btn btn-dark btn-block">Login</button><br>
+                <button type="submit" class="btn btn-dark btn-block">Save</button><br>
             </form>
         </div>
     </div>
 
 </div>
-
-{{#if errorMsg}}
-<div class="error-message">{{ errorMsg }}</div>
-{{/if}}
