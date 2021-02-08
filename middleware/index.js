@@ -8,4 +8,9 @@ module.exports = {
     req.user.role === "BOSS"
       ? next()
       : { errorMsg: "You don't have enough credentials" },
+
+  checkEmployee: (req, res, next) =>
+    req.user.role === "TA" || req.user.role === "DEV"
+      ? next()
+      : { errorMsg: "You don't have enough credentials" },
 }

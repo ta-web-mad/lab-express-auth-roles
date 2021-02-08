@@ -5,13 +5,12 @@ const { checkLoggedIn, checkBoss } = require("../middleware")
 const { isBoss, hashPassword } = require("../utils")
 const User = require("../models/user.model")
 
-router.get("/my-platform/add-employee", checkBoss, (req, res) =>
-  res.render("employees-mgmt/create-employee")
-)
+// Create employee from BOSS role
 
 router.get("/my-platform/add-employee", checkBoss, (req, res) =>
   res.render("employees-mgmt/create-employee")
 )
+
 router.post("/my-platform/add-employee", (req, res, next) => {
   const { password } = req.body
   const newHashedPassword = hashPassword(password)
@@ -26,7 +25,28 @@ router.post("/my-platform/add-employee", (req, res, next) => {
     facebookId,
     role,
   })
-    .then(res.redirect("/my-platform"))
+    .then(
+      res.render("my-platform", {
+        isBoss: true,
+        successMessage: "Employee succesfully created",
+      })
+    )
+    .catch((err) => next(err))
+})
+
+// Remove employee from BOSS role
+router.get("/my-platform/remove-employee", checkBoss, (req, res) =>
+  res.render("employees-mgmt/remove-employee")
+)
+
+router.post("/my-platform/remove-employee", (req, res) => {
+  User.findOneAndDelete({ username: req.body.username })
+    .then(
+      res.render("my-platform", {
+        isBoss: true,
+        successMessage: "Employee succesfully removed",
+      })
+    )
     .catch((err) => next(err))
 })
 module.exports = router
