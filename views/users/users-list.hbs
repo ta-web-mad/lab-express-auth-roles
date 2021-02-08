@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h1>Cathack users list</h1>
+
+    <hr>
+
+    <ul>
+        {{#each users}}
+        <li>{{username}}
+            <form method="POST" action="/{{id}}/delete">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+
+    <a href="/boss-page">Go back</a>
+
+    {{#if error}}
+    <div class="error-message">{{error}}</div>
+    {{/if}}
+</div>

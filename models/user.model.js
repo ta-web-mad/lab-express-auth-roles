@@ -3,13 +3,30 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    username: { type: String, unique: true },
-    name: String,
-    password: String,
-    profileImg: String,
+    username: {
+      type: String,
+      unique: true,
+      required: true
+    },
+    name: {
+      type: String,
+      default: "Your name here"
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    profileImg: {
+      type: String,
+      default: "https://memegenerator.net/img/instances/71755474.jpg"
+    },
     description: String,
-    facebookId: String
-    // add a role here
+    facebookId: String,
+    role: {
+      type: String,
+      enum: ["BOSS", "DEV", "TA", "STUDENT", "GUEST"],
+      default: "GUEST"
+    }
   },
   {
     timestamps: true

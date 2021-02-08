@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Register new user</h1>
+            <hr>
+
+            <form action="/register" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select name="role" id="role">
+                        <option value="DEV">DEV</option>
+                        <option value="TA">TA</option>
+                        <option value="STUDENT">STUDENT</option>
+                        <option value="GUEST">GUEST</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Register</button><br>
+            </form>
+
+            <a href="/boss-page">Go back</a>
+
+        </div>
+    </div>
+</div>
+
+{{#if errorMsg}}
+<div class="error-message">{{ errorMsg }}</div>
+{{/if}}
