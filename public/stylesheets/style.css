@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+    font-weight: 100; }
+  
+  h1, h2, h3 {
+    font-weight: 200; }
+  
+  .navbar {
+    margin-bottom: 40px; }
+  
+  .error-message {
+    background-color: #ff9595;
+    position: fixed;
+    bottom: 10px;
+    left: 30%;
+    width: 40%;
+    padding: 5px 0;
+    font-size: .9em;
+    text-align: center;
+    transform: translateY(calc(100% + 20px));
+    animation: showMessage 2s forwards; }
+  
+  @keyframes showMessage {
+    0% {
+      transform: translateY(calc(100% + 20px)); }
+    10% {
+      transform: translateY(0px); }
+    90% {
+      transform: translateY(0px); }
+    100% {
+      transform: translateY(calc(100% + 20px)); } }
+  
+  /*# sourceMappingURL=style.css.map */

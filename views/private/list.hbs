@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h1>Listado de empleados</h1>
+
+    <hr>
+
+    <ul>
+        {{#each list}}
+        <li>{{username}}
+            [<a href="/libros/detalles/{{id}}">ver</a>]
+            [<a href="/private/list/{{id}}">editar</a>]
+            
+            <br>
+            <form action="celebrities/{{id}}/delete" method="POST">
+            <button type="submit" class="btn btn-dark">Borrar Empleado</button>
+        </li>
+        {{/each}}
+        <br>
+        {{!-- <a href="/private/list/new">Añadir un nuevo empleado</a> --}}
+        <a href="/editor-page/new" class="btn btn-primary btn-md" role="button">Añadir un nuevo empleado</a>
+
+    </ul>
+
+    {{#if error}}
+    <div class="error-message">{{error}}</div>
+    {{/if}}
+</div>
+
