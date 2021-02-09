@@ -1,0 +1,18 @@
+<div class="container">
+    <h1 class="epic">USERS</h1>
+       <hr>
+{{#each users}}
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="name">{{name}}</h2>
+        
+        <p class="username">{{username}}</p>
+        <p class="role">{{role}}</p>
+
+       <form action="/boss-page" method="POST">
+        <a class="btn bg-info text-light" href="/boss-page">DELETE</a>
+        </form>
+
+    </div>
+    {{/each}}
+</div>

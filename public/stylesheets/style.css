@@ -1,0 +1,26 @@
+main {
+  margin: 40px 50px; }
+
+.navbar {
+  padding: 10px 20px; }
+
+.navbar-light .navbar-brand {
+  color: white;
+  font-weight: bold; }
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  margin-left: 30px; }
+
+.error-message {
+  background-color: #4ba4b4;
+  color: white;
+  position: fixed;
+  bottom: 10px;
+  left: 30%;
+  width: 40%;
+  padding: 10px 0;
+  font-size: .9em;
+  text-align: center; }
+
+/*# sourceMappingURL=style.css.map */
