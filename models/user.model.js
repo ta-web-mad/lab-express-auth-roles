@@ -4,11 +4,21 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
   {
     username: { type: String, unique: true },
-    name: String,
-    password: String,
+    name: {
+      type: String,
+      required: true
+    },
+    password: {
+      type: String,
+      required: true
+    },
     profileImg: String,
-    description: String
-    // add roles setup here
+    description: String,
+    role: {
+      type: String,
+      enum: ['BOSS', 'DEV', 'TA', 'STUDENT'],
+      default: 'STUDENT'
+    }
   },
   {
     timestamps: true
