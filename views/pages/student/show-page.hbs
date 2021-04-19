@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>{{username}}</h2>
+    <hr>
+    <br>
+    <p>Description: {{Description}}</p>
+    <hr>
+    <a href="/estudiantes" class="btn btn-dark">go back </a>
+
+
+{{#if ../isBoss}}
+<a href="/student/edit-student" class="btn btn-dark">Edit student</a>
+<br>
+<a href="/estudiantes/delete/{{id}}" style="color: red">Delete this student</a>
+{{/if}}
+
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+           
+            <h1>Edit {{name}} profile</h1>
+            <hr>
+
+            <form action="/estudiantes/edit?user_id={{id}}" method="POST">
+                <div class="form-group">
+                    <label for="name">name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <input type="text" class="form-control" id="Description" name="Description" value="{{Description}}">
+                </div>
+
+            {{#if ../isBoss}}
+
+                <div class="form-group">
+                    <label for="roles">Change the role</label>
+                    <select class="form-control" id="roles" name="roles" value="{{roles}}">
+                        <option value="DEV">DEV</option>
+                        <option value="TA">TA</option> 
+                    </select>
+                </div>
+
+            {{/if}}
+
+                <button type="submit" class="btn btn-dark btn-block">Save</button>
+            </form>
+           
+        </div>
+    </div>
+</div>

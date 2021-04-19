@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Students list</h1>
+    <hr>
+    <div class="row">
+        <ul>
+            {{#each allStudents}}
+            <li>
+                {{username}} | <a href="/estudiantes/detalle/{{id}}">view details</a>
+
+                {{#if ../isBoss}}
+
+                | <a href="/estudiantes/edit?user_id={{id}}">edit student</a>
+                | <a href="/estudiantes/delete/{{id}}" style="color: red">Delete this student</a>
+
+                {{/if}}
+
+
+            </li>
+            
+            {{/each}}
+        </ul>
+    </div>
+
+    <hr>
+    <a href="/" class="btn btn-dark">Go back</a>
+
+</div>
