@@ -1,0 +1,33 @@
+<div class="container">
+    <a href="/">Go Home</a>
+    {{#with studentFound}}
+    <h1>{{name}}'s {{role}} homepage</h1>
+    <hr>
+    <h2>{{username}}</h2>
+    <img src="{{image}}" alt="{{name}}-profile-pic">
+    <p>{{description}}</p>
+    {{/with}}
+
+    {{#if isCurrentUser}}
+    <a href="/editProfile/{{studentFound.id}}">EDIT PROFILE</a>
+    {{/if}}
+
+    {{#if isBOSS}}
+    {{#unless isCurrentUser}}
+    <a href="/editProfile/{{studentFound.id}}">EDIT PROFILE</a>
+    {{/unless}}
+    <form action="/editRole/{{studentFound.id}}" method="POST">
+        <label for="role">New Role:</label>
+        <select id="role" name="role">
+            <option value="STUDENT">Student</option>
+            <option value="DEV">Developer</option>
+            <option value="TA">Teacher's Assistant</option>
+        </select>
+        <button type="submit" class="btn btn-dark">EDIT ROLE</button>
+    </form>
+
+    <form action="/delete/{{studentFound.id}}" method="POST">
+        <button type="submit" class="btn btn-danger">DELETE USER</button>
+    </form>
+    {{/if}}
+</div>

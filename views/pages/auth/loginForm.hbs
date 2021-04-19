@@ -1,0 +1,21 @@
+<a href="/">Go Home</a>
+
+<h1>LOG-IN</h1>
+
+<form action="/access" method="POST">
+    <div class="form-group">
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" class="form-control" id="username" name="username">
+    </div>
+    <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" class="form-control" id="password" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-dark btn-block">Acceder</button>
+    {{#if errorMessage}}
+    <div id="error">
+        <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
+</form>
