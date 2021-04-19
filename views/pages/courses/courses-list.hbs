@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Courses list</h1>
+    <ul>
+        {{#each allCourses}}
+        <li>{{title}} <a href="/courses/{{id}}">More information</a></li>
+
+        {{#if ../isTa}}
+        |
+        <a href="/courses/edit/{{id}}">Edit</a>
+        |
+        <form action="/courses/delete/{{id}}" method="POST"><button type="submit">Delete</button></form>
+        {{/if}}
+
+        {{/each}}
+    </ul>
+</div>

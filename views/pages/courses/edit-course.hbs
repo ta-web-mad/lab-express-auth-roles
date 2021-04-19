@@ -1,0 +1,58 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h1>Edit {{course.title}}</h1>
+            <hr>
+
+            <form action="/courses/edit/{{id}}" method="POST">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+                </div>
+                <div class="form-group">
+                    <label for="leadTeacher">Lead Teacher</label>
+                    <input type="text" class="form-control" id="leadTeacher" name="leadTeacher" value="{{leadTeacher}}">
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate" value="{{startDate}}">
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End date</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate" value="{{endDate}}">
+                </div>
+                <div class="form-group">
+                    <label for="ta">TA</label>
+                    <input type="text" class="form-control" id="ta" name="ta" value="{{ta}}">
+                </div>
+                <div class="form-group">
+                    <label for="courseImg">Course Img</label>
+                    <input type="text" class="form-control" id="courseImg" name="courseImg" value="{{courseImg}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" class="form-control" id="description" name="description" value="{{description}}"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status">
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="students">Students</label>
+                    <input type="text" class="form-control" id="students" name="students" value="{{students}}">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block">Update course</button>
+            </form>
+            <div id="error">
+                <p>{{errorMessage}}</p>
+            </div>
+
+        </div>
+    </div>
+</div>

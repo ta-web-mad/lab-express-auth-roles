@@ -4,5 +4,4 @@ require('dotenv').config()
 // DB connection
 require('./../config/db.config')
 
-
-// Seed here!
+const mongoose = require('mongoose')

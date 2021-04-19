@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Student list</h1>
+    <ul>
+    {{#each allStudents}}
+    <li>{{username}} <a href="students/{{id}}">More information</a></li>
+
+    {{#if ../isAdmin}}
+    |
+    <a href="/students/edit/{{id}}">Edit</a>
+    |
+    <form action="/students/delete/{{id}}" method="POST"><button type="submit">Delete</button></form>
+    {{/if}}
+
+    {{/each}}
+    </ul>
+</div>
