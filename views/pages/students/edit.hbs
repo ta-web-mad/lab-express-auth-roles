@@ -1,0 +1,54 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            {{#with student}}
+            <h1>Edit {{name}} profile</h1>
+            <hr>
+
+            <form action="/students/edit/{{id}}" method="POST">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{description}}">
+                </div>
+
+                {{#if ../isRoleStudent}}
+                {{#if ../isBoss}}
+                <div class="form-group">
+                    <label for="role">Change role</label>
+                    <select class="form-control" id="role" name="role" value="{{role}}">
+                        <option value="DEV">DEV</option>
+                        <option value="TA">TA</option>
+                        <option selected value="STUDENT">STUDENT</option>
+                    </select>
+                </div>
+                {{/if}}
+                {{/if}}
+
+                {{#if ../isSameUser}}
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" id="password" name="password">
+                </div>
+                {{/if}}
+
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="text" class="form-control" id="image" name="image" value="{{image}}">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block">Save edition</button>
+
+            </form>
+            {{/with}}
+
+        </div>
+    </div>
+</div>

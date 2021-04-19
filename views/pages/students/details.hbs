@@ -1,0 +1,25 @@
+<div class="container">
+    {{#with theStudent}}
+    <h1>{{name}}</h1>
+    <hr>
+    <h3>About {{name}}</h3>
+    <p>Description: {{description}}</p>
+    <hr>
+    <a href="/students" class="btn btn-dark">Go back to our students list</a>
+
+    {{#if ../canEdit}}
+
+    <a href="/students/edit/{{id}}" class="btn btn-dark">Edit student</a>
+
+    {{#unless ../isSameUser}}
+    <br>
+    <br>
+    <form action="/delete/{{id}}" method="POST">
+        <button class="btn btn-danger">Delete student</button>
+    </form>
+    {{/unless}}
+
+    {{/if}}
+
+    {{/with}}
+</div>

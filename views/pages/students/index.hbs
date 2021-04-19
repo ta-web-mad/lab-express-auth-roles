@@ -1,0 +1,23 @@
+<div class="container">
+
+    <h1>Our awesome students</h1>
+    <hr>
+    <ul>
+
+        {{#each allStudents}}
+        <li>
+            {{name}} | <a href="/students/{{id}}">info</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <hr>
+    <a href="/" class="btn btn-dark">Go back to the home page</a>
+
+</div>
+
+{{#if msg}}
+<div id="message">
+    <p>{{msg}}</p>
+</div>
+{{/if}}
