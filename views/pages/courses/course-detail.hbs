@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Course details</h1>
+    <img src="{{course.courseImg}}" alt="{{course.title}}"><br>
+    <b>Title:</b> {{course.title}}<br>
+    <b>Description:</b> {{course.description}}<br>
+    <b>Lead teacher:</b> 
+    <ul>
+        {{#each course.leadTeacher}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul><br>
+    <b>Start Date:</b> {{course.startDate}}<br>
+    <b>End Date:</b> {{course.endDate}}<br>
+    <b>TA:</b>
+    <ul>
+        {{#each course.ta}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul><br>
+    <b>Course status:</b> {{course.status}}<br>
+    <b>Students:</b>
+    <ul>
+        {{#each course.students}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul><br>
+</div>
