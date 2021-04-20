@@ -15,7 +15,7 @@ router.get('/', isLoggedIn, (req, res) => {
 
     Student
         .find()
-        .then(allStudents => res.render('pages/students/index', { allStudents, msg: req.query.msg, isBoss: isBoss(req.session.currentUser)  }))
+        .then(allStudents => res.render('pages/students/index', { allStudents, isBoss: isBoss(req.session.currentUser)  }))
         .catch(err => console.log('Error!', err))
 })
 
@@ -40,13 +40,10 @@ router.get('/edit/:id', isLoggedIn, checkRoles('BOSS'), (req, res) => {
 
     const { id } = req.params
 
-    if (isValidIdFormat(id))
-
     Student
         .findById(id)
-        .then(student => res.render('pages/students/edit', student))
+        .then(student => res.render('pages/students/edit', { student: student, isBoss: isBoss(req.session.currentUser), id}))
         .catch(err => console.log('Error!', err))
-    
 })
 
 
@@ -63,7 +60,7 @@ router.post('/edit/:id', isLoggedIn, checkRoles('BOSS'), (req, res) => {
 })
 
 //Delete a Student
-router.post('/details/:id', isLoggedIn, checkRoles('BOSS'), (req, res, next) => {
+router.post('/delete/:id', isLoggedIn, checkRoles('BOSS'), (req, res, next) => {
 
     const { id } = req.params
     console.log(req)
