@@ -60,21 +60,14 @@ router.post('/edit/:id', isLoggedIn, checkRoles('BOSS'), (req, res) => {
 })
 
 //Delete a Student
-router.post('/delete/:id', isLoggedIn, checkRoles('BOSS'), (req, res, next) => {
+router.post('/delete/:id', isLoggedIn, checkRoles("BOSS"), (req, res) => {
 
     const { id } = req.params
-    console.log(req)
-
-    
 
     Student
-        .findByIdAndDelete(id)
-        .then(() => res.redirect('/students/index'))
-        .catch(err => {
-            next();
-            console.log('Error!', err)
-        })
-     
+        .findByIdAndRemove(id)
+        .then(() => res.redirect('/students'))
+        .catch(err => console.log('Error!', err))
 })
 module.exports = router
 
