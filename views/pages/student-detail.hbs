@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/img/profile.png" alt="profile image">
+        </div>
+        <div class="col-md-6">
+            {{#with student}}
+            <h2>{{username}}</h2>
+            <p>{{role}}</p>
+            {{#if ../checkUser2}}
+            |
+            <a href="/edit/{{id}}">editar</a>
+            {{/if}}
+            {{/with}}
+        </div>
+    </div>
+</div>

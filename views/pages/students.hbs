@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        {{#each allStudents}}
+        <div class="col-md-4">
+            <a href="/students/{{id}}">{{username}}</a>
+
+            {{#if ../isBoss}}
+            |
+            <a href="/edit/{{id}}">editar</a>
+            |
+            <a href="/elim/{{id}}" style="color: red">eliminar</a>
+            {{/if}}
+            {{!-- {{#idValidation ../user_id id }}
+            |
+            <a href="/edit/{{id}}">editar</a>
+            {{/idValidation}} --}}
+        </div>
+        {{/each}}
+
+    </div>
+
+
+
+</div>
