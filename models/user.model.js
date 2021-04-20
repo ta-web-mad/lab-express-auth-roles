@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
+const { options } = require('../routes/auth.routes');
 const Schema = mongoose.Schema;
+
 
 const userSchema = new Schema(
   {
@@ -10,8 +12,8 @@ const userSchema = new Schema(
     description: String,
     role: {
       type: String,
-      enum: ['USER', 'EDITOR', 'ADMIN'],
-      default: 'USER'
+      enum: ['STUDENT', 'TA', 'DEV'],
+      default: 'STUDENT'
     }
   },
   {

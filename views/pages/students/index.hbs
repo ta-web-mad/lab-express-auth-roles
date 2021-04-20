@@ -1,0 +1,18 @@
+<section class="container">
+    <ul>
+        {{#each data}}
+        <li>
+            <a href="/students/details/{{id}}">
+                {{name}}
+            </a>
+
+            {{#if ../isBoss}}
+            <form action="/students/delete/{{id}}" method="POST"><button type="submit" class="btn btn-danger">Delete
+                    profile</button></form>
+            <a href="/students/edit/{{id}}">Edit</a>
+            <a href="/students/edit-auth/{{id}}">Change Auth</a>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</section>
