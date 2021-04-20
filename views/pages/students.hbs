@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Listado de libros de {{siteTitle}}</h1>
+    <hr>
+    <ul>
+        {{#each allStudents}}
+        {{#if ../isStudent}}
+        <li>{{username}} | <a href="/detalles/{{id}}">Ver perfil del estudiante</a>
+        {{/if}}
+
+        {{#if ../isBoss}} 
+        <li>{{username}} | <a href="/detalles/{{id}}">Ver perfil del estudiante</a>
+        | <a href="/student/{{id}}/delete">Eliminar estudiante</a>
+        | <a href="/student/{{id}}/edit">Editar estudiante</a>
+        {{/if}}
+
+
+            {{!-- {{#if ../isAdmin}}
+            |
+            <a href="/libros/editar?book_id={{id}}">editar</a>
+            |
+            <a href="#" style="color: red">eliminar *</a>
+            {{/if}}
+
+            {{#if ../isEditor}}
+            |
+            <a href="/libros/editar?book_id={{id}}">editar</a>
+            {{/if}} --}}
+
+        </li>
+        {{/each}}
+    </ul>
+    <hr>
+    <a href="/" class="btn btn-dark">Volver al incio</a>
+</div>

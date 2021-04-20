@@ -12,6 +12,7 @@ require('./config/hbs.config')
 // App
 const express = require('express')
 const app = express()
+require('./config/session.config')(app)
 
 // App settings
 require('./config/sass.config')(app)
