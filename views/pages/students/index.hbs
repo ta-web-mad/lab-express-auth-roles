@@ -1,0 +1,17 @@
+<h2>Students List</h2>
+
+    <ul>
+        {{#each allStudents}}
+        <li>{{name}} 
+            |
+            <a href="/students/{{id}}">View profile</a> 
+            
+            {{#if ../isBoss}}
+            |
+            <a href="/students/{{id}}/edit">Edit Student</a>
+            |
+            <a href="/students/{{id}}/delete">Delete Student</a>
+            {{/if}}
+            </li>
+        {{/each}}
+    </ul>
