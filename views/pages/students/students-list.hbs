@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Students list</h1>
+    <hr>
+
+    <ul>
+        {{#each allStudents}}
+        <li>{{username}} | <a href="/students/details/{{id}}">info</a></li>
+
+        {{#if ../isBoss}}
+        |
+        <a href="/students/edit?student_id={{id}}">Edit</a>
+        |
+        <form action="/students/delete/{{id}}" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        {{/if}}
+
+        {{/each}}
+    </ul>
+    <hr>
+    <a href="/" class="btn btn-dark">Go back home</a>
+</div>
+
+
+{{#if msg}}
+<div id="message">
+    <p>{{msg}}</p>
+</div>
+{{/if}}
