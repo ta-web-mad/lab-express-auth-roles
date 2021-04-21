@@ -3,7 +3,17 @@
     <div class="row">
         <div class="col-md-12">
             {{#each allUsers}}
-            <li>{{username}} | <a href="/student/{{id}}">info</a></li>
+                <li>{{username}} | <a href="/student/{{id}}">info</a></li> |
+                
+                {{#if ../isBoss}}
+                
+                    <form action="/student/delete/{{id}}" method="POST">
+                        <button type="submit" class="btn btn-dark">delete</button>
+                    </form>
+
+                {{/if}}
+                
+
             {{/each}}
 
         </div>

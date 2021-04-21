@@ -1,0 +1,22 @@
+<div class="container text-center">
+    <h2>Users</h2>
+    <div class="row">
+        <div class="col-md-12">
+            {{#each studentRole}}
+            <li>{{username}} | <a href="/student/{{id}}">info</a></li> |
+
+
+            <form action="/student/delete/{{id}}" method="POST">
+                <button type="submit" class="btn btn-dark">delete</button>
+            </form>
+            <form action="/admin/edit/{{id}}" method="POST">
+                <button type="submit" class="btn btn-dark">edit</button>
+            </form>
+
+
+            {{/each}}
+
+        </div>
+
+    </div>
+</div>
