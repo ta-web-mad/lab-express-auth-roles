@@ -14,7 +14,8 @@
    <body>
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light fluid">
-         <a class="navbar-brand" href="/">IronLearning</a>
+         <a class="navbar-brand" href="/">IronLearning</a>         
+         
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
@@ -23,35 +24,71 @@
                <li class="nav-item active">
                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                </li>
-               {{#unless req.isLoggedIn}}
+
+ <li class="nav-item dropdown">
+   <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Authentification
+   </a>
+   <div class="dropdown-menu" aria-labelledby="authDropdown">
+      <a class="dropdown-item" href="/signup">SignUp</a>
+      <a class="dropdown-item" href="/login">Login</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/logout">Logout</a>
+   </div>
+</li>
+
+ <li class="nav-item dropdown">
+   <a class="nav-link dropdown-toggle" href="#" id="visualizationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Visualisation
+   </a>
+   <div class="dropdown-menu" aria-labelledby="visualizationDropdown">
+      <a class="dropdown-item" href="/students">Students</a>
+      <a class="dropdown-item" href="#">Courses</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/admin/panel">Admin</a>
+   </div>
+</li>
+
+            </ul>
+         </div>
+      </nav>
+{{!-- 
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fluid">
+         <a class="navbar-brand" href="/">IronLearning</a>
+
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+               <li class="nav-item active">
+               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+               </li>
                <li class="nav-item">
                <a class="nav-link" href="/signup">SignUp</a>
                </li>
                <li class="nav-item">
                <a class="nav-link" href="/login">LogIn</a>
                </li>
-               {{/unless}}
-               {{#if req.isLoggedIn}}
                <li class="nav-item">
                <a class="nav-link" href="/logout">LogOut</a>
                </li>
-               {{/if}}
                <li class="nav-item">
                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                </li>
             </ul>
          </div>
-      </nav>
+      </nav> --}}
 
 
 
 
       {{{body}}}
 
-   <div class="container">
+   {{!-- <div class="container">
       <a href="/students" class="btn btn-info btn-lg">Students</a>
       <a href="/admin/panel" class="btn btn-danger btn-lg">Admin</a>
-   </div>
+   </div> --}}
 
 
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 

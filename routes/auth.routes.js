@@ -1,12 +1,12 @@
 const router = require("express").Router()
 const bcrypt = require('bcrypt')
-const { isLoggedOut, setIsLoggedInProperty } = require("../middleware")
+const { isLoggedOut } = require("../middleware")
 
 const User = require('./../models/user.model')
 
 
 // Signup
-router.get('/signup', isLoggedOut, setIsLoggedInProperty, (req, res) => res.render('auth/signup-page'))
+router.get('/signup', isLoggedOut,  (req, res) => res.render('auth/signup-page'))
 
 router.post('/signup', (req, res) => {
     const { username, pwd, name, profileImg, description } = req.body
@@ -29,7 +29,6 @@ router.post('/signup', (req, res) => {
                 .create({ username, password: hashPass, name, profileImg, description})
                 .then( (student) => {
                     req.session.currentUser = student
-                    // app.locals.isLoggedIn = true
                     res.redirect('/')
                 })
                 .catch( err => console.log(err))
@@ -44,7 +43,7 @@ router.post('/signup', (req, res) => {
 
 
 // Login
-router.get('/login', isLoggedOut, setIsLoggedInProperty, (req, res) => res.render('auth/login-page'))
+router.get('/login', isLoggedOut,  (req, res) => res.render('auth/login-page'))
 
 router.post('/login', (req, res) => {
 
@@ -66,7 +65,7 @@ router.post('/login', (req, res) => {
             }
             req.session.currentUser = user //distruge session, dar cookie ramane. Doar ca nu ai ce face cu ea!!!
             // console.log('************ req.session:', req.session)
-            // app.locals.isLoggedIn = true
+
             res.redirect('/')
         })
         .catch(err => console.log(err))
@@ -75,10 +74,10 @@ router.post('/login', (req, res) => {
 
 
 // Logout
-router.get('/logout', setIsLoggedInProperty, (req, res) => {
+router.get('/logout', (req, res) => {
 
     // req.session.destroy( () => res.send(req.session))
-    // app.locals.isLoggedIn = false
+
     req.session?.destroy( () => res.redirect('/'))
     // res.send(req.session)
     // res.redirect('/')

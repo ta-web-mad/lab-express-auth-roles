@@ -21,6 +21,12 @@ router.get('/', checkLoggedUser, (req, res) => {
         // .select('name')
         // .then(students => res.send(students))
         .then(students => {
+
+            if(students.length == 0){
+                res.redirect('/')
+                return
+            }
+
             students.forEach( (student) => {
                 student.isPM = student.role === "PM" ? true : false 
                 student.canEdit = ( student._id == req.session.currentUser?._id)

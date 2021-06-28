@@ -19,12 +19,5 @@ module.exports = {
         } else {
             next()
         }
-    },
-    setIsLoggedInProperty: (req, res, next) => {
-        if (req.session.currentUser) {
-            req.isLoggedIn = true
-        } else {
-            req.isLoggedIn = false
-        }
     }
 }
