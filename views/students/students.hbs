@@ -1,0 +1,24 @@
+<div class="container">
+
+    <h2>LISTADO DE ESTUDIANTES</h2>
+    <hr>
+    <br>
+
+    {{#each user}}
+    <p>- {{username}}
+        <small>
+            <a href="/students/students-detail{{id}}">Ver perfil</a>
+
+            {{#if ../isAdmin}}
+            |
+            <a href="/students/students-edit?user_id={{id}}">editar</a>
+            |
+            <a href="#">eliminar</a>
+            {{/if}}
+
+        </small>
+    </p>
+    {{/each}}
+
+</div>
+<a class="btn btn-primary" href="/" role="button">Inicio</a>
