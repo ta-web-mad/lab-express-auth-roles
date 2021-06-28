@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Iniciar sesión</h1>
+
+            <hr>
+
+            <form action="/sign-in" method="POST">
+               
+                <div class="form-group">
+                    <label for="username">User:</label>
+                    <input type="text" class="form-control" name="username" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="username">Your Name:</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="username">Your Profile Image:</label>
+                    <input type="text" class="form-control" name="profileImg" id="profileImg">
+                </div>
+                <div class="form-group">
+                    <label for="username">Tell Us About You:</label>
+                    <input type="text" class="form-control" name="description" id="description">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" name="pwd" id="pwd">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Sign In</button>
+
+            </form>
+            {{#if errorMessage}}
+            <div
+                style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+                {{errorMessage}}
+            </div>
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>
