@@ -12,5 +12,19 @@ module.exports = {
         } else {
             res.render('auth/login-page', { errorMessage: 'Restricted to PM' })
         }
+    },
+    isLoggedOut: (req, res, next) => {
+        if (req.session.currentUser) {
+            res.redirect('/students')
+        } else {
+            next()
+        }
+    },
+    setIsLoggedInProperty: (req, res, next) => {
+        if (req.session.currentUser) {
+            req.isLoggedIn = true
+        } else {
+            req.isLoggedIn = false
+        }
     }
 }

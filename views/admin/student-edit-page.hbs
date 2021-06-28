@@ -7,6 +7,12 @@
                 <label class="form-label" for="username">Username</label>
                 <input class="form-control" type="text" id="username" name="username" value="{{username}}">
             </div>
+            {{#if isPM}}
+                <div class="mb-3">
+                    <label class="form-label" for="pwd">Password</label>
+                    <input class="form-control" type="text" id="pwd" name="" value="*******disabled*******">
+                </div>
+            {{/if}}
             <div class="mb-3">
                 <label class="form-label" for="name">Name</label>
                 <input class="form-control" type="text" id="name" name="name" value="{{name}}">
@@ -19,6 +25,7 @@
                 <label class="form-label" for="description">Description</label>
                 <textarea class="form-control" type="text" id="description" name="description">{{description}}</textarea>
             </div>
+
             
             {{#unless isPM}}
             <div class="col-auto my-1">

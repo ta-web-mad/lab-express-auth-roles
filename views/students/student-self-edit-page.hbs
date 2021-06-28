@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col col-6 offset-3">
+        <h1>Edit {{name}}</h1>
+
+        <form action="/students/{{_id}}/edit" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" id="username" name="username" value="{{username}}">
+            </div>
+            {{!-- {{#if isPM}} --}}
+                <div class="mb-3">
+                    <label class="form-label" for="pwd">Password</label>
+                    <input class="form-control" type="text" id="pwd" name="pwd" value="**********">
+                </div>
+            {{!-- {{/if}} --}}
+            <div class="mb-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" type="text" id="name" name="name" value="{{name}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="profileImg">Image</label>
+                <input class="form-control" type="text" id="profileImg" name="profileImg" value="{{profileImg}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="description">{{description}}</textarea>
+            </div>
+
+{{!--             
+            {{#unless isPM}}
+            <div class="col-auto my-1">
+            <label class="mr-sm-2 sr-only" for="role">Role:</label>
+            <p>Role: </p>
+            <select class="custom-select mr-sm-2" id="role" name="role" >
+                {{#each roles}}
+                    <option value="{{role}}" {{#if isSelected}}selected{{/if}}>{{role}}</option>
+                {{/each}}
+            </select>
+            </div>
+            {{/unless}} --}}
+
+
+            <div class="mb-3">
+                <button class="btn btn-success">Edit Student</button>
+            </div>            
+    
+        </form>
+
+    </div>
+</div>

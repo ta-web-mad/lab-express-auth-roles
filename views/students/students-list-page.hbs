@@ -15,8 +15,9 @@
                 | 
                 <a class="btn btn-info btn-sm" href="/students/{{_id}}">details</a>
                 | 
+                
                 {{#if ../isPM}}
-                |
+                
                 <a class="btn btn-success btn-sm" href="/admin/{{id}}/edit">edit</a>
                 |
                 {{!-- {{#unless isPM}} --}}
@@ -25,7 +26,17 @@
                 </form>
                 {{!-- {{/unless}} --}}
                 {{/if}}
-                </li>
+
+                {{#unless ../isPM}}
+                {{#if canEdit}}
+                <a class="btn btn-success btn-sm" href="/students/{{id}}/edit">Edit my ordinary profile</a>
+                {{/if}}
+                {{/unless}}
+
+
+            </li>
+
+
 
         {{/each}}
 

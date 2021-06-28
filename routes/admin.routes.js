@@ -25,13 +25,13 @@ router.get("/:id/edit", checkLoggedUser, checkRoles('PM'), (req, res) => {
             roles.forEach( el => el.isSelected = el.role === student.role ? true : false)
             student.roles = roles
             student.isPM = isPM // IF CAN ACCESS THIS ROUTE, THEN HE IS THE PM
-            res.render('students/student-edit-page', student )
+            res.render('admin/student-edit-page', student )
         }   )
 
 });
 
 
-router.post('/:id/edit', (req, res) => {
+router.post('/:id/edit', checkLoggedUser, checkRoles('PM'), (req, res) => {
     const {id} = req.params
     const { username, name, profileImg, description, role } = req.body
 
