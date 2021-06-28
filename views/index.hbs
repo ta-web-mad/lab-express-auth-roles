@@ -1,2 +1,17 @@
-<h1>{{title}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<main class='main-index bg-dark'>
+
+  <div class='container pt-5'>
+
+    {{#if user}}
+      {{#with user}}
+        <h1 class='text-light'>Welcome to Ironhack Student Platform - {{name}}!!</h1>
+
+        <a href='/students' class='btn btn-info'>Students list</a>
+      {{/with}}
+    {{else}}
+      <h1 class='text-light'>Welcome to IronHack Student platform !! </h1>
+
+    {{/if}}
+
+  </div>
+</main>

@@ -1,0 +1,43 @@
+<main class="bg-dark d-flex align-items-center">
+
+<div class='container text-light pt-5'>
+  {{#with user}}
+    <div class='row'>
+      <div class='col-md-4'>
+        <img src='{{profileImg}}' alt='image' />
+      </div>
+
+
+      <div class='col-md-7'>
+        <div class="d-flex flex-column justify-content-between edit">
+
+        <div>
+          <h2>{{name}}</h2>
+          <h3>{{description}}</h3>
+        </div>
+        
+        {{/with}}
+
+        <div class="">
+          {{#if pm}}
+          {{#with user}}
+            <a href='/students/edit/{{id}}' class="btn btn-info">edit</a>
+            <a href='/students/delete/{{id}}'class="btn btn-danger">delete</a>
+            <a href='/students/promote/TA/{{id}}' class="btn btn-success">promote to TA</a>
+            <a href='/students/promote/DEV/{{id}}' class="btn btn-success">promote to DEV</a>
+          {{/with}}
+          {{/if}}
+          {{#if currentUser}}
+            {{#with user}}
+            <a href='/students/edit/{{id}}'class="btn btn-info">edit</a>
+            <a href='/students/delete/{{id}}'class="btn btn-danger">delete</a>
+            {{/with}}
+            {{/if}}
+        </div>
+  
+        </div>
+      </div>
+    </div>
+
+</div>
+</main>

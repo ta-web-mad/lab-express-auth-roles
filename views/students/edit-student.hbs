@@ -1,0 +1,50 @@
+<main class='d-flex align-items-center bg-dark text-light'>
+  <div class='container'>
+
+    {{#with user}}
+    <form action='/students/edit/{{id}}' method='post'>
+      <div class='form-group'>
+        <label for='name'>
+          Name
+        </label>
+        <input type='text' class='form-control' id='name' name='name' value="{{name}}"/>
+      </div>
+      <div class='form-group'>
+        <label for='username'>
+          Email address
+        </label>
+        <input type='email' class='form-control' id='username' name='username' value="{{username}}"/>
+      </div>
+      <div class='form-group'>
+        <label for='profileImg'>
+          Profile img, paste url
+        </label>
+        <input type='text' class='form-control' id='profileImg' name='profileImg' value="{{profileImg}}"/>
+      </div>
+      <div class='form-group'>
+        <label for='description'>
+          Description
+        </label>
+        <input type='text' class='form-control' id='description' name='description' value="{{description}}"/>
+      </div>
+      <div class='form-group'>
+        <label for='pwd'>
+          Password blank if want to preserve same password
+        </label>
+        <input type='password' class='form-control' id='pwd' name='pwd' value=""/>
+      </div>
+      <div class='d-flex'>
+        <button type='submit' class='btn btn-primary ml-auto mr-auto'>
+          Update
+        </button>
+      </div>
+      {{/with}}
+      {{#if error}}
+        <p class='bg-warning text-center mt-3'>{{this.error}}</p>
+        <a href='/login' class='btn btn-info'>Sign in</a>
+      {{/if}}
+    </form>
+
+    
+  </div>
+</main>

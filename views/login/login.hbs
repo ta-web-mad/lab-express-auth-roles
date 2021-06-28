@@ -1,0 +1,31 @@
+<main class='d-flex align-items-center bg-dark text-light'>
+  <div class='container'>
+    <form action='/login' method='post'>
+      <div class='form-group'>
+        <label for='username'>
+          Email address
+        </label>
+        <input type='email' class='form-control' id='username' name='username' />
+      </div>
+      <div class='form-group'>
+        <label for='pwd'>
+          Password
+        </label>
+        <input type='password' class='form-control' id='pwd' name='pwd' />
+      </div>
+      <div class='d-flex'>
+        <button type='submit' class='btn btn-primary'>
+          LogIn
+        </button>
+        <a href='/register' class='btn btn-warning ml-auto'>
+          Register
+        </a>
+      </div>
+
+      {{#if error}}
+        <p class='bg-warning text-center mt-3'>{{this.error}}</p>
+      {{/if}}
+
+    </form>
+  </div>
+</main>
