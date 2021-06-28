@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+
+        <h2>{{user.username}}</h2>
+
+        <p>Rol: {{user.role}}</p>
+
+
+
+        {{#if isPM}}
+        <form action="/students/{{user.id}}/edit" method="GET">
+            <button type="submit" class="btn btn-secondary">Edit</button>
+        </form>
+
+        <form action="/students/{{user.id}}/delete" method="POST">
+            <button type="submit" class="btn btn-warning">Delete</button>
+        </form>
+
+        <form action="/students/{{user.id}}/role-update?role=TA" method="post">
+            <button type="submit" class="btn btn-secondary">Mark as TA</button>
+        </form>
+
+        <form action="/students/{{user.id}}/role-update?role=Dev" method="POST">
+            <button type="submit" class="btn btn-secondary">Mark as Developer</button>
+        </form>
+
+        {{else}}
+        {{#if isSelf}}
+        <form action="/students/{{user.id}}/edit-profile" method="GET">
+            <button type="submit" class="btn btn-secondary">Edit</button>
+        </form>
+        {{/if}}
+        {{/if}}
+
+        <a href="/students">Go back</a>
+
+    </div>
+</div>

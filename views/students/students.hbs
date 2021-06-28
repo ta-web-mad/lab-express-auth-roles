@@ -1,0 +1,23 @@
+<div class="container">
+    <ul class="row gy-2">
+
+        {{#each users}}
+        <li class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <p>{{username}}</p>
+
+            <a href="/students/{{id}}" class="btn btn-dark">View student profile</a>
+
+            {{#if ../isPM}}
+            <form action="/students/{{id}}/edit" method="GET">
+                <button type="submit" class="btn btn-secondary">Edit</button>
+            </form>
+
+            <form action="/students/{{id}}/delete" method="POST">
+                <button type="submit" class="btn btn-warning">Delete</button>
+            </form>
+            {{/if}}
+        </li>
+        {{/each}}
+
+    </ul>
+</div>

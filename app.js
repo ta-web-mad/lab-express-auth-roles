@@ -17,16 +17,16 @@ const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
+require("./config/session.config")(app)
 
 // default value for title local
-const projectName = "lab-express-auth-roles";
+const projectName = "Auth + Roles!";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
+app.locals.title = `${capitalized(projectName)}`;
 
 // 👇 Start handling routes here
-const index = require("./routes/index");
-app.use("/", index);
+require("./routes")(app)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
