@@ -1,0 +1,24 @@
+<div class="container">
+
+    <h1>{{user.username}}</h1>
+
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <p><strong>descripcion</strong>: {{user.description}}</p>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/students" class="btn btn-dark">Volver al listado</a>
+    {{#if isAdmin}}
+    <br>
+    <br>
+    <a href="#" class="btn btn-danger">Eliminar</a>
+    {{/if}}
+
+</div>

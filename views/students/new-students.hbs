@@ -1,0 +1,27 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Nuevo estudiante</h1>
+            <hr>
+            <form action="/students/create" method="POST">
+                <!--action envia los resultados-->
+                <div class="form-group">
+                    <label for="username">Nombre de usuario</label>
+                    <input type="text" class="form-control" name="username" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" name="password" id="password">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Crear</button>
+                <br>
+                <a class="btn btn-primary" href="/" role="button">Inicio</a>
+            </form>
+        </div>
+
+    </div>
+
+</div>
