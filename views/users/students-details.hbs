@@ -1,0 +1,72 @@
+<H1>STUDENT PROFILE</H1>
+<div class="container">
+
+    <div class='row'>
+
+        <div class="col-6">
+            <H2>Name: {{student.username}}</H2>
+            <br>
+            <h3>Last Name: </h3>
+            <br>
+            <img src="#" alt="Student profile photo">
+            <br>
+            <hr>
+            <h4>Contact details:</h4>
+            <ul>
+                <li>email:</li>
+                <br>
+                <li>cell:</li>
+                <br>
+                <li>address:</li>
+                <br>
+            </ul>
+        </div>
+        <div class="col-6">
+            <h4>Description:</h4>
+            <br>
+            <p>
+                ==>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class='col-4'>
+
+            <a href="/students" class="btn btn-dark">Back to Students list</a>
+
+        </div>
+
+        <div class='col-4'>
+
+            {{#if isPM}}
+
+
+            <form action="/students/{{student.id}}/remove" method="post">
+
+                <button type="submit" class="btn btn-danger">Remove Student</button>
+
+            </form>
+
+
+        </div>
+
+        <div class='col-4'>
+{{!-- //QUEDA PENDIENTE EDIT STUDENT DE HACER ROUTE Y FORM --}}
+            <form action="/students/{{student.id}}/edit" method="post">
+            
+                <button type="submit" class="btn btn-dark">Edit Student</button>
+            
+            </form>
+            {{/if}}
+        </div>
+
+    </div>
+
+
+
+</div>
+
+</div>
+</div>
