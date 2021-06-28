@@ -2,10 +2,11 @@ const router = require("express").Router();
 
 const User = require("../models/User.model") // REQUIERO EL MODELO
 
-const { checkLoggedUser, checkRoles } = require('./../middleware')
+const { checkLoggedUser } = require('./../middleware')
 
 // LISTADO DE ESTUDIANTES
 router.get('/', (req, res) => {
+    // const loggedUser = req.session.currentUser?.role === 'STUDENT'
 
     User
         .find()
@@ -31,24 +32,23 @@ router.post('/create', (req, res, next) => {
 })
 
 // DETALLES DE USUARIO
-router.post('/students-detail/:user_id', (req, res) => {
+// router.post('/students-detail/:user_id', (req, res) => {
 
+//     const { user_id } = req.params
+
+//     const isPM = req.session.currentUser?.role === 'PM'
+
+//     User
+//         .findById(user_id)
+//         .then(user => res.render('students/students-detail', { user }))
+//         .catch(err => console.log(err))
+// })
+router.get("/students-detail/:user_id", (req, res, next) => {
+    //  const isPM = req.session.currentUser.role === 'PM';
     const { user_id } = req.params
-
-    const isPM = req.session.currentUser?.role === 'PM'
-
     User
         .findById(user_id)
-        .then(user => res.render('students/students-details', { user, isPM }))
-        .catch(err => console.log(err))
-})
-
-router.get("/", checkLoggedUser, (req, res, next) => {
-    const isPM = req.session.currentUser.role === 'PM';
-
-    User
-        .find()
-        .then(user => res.render('students/students', { user, isPM }))
+        .then(user => res.render('students/students-detail', { user }))
         .catch(err => console.error(err));
 });
 
