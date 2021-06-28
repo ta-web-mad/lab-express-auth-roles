@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h1>{{user.username}}</h1>
+
+    <hr>
+    <div class="row justify-content-center">
+        <hr>
+        <form action="/students/{{id}}" method="POST"></form>
+            <div class="row">
+                <div class="col-md-8">
+                    <p><strong>Name</strong>: {{user.username}}</p>
+                </div>
+                <div class="col-md-4">
+                    <p><strong>Role</strong>: {{user.role}}</p>
+                </div>
+            </div>
+            <hr>
+
+        <a href="/students" class="btn btn-dark">Back to students's list</a>
+        {{#if isPm}}
+        <br>
+        <br>
+        {{/if}}
+    </div>
+</div>

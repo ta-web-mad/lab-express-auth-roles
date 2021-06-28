@@ -1,0 +1,20 @@
+<div class="container">
+    <form action="/students/{{id}}/delete" method="POST"></form>
+        <h1>Students's List!</h1>
+        <hr>
+        
+        {{#each users}}
+        <p> {{username}} 
+            | 
+            <button class='btn btn-light' type="submit">profile</button>
+            {{#if ../isPm}}
+            |
+            <button class='btn btn-light' type="submit">edit</button>
+            |
+            <button class='btn  btn-danger' type="submit">delete</button>
+            {{/if}}
+        </p>
+
+        {{/each}}
+    </form>
+</div>
