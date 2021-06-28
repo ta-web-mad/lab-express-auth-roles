@@ -1,0 +1,37 @@
+<div class="container">
+    <br><br>
+    <H1>ROLES CONFIGURATION</H1>
+
+<hr>
+    <h5>Upgrade {{username}} role from <strong>STUDENT</strong> to:</h5>
+<br>
+<hr>
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+
+
+            <form action="/admin/edit-role/{{id}}/dev" method="POST">
+
+
+
+                <button type="submit" class="btn btn-primary" id="role" value={{"DEV"}}>UPGRADE TO DEV</button>
+
+            </form>
+
+        </div>
+
+
+        <div class="col-md-6">
+            <form action="/admin/edit-role/{{id}}/ta" method="POST">
+
+
+
+                <button type="submit" class="btn btn-success" id='role' value={{'TA'}}>UPGRADE TO TA</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>

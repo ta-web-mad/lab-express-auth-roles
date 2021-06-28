@@ -1,0 +1,16 @@
+<H1>ADMINISTRATION PANNEL</H1>
+{{#each users}}
+
+<ul>
+    <li><strong>{{username}} </strong>, options: 
+
+    <p></p>
+    
+{{!-- //AQUI SI HAY QUE PONER /ADMIN DELANTE DEL RESTO DE PARÁMETROS --}}
+
+    <ul><li><a href="/admin/edit-role/{{id}}/{{role}}">Edit Role</a></li></li></ul>
+
+</ul>
+
+
+{{/each}}
