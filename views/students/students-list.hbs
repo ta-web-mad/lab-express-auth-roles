@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h1>Estudiantes</h1>
+    <hr>
+
+    {{#each students}}
+    <p>- {{username}}
+        <small>
+            <a href="/students/{{id}}">Profile</a>
+
+            {{!-- {{#if ../isAdmin}}
+            |
+            <a href="/libros/editar?book_id={{id}}">editar</a>
+            |
+            <a href="#" style="color: red">eliminar</a>
+            {{/if}} --}}
+
+        </small>
+    </p>
+    {{/each}}
+
+</div>
