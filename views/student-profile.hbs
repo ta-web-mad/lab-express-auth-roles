@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h1>{{title}}</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Descripción</strong>: {{student.description}}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/studentslist/" class="btn btn-dark">Volver al listado</a>
+    {{#if isAdmin}}
+    <br>
+    <br>
+    <a href="#" class="btn btn-danger">Eliminar</a>
+    {{/if}}
+
+</div>
