@@ -7,7 +7,12 @@ const userSchema = new Schema(
     name: String,
     password: String,
     profileImg: String,
-    description: String
+    description: String,
+    role: {
+      type: String,
+      enum: ['PM', 'DEV', 'TA', 'STUDENT'],
+      default: 'STUDENT'
+    }
     // add roles setup here
   },
   {

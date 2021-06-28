@@ -1,0 +1,44 @@
+<h2>Students:</h2>
+{{#if errorMessage}}
+<div
+    style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+    {{errorMessage}}</div>
+{{/if}}
+
+<div class="container">
+    <ul>
+        
+        {{#each students}}
+        
+            <li>
+                {{username}} 
+                | 
+                <a class="btn btn-info btn-sm" href="/students/{{_id}}">details</a>
+                | 
+                {{#if ../isPM}}
+                |
+                <a class="btn btn-success btn-sm" href="/admin/{{id}}/edit">edit</a>
+                |
+                {{!-- {{#unless isPM}} --}}
+                <form class="d-inline col col-4 " {{#unless isPM}}action="/admin/{{_id}}/delete" method="post"{{/unless}}>
+                    <button class="btn btn-danger btn-sm {{#if isPM}}disabled{{/if}}">Delete</button>
+                </form>
+                {{!-- {{/unless}} --}}
+                {{/if}}
+                </li>
+
+        {{/each}}
+
+
+
+
+
+
+
+
+    </ul>
+    <div class="row">
+
+    </div>
+</div>
+
