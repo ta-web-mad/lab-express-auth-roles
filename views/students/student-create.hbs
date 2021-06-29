@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Nuevo libro</h1>
+
+            <hr>
+
+            <form action="/libros/crear" method="POST">
+
+                <div class="form-group">
+                    <label for="title">Título</label>
+                    <input type="text" class="form-control" name="title" id="title">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <input type="text" class="form-control" name="description" id="description">
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Autor/a</label>
+                    <input type="text" class="form-control" name="author" id="author">
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Puntuación</label>
+                    <input type="number" class="form-control" name="rating" id="rating">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Crear libro</button>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>

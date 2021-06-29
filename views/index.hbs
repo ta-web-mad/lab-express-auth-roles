@@ -1,2 +1,21 @@
 <h1>{{title}} 🚀</h1>
 <p>Welcome Ironhacker!</p>
+<hr>
+<div class="container">
+    <div class="row justify-content-between">
+
+        {{#if username}}
+        <p class="col-4">Bienvenido {{username}}</p>
+        <a href="/students" class="col-4">See all students</a>
+        <a href="/logout" class="col-4">Log out</a>
+        {{else}}
+        <a href="/login" class="col-4">Log in</a>
+        <a href="/signup" class="col-4">Sign up</a>
+        {{/if}}
+
+        {{#if errorMsg}}
+        <p>{{errorMsg}}</p>
+        {{/if}}
+
+    </div>
+</div>
