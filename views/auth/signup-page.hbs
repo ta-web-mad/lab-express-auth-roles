@@ -1,0 +1,49 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Registro</h1>
+
+            <hr>
+
+            <form action="/registro" method="POST">
+
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input type="email" class="form-control" name="username" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Contraseña</label>
+                    <input type="password" class="form-control" name="pwd" id="pwd">
+                </div>
+                <div class="form-group">
+                    <label for="name">Nombres y apellidos</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="description">Cuentanos una breve descripción sobre ti</label>
+                    <textarea class="form-control" name="description" id="description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="profileImg">URL imagen de perfil</label>
+                    <input type="text" class="form-control" name="profileImg" id="profileImg">
+                </div>
+
+
+
+                <button type="submit" class="btn btn-outline-dark btn-block btn-lg">Registrarme</button>
+
+            </form>
+            {{#if errorMessage}}
+            <div
+                style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+                {{errorMessage}}</div>
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>
