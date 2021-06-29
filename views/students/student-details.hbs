@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+
+<p><strong>nombre</strong>: {{student.username}}</p>
+
+<a href="/students">Volver al listado</a>
+{{#if isAdmin}}
+<form action="/students/eliminar?student_id={{id}}" method="POST">
+    <button type="submit">Delete</button>
+</form>
+{{/if}}
