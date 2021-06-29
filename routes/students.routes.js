@@ -29,6 +29,7 @@ router.get('/', checkLoggedUser, (req, res) => {
 
             students.forEach( (student) => {
                 student.isPM = student.role === "PM" ? true : false 
+                student.isTA = student.role === "TA" ? true : false 
                 student.canEdit = ( student._id == req.session.currentUser?._id)
                 // student.canEdit = ( student._id === req.session.currentUser?._id) // DOES NOT WORK IN STRICT MODE
                 // console.log(student.canEdit, req.session.currentUser?._id, student._id)

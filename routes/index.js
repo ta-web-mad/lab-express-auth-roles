@@ -4,5 +4,6 @@ module.exports = app => {
   app.use('/user', require('./user.routes.js'))
   app.use('/students', require('./students.routes.js'))
   app.use('/admin', require('./admin.routes.js'))
+  app.use('/ta/course', require('./ta.routes.js'))
 }
 

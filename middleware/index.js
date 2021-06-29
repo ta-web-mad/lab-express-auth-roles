@@ -7,10 +7,11 @@ module.exports = {
         }
     },
     checkRoles: (...roles) => (req, res, next) => {
+        console.log(`req.session.currentUser ${req.session.currentUser.role}`)
         if (roles.includes(req.session.currentUser.role)) {
             next()
         } else {
-            res.render('auth/login-page', { errorMessage: 'Restricted to PM' })
+            res.render('auth/login-page', { errorMessage: `Restricted to ${roles}` })
         }
     },
     isLoggedOut: (req, res, next) => {
