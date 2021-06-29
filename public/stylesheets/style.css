@@ -1,12 +1,208 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00b7ff;
+	color: rgb(39, 44, 51);
 }
 
 h1 {
-  color: 15px;
+	display: block;
+	margin: 20px auto;
+}
+
+h2 {
+	display: block;
+	margin: 20px auto;
+}
+
+h3 {
+	display: block;
+	margin: 15px auto;
+	color: rgb(76, 86, 99);
+}
+
+hr {
+	display: inline-block;
+	margin: 20px;
+}
+
+label {
+	font-weight: 500;
+}
+
+main a {
+	transition: all 0.3s ease-in-out;
+}
+
+main a:hover {
+	background-color: white;
+}
+
+ul {
+	list-style: none;
+}
+
+li > div {
+	padding: 20px;
+	background-color: rgb(235, 238, 241);
+	font-weight: 500;
+	color: rgb(120, 132, 148);
+	border-radius: 3px;
+}
+
+span {
+	font-weight: 500;
+	font-size: 1.2em;
+	color: rgb(76, 86, 99);
+}
+
+.welcome-container {
+	padding: 20px;
+	background-color: rgb(205, 213, 224);
+	border-radius: 3px;
+}
+
+.details {
+	background-color: rgb(205, 213, 224);
+	padding: 25px;
+	border-radius: 3px;
+}
+
+.status-details {
+	padding: 5px;
+	background-color: rgb(136, 148, 163);
+	border-radius: 3px;
+	margin-left: 10px;
+}
+
+#date-details input {
+	margin: 5px 20px 10px 5px;
+}
+
+#div-description {
+	padding: 10px;
+	background-color: rgb(171, 183, 199);
+	border-radius: 3px;
+	margin-bottom: 15px;
+}
+
+#div-description p {
+	margin-bottom: 0;
+}
+
+.course-image {
+	height: 200px;
+	object-fit: cover;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+
+.btn-custom {
+	color: white;
+	background-color: rgb(39, 44, 51);
+	border-color: rgb(39, 44, 51);
+}
+
+.btn-custom:hover {
+	color: rgb(39, 44, 51);
+	background-color: rgb(205, 213, 224);
+	border-color: rgb(39, 44, 51);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.errorMsg {
+	display: block;
+	text-align: center;
+	padding: 20px;
+	margin-top: 20px;
+	background-color: rgb(231, 108, 7);
+	color: white;
+	border-radius: 3px;
+}
+
+input,
+textarea {
+	box-sizing: border-box;
+	background-color: rgb(129, 139, 153);
+	color: rgb(38, 42, 49);
+	border: 2px solid white;
+	border-radius: 5px;
+	padding: 5px 10px;
+	padding-left: 10px;
+	transition: all 0.3s ease-in-out;
+}
+
+input[type='text' i],
+input[type='password'],
+input[type='date'] {
+	padding: 5px 10px;
+}
+
+input:focus {
+	outline: none;
+	border: 2px solid rgb(61, 67, 77);
+	border-radius: 3px;
+	padding-left: 15px;
+}
+
+/* UTILITIES */
+
+.full-width {
+	width: 100%;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.text-align-left {
+	text-align: left;
+}
+
+.reset-margin {
+	margin: 0;
+}
+
+.margin-1 {
+	margin: 8px;
+}
+
+.margin-2 {
+	margin: 16px;
+}
+
+.margin-3 {
+	margin: 24px;
+}
+
+.vertical-margin-1 {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.vertical-margin-2 {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.vertical-margin-3 {
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+.reset-padding {
+	padding: 0;
+}
+
+.padding-1 {
+	padding: 8px;
+}
+
+.padding-2 {
+	padding: 16px;
+}
+
+.padding-3 {
+	padding: 24px;
 }

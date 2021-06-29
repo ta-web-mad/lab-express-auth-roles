@@ -1,0 +1,18 @@
+<form action="/students/{{user.id}}/edit-profile" method="POST">
+
+    <label for="username-input">Username</label>
+    <input type="text" name="username" id="username-input" value='{{user.username}}' required>
+
+    <label for="current-password-input">Current password</label>
+    <input type="password" name="currentPassword" id="current-password-input" required>
+
+    <label for="new-password-input">New password</label>
+    <input type="password" name="newPassword" id="new-password-input" required>
+
+    <button type="submit" class="btn btn-dark">Update</button>
+
+</form>
+
+{{#if errorMsg}}
+<p class="errorMsg">{{errorMsg}}</p>
+{{/if}}

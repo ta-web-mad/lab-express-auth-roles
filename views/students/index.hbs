@@ -1,0 +1,34 @@
+<div class="container">
+
+    <h2>Students</h2>
+
+    <ul class="row g-1 gy-0">
+
+        {{#each users}}
+        <li class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="container-fluid reset-padding padding-3">
+                <div class="row g-0 gy-0">
+
+                    <p>{{username}}</p>
+
+                    <a href="/students/{{id}}" class="btn btn-dark">View student profile</a>
+
+                    {{#if ../isPM}}
+                    <form action="/students/{{id}}/edit" method="GET">
+                        <button type="submit" class="btn btn-secondary">Edit</button>
+                    </form>
+
+                    <form action="/students/{{id}}/delete" method="POST">
+                        <button type="submit" class="btn btn-warning">Delete</button>
+                    </form>
+                    {{/if}}
+
+                </div>
+            </div>
+        </li>
+        {{/each}}
+
+    </ul>
+
+    <a href="/">Go back</a>
+</div>

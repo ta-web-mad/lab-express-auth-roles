@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row justify-content-center g-0 gy-0 reset-margin">
+        <div class="col-8">
+
+            <div class="container-fluid details vertical-margin-3">
+                <div class="row g-0 gy-0">
+
+                    <h2>{{course.title}}</h2>
+
+                    <label for="div-description">Description</label>
+                    <div id="div-description">
+                        <p>{{course.description}}</p>
+                    </div>
+
+                    <div class="container-fluid">
+                        <label>Lead teachers</label>
+                        <ul class="row g-1 gy-0 reset-padding text-align-center">
+                            {{#each course.leadTeacher}}
+                            <li class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                <div>{{username}}</div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                    <div class="container-fluid">
+                        <label>TAs</label>
+                        <ul class="row g-1 gy-0 reset-padding text-align-center">
+                            {{#each course.ta}}
+                            <li class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                <div>{{username}}</div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row g-0 gy-0">
+                            <label class="col-12">Students</label>
+
+                            <div class="col-12 container-fluid">
+                                <ul class="row g-1 gy-0 reset-padding text-align-center">
+                                    {{#each course.students}}
+                                    <li class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                        <div>{{username}}</div>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <label for="date-details">Date</label>
+                    <div id="date-details">
+                        From: <input type="date" id="date-details" value="{{startDate}}" disabled>
+                        To: <input type="date" id="date-details" value="{{endDate}}" disabled>
+                    </div>
+
+                    <label class="vertical-margin-2">Status:
+                        <span class="status-details">{{course.status}}</span>
+                    </label>
+
+                    {{#if isTA}}
+                    <div class="container-fluid col-12 vertical-margin-2">
+                        <div class="row g-0 gy-0 justify-content-between">
+                            <form action="/courses/{{course.id}}/edit" method="GET" class="col-12 col-sm-6 col-md-4">
+                                <button type="submit" class="btn btn-secondary full-width">Edit</button>
+                            </form>
+
+                            <form action="/courses/{{course.id}}/delete" method="POST" class="col-12 col-sm-6 col-md-4">
+                                <button type="submit" class="btn btn-warning full-width">Delete</button>
+                            </form>
+
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <form action="/courses/{{course.id}}/join" method="POST" class="col-12">
+                        <button type="submit" class="btn btn-custom full-width">Join course</button>
+                    </form>
+
+                    <a href="/courses" class="vertical-margin-1">Go back</a>
+
+                    {{#if errorMsg}}
+                    <p class="errorMsg">{{errorMsg}}</p>
+                    {{/if}}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
