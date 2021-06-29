@@ -1,0 +1,39 @@
+<h2>Courses:</h2>
+{{#if errorMessage}}
+<div
+    style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+    {{errorMessage}}</div>
+{{/if}}
+
+<div class="container">
+    <ul>
+        
+        {{#each courses}}
+        
+            <li>
+                {{title}} 
+                | 
+                {{#each this.ta}}
+                    <p>{{name}} |</p>
+                {{/each}}
+
+
+            </li>
+
+
+
+        {{/each}}
+
+
+
+
+
+
+
+
+    </ul>
+    <div class="row">
+
+    </div>
+</div>
+

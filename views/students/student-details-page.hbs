@@ -1,0 +1,28 @@
+<h2>Student details</h2>
+{{#if errorMessage}}
+<div
+    style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+    {{errorMessage}}</div>
+{{/if}}
+<div class="container">
+    <div class="row">
+        <div class="col col-4">
+
+            <div class="card mb-3">
+
+                        <img src="{{profileImg}}" alt="" class="card-img-top">
+                        <div class="card-body">
+
+                            <h5 class="card-title">{{name}}</h5>
+                            <p class="card-text"><strong>Description: </strong> {{description}}</p>
+                            <p class="card-text">
+                                <span class="text-muted"><strong>Role: </strong>{{role}}</span>                                
+                            </p>
+                        </div>
+
+            </div>   
+            
+        </div> 
+
+    </div>
+</div>
