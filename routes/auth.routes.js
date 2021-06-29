@@ -26,7 +26,7 @@ router.post('/register', (req, res) => {
 
             User
                 .create({ username, password: hashPass })
-                .then(() => res.redirect('/list'))
+                .then(() => res.redirect('/students/list'))
                 .catch(err => console.log(err))
 
         })

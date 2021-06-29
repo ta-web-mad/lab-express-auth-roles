@@ -7,9 +7,11 @@
     <p>- {{username}}
         <small>
             <a href="/students/details/{{id}}">Details</a>
+            {{#if ../isAdmin}}
             |
             <a href="/students/edit-profile/{{id}}">Edit</a>
-           {{#if ../isStudent}}
+            |
+            <a href="/students/edit-role/{{id}}">Change Role</a>
             |
             <a href="#" style="color: red">Delete</a>
             {{/if}}
