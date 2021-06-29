@@ -1,0 +1,58 @@
+<div class="container">
+
+    <form action="/courses/{{course.id}}/edit" method="POST" class="row g-0 gy-2">
+
+        <label for="title-input">Title</label>
+        <input type="text" name='title' id="title-input" required value="{{course.title}}">
+
+        <label for="lead-input">Lead teacher</label>
+        <select name="leadTeacher" id="lead-input" multiple required>
+            {{#each selDevs}}
+            <option value='{{dev.id}}' {{#if selected}}selected{{/if}}>{{dev.username}}</option>
+            {{/each}}
+        </select>
+
+        <label for="start-input">Start date</label>
+        <input type="date" id="start-input" name="startDate" value="2020-01-01" min="2020-01-01" required
+            value="{{course.startDate}}">
+
+        <label for=" end-input">End date</label>
+        <input type="date" id="end-input" name="endDate" value="2020-01-02" min="2020-01-02" value="{{course.endDate}}"
+            required>
+
+        <label for=" tas-input">TAs</label>
+        <select name="ta" id="tas-input" multiple required>
+            {{#each selTas}}
+            <option value='{{ta.id}}' {{#if selected}}selected{{/if}}>{{ta.username}}</option>
+            {{/each}}
+        </select>
+
+        <label for=" img-input">Image URL</label>
+        <input type="text" name='courseImg' id="img-input" value="{{course.courseImg}}" required>
+
+        <label for="description-input">Description</label>
+        <textarea name="description" rows="10" cols="50" id="description-input"
+            required>{{course.description}}</textarea>
+
+        <label for="status-input">Status</label>
+        <select name="status" id="status-input" required value="{{course.status}}">
+            <option value="ON" {{#if isOn}}selected{{/if}}>On</option>
+            <option value="OFF" {{#unless isOn}}selected{{/unless}}>Off</option>
+        </select>
+
+        <label for="students-input">Students</label>
+        <select name="students" id="students-input" multiple required>
+            {{#each selStudents}}
+            <option value='{{stud.id}}' {{#if selected}}selected{{/if}}>{{stud.username}}</option>
+            {{/each}}
+        </select>
+
+        <button type=" submit">Update</button>
+
+    </form>
+
+    {{#if errorMsg}}
+    <p class="errorMsg">{{errorMsg}}</p>
+    {{/if}}
+
+</div>

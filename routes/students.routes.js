@@ -3,28 +3,35 @@ const bcrypt = require("bcrypt");
 
 const User = require('./../models/user.model');
 
-const { userLogged, accessRoles } = require('./../middleware');
+const { userLogged, accessRoles, idFormat } = require('./../middleware');
 
 router.get("/", userLogged, (req, res, next) => {
     const isPM = req.session.currentUser.role === 'PM';
 
     User
         .find()
-        .then(users => res.render('students/students', { users, isPM }))
+        .then(users => res.render('students/', { users, isPM }))
         .catch(err => console.error(err));    
 });
 
-router.get("/:id", userLogged, (req, res, next) => {
+router.get("/:id", userLogged, idFormat, (req, res, next) => {
     const isPM = req.session.currentUser.role === 'PM';
     const isSelf = req.session.currentUser._id === req.params.id;
     
     User
         .findById(req.params.id)
-        .then(user => res.render('students/student-details', { user, isPM, isSelf }))
+        .then(user => {
+            if(!user) {
+                res.redirect('/students');
+                return;
+            }
+
+            res.render('students/student-details', { user, isPM, isSelf })
+        })
         .catch(err => console.error(err));    
 });
 
-router.get('/:id/edit', userLogged, accessRoles('PM'), (req, res, next) => {
+router.get('/:id/edit', userLogged, idFormat, accessRoles('PM'), (req, res, next) => {
     User
         .findById(req.params.id)
         .then(user => res.render('students/student-edit', user))
@@ -52,7 +59,7 @@ router.post('/:id/role-update', userLogged, accessRoles('PM'), (req, res, next) 
         .catch(err => console.error(err));
 });
 
-router.get('/:id/edit-profile', userLogged, (req, res, next) => {
+router.get('/:id/edit-profile', userLogged, idFormat, (req, res, next) => {
 
     const isSelf = req.session.currentUser._id === req.params.id;
 

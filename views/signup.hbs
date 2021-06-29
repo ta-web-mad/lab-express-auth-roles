@@ -1,13 +1,13 @@
 <form action="/signup" method="POST">
     <label for="name-input">Username</label>
-    <input type="text" name='username' id="name-input">
+    <input type="text" name='username' id="name-input" required>
 
     <label for="password-input">Password</label>
-    <input type="password" name="password" id="password-input">
+    <input type="password" name="password" id="password-input" required>
 
     <button type="submit">Sign up</button>
 </form>
 
 {{#if errorMsg}}
-<p> {{errorMsg}} </p>
+<p class="errorMsg">{{errorMsg}}</p>
 {{/if}}

@@ -41,7 +41,7 @@ router.post('/login', (req, res, next) => {
             res.redirect('/');
         })
         .catch(err => console.log(err));
-})
+});
 
 /* SIGN UP ROUTES */
 router.get('/signup', userNotLogged, (req, res, next) => {
@@ -57,7 +57,12 @@ router.post('/signup', (req, res, next) => {
         .then(user => {
 
             if(user || !username) {
-                res.render('signup', { errorMsg: 'No valid username' });
+                res.render('signup', { errorMsg: 'Username no available' });
+                return;
+            }
+
+            if(password.length < 8 || !password.match(/\d/)) {
+                res.render('signup', { errorMsg: 'Password needs to be at least 8 characters and 1 number included' });
                 return;
             }
 

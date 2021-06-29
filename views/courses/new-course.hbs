@@ -1,0 +1,56 @@
+<div class="container">
+
+    <form action="/courses/create" method="POST" class="row g-0 gy-2">
+
+        <label for="title-input">Title</label>
+        <input type="text" name='title' id="title-input" required>
+
+        <label for="lead-input">Lead teacher</label>
+        <select name="leadTeacher" id="lead-input" multiple required>
+            {{#each devs}}
+            <option value='{{id}}'>{{username}}</option>
+            {{/each}}
+        </select>
+
+        <label for="start-input">Start date</label>
+        <input type="date" id="start-input" name="startDate" value="2020-01-01" min="2020-01-01" required>
+
+        <label for="end-input">End date</label>
+        <input type="date" id="end-input" name="endDate" value="2020-01-02" min="2020-01-02" required>
+
+        <label for="tas-input">TAs</label>
+        <select name="ta" id="tas-input" multiple required>
+            {{#each tas}}
+            <option value='{{id}}'>{{username}}</option>
+            {{/each}}
+        </select>
+
+        <label for=" img-input">Image URL</label>
+        <input type="text" name='courseImg' id="img-input"> required
+
+        <label for="description-input">Description</label>
+        <textarea name="description" rows="10" cols="50" id="description-input"
+            placeholder="Write here your description" required></textarea>
+
+        <label for="status-input">Status</label>
+        <select name="status" id="status-input" required>
+            <option value="ON">On</option>
+            <option value="OFF">Off</option>
+        </select>
+
+        <label for="students-input">Students</label>
+        <select name="students" id="students-input" multiple required>
+            {{#each students}}
+            <option value='{{id}}'>{{username}}</option>
+            {{/each}}
+        </select>
+
+        <button type=" submit">Create</button>
+
+    </form>
+
+    {{#if errorMsg}}
+    <p class="errorMsg">{{errorMsg}}</p>
+    {{/if}}
+
+</div>

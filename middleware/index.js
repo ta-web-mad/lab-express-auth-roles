@@ -20,8 +20,14 @@ module.exports = {
         if (roles.includes(req.session.currentUser.role)) {
             next();
         } else {
-            res.render('index', { errorMsg: 'Restricted. Log in as PM to access' });
+            res.render('index', { errorMsg: `Restricted. Log in as ${roles} to access` });
         }
+    },
+
+    idFormat: (req, res, next) => {
+        const ObjectId = require('mongoose').Types.ObjectId;
+
+        ObjectId.isValid(req.params.id)? next() : res.redirect(req.baseUrl);
     }
 
 }

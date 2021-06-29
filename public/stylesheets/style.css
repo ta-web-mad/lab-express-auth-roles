@@ -1,12 +1,26 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.errorMsg {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    width: 60%;
+    background-color: rgb(231, 108, 7);
+    color: white;
+    border-radius: 3px;
 }
 
-a {
-  color: #00b7ff;
+ul {
+    list-style: none;
 }
 
-h1 {
-  color: 15px;
+li>div {
+    padding: 20px;
+    background-color: rgb(212, 218, 224);
+    font-weight: 500;
+    color: rgb(120, 132, 148);
+    border-radius: 3px;
+}
+
+.text-align-center {
+    text-align: center;
 }

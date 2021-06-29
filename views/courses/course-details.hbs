@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+
+        <h2>{{course.title}}</h2>
+
+        <p>{{course.description}}</p>
+
+        <div class="container-fluid">
+            <p>Lead teachers:</p>
+            <ul class="row text-align-center">
+                {{#each course.leadTeacher}}
+                <li class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div>{{username}}</div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="container-fluid">
+            <p>TAs:</p>
+            <ul class="row text-align-center">
+                {{#each course.ta}}
+                <li class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div>{{username}}</div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <p class="col-12">Students:</p>
+
+                <div class="col-12 container">
+                    <ul class="row text-align-center">
+                        {{#each course.students}}
+                        <li class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div>{{username}}</div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <form action="/courses/{{course.id}}/join" method="POST" class="col-12">
+                    <button type="submit" class="btn btn-secondary">Join course</button>
+                </form>
+            </div>
+        </div>
+
+        <p>Date: {{course.startDate}} - {{course.endDate}} </p>
+
+        <p>Status: {{course.status}}</p>
+
+
+
+        {{#if isTA}}
+        <form action="/courses/{{course.id}}/edit" method="GET">
+            <button type="submit" class="btn btn-secondary">Edit</button>
+        </form>
+
+        <form action="/courses/{{course.id}}/delete" method="POST">
+            <button type="submit" class="btn btn-warning">Delete</button>
+        </form>
+        {{/if}}
+
+        <a href="/courses">Go back</a>
+
+        {{#if errorMsg}}
+        <p class="errorMsg">{{errorMsg}}</p>
+        {{/if}}
+
+    </div>
+</div>
