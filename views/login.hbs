@@ -1,15 +1,34 @@
-<form action="/login" method="POST">
-    <label for="name-input">Username</label>
-    <input type="text" name='username' id="name-input">
+<div class="container text-align-center">
 
-    <label for="password-input">Password</label>
-    <input type="password" name="password" id="password-input">
+    <h2>Log in</h2>
 
-    <button type="submit">Log in</button>
-</form>
+    <div class="row text-align-center">
 
-{{#if errorMsg}}
-<p class="errorMsg">{{errorMsg}}</p>
-{{/if}}
+        <form action="/login" method="POST" class="col-10 col-md-8 col-lg-6 container-fluid">
+            <div class="row gy-4 text-align-center justify-content-center container-fluid reset-margin">
 
-<p>Not registered yet? <a href="/signup">Sign up</a></p>
+                <div class="col-12 row g-0 text-align-left">
+                    <label for="name-input" class="col-12">Username</label>
+                    <input type="text" name='username' id="name-input" class="col-12" required>
+                </div>
+
+                <div class="col-12 row g-0 text-align-left">
+                    <label for="password-input" class="col-12">Password</label>
+                    <input type="password" name="password" id="password-input" class="col-12" required>
+                </div>
+
+                <button type="submit" class="col-12 btn btn-custom">Log in</button>
+
+            </div>
+        </form>
+
+        <p>Not registered yet? <a href="/signup">Sign up</a></p>
+
+        {{#if errorMsg}}
+        <p class="errorMsg col-12">{{errorMsg}}</p>
+        {{/if}}
+
+
+
+    </div>
+</div>

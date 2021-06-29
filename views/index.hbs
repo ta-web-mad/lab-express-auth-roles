@@ -1,22 +1,41 @@
-<div class="container">
+<main class="container text-align-center">
+    <div class="row g-0 gy-0 reset-margin">
+        <div class="col-8 container-fluid">
 
-    <h1>{{title}}</h1>
+            <h1>{{title}}</h1>
 
-    <div class="row justify-content-between">
+            <div class="row justify-content-between g-0 gy-0 welcome-container reset-margin">
 
-        {{#if username}}
-        <p class="col-12">Bienvenido {{username}}</p>
-        <a href="/students" class="col-4">See all students</a>
-        <a href="/courses" class="col-4">See all courses</a>
-        <a href="/logout" class="col-4">Log out</a>
-        {{else}}
-        <a href="/login" class="col-4">Log in</a>
-        <a href="/signup" class="col-4">Sign up</a>
-        {{/if}}
+                {{#if username}}
 
-        {{#if errorMsg}}
-        <p class="errorMsg">{{errorMsg}}</p>
-        {{/if}}
+                <h3 class="col-12">Bienvenido {{username}}</h3>
 
+                <hr class="col-12 reset-margin vertical-margin-2">
+
+                <a href="/students" class="col-12 col-sm-6 col-lg-5 btn btn-custom">See all
+                    students</a>
+
+                <a href="/courses" class="col-12 col-sm-6 col-lg-5 btn btn-custom">See all courses</a>
+
+                <hr class="col-12 reset-margin vertical-margin-2">
+
+                <a href="/logout" class="col-12">Log out</a>
+
+                {{else}}
+
+                <a href="/login" class="col-12 col-sm-6 col-lg-5 btn btn-custom">Log in</a>
+
+                <a href="/signup" class="col-12 col-sm-6 col-lg-5 btn btn-custom">Sign up</a>
+
+                {{/if}}
+
+                {{#if errorMsg}}
+                <div class="col-12 text-align-center">
+                    <p class="errorMsg">{{errorMsg}}</p>
+                </div>
+                {{/if}}
+
+            </div>
+        </div>
     </div>
-</div>
+</main>

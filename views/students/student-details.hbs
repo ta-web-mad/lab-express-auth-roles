@@ -1,38 +1,51 @@
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center g-0 gy-0 reset-margin">
+        <div class="col-8">
 
-        <h2>{{user.username}}</h2>
+            <div class="container-fluid details vertical-margin-3">
+                <div class="row g-0 gy-0">
 
-        <p>Rol: {{user.role}}</p>
+                    <h2 class="col-12">{{user.username}}</h2>
 
+                    <p class="col-12"><span>Rol: {{user.role}}</span></p>
 
+                    <hr class="col-12 reset-margin vertical-margin-2">
 
-        {{#if isPM}}
-        <form action="/students/{{user.id}}/edit" method="GET">
-            <button type="submit" class="btn btn-secondary">Edit</button>
-        </form>
+                    {{#if isPM}}
+                    <form action="/students/{{user.id}}/edit" method="GET"
+                        class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <button type="submit" class="btn btn-secondary">Edit</button>
+                    </form>
 
-        <form action="/students/{{user.id}}/delete" method="POST">
-            <button type="submit" class="btn btn-warning">Delete</button>
-        </form>
+                    <form action="/students/{{user.id}}/delete" method="POST"
+                        class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <button type="submit" class="btn btn-warning">Delete</button>
+                    </form>
 
-        <form action="/students/{{user.id}}/role-update?role=TA" method="post">
-            <button type="submit" class="btn btn-secondary">Mark as TA</button>
-        </form>
+                    <form action="/students/{{user.id}}/role-update?role=TA" method="post"
+                        class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <button type="submit" class="btn btn-secondary">Mark as TA</button>
+                    </form>
 
-        <form action="/students/{{user.id}}/role-update?role=Dev" method="POST">
-            <button type="submit" class="btn btn-secondary">Mark as Developer</button>
-        </form>
+                    <form action="/students/{{user.id}}/role-update?role=Dev" method="POST"
+                        class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <button type="submit" class="btn btn-secondary">Mark as Developer</button>
+                    </form>
 
-        {{else}}
-        {{#if isSelf}}
-        <form action="/students/{{user.id}}/edit-profile" method="GET">
-            <button type="submit" class="btn btn-secondary">Edit</button>
-        </form>
-        {{/if}}
-        {{/if}}
+                    {{else}}
+                    {{#if isSelf}}
+                    <form action="/students/{{user.id}}/edit-profile" method="GET"
+                        class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <button type="submit" class="btn btn-secondary">Edit</button>
+                    </form>
+                    {{/if}}
+                    {{/if}}
 
-        <a href="/students">Go back</a>
+                    <a href="/students" class="col-12">Go back</a>
 
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
