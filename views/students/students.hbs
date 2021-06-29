@@ -1,0 +1,13 @@
+<h1>hola pagina de estudiantes</h1>
+{{#each student}}
+<p>hola soy {{username}}</p>
+<a href="/students/detalles/{{id}}">detalles</a>
+
+{{#if ../isAdmin}}
+<a href="/students/editar?student_id={{id}}">editar</a>
+<form action="/students/eliminar?student_id={{id}}" method="POST">
+    <button type="submit">Delete</button>
+</form>
+{{/if}}
+</p>
+{{/each}}
