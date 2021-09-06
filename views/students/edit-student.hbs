@@ -1,0 +1,18 @@
+
+
+<div class="container">
+    <h1>EDIT {{student.username}}</h1>
+    <hr>
+    <div class="row justify-content-center">
+
+        <div class="col-md-3">
+
+            <form action="/students/edit/{{student.id}}" method="POST">
+                <div class="form-group">
+                    <label for="username">Nombre del alumno</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{student.username}}">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Guardar edición</button>
+            </form>
+        </div>
+    </div>

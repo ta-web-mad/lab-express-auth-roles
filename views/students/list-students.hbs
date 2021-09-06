@@ -1,0 +1,29 @@
+<h2>STUDENTS LIST</h2>
+
+{{#each students}}
+<p>{{username}} {{role}} <a href="students/profile/{{id}}">Student profile</a>
+
+{{#if ../isPM}}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <a href="students/edit/{{id}}" class="btn btn-warning">Edit</a>
+            <form action="students/profile/delete/{{id}}" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <form action="students/edit/role/dev/{{id}}" method="POST">
+                <button type="submit" class="btn btn-info">Mark as Developer</button>
+            </form>
+            <form action="students/edit/role/ta/{{id}}" method="POST">
+                <button type="submit" class="btn btn-success">Mark as TA</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{/if}}
+</p>
+{{/each}}
+
