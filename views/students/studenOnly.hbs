@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Editar perfil de cada estudiante</h1>
+    <hr>
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <form action="/students/editar/{{id}}" method="POST">
+                <div class="form-group">
+                    <label for="username">Name</label>
+                    <input type="text"  class="form-control" id="username" name="username" value="{{username}}">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control" id="role" name="role" value="{{role}}">
+                </div>
+                
+                <button type="submit" class="btn btn-dark btn-block">Guardar perfil</button>
+            </form>
+        </div>
+    </div>
+
+
+    <hr>
+    <a href="/estudiantes" class="btn btn-dark">Volver</a>
+</div>

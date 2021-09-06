@@ -3,12 +3,19 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    username: { type: String, unique: true },
+    username: { 
+      type: String, 
+      unique: true 
+    },
+    role: {
+      type: String,
+      enum: ['STUDENT', 'TA', 'PM'],
+      default: 'STUDENT',
+    },
     name: String,
     password: String,
     profileImg: String,
-    description: String
-    // add roles setup here
+    description: String,
   },
   {
     timestamps: true
@@ -18,3 +25,5 @@ const userSchema = new Schema(
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+
+
