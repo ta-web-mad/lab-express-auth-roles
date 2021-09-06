@@ -1,0 +1,16 @@
+<div class="container">
+
+    <h2>Courses List</h2>
+
+    <ul>
+        {{#each courses}}
+            <li>{{title}}</li>
+            <small>[ <a href="/cursos/detalles/{{id}}">Ver detalles</a> ]</small>
+        {{/each}}
+    </ul>
+
+    {{#if isTA}}
+        <a href="/cursos/crear" role="button" class="btn btn-primary mr-4">Crear nuevo curso</a>
+    {{/if}}
+
+</div>

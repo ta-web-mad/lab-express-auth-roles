@@ -1,0 +1,31 @@
+<div class="container">
+
+    <h2>Detalles de {{course.title}}</h2>
+
+    <hr>
+
+    <ul>
+        <li>Título: {{course.title}}</li>
+        <li>Lead Teacher/s: 
+            {{#each course.leadTeacher}}
+                {{username}}
+            {{/each}}
+        </li>
+        <li>Estudiantes:
+            {{#each course.students}}
+                {{username}}
+            {{/each}}
+        </li>
+
+    </ul>
+
+    <br>
+
+    {{#if isTA}}
+        <a href="/cursos/editar/{{course.id}}" role="button" class="btn btn-primary mr-4">Editar curso</a>
+        <a href="/cursos/borrar/{{course.id}}" role="button" class="btn btn-danger mr-4">Eliminar curso</a>
+    {{/if}}
+
+    <a href="/cursos" role="button" class="btn btn-dark mr-4">Volver</a>
+
+</div>

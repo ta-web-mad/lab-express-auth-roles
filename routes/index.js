@@ -9,4 +9,8 @@ module.exports = app => {
   //Students Routes
 
   app.use("/estudiantes", require("./students.routes")); 
+
+  //Courses
+
+  app.use("/cursos", require("./courses.routes"))
 }
