@@ -28,7 +28,7 @@ router.post('/registro', (req, res) => {
 
       User
         .create({ username, password: hashPass })         
-        .then(() => res.redirect('/'))
+        .then(() => res.redirect('/iniciar-sesion'))
         .catch(err => console.log(err))
     })
     .catch(err => console.log(err))

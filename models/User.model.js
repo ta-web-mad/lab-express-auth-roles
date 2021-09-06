@@ -7,8 +7,15 @@ const userSchema = new Schema(
     name: String,
     password: String,
     profileImg: String,
-    description: String
+    description: String,
+
     // add roles setup here
+    role: {
+      type: String,
+      enum: ['STUDENT', 'TA', 'DEV', 'PM'],
+      default: 'STUDENT'
+    }
+    
   },
   {
     timestamps: true
