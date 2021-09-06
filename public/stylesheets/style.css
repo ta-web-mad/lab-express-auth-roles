@@ -42,3 +42,7 @@ h1, h2, h3 {
     bottom: -50px
   }
 }
+
+.student-profile-btn {
+  padding-left: 15px;
+}

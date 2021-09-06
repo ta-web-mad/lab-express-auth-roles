@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <h1>Edit {{student.username}}'s profile ({{student.name}})</h1>
+        <hr>
+        <br>
+
+        <form action="/students/{{id}}/edit" method="POST">
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{student.username}}">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{student.name}}">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" name="description" value="{{student.description}}">
+            </div>
+
+            <div class="form-group">
+                <label for="profileImg">Profile image's URL</label>
+                <input type="text" class="form-control" id="profileImg" name="profileImg" value="{{student.profileImg}}">
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role: </label>
+                <select name="role" id="role">
+                    <option value="STUDENT" selected>Student</option>
+                    <option value="DEV">DEV</option>
+                    <option value="TA">TA</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-dark btn-block">Edit profile</button>
+
+        </form>
+
+        {{#if errorMsg}}
+        <p id="errorMessage">{{errorMsg}}</p>
+        {{/if}}
+
+        <hr>
+        <br>
+        
+    </div>
+</div>

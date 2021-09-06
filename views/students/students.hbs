@@ -1,0 +1,11 @@
+<h1>Students</h1>
+<hr>
+
+<ul>
+    {{#each students}}
+    <li class="mb-3">
+        {{username}}
+        <a href="/students/{{id}}" class="btn btn-dark btn-sm ml-3">View student profile</a>
+    </li>
+    {{/each}}
+</ul>
