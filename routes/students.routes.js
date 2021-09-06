@@ -29,7 +29,7 @@ router.get('/:id', isLoggedIn, checkId, (req, res) => {
 
 
 // Delete student
-router.post('/:id/delete', isLoggedIn, checkRoles('PM'), (req, res)=> {
+router.post('/:id/delete', isLoggedIn, checkRoles('PM'), checkId, (req, res)=> {
 
   const { id } = req.params
 
@@ -41,7 +41,7 @@ router.post('/:id/delete', isLoggedIn, checkRoles('PM'), (req, res)=> {
 
 
 // Edit student profile: rendering
-router.get('/:id/edit', isLoggedIn, checkRoles('PM'), (req, res) => {
+router.get('/:id/edit', isLoggedIn, checkRoles('PM'), checkId, (req, res) => {
 
   const { id } = req.params
 
@@ -54,7 +54,7 @@ router.get('/:id/edit', isLoggedIn, checkRoles('PM'), (req, res) => {
 
 
 // Edit student profile: management
-router.post('/:id/edit', isLoggedIn, checkRoles('PM'), (req, res) => {
+router.post('/:id/edit', isLoggedIn, checkRoles('PM'), checkId, (req, res) => {
 
   const { id } = req.params
   const { username, name, profileImg, description, role } = req.body
@@ -67,7 +67,7 @@ router.post('/:id/edit', isLoggedIn, checkRoles('PM'), (req, res) => {
 
 
 // Mark student as DEV
-router.post('/:id/mark-dev', isLoggedIn, checkRoles('PM'), (req, res) => {
+router.post('/:id/mark-dev', isLoggedIn, checkRoles('PM'), checkId, (req, res) => {
 
   const { id } = req.params
   const { role } = req.body
@@ -80,7 +80,7 @@ router.post('/:id/mark-dev', isLoggedIn, checkRoles('PM'), (req, res) => {
 
 
 // Mark student as TA
-router.post('/:id/mark-ta', isLoggedIn, checkRoles('PM'), (req, res) => {
+router.post('/:id/mark-ta', isLoggedIn, checkRoles('PM'), checkId, (req, res) => {
 
   const { id } = req.params
   const { role } = req.body

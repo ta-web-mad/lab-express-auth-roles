@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const User = require("../models/User.model")
 const Course = require("../models/Course.model")
-const { isLoggedIn, checkRoles } = require("./../middleware")
+const { isLoggedIn, checkRoles, checkId } = require("./../middleware")
 
 
 // Courses list
@@ -50,7 +50,7 @@ router.post('/create', isLoggedIn, checkRoles('TA'), (req, res) => {
 
 
 // Course details
-router.get('/:id', isLoggedIn, checkRoles('TA'), (req, res) => {
+router.get('/:id', isLoggedIn, checkRoles('TA'), checkId, (req, res) => {
 
   const { id } = req.params
 
@@ -65,7 +65,7 @@ router.get('/:id', isLoggedIn, checkRoles('TA'), (req, res) => {
 
 
 // Delete course
-router.post('/:id/delete', isLoggedIn, checkRoles('TA'), (req, res) => {
+router.post('/:id/delete', isLoggedIn, checkRoles('TA'), checkId, (req, res) => {
 
   const { id } = req.params
 
@@ -77,7 +77,7 @@ router.post('/:id/delete', isLoggedIn, checkRoles('TA'), (req, res) => {
 
 
 // Edit course: rendering
-router.get('/:id/edit', isLoggedIn, checkRoles('TA'), (req, res) => {
+router.get('/:id/edit', isLoggedIn, checkRoles('TA'), checkId, (req, res) => {
 
   const { id } = req.params
   const users = User.find()
@@ -104,7 +104,7 @@ router.get('/:id/edit', isLoggedIn, checkRoles('TA'), (req, res) => {
 
 
 // Edit course: management
-router.post('/:id/edit', isLoggedIn, checkRoles('TA'), (req, res) => {
+router.post('/:id/edit', isLoggedIn, checkRoles('TA'), checkId, (req, res) => {
 
   const { id } = req.params
   const { title, leadTeacher, startDate, endDate, ta, description, courseImg, status, students } = req.body
