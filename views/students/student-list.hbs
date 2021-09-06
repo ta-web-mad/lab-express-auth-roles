@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h2>List of Students</h2>
+
+    <hr>
+
+    <ul>
+        <div class="row">
+
+            {{#each students}}
+
+                <div class="col-12 d-flex align-items-center mb-4">
+                    <li> {{username}} </li>
+                    <a href="/students/details/{{id}}" type="button" class="btn btn-dark ml-4">Check Details</a>
+                </div>
+
+            {{/each}}
+
+        </div>
+    </ul>
+
+</div>

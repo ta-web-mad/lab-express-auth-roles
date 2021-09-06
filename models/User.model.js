@@ -7,12 +7,17 @@ const userSchema = new Schema(
     name: String,
     password: String,
     profileImg: String,
-    description: String
-    // add roles setup here
+    description: String,
+    role: {
+      type: String,
+      enum: ["STUDENT", "DEV", "TA", "PM"],
+      default: "STUDENT"
+    }
   },
   {
     timestamps: true
   }
+
 );
 
 const User = mongoose.model('User', userSchema);
