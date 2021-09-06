@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h1>STUDENTS</h1>
+            {{#each users}}
+                <ol class="list-group list-group-numbered">
+                <li class="list-group-item">{{username}}</li>
+                {{#if ../isLogged}}
+                    <a href="/students/{{id}}"  class="btn btn-dark"> View profile</a>
+                {{/if}}
+                </ol>
+            {{/each}}
+        </div>
+    </div>
+</div>
