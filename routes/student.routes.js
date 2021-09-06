@@ -2,7 +2,7 @@ const User = require("../models/User.model")
 
 const router = require("express").Router()
 
-const { checkId, isLoggedIn, checkRoles } = require("../middleware")
+const { sameUser, isLoggedIn, checkRoles } = require("../middleware")
 
 
 // DISPLAY ALL STUDENTS (only names)
@@ -23,7 +23,7 @@ router.get('/:id', isLoggedIn, (req, res) => {
 
     User
     .findById(id)
-    .then(theStudent => res.render('students/student-profile', {theStudent, isPM: req.session.currentUser?.role === "PM"}))
+    .then(theStudent => res.render('students/student-profile', {theStudent, isPM: req.session.currentUser?.role === "PM", sameUser: req.session.currentUser?._id === req.params.id}))
     .catch(err => console.log(err))
 
 })
@@ -82,6 +82,31 @@ router.get('/:id/dev', isLoggedIn, checkRoles('PM'), (req, res) => {
     User
     .findByIdAndUpdate(id, {role: "DEV"})
     .then(res.redirect(`/students/${id}`))
+    .catch(err => console.log(err))
+})
+
+
+// STUDENTS CAN EDIT THEIR OWN PROFILES
+
+router.get('/:id/editme', isLoggedIn, sameUser, (req, res) => {
+
+    const { id } = req.params
+
+    User
+    .findById(id)
+    .then(theStudent => res.render('students/student-edit-own', {theStudent}))
+    .catch(err => console.log(err))
+  
+})
+
+
+router.post('/:id/editme', isLoggedIn, sameUser, (req, res) => {
+
+    const { id, username, role } = req.body
+
+    User
+    .findByIdAndUpdate(id, {username, role})
+    .then(res.redirect('/students/'))
     .catch(err => console.log(err))
 })
 
