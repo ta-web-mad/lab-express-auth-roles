@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <h1>Edit my profile</h1>
+        <hr>
+        <br>
+
+        <form action="/edit-profile" method="POST">
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{user.username}}">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{user.name}}">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" name="description" value="{{user.description}}">
+            </div>
+
+            <div class="form-group">
+                <label for="profileImg">Profile image's URL</label>
+                <input type="text" class="form-control" id="profileImg" name="profileImg" value="{{user.profileImg}}">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Save changes</button>
+
+        </form>
+
+        {{#if errorMsg}}
+        <p id="errorMessage">{{errorMsg}}</p>
+        {{/if}}
+
+        <hr>
+        <a href="/profile" class="btn btn-dark">Go back</a>
+        <br>
+        
+    </div>
+</div>

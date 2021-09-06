@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <h1>Create new course</h1>
+        <hr>
+        <br>
+
+        <form action="/courses/create" method="POST">
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{course.title}}">
+            </div>
+
+            <div class="form-group">
+                <label for="leadTeacher">Lead Teacher:</label>
+                <br>
+                <select name="leadTeacher" id="leadTeacher" multiple>
+                    {{#each devs}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="startDate">Start date</label>
+                <input type="date" class="form-control" id="startDate" name="startDate" value="{{course.startDate}}">
+            </div>
+
+            <div class="form-group">
+                <label for="endDate">End date</label>
+                <input type="date" class="form-control" id="endDate" name="endDate" value="{{course.endDate}}">
+            </div>
+
+            <div class="form-group">
+                <label for="ta">TA:</label>
+                <br>
+                <select name="ta" id="ta" multiple>
+                    {{#each tas}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" name="description" value="{{course.description}}">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select name="status" id="status">
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="students">Students:</label>
+                <br>
+                <select name="students" id="students" multiple>
+                    {{#each students}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="courseImg">Course image's URL</label>
+                <input type="text" class="form-control" id="courseImg" name="courseImg" value="{{course.courseImg}}">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Create course</button>
+
+        </form>
+
+        {{#if errorMsg}}
+        <p id="errorMessage">{{errorMsg}}</p>
+        {{/if}}
+
+        <hr>
+        <a href="/courses" class="btn btn-dark">Go back</a>
+        <br>
+        
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<h1>My profile</h1>
+<hr>
+
+{{#if user.profileImg}}
+<img src="{{user.profileImg}}" alt="{{user.username}} profile picture">
+{{/if}}
+<h2>{{user.name}}</h2>
+<p>{{user.description}}</p>
+
+<hr>
+<div class="row student-profile-btn">
+
+    <a href="/edit-profile" class="btn btn-primary btn-sm">Edit my profile</a>
+
+    <form action="/delete-profile" method="POST">
+        <button type="submit" class="btn btn-danger btn-sm ml-2">Delete my profile</button>
+    </form>
+
+</div>
+<hr>
+
+<a href="/" class="btn btn-dark">Go to homepage</a>

@@ -1,0 +1,32 @@
+<h1>{{student.username}} profile</h1>
+<hr>
+
+{{#if student.profileImg}}
+<img src="{{student.profileImg}}" alt="{{student.username}} profile picture">
+{{/if}}
+<h2>{{student.name}}</h2>
+<p>{{student.description}}</p>
+
+<hr>
+<div class="row student-profile-btn">
+    {{#if isPM}}
+
+        <a href="/students/{{id}}/edit" class="btn btn-primary btn-sm">Edit student</a>
+
+        <form action="/students/{{id}}/delete" method="POST">
+            <button type="submit" class="btn btn-danger btn-sm ml-2">Delete student</button>
+        </form>
+
+        <form action="/students/{{id}}/mark-dev" method="POST">
+            <button type="submit" name="role" value="DEV" class="btn btn-warning btn-sm ml-2">Mark as DEV</button>
+        </form>
+
+        <form action="/students/{{id}}/mark-ta" method="POST">
+            <button type="submit" name="role" value="TA" class="btn btn-warning btn-sm ml-2">Mark as TA</button>
+        </form>
+
+    {{/if}}
+</div>
+<hr>
+
+<a href="/students" class="btn btn-dark">Go back</a>
