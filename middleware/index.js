@@ -8,7 +8,7 @@ module.exports = {
         mongoose.Types.ObjectId.isValid(req.params.id) ? next() : res.redirect('/')
     },
     checkRoles: (...roles) => (req, res, next) => {
-        roles.includes(req.session.currentUser.role) ? next() : res.render('auth/login', { errorMsg: 'No tienes permisos' })
+        roles.includes(req.session.currentUser?.role) ? next() : res.render('auth/login', { errorMsg: 'No tienes permisos' })
     },
     sameUser: (req, res, next) => {
         req.session.currentUser?._id === req.params.id ? next() : res.redirect('/students?error')

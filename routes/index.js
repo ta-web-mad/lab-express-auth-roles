@@ -10,5 +10,9 @@ module.exports = app => {
 
   // Student routes
   const studentRoutes = require("./student.routes");
-  app.use("/students", studentRoutes)
+  app.use("/students", studentRoutes);
+
+  // Courses routes
+  const coursesRoutes = require("./courses.routes");
+  app.use("/courses", coursesRoutes);
 }
