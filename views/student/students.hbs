@@ -1,0 +1,31 @@
+<h1>Estudiantes</h1>
+<table class="table container justify-content-center">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#user}}
+        <tr>
+            <th scope="row">1</th>
+            <td>{{username}}</td>
+            <td>
+                <a href="/estudiantes/{{id}}" class="btn btn-success">Detalles</a>
+            </td>
+            <td>
+                <a href="/estudiantes/userEdit/{{id}}" class="btn btn-success">Editar</a>
+            </td>
+            {{#if ../isPM}}
+            <td>
+                <a href="/estudiantes/edit/{{id}}" class="btn btn-primary">Editar</a>
+            </td>
+            <td>
+                <a href="#" class="btn btn-danger">Eliminar</a>
+            </td>
+            {{/if}}
+        </tr>
+        {{/user}}
+    </tbody>
+</table>
