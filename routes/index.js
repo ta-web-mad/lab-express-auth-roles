@@ -8,5 +8,5 @@ module.exports = app => {
 
   //Students Routes
 
-  app.use("/students", require("./students.routes")); 
+  app.use("/estudiantes", require("./students.routes")); 
 }
