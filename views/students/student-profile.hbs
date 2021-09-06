@@ -1,0 +1,14 @@
+<div class='container'><h1>This is
+    {{student.username}}'s nice profile page!</h1>
+
+  {{#if isPM}}<a
+      href='/students/{{student.id}}/edit'
+      type='button'
+      class='btn btn-warning'
+    >Edit profile</a>
+
+    <a
+      href='/students/{{student.id}}/delete'
+      type='button'
+      class='btn btn-danger'
+    >Delete profile</a>{{/if}}</div>
