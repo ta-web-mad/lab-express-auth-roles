@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/students/{{theStudent._id}}/edit" method="POST">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id" name="id" value="{{theStudent._id}}">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{theStudent.username}}">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control" id="role" name="role" value="{{theStudent.role}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
