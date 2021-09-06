@@ -1,0 +1,19 @@
+<h1>Courses</h1>
+<hr>
+
+<ul>
+    {{#each courses}}
+    <li class="mb-3">
+        
+        <a href="/courses/{{id}}">{{title}}</a>
+        <div class="row">
+            <a href="/courses/{{id}}/edit" class="btn btn-primary btn-sm">Edit course</a>
+            <form action="/courses/{{id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger btn-sm ml-2">Delete course</button>
+            </form>
+        </div>
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/courses/create" class="btn btn-primary">Create new course</a>

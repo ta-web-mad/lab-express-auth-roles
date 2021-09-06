@@ -1,0 +1,41 @@
+<h1>{{course.title}}</h1>
+<hr>
+
+<img src="{{course.courseImg}}" alt="{{course.title}} course image">
+
+<p class="font-weight-bold">Lead Teacher:</p>
+<ul>
+    {{#each course.leadTeacher}}
+        <li>{{this.name}}</li>
+    {{/each}}
+</ul>
+
+<p class="font-weight-bold">Start Date:</p>
+<p>{{course.startDate}}</p>
+
+<p class="font-weight-bold">End Date:</p>
+<p>{{course.endDate}}</p>
+
+<p class="font-weight-bold">TA:</p>
+<ul>
+    {{#each course.ta}}
+        <li>{{this.name}}</li>
+    {{/each}}
+</ul>
+
+<p class="font-weight-bold">Description:</p>
+<p>{{course.description}}</p>
+
+<p class="font-weight-bold">Status:</p>
+<p>{{course.status}}</p>
+
+<p class="font-weight-bold">Students:</p>
+<ul>
+    {{#each course.students}}
+        <li>{{this.name}}</li>
+    {{/each}}
+</ul>
+
+<hr>
+
+<a href="/courses" class="btn btn-dark">Go back</a>
