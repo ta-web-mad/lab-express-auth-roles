@@ -34,7 +34,7 @@ router.post('/:id/delete', isLoggedIn, checkRoles('PM'), (req, res)=> {
 
   User
     .findByIdAndRemove(id)
-    .then(res.redirect('/students'))
+    .then(() => res.redirect('/students'))
     .catch(err => console.log(err))
 })
 
@@ -61,6 +61,32 @@ router.post('/:id/edit', isLoggedIn, checkRoles('PM'), (req, res) => {
   User
     .findByIdAndUpdate(id, { username, name, profileImg, description, role }, { new: true })
     .then(user => user.role === 'STUDENT' ? res.redirect(`/students/${id}`) : res.redirect('/students'))
+    .catch(err => console.log(err))
+})
+
+
+// Mark student as DEV
+router.post('/:id/mark-dev', isLoggedIn, checkRoles('PM'), (req, res) => {
+
+  const { id } = req.params
+  const { role } = req.body
+
+  User
+    .findByIdAndUpdate(id, { role }, { new: true })
+    .then(() => res.redirect('/students'))
+    .catch(err => console.log(err))
+})
+
+
+// Mark student as TA
+router.post('/:id/mark-ta', isLoggedIn, checkRoles('PM'), (req, res) => {
+
+  const { id } = req.params
+  const { role } = req.body
+
+  User
+    .findByIdAndUpdate(id, { role }, { new: true })
+    .then(() => res.redirect('/students'))
     .catch(err => console.log(err))
 })
 
