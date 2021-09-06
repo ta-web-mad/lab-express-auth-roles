@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2>Name:</h2>
+            <p>{{theStudent.username}}</p>
+            <hr>
+            <h2>Role:</h2>
+            <p>{{theStudent.role}}</p>
+        </div>
+    </div>
+
+    {{#if sameUser}}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <a class="btn btn-warning" href="/students/{{theStudent._id}}/editme">Edit my profile</a>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if isPM}}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <a class="btn btn-warning" href="/students/{{theStudent._id}}/edit">Edit Student</a>
+            <a class="btn btn-danger" href="/students/{{theStudent._id}}/delete">Delete Student</a>
+            <a class="btn btn-danger" href="/students/{{theStudent._id}}/dev">Mark as DEV</a>
+            <a class="btn btn-danger" href="/students/{{theStudent._id}}/ta">Mark as TA</a>
+        </div>
+    </div>
+    {{/if}}
+</div>
