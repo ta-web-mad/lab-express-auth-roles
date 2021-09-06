@@ -1,0 +1,32 @@
+
+<div class="container">
+    <h1>Listado de estudiantes</h1>
+
+
+    <hr>
+
+
+    {{#each theStudents}}
+    
+
+    <p>{{username}} </p>
+    
+    <a href="/students/{{id}}" class="btn btn-dark">Ver perfil</a> -
+
+    {{#if ../isPM}}
+    <a href="/students/editar/{{id}}" class="btn btn-dark">Editar perfil</a> -
+    <a href="/students/delete/{{id}}" class="btn btn-dark">Eliminar perfil</a> -
+    <a href="/students/desarrollador/{{id}}" class="btn btn-dark">Role</a> -
+    {{/if}}
+
+    {{/each}}
+    
+    <hr style="opacity: .5;">
+
+
+    <a href="/" class="btn btn-dark">Volver</a> 
+
+    
+</div>
+
+

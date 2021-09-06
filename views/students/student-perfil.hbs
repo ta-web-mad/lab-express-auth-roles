@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Perfil de estudiantes</h1>
+    <hr>
+    {{!-- {{#if isLogged}}
+    <a href="/libros/crear" class="btn btn-dark">Crear nuevo libro (solo logueados)</a>
+    {{/if}}
+
+
+    {{#if isPM}}
+    <a href="#" class="btn btn-warning">Eliminar todos (solo PM!)</a>
+    {{/if}} --}}
+
+
+    <h3>Nombre de estudiante: {{username}}</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            Role - {{role}}
+            
+        </div>
+        <div class="col-md-6">
+            Id - {{id}}
+         
+        </div>
+    </div>
+
+    
+ 
+    <hr style="opacity: .5;">
+
+
+    
+    <a href="/estudiantes" class="btn btn-dark">Volver</a> 
+
+    <a href="/students/editar/{{id}}" class="btn btn-dark">Editar perfil</a> 
+    
+</div>

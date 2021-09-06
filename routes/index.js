@@ -1,4 +1,6 @@
 module.exports = app => {
+
+  
   
   // Base routes
   const baseRoutes = require("./base.routes");
@@ -7,4 +9,9 @@ module.exports = app => {
   // Auth routes
   const authRoutes = require("./auth.routes");
   app.use("/", authRoutes); 
+
+  const studenRoutes = require("./students.routes");
+  app.use("/", studenRoutes);
+
+
 }
