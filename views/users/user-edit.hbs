@@ -1,0 +1,44 @@
+<div class="container">
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4">
+
+            <h1>Edición de usuario</h1>
+            <br>
+            <hr>
+            <br>
+
+            <form action="/students/edit/{{id}}" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input value="{{username}}" type="text" class="form-control" id="username" name="username">
+                </div>
+
+                {{#if isPM}}
+                  <div class="form-group">
+                    <label for="role">Role: </label>
+                    <select class="form-control" id="role" name="role">
+                        <option name="STUDENT">STUDENT</option>
+                        <option name="DEV">DEV</option>
+                        <option name="TA">TA</option>
+                    </select>
+                </div>
+                {{/if}}
+                <button type="submit" class="btn btn-dark btn-block">Editar</button>
+            </form>
+
+            {{#if errorMsg}}
+            <p id="errorMessage">{{errorMsg}}</p>
+            {{/if}}
+
+            <hr>
+
+           
+            
+        </div>
+    </div>
+
+
+</div>
