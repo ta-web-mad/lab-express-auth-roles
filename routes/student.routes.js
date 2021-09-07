@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
-const { isLoggedIn, checkRoles } = require('../middleware')
-const { userIsPM, userIsDEV} = require('../utils')
+const { isLoggedIn, checkRoles, isSameUser} = require('../middleware')
+const { userIsPM } = require('../utils')
 
 const User = require('../models/User.model')
 
@@ -9,7 +9,7 @@ const User = require('../models/User.model')
 router.get('/estudiantes', isLoggedIn, (req, res) => {
 
   User
-  .find()
+  .find( {role: "STUDENT"} )
   .then(user =>  res.render('./student/list-student', { user }))
   .catch(err => console.log(err))
   
@@ -24,7 +24,7 @@ router.get('/estudiantes/:id', isLoggedIn, (req, res) => {
 
   User
   .findById( id )
-  .then(theStudent => res.render('./student/details-student', {theStudent, isPM}))
+  .then(theStudent => res.render('./student/details-student', {theStudent, isPM, myUser: req.session.currentUser?._id === req.params.id}))
   .catch(err => console.log(err))
 
 })
@@ -65,12 +65,70 @@ router.get('/estudiantes/:id/editar', isLoggedIn, checkRoles('PM'), (req, res) =
 router.post('/estudiantes/:id/editar', isLoggedIn, checkRoles('PM'), (req, res) => {
 
   const { id } = req.params
-  console.log("hola que tal? tengo el control?", id)
-  const { username, name, description, role } = req.body
-  console.log({ username, name, description, role } )
+  //console.log("hola que tal? tengo el control?", id)
+  const { username, name, description } = req.body
+  //console.log({ username, name, description } )
 
   User
-    .findByIdAndUpdate(id, { username, name, description, role }, { new: true })
+    .findByIdAndUpdate(id, { username, name, description }, { new: true })
+    .then(theStudent => res.redirect(`/estudiantes/${theStudent._id}`))
+    .catch(err => console.log(err))
+
+})
+
+//BOTON para cambiar a TA
+
+router.post('/estudiantes/:id/TA', isLoggedIn,checkRoles('PM'), (req,res)=> {
+
+  const { id } = req.params
+
+  console.log("estoy entrando")
+
+  User
+  .findByIdAndUpdate(id, {role: "TA"}, {new:true})
+  .then(res.redirect(`/estudiantes/${id}`))
+  .catch(err => console.log(err))
+
+
+})
+
+//BOTON para cambiar a DEV
+
+router.post('/estudiantes/:id/DEV', isLoggedIn,checkRoles('PM'), (req,res)=> {
+
+  const { id } = req.params
+
+  console.log("estoy entrando")
+
+  User
+  .findByIdAndUpdate(id, {role: "DEV"}, {new:true})
+  .then(res.redirect(`/estudiantes/${id}`))
+  .catch(err => console.log(err))
+
+})
+
+router.get('/estudiantes/:id/editar-perfil', isLoggedIn, isSameUser,  (req, res) => {
+
+  const { id } = req.params
+
+  console.log("no ARRIESGOOOOOOO _----- ", id)
+
+  User
+  .findById(id)
+  .then(student => res.render('./student/edit-myprofile', student))
+  .catch(err => console.log(err))
+
+})
+
+router.post('/estudiantes/:id/editar-perfil', isLoggedIn, isSameUser, (req, res) => {
+
+  const { id } = req.params
+  console.log("hola que tal? tengo el control?", id)
+  const { username, name, description } = req.body
+  //console.log({ username, name, description } )
+
+  User
+    .findByIdAndUpdate(id, { username, name, description }, { new: true })
     .then(theStudent => res.redirect(`/estudiantes/${theStudent._id}`))
     .catch(err => console.log(err))
 
