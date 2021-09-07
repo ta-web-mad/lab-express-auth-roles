@@ -1,0 +1,37 @@
+<div class="container">
+
+    <h1>Editar {{username}}</h1>
+    {{#if isPM}}
+    <a href="#" class="btn btn-warning">(solo PM!)</a>
+    {{/if}}
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/students/{{_id}}/edit" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+                </div>
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+                </div>
+                <div class="form-group">
+                    <label for="profileImg">Foto de perfil</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg" value="{{profileImg}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{description}}">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control" id="role" name="role" value="{{role}}">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Guardar edición</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <a href="/students" class="btn btn-dark">Volver</a>
+</div>
