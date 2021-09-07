@@ -22,7 +22,19 @@ h1, h2, h3 {
   text-align: center;
   animation: showFromBottom 6s forwards;
 }
+  
 
+
+
+
+.btn-danger{
+
+    display: block;
+    width: 220px;
+    margin: 0 auto;
+    height: 50px;
+    padding-top: 15px;
+ }
 
 @keyframes  showFromBottom {
   0% {
