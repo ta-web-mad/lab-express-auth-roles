@@ -3,13 +3,13 @@ const bcrypt = require('bcrypt')
 const User = require("../models/User.model")
 
 // Signup
-router.get('/registro', (req, res) => res.render('auth/signup'))
-router.post('/registro', (req, res) => {
+router.get('/register', (req, res) => res.render('auth/signup'))
+router.post('/register', (req, res) => {
 
   const { username, userPwd } = req.body
 
   if (userPwd.length === 0 || username.length === 0) {      
-    res.render('auth/signup-form', { errorMsg: 'Rellena todos los campos' })
+    res.render('auth/signup-form', { errorMsg: 'Fill all the fields' })
     return
   }
 
@@ -18,7 +18,7 @@ router.post('/registro', (req, res) => {
     .then(user => {
 
       if (user) {                  
-        res.render('auth/signup', { errorMsg: 'Usuario ya registrado' })
+        res.render('auth/signup', { errorMsg: 'User already registered' })
         return
       }
 
@@ -37,13 +37,13 @@ router.post('/registro', (req, res) => {
 
 
 // Login
-router.get('/iniciar-sesion', (req, res) => res.render('auth/login'))
-router.post('/iniciar-sesion', (req, res) => {
+router.get('/log-in', (req, res) => res.render('auth/login'))
+router.post('/log-in', (req, res) => {
 
   const { username, userPwd } = req.body
 
   if (userPwd.length === 0 || username.length === 0) {     
-    res.render('auth/login', { errorMsg: 'Rellena los campos' })
+    res.render('auth/login', { errorMsg: 'Fill all the fields' })
     return
   }
 
@@ -52,12 +52,12 @@ router.post('/iniciar-sesion', (req, res) => {
     .then(user => {
 
       if (!user) {
-        res.render('auth/login', { errorMsg: 'Usuario no reconocido' })
+        res.render('auth/login', { errorMsg: 'User not found' })
         return
       }
 
       if (bcrypt.compareSync(userPwd, user.password) === false) {
-        res.render('auth/login', { errorMsg: 'Contraseña incorrecta' })
+        res.render('auth/login', { errorMsg: 'Wrong password' })
         return
       }
 
@@ -70,7 +70,7 @@ router.post('/iniciar-sesion', (req, res) => {
 
 
 // Logout
-router.get('/cerrar-sesion', (req, res) => {
+router.get('/log-out', (req, res) => {
   req.session.destroy(() => res.redirect('/'))
 })
 
