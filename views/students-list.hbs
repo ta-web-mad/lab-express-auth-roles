@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>Listado de Estudiantes</h1>
+
+    {{#each students}}
+    <p>   {{username}} <small>- [<a href="/estudiantes/{{id}}">Ver Perfil</a>]</small></p>
+    <hr style="opacity: .5;">
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>
+
+    {{#if isPM}}
+    <a href="/estudiantes/editar" class="btn btn-dark">Edit Student</a>
+    <a href="/estudiantes/eliminar" class="btn btn-dark">Delete Student</a>
+    {{/if}}
+
+    <hr>
+
+
+    {{#each books}}
+
+    <p>
+        {{title}}
+        <small>- {{author}} -
+            [<a href="/estudiantes/perfil/{{id}}">ver detalles</a>]
+
+            {{#if ../isPM}}
+            [<a href="/estudiantes/editar?student_id={{id}}">editar</a>]
+            {{/if}}
+
+
+        </small>
+    </p>
+
+    <hr style="opacity: .5;">
+
+    {{/each}}
+
+</div>
