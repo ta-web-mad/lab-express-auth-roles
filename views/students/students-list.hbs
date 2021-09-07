@@ -1,0 +1,32 @@
+<div class="container text-center">
+    <h1>Listado de estudiantes</h1>
+
+    
+
+    <hr>
+
+
+    {{#each user}}
+    <p>
+        {{username}}   
+        <br> 
+        
+        <button  type="button" class="btn btn-dark "> <a  href="/students/details/{{id}}">View students profile</a></button>  
+        <br>   
+
+        
+              
+          <a href="./students/edit/{{id}}">edit</a> 
+          <br>
+          <a class="btn-danger">DELETE</a>   
+     
+
+        </small>
+    </p>
+
+    <hr style="opacity: .5;">
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>
