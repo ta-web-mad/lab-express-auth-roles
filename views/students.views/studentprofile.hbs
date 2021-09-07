@@ -1,0 +1,16 @@
+<h1>Perfil de {{theStudent.username}}</h1>
+
+
+{{#if isPM}}
+<form action="/student/profile/{{theStudent.id}}/delete" method="POST">
+    <button type="submit" class="btn btn-dark btn-block">Eliminar estudiante</button>
+</form>
+<br>
+<form action="/student/profile/{{theStudent.id}}/edit" method="GET">
+    <button type="submit" class="btn btn-dark btn-block">Editar estudiante</button>
+</form>
+
+<a href="/student/profile/{{theStudent.id}}/TA">Cambiar rol a TA</a>
+<br>
+<a href="/student/profile/{{theStudent.id}}/DEV">Cambiar rol a DEV</a>
+{{/if}}

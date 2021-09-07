@@ -1,0 +1,14 @@
+<div>
+    <h1>Estudiantes</h1>
+
+    <ul>
+        {{#each theStudents}}
+        <li>{{username}}
+            {{#if ../isLogged}}
+            <a href="/student/profile/{{id}}">Ver perfil</a>
+            {{/if }}
+        </li>
+
+        {{/each}}
+    </ul>
+</div>
