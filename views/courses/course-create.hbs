@@ -1,0 +1,85 @@
+<div class="container">
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4">
+
+            <h1>Creación de curso</h1>
+            <br>
+            <br>
+            <hr>
+            <br>
+
+            <form action="/cursos/create" method="POST">
+                <div class="form-group">
+                    <label for="username">Title</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="password">Fecha de inicio</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate">
+                </div>
+                <div class="form-group">
+                    <label for="password">Fecha de fin</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Imagen</label>
+                    <input type="text" class="form-control" id="courseImg" name="courseImg">
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Descripción" id="floatingTextarea"
+                        name="description"></textarea>
+                    {{!-- <label for="floatingTextarea">Descripción</label> --}}
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="flexRadioDefault1" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Empezado
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Por empezar
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block">Crear curso</button>
+            </form>
+
+            {{#if errorMsg}}
+            <p id="errorMessage">{{errorMsg}}</p>
+            {{/if}}
+
+            <hr>
+
+
+        </div>
+        <div class="col-md-6 mt-2">
+            <br>
+            <br>
+            <br>
+            <br>
+            <hr>
+            <br>
+            <ul class="form-select">
+
+                <select class="form-select" aria-label=" multiple select example" name="username">
+                    {{#each users}}
+                    <option value="1">
+                        {{username}}
+                    </option>
+                    {{/each}}
+                </select>
+
+            </ul>
+
+        </div>
+    </div>
+
+
+</div>
