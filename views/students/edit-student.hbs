@@ -1,0 +1,72 @@
+<div class="container">
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <h1>Edit User</h1>
+            <br>
+            <hr>
+            <br>
+
+            <form action="/students/{{id}}/edit" method="POST">
+
+                {{!-- Username --}}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+                </div>
+
+                {{!-- Name --}}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+                </div>
+
+                {{!-- Avatar --}}
+                <div class="form-group">
+                    <label for="profileImg">Image Url</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg" value="{{profileImg}}">
+                </div>
+
+                {{!-- Role --}}
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select name="role" id="role">
+                        <option value="STUDENT">Student</option>
+                        <option value="TA">Teacher Assistant</option>
+                        <option value="DEV">Developer</option>
+                    </select>
+                </div>
+
+                {{!-- Description --}}
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+
+                {{!-- Buttons --}}
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <a href="/students/{{id}}" class="btn btn-dark btn-block">CANCEL</a>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-info btn-block">DONE</button>
+
+                    </div>
+                </div>
+
+            </form>
+
+            {{#if errorMsg}}
+            <p id="errorMessage">{{errorMsg}}</p>
+            {{/if}}
+
+            <hr>
+
+        </div>
+    </div>
+
+
+</div>

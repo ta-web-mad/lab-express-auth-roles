@@ -1,0 +1,52 @@
+<div class="container">
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <h1>Edit User</h1>
+            <br>
+            <hr>
+            <br>
+
+            <form action="/my-profile/edit/{{id}}" method="POST">
+
+                {{!-- Username --}}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+                </div>
+
+                {{!-- Name --}}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+                </div>
+
+                {{!-- Avatar --}}
+                <div class="form-group">
+                    <label for="profileImg">Image Url</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg" value="{{profileImg}}">
+                </div>
+
+                {{!-- Description --}}
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block">DONE</button>
+            </form>
+
+            {{#if errorMsg}}
+            <p id="errorMessage">{{errorMsg}}</p>
+            {{/if}}
+
+            <hr>
+
+        </div>
+    </div>
+
+
+</div>

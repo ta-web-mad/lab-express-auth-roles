@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="mt-5">STUDENTS</h2>
+            <hr class="mt-5 mb-5">
+            <ul class="list-group">
+                {{#each users}}
+                <li class="list-group-item text-decoration-none bg-dark text-white mb-3 text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            {{username}}
+                        </div>
+                        <div class="col-md-6">
+                            <span class="ml-5"><a href="/students/{{id}}" class="btn btn-info">More info</a></span>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
