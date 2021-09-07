@@ -1,0 +1,13 @@
+<div class="container d-flex justify-content-center">
+    <div class="col-4">
+        <h1 class="text-center">Students List</h1>
+        <hr>
+        <br>
+        {{#each user}}
+        <div class="row d-flex justify-content-between">
+            <p class="text-center">{{username}}</p>
+            <a href="/students/{{_id}}">View profile</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <h4>{{user.username}}'s profile</h4>
+    </div>
+</div>
+<hr>
+<div class="container d-flex justify-content-center">
+ 
+    <div class="row mt-5 mb-5">
+        {{#if profileImg}}
+        <div class="col-4">
+            <img class="mt-3 mb-3" style="width: 100%" src="{{profileImg}}" alt="Profile picture">
+        </div>
+        {{/if}}
+        <div class="col-8">
+            <p>Username: {{user.username}}</p>
+            <p>Name: {{user.name}}</p>
+            <p>Description: {{user.description}}</p>
+        </div>
+    </div>
+</div>
+    <div class="row d-flex justify-content-center">
+        <a class="mr-4 btn btn-outline-dark" href="/students">Go back</a>
+        {{#if isPM }}
+        <a class="mr-2 btn btn-primary" href="/students/{{user.id}}/edit-profile">Edit</a>
+        <form class="justify-content-center" action="/students/{{user.id}}/delete" method="POST">
+            <button type="submit" class="btn btn-danger ml-3">Delete profile</button>
+        </form>
+        {{/if}}
+    </div>

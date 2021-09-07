@@ -5,22 +5,22 @@
 
         <div class="col-md-4">
 
-            <h1>Registro de usuario</h1>
+            <h1>Sign Up</h1>
             <br>
             <hr>
             <br>
 
-            <form action="/registro" method="POST">
+            <form action="/register" autocomplete="off" method="POST">
                 <div class="form-group">
-                    <label for="username">Nombre de usuario</label>
+                    <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username">
                 </div>
                 <div class="form-group">
-                    <label for="password">Contraseña</label>
+                    <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="userPwd">
                 </div>
 
-                <button type="submit" class="btn btn-dark btn-block">Registrarme</button>
+                <button type="submit" class="btn btn-dark btn-block">Register</button>
             </form>
 
             {{#if errorMsg}}
@@ -29,7 +29,7 @@
 
             <hr>
 
-            <p>¿Ya estás registrad@? <a href="/iniciar-sesion">Inicia sesión</a>.</p>
+            <p>Already registered? <a href="/log-in">Sign in</a>.</p>
             
         </div>
     </div>
