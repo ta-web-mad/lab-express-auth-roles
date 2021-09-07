@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const { isLoggedIn, checkRoles, checkIfCurrUser, checkIfCurrUserOrPM } = require("../middleware")
+const { isLoggedIn, checkRoles, checkIfCurrUser, checkIfCurrUserOrPM, checkId } = require("../middleware")
 const {isRole} = require("../utils")
 const User = require("../models/User.model")
 
@@ -19,7 +19,7 @@ router.get("/", isLoggedIn, (req, res) => {
     .catch((err) => console.log(err))
 })
 
-router.get("/detalles/:id", isLoggedIn, (req, res) => {
+router.get("/detalles/:id", checkId, isLoggedIn, (req, res) => {
 
     const { id } = req.params
 
@@ -37,7 +37,7 @@ router.get("/detalles/:id", isLoggedIn, (req, res) => {
     .catch((err) => console.log(err))
 })
 
-router.post("/borrar/:id", checkRoles("PM"), (req, res) => {
+router.post("/borrar/:id", checkId, checkRoles("PM"), (req, res) => {
     const { id } = req.params
 
     User
@@ -49,7 +49,7 @@ router.post("/borrar/:id", checkRoles("PM"), (req, res) => {
     
 })
 
-router.get("/editar/:id", checkRoles("PM", "STUDENT"), checkIfCurrUserOrPM,  (req, res) => {
+router.get("/editar/:id", checkId, checkRoles("PM", "STUDENT"), checkIfCurrUserOrPM,  (req, res) => {
   const { id } = req.params
   
     User
@@ -65,7 +65,7 @@ router.get("/editar/:id", checkRoles("PM", "STUDENT"), checkIfCurrUserOrPM,  (re
 
 })
 
-router.post("/editar/:id", checkRoles("PM"), (req, res) => {
+router.post("/editar/:id", checkId, checkRoles("PM"), (req, res) => {
     const { id } = req.params
     const { username, name, profileImg, description, role } = req.body
 
@@ -76,7 +76,7 @@ router.post("/editar/:id", checkRoles("PM"), (req, res) => {
     .catch((err) => console.log(err))
 }) 
 
-router.post("/cambio-rol/:id/",  checkRoles("PM"), (req, res) => {
+router.post("/cambio-rol/:id/", checkId, checkRoles("PM"), (req, res) => {
 
     const { id } = req.params
     const { role } = req.query

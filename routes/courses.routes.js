@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const Course = require("../models/Course.model")
-const { isLoggedIn, checkRoles } = require("../middleware")
+const { isLoggedIn, checkRoles, checkId } = require("../middleware")
 const { isRole, formatDate } = require("../utils")
 const User = require("../models/User.model")
 
@@ -55,7 +55,7 @@ router.post('/crear', checkRoles("TA"), (req, res) => {
       .catch(err => console.log(err))
 })
 
-router.get('/detalles/:id', isLoggedIn, (req, res) => {
+router.get('/detalles/:id', checkId, isLoggedIn, (req, res) => {
     const { id } = req.params
 
     Course
@@ -74,7 +74,7 @@ router.get('/detalles/:id', isLoggedIn, (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.get('/editar/:id', checkRoles("TA"), (req, res) => {
+router.get('/editar/:id', checkId, checkRoles("TA"), (req, res) => {
 
     const { id } = req.params
 
@@ -101,7 +101,7 @@ router.get('/editar/:id', checkRoles("TA"), (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.post('/editar/:id', checkRoles("TA"), (req, res) => {
+router.post('/editar/:id', checkId, checkRoles("TA"), (req, res) => {
 
     const { id } = req.params
     const { title, leadTeacher, startData, endDate, ta, courseImg, description, status, students } = req.body
@@ -112,7 +112,7 @@ router.post('/editar/:id', checkRoles("TA"), (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.get("/borrar/:id", checkRoles("TA"), (req, res) => {
+router.get("/borrar/:id", checkId, checkRoles("TA"), (req, res) => {
     const { id } = req.params
 
     Course
