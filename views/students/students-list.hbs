@@ -12,12 +12,14 @@
         <br> 
         
         <button  type="button" class="btn btn-dark "> <a  href="/students/details/{{id}}">View students profile</a></button>  
-        <br>  
-      
+        <br>   
+
+        {{#if ../isPM}}
+              
           <a href="./students/edit/{{id}}">edit</a> 
           <br>
           <a class="btn-danger">DELETE</a>   
-       
+       {{/if}}
 
         </small>
     </p>

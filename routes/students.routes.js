@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router = require("express").Router();  
 const User = require("../models/User.model");
 const { checkId, isLoggedIn, checkRoles } = require("../middleware");
 
@@ -27,11 +27,12 @@ router.get("/details/:id", isLoggedIn,  (req, res, next) => {
 
 
 
-router.get("/edit/:user_id", isLoggedIn, checkRoles('PM'), (req, res) => {
-    const { user_id } = req.params; 
+router.get("/edit/:user_id", isLoggedIn, checkRoles("PM"), (req, res) => {
+    const { user_id } = req.params;   
+    console.log(req.session.currentUser);
     User
        .findById(user_id)
-       .then(user => res.render("./students/edit-students", user))
+        .then(user => res.render("./students/edit-students", { user, isPM: req.session.currentUser === 'PM'})) 
        .catch(err => console.log(err))
 })
 

@@ -61,7 +61,8 @@ router.post('/iniciar-sesion', (req, res) => {
         return
       }
 
-      req.session.currentUser = user
+      req.session.currentUser = user 
+
       res.redirect('/')
     })
     .catch(err => console.log(err))
