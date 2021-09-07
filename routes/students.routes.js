@@ -1,5 +1,6 @@
 const router = require("express").Router()
 const { isLoggedIn, checkRoles, checkIfCurrUser, checkIfCurrUserOrPM } = require("../middleware")
+const {isRole} = require("../utils")
 const User = require("../models/User.model")
 
 
@@ -28,8 +29,8 @@ router.get("/detalles/:id", isLoggedIn, (req, res) => {
     .then((student) => {
         res.render("students/student-details", 
         { 
-            student, 
-            isPM: req.session.currentUser?.role === 'PM', 
+            student,    
+            isPM: isRole("PM", req), 
             isCurrStudent: req.session.currentUser?._id === id 
         })
     })
@@ -54,7 +55,11 @@ router.get("/editar/:id", checkRoles("PM", "STUDENT"), checkIfCurrUserOrPM,  (re
     User
     .findById(id)
     .then ((student) => {
-        res.render("students/student-edit", {student, isPM: req.session.currentUser?.role === 'PM'} )
+        res.render("students/student-edit", {
+            student, 
+            //isPM: req.session.currentUser?.role === 'PM',
+            isPM: isRole("PM", req)
+        })
     })
     .catch((err) => console.log(err))
 

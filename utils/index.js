@@ -1,6 +1,7 @@
   
 module.exports = {
     capitalize: text => text.charAt(0).toUpperCase() + text.substring(1),
+
     formatDate: date => {
         let month = '' + (date.getMonth() + 1)
         let day = '' + date.getDate()
@@ -9,7 +10,8 @@ module.exports = {
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
 
-        return [year, month, day].join('-')
+        return [day, month, year].join('-')
     },
-    isRole: (role) => req.session.currentUser?.role === (role)
+    
+    isRole: (role, req) => req.session.currentUser?.role === (role)
 }

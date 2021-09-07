@@ -4,19 +4,30 @@
 
     <hr>
 
-    <ul>
-        <div class="row">
+    <table class="table">
 
+        <thead class="thead-dark text-center">
+            <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Detalles</th>
+            </tr>
+        </thead>
+
+        <tbody class="text-center">
+            
             {{#each students}}
 
-                <div class="col-12 d-flex align-items-center mb-4">
-                    <li> {{username}} </li>
-                    <a href="/estudiantes/detalles/{{id}}" type="button" class="btn btn-dark ml-4">Ver detalles</a>
-                </div>
+                <tr>
+                    <td> {{username}} </td>
+                    <td> {{name}} </td>
+                    <td><a href="/estudiantes/detalles/{{id}}" type="button" class="btn btn-dark">Ver detalles</a></td>
+                </tr>
 
-            {{/each}}   
+            {{/each}} 
+        
+        </tbody>
 
-        </div>
-    </ul>
+    </table>
 
 </div>

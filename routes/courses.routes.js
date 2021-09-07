@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const Course = require("../models/Course.model")
 const { isLoggedIn, checkRoles } = require("../middleware")
-const { isRole } = require("../utils")
+const { isRole, formatDate } = require("../utils")
 const User = require("../models/User.model")
 
 
@@ -11,8 +11,10 @@ router.get("/", isLoggedIn, (req, res) => {
     .find()
     .select("title")
     .then((courses) => {
-        //MOVER ISROLE A UTILS
-        res.render("courses/courses-list", {courses, isTA: req.session.currentUser?.role === "TA"})
+        res.render("courses/courses-list", {
+            courses, 
+            isTA: isRole("TA", req)
+        })
     })
     .catch((err) => console.log(err))
 })
@@ -29,7 +31,7 @@ router.get("/crear", checkRoles("TA"), (req, res) => {
     })
     .then((students) => {
         courseInfo.students = students
-        return User.find({role: "TEACHER"})
+        return User.find({role: "DEV"})
     })
     .then((teachers) => {
         courseInfo.teachers = teachers
@@ -58,8 +60,17 @@ router.get('/detalles/:id', (req, res) => {
 
     Course
         .findById(id)
+
         //FORMAT DATE PENDING
-        .then((course) => res.render("courses/course-details", {course, isTA: req.session.currentUser?.role === "TA"}))
+        .populate("students")
+        .then((course) => {
+            //course.endDate = formatDate(course.endDate)
+
+            res.render("courses/course-details", {
+            course, 
+            isTA: isRole("TA", req)
+            })
+        })
         .catch(err => console.log(err))
 })
 
@@ -77,7 +88,7 @@ router.get('/editar/:id', checkRoles("TA"), (req, res) => {
     })
     .then((students) => {
         courseInfo.students = students
-        return User.find({role: "TEACHER"})
+        return User.find({role: "DEV"})
     })
     .then((teachers) => {
         courseInfo.teachers = teachers
