@@ -5,6 +5,11 @@ const userSchema = new Schema(
   {
     username: { type: String, unique: true },
     name: String,
+    role: {
+      type: String,
+      enum: ['STUDENT', 'DEV', 'TA', 'PM'],
+      default: 'STUDENT'
+    },
     password: String,
     profileImg: String,
     description: String
