@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h2 class="mt-5">{{user.username}}'s details</h2>
+            <hr class="mt-5 mb-5">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <div class="row justify-content-center">
+                    {{#if user.profileImg}}
+                    <img src="{{profileImg}}" alt="{{username}}">
+                    {{else}}
+                    <img src="/images/Screenshot_20210818-152737_WhatsApp.jpg" width="100px" alt="{{name}}">
+                    {{/if}}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group text-white">
+                        <li class="list-group-item mb-3 bg-dark">
+                            Username: {{user.username}}
+                        </li>
+                        <li class="list-group-item mb-3 bg-dark">
+
+                            Name: {{user.name}}
+                        </li>
+                        <li class="list-group-item mb-3 bg-dark">
+                            description: {{user.description}}
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mb-5 mt-5">
+        </div>
+    </div>
+    <div class="row justify-content-center text-center">
+        {{#if isPM}}
+        <div class="col-md-6">
+            <a href="/students/{{user.id}}/edit" class="btn btn-primary btn-block mb-3">EDIT</a>
+
+        </div>
+        <div class="col-md-6">
+            <form action="/students/{{user.id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger btn-block">REMOVE</button>
+            </form>
+
+        </div>
+        {{/if}}
+    </div>
+</div>
