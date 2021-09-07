@@ -45,7 +45,7 @@ router.get("/crear", checkRoles("TA"), (req, res) => {
 
 })
 
-router.post('/crear', (req, res) => {
+router.post('/crear', checkRoles("TA"), (req, res) => {
 
     const { title, leadTeacher, startData, endDate, ta, courseImg, description, status, students } = req.body
   
@@ -55,7 +55,7 @@ router.post('/crear', (req, res) => {
       .catch(err => console.log(err))
 })
 
-router.get('/detalles/:id', (req, res) => {
+router.get('/detalles/:id', isLoggedIn, (req, res) => {
     const { id } = req.params
 
     Course
