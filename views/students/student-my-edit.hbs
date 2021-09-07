@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+            <h1>Editar {{username}}</h1>
+            <hr>
+
+            <form action="/students/editar/{{id}}" method="POST">
+                <div class="form-group">
+                    <label for="username">Nombre</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">description</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{description}}">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block">Guardar edición</button>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>

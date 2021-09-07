@@ -1,0 +1,53 @@
+<div class="container">
+
+    <h1>Detalles de {{theUser.username}}</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <strong>Foto</strong>
+            {{theUser.profileImg}}
+        </div>
+        <hr>
+        <div class="col-md-3">
+
+            <strong>Nombre</strong>
+            <br>
+            {{theUser.username}}
+
+        </div>
+
+        <div class="col-md-3">
+
+            <strong>Descripción</strong>
+            <br>
+            {{theUser.description}}
+
+        </div>
+
+        <hr>
+        <div class="col-md-3">
+            <strong>Rol</strong>
+            <br>
+            {{theUser.role}}
+
+        </div>
+
+    </div>
+
+    <hr>
+    {{#if isPM}}
+    <a href="/students/delete/{{theUser.id}}" class="btn btn-warning">Eliminar</a>
+    {{/if}}
+
+    {{#if isPM}}
+    <a href="/students/{{theUser.id}}/DEV" class="btn btn-dark">Rol DEV</a>
+    {{/if}}
+
+    {{#if isPM}}
+    <a href="/students/{{theUser.id}}/TA" class="btn btn-dark">Rol TA</a>
+    {{/if}}
+
+
+
+    <a href="/students" class="btn btn-dark">Volver</a>
+</div>
