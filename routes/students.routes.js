@@ -65,7 +65,7 @@ router.get("/editar/:id", checkId, checkRoles("PM", "STUDENT"), checkIfCurrUserO
 
 })
 
-router.post("/editar/:id", checkId, checkRoles("PM"), (req, res) => {
+router.post("/editar/:id", checkId, checkRoles("PM", "STUDENT"), checkIfCurrUserOrPM, (req, res) => {
     const { id } = req.params
     const { username, name, profileImg, description, role } = req.body
 
