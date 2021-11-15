@@ -1,0 +1,17 @@
+<div>
+    <form action="/students/{{student._id}}/edit" method="POST">
+        <div>
+            <input type="hidden" id="id" name="id" value="{{student._id}}">
+        </div>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="{{student.username}}">
+        </div>
+        <div>
+            <label for="role">Role</label>
+            <input type="text" id="role" name="role" value="{{student.role}}">
+        </div>
+        <button type="submit"class="btn">Submit</button>
+    </form>
+</div>
+  
