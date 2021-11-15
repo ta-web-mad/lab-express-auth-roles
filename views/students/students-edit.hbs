@@ -1,0 +1,38 @@
+ <h2>Editar</h2>
+
+        <form method="POST" action="/students/editar/{{student.id}}">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" value="{{student.username}}" name="username">
+            </div>
+           
+            <div>
+                <label for="name">Estudiante</label>
+                <input type="text" value="{{student.name}}" name="name">
+            </div>
+
+            <div >
+                <label for="profileImg">Imagen</label>
+                <input type="text" value="{{student.profileImg}}" name="profileImg">
+            </div>
+
+            <div>
+                <label for="description">Descripción</label>
+                <input type="text"value="{{student.description}}" name="description">
+            </div>
+
+                <div>
+                    <label for="role">Rol: </label>
+                    <select name="role">
+
+                        <option name="STUDENT">STUDENT</option>
+                        <option name="DEV">DEV</option>
+                        <option name="TA">TA</option>
+
+                    </select>
+                </div>
+
+            <br>
+
+            <button type="submit" >Go</button>
+        </form>

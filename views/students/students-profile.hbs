@@ -1,0 +1,20 @@
+<h1>¡Welcome to your profile!</h1>
+
+   {{!-- {{#if isOwn}}
+  <a href="/students/editar/{{student.id}}>Editar</a>
+{{/if}} --}}
+
+      {{#if isPM}}
+         <form action="/students/borrar/{{student.id}}" method="POST">
+            <button type="submit">Borrar</button>
+        </form>
+        <a href="/students/editar/{{student.id}}">Editar</a>
+
+        <form action="/students/roleDEV/{{student.id}}" method="POST">
+            <button type="submit">Mark as Developer</button>
+        </form>
+        <form action="/students/roleTA/{{student.id}}" method="POST">
+            <button type="submit">Mark as TA</button>
+        </form>
+      {{/if}}
+   
