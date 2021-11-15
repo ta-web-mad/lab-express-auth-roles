@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Student details:</h2>
+            <h5>Hello {{loggedUser.username}}</h5>
+        </div>
+
+        <div class="col-md-2">
+            <br>
+            <a href="/" class="btn btn-light">Back home</a>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="card text-center">
+            <div class="col-md-12">
+                <div class="card-image">
+                    <img src="{{user.profileImg}}" class="card-img" style="height: 100%" alt="...">
+                </div>
+                <div class="card-body">
+                    <div class="card-title ">
+                        <h3>{{user.username}}</h3>
+                    </div>
+
+                    <p class="card-text"><small class="text-muted">{{user.description}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        {{#if isPM}}
+        <div>
+            <div class="col-md-12">
+                <br>
+                <a href="/students/delete/{{user._id}}" class="btn btn-danger">Delete</a>
+            </div>
+            <div class="col-md-12">
+                <br>
+                <a href="/students/edit/{{user._id}}" class="btn btn-info">Edit</a>
+            </div>
+        </div>
+
+        {{/if}}
+
+        {{#if isOwn}}
+        <div>
+            <div class="col-md-12">
+                <br>
+                <a href="/students/delete/{{user._id}}" class="btn btn-danger">Delete</a>
+            </div>
+            <div class="col-md-12">
+                <br>
+                <a href="/students/edit/{{user._id}}" class="btn btn-info">Edit</a>
+            </div>
+        </div>
+
+        {{/if}}
+    </div>
+
+
+</div>
