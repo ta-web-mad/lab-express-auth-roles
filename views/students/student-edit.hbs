@@ -1,0 +1,19 @@
+<h1>Panel de administración</h1>
+<h3>Edita al Estudiante</h3>
+<h2>{{username}}</h2>
+
+<form action="/students/{{id}}/edit" method="POST">
+
+    <label for="username-input">Username</label>
+    <input type="text" name="username" id="username-input" value='{{username}}'>
+
+    <label for="role-input">Role</label>
+    <select name="role" id="role-input">
+        <option value="STUDENT">STUDENT</option>
+        <option value="DEV">DEV</option>
+        <option value="TA">TA</option>
+    </select>
+
+    <button type="submit">Update</button>
+
+</form>
