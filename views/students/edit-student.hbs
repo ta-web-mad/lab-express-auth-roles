@@ -1,0 +1,40 @@
+<main>
+    <article>
+        <h2>Editar Detalles de Estudiante</h2>
+
+        <form action="/students/{{student.id}}/edit" method="POST">
+            <aside>
+                <label for="student-username">Username</label>
+                <input type="text" , name="username" id="student-username" value="{{student.username}}">
+            </aside>
+
+            <aside>
+                <label for="student-name">Name</label>
+                <input type="text" , name="name" id="student-name" value="{{student.name}}">
+            </aside>
+
+            <aside>
+                <label for="student-image">Profile Image</label>
+                <input type="text" , name="profileImg" id="student-image" value="{{student.profileImg}}">
+            </aside>
+
+            <aside>
+                <label for="student-description">Description</label>
+                <input type="text" , name="description" id="student-description" value="{{student.description}}">
+            </aside>
+
+            {{#if isPM}}
+            <aside>
+                <label for="student-role">Role</label>
+                <input type="text" , name="role" id="student-role" value="{{student.role}}">
+            </aside>
+            {{/if}}
+
+            <button type="submit">Submit changes</button>
+
+        </form>
+
+        <a href="/">Back to Home Page</a>
+        <p>{{errorMsg}}</p>
+    </article>
+</main>
