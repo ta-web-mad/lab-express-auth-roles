@@ -1,0 +1,32 @@
+<h1>Listado de estudiantes</h1>
+
+<hr>
+<ul>
+  {{#each allStudents}}
+    <a href="/students/{{_id}}">
+      <li>{{username}}
+        </br>
+       Ver perfil del estudiante
+       </br>
+    </a>
+
+   {{#if loggedUser}}
+
+    {{#if ../isAdmin}}
+        <a href="/students/delete/{{id}}">Borrar</a>
+        </br>
+        <a href="/students/edit/{{id}}">Editar</a>
+        </br>
+        <a href="/students/update-DEV/{{id}}">Marcar como Desarrollador</a>
+        </br>
+        <a href="/students/update-TA/{{id}}">Marcar como TA</a>
+        
+    {{/if}}
+    
+      </li>
+  {{/each}}
+
+</ul>
+
+
+

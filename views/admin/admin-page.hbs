@@ -1,0 +1,16 @@
+<h1>Panel de administración</h1>
+<p>Bienvenido {{loggedUser.username}} aquí mandas tú</p>
+
+<h3>Lista de usuarios</h3>
+
+<ul>
+  {{#each allUsers}}
+    <li> {{username}}
+
+      {{#if ../isAdmin}}
+        <a href="/students/delete/{{id}}">Borrar</a>
+        <a href="/students/edit/{{id}}">Editar</a>
+      {{/if}}
+    </li>
+  {{/each}}
+</ul>
