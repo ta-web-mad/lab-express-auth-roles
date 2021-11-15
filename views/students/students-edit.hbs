@@ -1,0 +1,20 @@
+<h1>Editar estudiante {{title}}</h1>
+
+<form action="/libros/editar/{{id}}" method="POST">
+    <label for="title">
+        Nombre
+        <input value="{{username}}" name="Nombre" type="text">
+    </label>
+    </br>
+
+    <label for="">
+        Foto de perfil <input value="{{profileImg}}" name="Foto de perfil" type="image">
+    </label>
+    </br>
+
+    <label for="">
+        Rol <input value="{{role}}" name="Rol" type="text">
+    </label>
+
+    <button>Actualizar perfil</button>
+</form>
