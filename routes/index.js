@@ -1,10 +1,10 @@
-module.exports = app => {
-  
+module.exports = (app) => {
   // Base routes
-  const baseRoutes = require("./base.routes");
-  app.use("/", baseRoutes);
-  
+  app.use("/", require("./base.routes"));
+
   // Auth routes
-  const authRoutes = require("./auth.routes");
-  app.use("/", authRoutes); 
-}
+  app.use("/", require("./auth.routes"));
+
+  //User routes
+  app.use("/", require("./user.routes"));
+};

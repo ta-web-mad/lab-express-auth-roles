@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>{{data.username}}</h2>
+  </br>
+  <div class="row">
+    <h3>Role: {{data.role}}</h3>  
+    {{#if isPM}}
+    <a href="/student/{{data.id}}/edit">Editar</a>
+    <a href="#">Eliminar</a>
+    {{/if}}
+  </div>
+</div>

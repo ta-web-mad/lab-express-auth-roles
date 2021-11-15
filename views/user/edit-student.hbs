@@ -1,0 +1,24 @@
+<h2>Edit Student</h2>
+<hr>
+</br>
+<form action="/student/{{data.id}}/edit" method="POST">
+
+    <label>
+        Username
+        <input type="text" name="username" value="{{data.username}}">
+    </label>
+    </br>
+
+    <label>Role</label>
+    <select name="role">
+        <option value="{{data.username}}" selected>{{data.role}}</option>
+        <option value="STUDENT">STUDENT</option>
+        <option value="DEV">DEV</option>
+        <option value="TA">TA</option>
+    </select>
+    </br>
+
+  <input type="submit" value="Edit Student">
+</form>
+</br>
+<a href="/">Back</a>
