@@ -1,0 +1,18 @@
+
+{{#unless errorMessage}}
+  <h1>{{student.username}}</h1>
+  <h4>{{student.role}}</h4>
+  <p>{{student.description}}</p>
+
+{{#if isAdmin}}
+    <a href="/students/edit/{{student._id}}">Editar estudiante</a>
+    <a href="/students/delete/{{student._id}}">Borrar estudiante</a>
+{{/if}}
+
+{{/unless}}
+
+{{#if errorMessage}}
+  <div style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+    {{errorMessage}}
+  </div>
+{{/if}}
