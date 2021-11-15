@@ -1,0 +1,21 @@
+<div class="student-list">
+  
+<h1 class="student-list-title">Students List</h1>
+
+<ul class="list-name">
+  {{#each allStudents}}
+      <li class="username-list">
+          {{username}}
+      </li>
+  <div class="nav-bar-list">
+    <a class="seemore-student-list" href="/students/students-list/{{id}}">See More</a>
+    
+    {{#if ../isPM}}
+      <a class="delete-student-list" href="#">Delete</a>
+      <a class="edit-student-list" href="/students/edit/{{id}}">Edit</a>
+    {{/if}}
+  {{/each}}
+  </div>
+</ul>
+
+</div>
