@@ -1,0 +1,59 @@
+<h1>estas editando</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Edit {{user.username}}:</h2>
+        </div>
+
+        <div class="col-md-2">
+            <br>
+            <a href="/" class="btn btn-light">Back home</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <form action="/students/{{user.id}}" method="POST" class="row">
+
+            <label for="" class="form-group col-md-6"> Username:
+                <input type="text" name="username" value="{{user.username}}" class="form-control" placeholder="Pepito" />
+            </label><br>
+
+            <label for="" class="form-group col-md-6"> Name:
+                <input type="text" name="name" value="{{user.name}}" class="form-control" placeholder="Pepito" />
+            </label><br>
+
+            <label for="" class="form-group col-md-6">Description:
+                <input type="text" name="description" value="{{user.description}}" class="form-control"
+                    placeholder="Amigo de José" />
+            </label><br>
+
+            <label class="form-group col-md-6">Image:
+                <input type="text" name="profileImg" value="{{user.profileImg}}" class="form-control"
+                    placeholder="Paste your image URL">
+            </label><br>
+
+
+            {{#if isPM}}
+            <label class="form-group col-md-6">Role:
+                <input type="text" name="role" value="{{user.role}}" class="form-control"
+                    placeholder="Master and Commander">
+            </label>
+            {{/if}}
+            
+
+            <br>
+
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-dark">Edit Student</button>
+            </div>
+
+            {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+            {{/if}}
+
+        </form>
+    </div>
+</div>
