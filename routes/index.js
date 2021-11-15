@@ -7,4 +7,9 @@ module.exports = app => {
   // Auth routes
   const authRoutes = require("./auth.routes");
   app.use("/", authRoutes); 
+  
+  // User Routes
+  const students = require("./user.routes");
+  app.use("/students", students); 
+
 }
