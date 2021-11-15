@@ -1,0 +1,40 @@
+<h1>User:</h1>
+<h2>{{student.username}} </h2> <br>
+<img src="{{student.profileImg}}" height="100px;">
+<p>Description: {{student.description}}</p>
+
+{{#if isPM}}
+<form action="/students/delete/{{id}}" method="POST"> 
+<button class="btn btn-dark btn-block" type="submit">DELETE</button>
+</form>
+
+
+<h1>Edit {{student.username}}</h1>
+
+<form action="/students/edit/{{student.id}}" method="POST">
+  <label for="username">
+    Username
+    <input class="form-control" value="{{username}}" name="username" id="username" type="text">
+  </label>
+  </br>
+
+  <label for="password">
+    Password <input class="form-control" value="{{password}}" name="password" type="password">
+  </label>
+  </br>
+
+  <label for="profileImg">
+    Profile Image URL
+    <input class="form-control" value="{{profileImg}}" name="profileImg" id="profileImg" type="text">
+  </label>
+
+
+  <label for="description">
+    Description
+    <input class="form-control" value="{{description}}" name="description" type="text">
+  </label> 
+
+  <button class="btn btn-dark btn-block" style="" type="submit">Edit Student</button>
+
+</form>
+{{/if}}
