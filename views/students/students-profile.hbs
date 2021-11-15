@@ -1,0 +1,19 @@
+<a href="/students" class="btn-menu"> >Back to all students</a>
+<h1 class="my-5">{{student.username}}</h1>
+{{#if isOwner}}
+  <a
+    href="/students/{{student.id}}/edit-my-profile"
+    class="btn btn-primary"
+  >Edit my profile</a>
+{{/if}}
+{{#if isTA}}
+  <a href="/courses/create" class="btn btn-primary">Create a Course</a>
+{{/if}}
+{{#if isPM}}
+  <div class="d-flex justify-content-around">
+    <form action="/students/{{student.id}}/delete" method="POST">
+      <button type="submit" class="btn btn-primary">Delete Student</button>
+    </form>
+    <a href="/students/{{student.id}}/edit" class="btn btn-primary">Edit Student</a>
+  </div>
+{{/if}}

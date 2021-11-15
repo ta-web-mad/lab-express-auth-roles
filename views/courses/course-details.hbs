@@ -1,0 +1,27 @@
+<a href="/courses" class="btn-menu"> >Back to courses</a>
+<div class="container text-center">
+  <h1 class="my-5">{{courseDetails.title}}</h1>
+  <p>
+    <small class="text-muted">{{courseDetails.leadTeacher}}</small>
+  </p>
+  <h3>Start Date</h3>
+  <p>{{courseDetails.startDate}}</p>
+  <h3>End Date</h3>
+  <p>{{courseDetails.endDate}}</p>
+  <h3>Description</h3>
+  <p>{{courseDetails.description}}</p>
+  <div class="container">
+    <div class="d-flex justify-content-around">
+      <form
+        action="/courses/{{courseDetails.id}}/delete"
+        method="POST"
+        class="mt-5"
+      >
+        <button type="submit" class="btn btn-primary">Delete Course</button>
+      </form>
+      <a href="/courses/{{courseDetails.id}}/edit" class="btn btn-primary">Edit
+        Course</a>
+    </div>
+  </div>
+
+</div>
