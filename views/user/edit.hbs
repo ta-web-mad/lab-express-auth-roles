@@ -1,0 +1,33 @@
+<h1>Editar perfil de {{username}}</h1>
+
+<form action="/students/edit/{{id}}" method="POST">
+  <label for="username">
+    Titulo
+    <input value="{{username}}" name="username" id="username" type="text">
+  </label>
+  </br>
+
+  <label for="">
+    Descripción <input value="{{description}}" name="description" type="text">
+  </label>
+  </br>
+
+
+
+  <label for="">
+    Role <input value="{{role}}" name="role" type="text">
+  </label>
+  </br>
+
+{{!-- {{if isPM}}
+        </br>
+        <a href="/students/update-DEV/{{userDetails.id}}">Marcar como Desarrollador</a>
+
+        </br>
+        <a href="/students/update-TA/{{userDetails.id}}">Marcar como TA</a>
+{{}} --}}
+
+  
+
+  <button type="submit">Editar perfil</button>
+</form>

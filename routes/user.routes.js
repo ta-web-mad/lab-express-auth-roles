@@ -1,22 +1,18 @@
 const router = require("express").Router();
 const { isLoggedIn, checkRoles } = require("../middlewares")
-const { capitalizeText, checkMongoID, isOwner, isAdmin } = require("../utils");
+const { capitalizeText, checkMongoID, isOwnerOfProfile, isAdmin } = require("../utils");
 const User = require("../models/User.model")
 
 
 //router.get("/students", (req, res, next) => res.render('auth/login', { errorMsg: 'Tienes que registrarte para entrar a ver todos los estudiantes' }));
 
-router.get("/students", isLoggedIn, checkRoles("PM", "STUDENT"), (req, res, next) => {
+router.get("/students", isLoggedIn, (req, res, next) => {
+  // checkRoles("PM", "STUDENT") aquí solo me dejaría entrar si es PM o STUDENT
 
   User.find()
   .then(allStudents => {
     console.log("estoy entrando a buscar", allStudents)
-    res.render("user/list-students", {
-      loggedUser: req.session.currentUser,
-      allStudents,
-      isAdmin: isAdmin(req.session.currentUser),
-    })})
-
+    res.render("user/list-students", { allStudents})})
   .catch(err => console.log(err))
 
 });
@@ -25,22 +21,45 @@ router.get("/students/:id", (req, res, next) => {
   const { id } = req.params
 
   User.findById(id)
-  .then(details => {
-    console.log("estoy a los detalles del estudiante", details)
-    res.render("user/details", {details})})
+  .then(userDetails => {
+    res.render("user/details", {
+      userDetails,
+      loggedUser: req.session.currentUser,
+      isAdmin: isAdmin(req.session.currentUser),
+      isOwner: isOwnerOfProfile(req.session.currentUser, id)
+    })})
 
   .catch(err => console.log(err))
 
 });
 
+router.get("/students/delete/:id", checkRoles("PM"), (req, res) => {
+  const { id } = req.params
+
+  User.findByIdAndDelete(id)
+  .then(() => res.redirect("/students"))
+  .catch(err => console.log(err))
+
+});
 
 
+router.get("/students/edit/:id", (req, res) => {
+  const { id } = req.params
 
+  User.findById(id)
+    .then(student => res.render("user/edit", student))
+    .catch(err => console.log(err))
+
+})
+
+router.post("/students/edit/:id", (req, res) => {
+  const { id } = req.params
+  const { username, description, role} = req.body
+
+  User.findByIdAndUpdate(id, { username, description, role }, { new: true })
+    .then(student => res.redirect(`/students/${student._id}`))
+    .catch(err => console.log(err))
+})
 
 
 module.exports = router;
-
-
-// Cree un /studentspunto final que enumere todos los estudiantes actuales de la plataforma.
-// Incluya un botón Ver perfil del estudiante para cada estudiante de la lista. Ese botón debe llevar al usuario a una /students/:idURL, donde debe representar una bonita página de perfil con la información del estudiante que coincide con la ID en la URL.
-// Evite el acceso a estas rutas para cualquier visitante no registrado.

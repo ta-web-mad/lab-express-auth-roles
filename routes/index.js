@@ -9,6 +9,8 @@ module.exports = app => {
   app.use("/", authRoutes); 
   app.use("/", require("./user.routes"))
   app.use("/", require("./admin.routes"))
+  app.use("/", require("./ta.routes"))
+
 
 
 }

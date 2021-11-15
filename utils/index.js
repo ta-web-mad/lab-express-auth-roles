@@ -16,7 +16,8 @@ module.exports = {
   },
 
   isAdmin: (user) => user.role === "PM",
+  
   //optional chaining, el "?" detiene la ejecución si isOwner es falsy
-//   isOwnerOfProfile: (user) => user.role === "STUDENT" && {{}}
+  isOwnerOfProfile: (user, id) => id === user._id
 
 }
