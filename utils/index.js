@@ -7,5 +7,5 @@ module.exports = {
   checkMongoID: id => mongoose.Types.ObjectId.isValid(id),
 
   isAdmin: (user) => user.role === "PM",
-
+  isOwner: (book, user) => book.isOwner?.equals(user._id),
 } 

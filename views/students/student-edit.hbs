@@ -1,0 +1,21 @@
+<h1>Editar estudiante {{nickname}}</h1>
+
+<form action="/students/edit/{{id}}" method="POST">
+  <label for="title">
+    Nickname
+    <input value="{{nickname}}" name="title" id="title" type="text">
+  </label>
+  </br>
+
+  <label for="">
+    Rol <input value="{{role}}" name="description" type="text">
+  </label>
+  </br>
+
+  <label for="">
+    Descripción <input value="{{description}}" name="author" type="text">
+  </label>
+  </br>
+
+  <button type="submit">Editar estudiante</button>
+</form>
