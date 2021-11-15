@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
@@ -7,14 +7,18 @@ const userSchema = new Schema(
     name: String,
     password: String,
     profileImg: String,
-    description: String
-    // add roles setup here
+    description: String,
+    role: {
+      type: String,
+      enum: ["STUDENT", "DEV", "TA", "PM"],
+      default: "STUDENT",
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
