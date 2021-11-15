@@ -1,0 +1,17 @@
+<h2>Create Course</h2>
+<form action="/course/create" method="post">
+	<label for="title">title</label>
+	<input type="text" name="title" value="" id="title">
+	<label for="startDate">startDate</label>
+	<input type="date" name="startDate" value="" id="startDate">
+	<label for="endDate">endDate</label>
+	<input type="date" name="endDate" value="" id="endDate">
+	<label for="description">Description</label>
+	<input type="text" name="description" value="" id="description">
+	<select name="ta" multiple="true">
+			{{#each tas}}
+			<option value="{{this.id}}">{{this.name}}</option>
+			{{/each}}
+	</select>
+	<input type="submit" value="Submit">
+</form>
