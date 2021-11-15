@@ -1,0 +1,39 @@
+Hola {{user.username}} este es tu perfil
+
+<h1>Editar Usuario {{user.username}}</h1>
+
+<form action="/user/edit/{{user._id}}" method="POST">
+  <label for="name">
+    Nombre
+    <input value="{{user.name}}" name="name" id="title" type="text">
+  </label>
+  </br>
+
+  <label for="">
+    Imagen <input value="{{user.profileImg}}" name="profileImg" type="text">
+  </label>
+  </br>
+
+  <label for="">
+    Descripción <input value="{{user.description}}" name="description" type="text">
+  </label>
+  </br>
+
+{{#if isPM}}
+  <label for="">
+    Role<input value="{{user.role}}" name="role" type="text">
+  </label>
+{{/if}}
+
+{{#if isOwn}}
+  <button type="submit">Click me</button>
+{{/if}}
+</form>
+
+{{#if isPM}}
+  <a href="/user/delete/{{user._id}}">Borrar</a>
+  </br>
+  {{!-- <a href="/user/dev">Mark as Developer</a>
+  <a href="/user/ta">Mark as TA</a> --}}
+{{/if}}
+

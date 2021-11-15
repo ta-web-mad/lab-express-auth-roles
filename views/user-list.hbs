@@ -1,0 +1,14 @@
+<h1>User List</h1>
+
+<ul>
+  {{#each allUsers}}
+    <li>
+        <a href="/profile/{{_id}}">{{username}} is a {{role}}</a>
+    
+    {{!-- {{#if ../isPM}}
+        <a href="#">Editar</a>
+        <a href="/user/delete/{{_id}}">Borrar</a>
+      {{/if}} --}}
+    </li>
+  {{/each}}
+</ul>
