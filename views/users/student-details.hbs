@@ -1,0 +1,7 @@
+<h2>{{student.username}}</h2>
+<p> Rol: {{student.role}} </p>
+
+{{#if isPM}}
+<a href="/estudiantes/borrar/{{student.id}}">Borrar</a>
+<a href="/estudiantes/editar/{{student.id}}">Editar</a>
+{{/if}}
