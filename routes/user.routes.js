@@ -15,7 +15,7 @@ router.get("/students/:id", isLoggedIn, checkRoles("PM","STUDENT", "TA", "DEV"),
     const { id } = req.params
 
     if (!checkMongoID(id)) {
-      res.render("students/student-details", { errorMessage: "Este libro no existe en la DB" })
+      res.render("students/student-details", { errorMessage: "Este estudiante no existe en la DB" })
     }
 
     User.findById(id)
@@ -23,7 +23,7 @@ router.get("/students/:id", isLoggedIn, checkRoles("PM","STUDENT", "TA", "DEV"),
         res.render("students/student-details", {
             loggedUser: req.session.currentUser,
             student,
-            capitalizeText,
+            capitalizeText, //no sé por qué esto no funciona =(
             isOwn: req.session.currentUser._id == id,
             isAdmin: isAdmin(req.session.currentUser)
           })
