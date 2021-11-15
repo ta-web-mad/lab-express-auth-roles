@@ -1,0 +1,32 @@
+<h2>Welcome to {{student.username}}'s Student Profile</h2>
+
+<p>Role: {{student.role}}</p>
+{{#if student.name}}
+	<p>Name: {{student.name}}</p>
+{{/if}}
+{{#if student.profileImg}}
+	<p>ProfileImg Url: {{student.profileImg}}</p>
+{{/if}}
+{{#if student.description}}
+	<p>Description: {{student.description}}</p>
+{{/if}}
+{{#if isOwner}}
+	<a href="/students/{{student.id}}/edit/own-profile"> Edit your profile</a>
+{{/if}}
+{{#if isPM}}
+<p>He is just a student and you are the PM so here its his password: {{student.password}}</p>
+<a href="/students/{{student.id}}/edit"> Edit</a>
+<a href="/students/{{student.id}}/delete"> Delete</a>
+<div>
+	<form action="/students/{{student.id}}/makeTA" method="post">
+		<button type="submit" value="{{this.id}}">
+			Make TA
+		</button>
+	</form>
+	<form action="/students/{{student.id}}/makeDEV" method="post">
+		<button type="submit" value="{{this.id}}">
+			Make DEV
+		</button>
+	</form>
+</div>
+{{/if}}

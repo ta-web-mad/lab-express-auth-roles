@@ -1,0 +1,11 @@
+<h2>Every Student</h2>
+<ul>
+  {{#each students}}
+	<li>{{this.username}}
+		<form action="/students/{{this.id}}" method="get">
+			<button type="submit" value="{{this.id}}">
+				details
+			</button>
+		</form>
+	</li>
+  {{/each}}

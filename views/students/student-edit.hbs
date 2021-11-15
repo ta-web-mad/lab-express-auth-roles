@@ -1,0 +1,10 @@
+<h2>Welcome to {{username}}'s Student Profile Edit Panel</h2>
+<form action="/students/{{id}}/edit" method="post">
+	<label for="name">Name</label>
+	<input type="text" name="name" value="{{name}}" id="name">
+	<label for="profileImg">ProfileImg Url</label>
+	<input type="text" name="profileImg" value="{{profileImg}}" id="profileImg">
+	<label for="description">Description</label>
+	<input type="text" name="description" value="{{description}}" id="description">
+	<input type="submit" value="Submit">
+</form>
