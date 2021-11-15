@@ -1,0 +1,7 @@
+<h1>Listado</h1>
+{{ err }}
+<ul>
+{{#each allStudents}}
+  <li><a href="/students/{{id}}">{{username}}</a></li>
+{{/each}}
+</ul>

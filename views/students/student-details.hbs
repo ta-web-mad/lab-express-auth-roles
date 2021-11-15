@@ -1,0 +1,17 @@
+
+   
+<h1>Detalles</h1>
+
+{{err}}
+      <p>{{student.username}}</p>
+    
+  
+{{#if isPm}}
+  <a href="/students/editar/{{student.id}}">Editar</a>
+  <a href="/students/borrar/{{student.id}}">Borrar</a>
+{{/if}}
+
+{{#if isOwner}}
+  <a href="/students/editar/{{student.id}}">Editar</a>
+{{/if}}
+
