@@ -1,0 +1,47 @@
+<div class="container">
+
+    <h2>Detalles de {{student.username}}</h2>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <img src="{{student.profileImg}}" alt="{{student.name}} image" class="mb-4 mx-auto d-block">
+            <ul>
+                <li> Nombre de usuario:  {{student.username}}</li>
+                <li> Nombre: {{student.name}}</li>
+                <li> Descripción: {{student.description}}</li>
+            </ul>
+        </div>
+
+        {{#if isPM }}
+
+            <div class="col-8 d-flex align-items-start">
+                <a href="/estudiantes/editar/{{student.id}}" role="button" class="btn btn-primary mr-4">Editar estudiante</a>
+
+                <form action="/estudiantes/borrar/{{student.id}}" method="POST">
+                    <button type="submit" class="btn btn-danger mr-4">Eliminar estudiante</button>
+                </form>
+
+                <form action="/estudiantes/cambio-rol/{{student.id}}?role=TA" method="POST">    
+                    <button type="submit" class="btn btn-dark mr-4">Convertir a TA</button>
+                </form>
+
+                <form action="/estudiantes/cambio-rol/{{student.id}}?role=DEV" method="POST">
+                    <button type="submit" class="btn btn-info mr-4">Convertir a DEV</button>
+                </form>
+
+            </div>
+        {{/if}}    
+
+        {{#if isCurrStudent}}
+            <div class="col-8 d-flex align-items-start">
+                
+                <a href="/estudiantes/editar/{{student.id}}" type="button" class="btn btn-primary mr-4">Editar estudiante</a>
+                
+            </div>
+        {{/if}}            
+
+    </div>
+
+</div>

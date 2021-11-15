@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const courseSchema = new Schema(
   {
-    title: String,
+    title: {
+      type: String,
+      required: true,
+      default: "Unknown Title" 
+    },
     leadTeacher: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     startDate: Date,
     endDate: Date,

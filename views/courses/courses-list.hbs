@@ -1,0 +1,39 @@
+<div class="container">
+
+    <h2>Lista de Cursos</h2>
+
+    <hr>
+
+    {{#if isTA}}
+        <a href="/cursos/crear" role="button" class="btn btn-primary float-right mb-4">Crear nuevo curso</a>
+    {{/if}}
+
+
+    <table class="table">
+
+        <thead class="thead-dark text-center">
+            <tr>
+            <th scope="col">Título del Curso</th>
+            <th scope="col">Lead Teacher</th>
+            <th scope="col">Detalles</th>
+            </tr>
+        </thead>
+
+
+            {{#each courses}}
+            <tbody class="text-center">
+                <td>{{title}}</td>
+                <td> 
+                    {{#each leadTeacher}}
+                        {{name}}
+                    {{/each}}
+                </td>
+                <td><a href="/cursos/detalles/{{id}}" type="button" class="btn btn-dark">Ver detalles</a></td>
+            </tbody>
+            {{/each}}
+        
+
+    </table>
+
+
+</div>

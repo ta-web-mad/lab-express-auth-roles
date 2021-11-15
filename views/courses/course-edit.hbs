@@ -1,0 +1,90 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-6">
+
+        <h2>Editar curso {{course.title}}</h2>
+
+        <hr>
+
+        <form method="POST" action="/cursos/editar/{{course.id}}">
+            <div class="form-group">
+                <label for="title">Título</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{course.title}}">
+            </div>
+
+            <div class="form-group">
+                <label for="leadTeacher">Profesor titular</label>
+                    <select class="form-control" id="leadTeacher" name="leadTeacher" multiple>
+
+                    {{#each teachers}}
+                        <option value="{{_id}}">{{username}}</option>
+                    {{/each}}
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label for="startDate">Fecha inicio</label>
+                <input type="date" class="form-control" id="startDate" name="startDate" value="{{course.startDate}}">
+            </div>
+
+            <div class="form-group">
+                <label for="endDate">Fecha finalización</label>
+                <input type="date" class="form-control" id="endDate" name="endDate" value="{{course.endDate}}">
+            </div>
+
+            <div class="form-group">
+                <label for="ta">Teacher Assistant</label>
+                <select class="form-control" id="ta" name="ta" multiple>
+
+                    {{#each tas}}
+                        <option value="{{_id}}">{{username}}</option>
+                    {{/each}}
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="courseImg">Imagen del curso</label>
+                <input type="text" class="form-control" id="courseImg" name="courseImg" value="{{course.courseImg}}">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" class="form-control" id="description" name="description" value="{{course.description}}">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                    <select class="form-control" id="status" name="status" value="{{course.status}}">
+            
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="students">Estudiantes</label>
+
+                    <select class="form-control" id="students" name="students" multiple>
+            
+                    {{#each students}}
+                        <option value="{{_id}}">{{username}}</option>
+                    {{/each}}
+
+                    </select>    
+            </div>
+
+            <br>
+
+            <button type="submit" class="btn btn-dark">Confirmar</button>
+        </form>
+
+        <br>
+
+        </div>
+    </div>
+</div>
