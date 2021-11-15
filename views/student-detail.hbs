@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h1>Student: {{user.username}}</h1>
+  <h2> {{user.description}}</h2>
+  <h2> {{user.role}}</h2>
+
+  {{#if isPMrorOWN}}
+    <a href="/delete/{{user.id}}">Delete user</a>
+    <a href="/edit/{{user.id}}">Edit user</a>
+  {{/if}}
+
+  {{!-- {{#if isOwn}}
+    <a href="/delete/{{user.id}}">Delete user</a>
+    <a href="/edit/{{user.id}}">Edit user</a>
+  {{/if}} --}}
+
+</div>
