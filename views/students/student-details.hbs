@@ -1,0 +1,26 @@
+<main class="container">
+    <h2>{{user.username}} Student Details</h2>
+
+    {{#if isCurrStudent}}
+    <a href="/students/{{user.id}}/edit">Edit my profile</a>
+    {{/if}}
+
+    <img src={{user.profileImg}}>
+
+    <p>Name: {{user.name}}</p>
+    <p>Role: {{user.role}}</p>
+    <p>Description: {{user.description}}</p>
+    <p>Created Date: {{user.createdAt}}</p>
+
+    {{#if isPM}}
+    <div>
+        <a href="/students/{{user.id}}/edit">Edit</a>
+        
+        <form action="/students/{{user.id}}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+    {{/if}}
+
+    <a href="/">Volver a la Home</a>
+</main>

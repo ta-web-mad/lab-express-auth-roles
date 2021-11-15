@@ -1,0 +1,14 @@
+<main class="container">
+    <h2>Students List</h2>
+
+    <ul>
+        {{#each users}}
+        <li>
+            {{username}}
+            <a href="/students/{{id}}">View student profile</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <a href="/">Volver a la Home</a>
+</main>
