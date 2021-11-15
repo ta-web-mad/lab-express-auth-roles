@@ -1,0 +1,14 @@
+<h3>This are all our students</h3>
+
+<ul>
+    {{#each allUsers}}
+        <li>{{username}}</li>
+        <a href="/students/{{id}}">View profile</a>
+
+        {{#if ../isPM}}
+        <a href="/students/edit/{{id}}">Edit</a>
+        <a href="/students/disintigrate/{{id}}">Disintigrate student</a>
+        {{/if}}
+
+    {{/each}}
+</ul>
