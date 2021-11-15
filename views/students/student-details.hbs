@@ -1,0 +1,24 @@
+<div class="d-flex flex-column align-items-center">
+  <h1>Student Details</h1>
+
+  <h3>User name: {{student.username}}</h3>
+  <p>Rol : {{student.roles}}</p>
+  <p>Description: {{student.description}}</p>
+  {{#if checkisPM}}
+    <div class="d-flex justify-content-around">
+      <a class="btn btn-danger" href="/students/delete/{{student._id}}">Delete
+        Student</a>
+      <a
+        class="btn btn-danger"
+        style="margin-left: 50px;"
+        href="/students/edit/{{student._id}}"
+      >Edit Student</a>
+    </div>
+  {{/if}}
+  {{#if checkisOwner}}
+    {{#unless checkisPM}}
+      <a class="btn btn-danger" href="/students/edit/{{student._id}}">Edit
+        Student</a>
+    {{/unless}}
+  {{/if}}
+</div>

@@ -1,0 +1,15 @@
+<div style="margin-left: 50px;">
+
+  <h1>Course Details</h1>
+
+  <div>
+    <h4>Title: {{result.title}}</h4>
+    <p>Decription : {{result.description}}</p>
+  </div>
+
+  {{#if imTA}}
+    <a class="btn btn-danger" href="/courses/delete/{{result._id}}">Delete
+      Course</a>
+  {{/if}}
+
+</div>
