@@ -1,0 +1,18 @@
+<h1>Editar usuario {{username}}</h1>
+
+<form action="/estudiantes/editar/{{student.id}}" method="POST">
+
+    <label for="role">
+        Role: <input value="{{role}}" name="role" type="text">
+        
+    </label>
+    <ul>
+        Avaiable roles:
+        <li>STUDENT</li>
+        <li>DEV</li>
+        <li>TA</li>
+    </ul>
+    </br>
+
+    <button type="submit">Editar usuario</button>
+</form>
