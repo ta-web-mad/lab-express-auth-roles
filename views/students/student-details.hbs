@@ -1,0 +1,17 @@
+<div class="profile-container">
+    <div>
+        <h2>Name:</h2>
+        <p>{{student.username}}</p>
+        <hr>
+        <h2>Role:</h2>
+        <p>{{student.role}}</p>
+    </div>
+    {{#if isPM}}
+    <div>
+        <div >
+            <a class="btn" href="/students/{{student._id}}/edit">Edit Student</a>
+            <a class="btn" href="/students/{{student._id}}/delete">Delete Student</a>
+        </div>
+    </div>
+    {{/if}}   
+</div>

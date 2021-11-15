@@ -1,0 +1,13 @@
+
+<h1>Students list</h1>   
+<ul class="cont-students">
+{{#each students}}    
+    <li >
+        {{this.username}}
+    </li>
+    <div class="view-profile">
+        <a class="btn" href="/students/{{this._id}}">View Profile</a>
+    </div>
+{{/each}}    
+</ul>
+   
