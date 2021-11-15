@@ -1,0 +1,17 @@
+<h1>Listado de Estudiantes</h1>
+
+<ul>
+    {{#each allusers}}
+    <li>
+        <a href="/usuarios/profile-page/{{_id}}">
+            {{username}}
+        </a>
+        {{#if ../isPM}}
+
+        <a href='/usuarios/{{id}}/editar'>Edit</a>
+        <a href='#'>delete</a>
+
+        {{/if}}
+    </li>
+    {{/each}}
+</ul>

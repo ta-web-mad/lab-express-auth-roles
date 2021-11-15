@@ -62,7 +62,7 @@ router.post('/iniciar-sesion', (req, res) => {
       }
 
       req.session.currentUser = user
-      res.redirect('/')
+      res.redirect('/usuarios/profile-page/' + user._id)
     })
     .catch(err => console.log(err))
 
