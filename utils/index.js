@@ -16,4 +16,5 @@ module.exports = {
     return [year, month, day].join('-')
   },
   isPM: (user) => user.role === 'PM',
+  isTA: (user) => user.role === 'TA',
 }

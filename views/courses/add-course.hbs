@@ -1,0 +1,40 @@
+<main>
+    <h2>Añadir Nuevo Curso</h2>
+
+    <form action="/courses/add" method="POST">
+        <div>
+            <label for="course-title">Título del Curso</label>
+            <input type="text" id="course-title" name="title">
+            <br>
+        </div>
+
+        <div>
+            <label for="course-start">Fecha de Inicio</label>
+            <input type="date" id="course-start" name="startDate">
+            <br>
+        </div>
+
+        <div>
+            <label for="course-end">Fecha de Fin</label>
+            <input type="date" id="course-end" name="endDate">
+            <br>
+        </div>
+
+        <div>
+            <label for="course-img">Portada del Curso</label>
+            <input type="text" id="course-img" name="courseImg">
+            <br>
+        </div>
+
+        <div>
+            <label for="course-desc">Descripción del Curso</label>
+            <input type="text" id="course-desc" name="description">
+            <br>
+        </div>
+
+        <button type="submit">Añadir Curso</button>
+        <br>
+    </form>
+
+    <a href="/">Volver a la Home</a>
+</main>
