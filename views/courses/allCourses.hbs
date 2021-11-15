@@ -1,0 +1,17 @@
+<h1 style="margin-left: 50px;">All courses</h1>
+<div class="row" style="margin-top: 50px; margin-left:50px">
+  {{#each result}}
+    <div
+      class="col-4 d-flex justify-content-center shadow p-3 mb-5 bg-white rounded"
+    >
+      <a href="/courses/details/{{_id}}">
+        <h3>Title: {{title}}</h3>
+      </a>
+    </div>
+  {{/each}}
+</div>
+{{#if imTA}}
+  <div class="d-flex justify-content-center" style="margin-top: 100px;">
+    <a class="btn btn-danger" href="/courses/create">Create Course</a>
+  </div>
+{{/if}}

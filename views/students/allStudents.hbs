@@ -1,0 +1,13 @@
+<h1 style="margin-top:-50px;margin-left:50px;">All the students</h1>
+<div class="d-flex justify-content-center">
+  {{#each allStudents}}
+    <p class="container" style="margin-top: 50px;margin-left:50px;">Username :
+      {{username}}
+      <a
+        class="btn btn-danger"
+        style="margin-left: 60px;"
+        href="/students/{{_id}}"
+      >View Details</a></p>
+
+  {{/each}}
+</div>

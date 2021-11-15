@@ -1,0 +1,18 @@
+<div style="margin-left: 50px;">
+  <h1>Edit Student</h1>
+  <form action="/students/edit/{{student._id}}" method="post">
+    <p>
+      Username :
+      <input type="text" name="username" value={{student.username}} /></p>
+    <hr />
+    <p>
+      Description :
+      <input type="text" name="description" value={{student.description}} /></p>
+    <hr />
+    <button class="btn btn-danger">Modify Student</button>
+    {{#if checkisPM}}
+      <button class="btn btn-danger" name="roles" value="DEV">Make Student DEV</button>
+      <button class="btn btn-danger" name="roles" value="TA">Make Student TA</button>
+    {{/if}}
+  </form>
+</div>
