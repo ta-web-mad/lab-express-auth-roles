@@ -1,0 +1,51 @@
+<h1>Editar perfil de {{student.username}}</h1>
+
+<form action="/students/edit/{{student.id}}" method="POST">
+
+
+  </br>
+
+<div class="row">
+
+  <div class="col-12">
+    <label for="username" class="form-label">
+      Titulo
+      <input value="{{student.username}}" name="username" id="username" type="text" class="form-control">
+    </label>
+  </div>
+
+  <div class="col-12">
+     <label for="" class="form-label">
+    Descripción <input value="{{student.description}}" name="description" type="text-area" class="form-control">
+  </label>
+  </div>
+</div>
+
+      {{#if isOwner}}
+
+          <p>Role: {{student.role}}</p>
+
+      {{/if}}  
+
+      {{#if isAdmin}}
+       <div class="col"></div>
+          <label for="" class="form-label">
+            Role <input value="{{student.role}}" name="role" type="text" class="form-control">
+          </label>
+          </br>
+      </div>
+
+          <label for="">
+          <input type="submit" value="TA" name="role2"></input>
+          </label>
+
+          <label>
+          <input type="submit" value="DEV" name="role3"></input>
+          </label>
+
+        
+        {{/if}} 
+
+
+  <button type="submit">Editar perfil</button>
+</form>

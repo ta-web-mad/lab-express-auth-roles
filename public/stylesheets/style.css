@@ -1,11 +1,16 @@
 body {
   font-weight: 200;
   font-family: sans-serif;
+  
 }
 
 
-h1, h2, h3 {
+h1, h2, h3, p{
   font-weight: 200;
+  margin-left: 30px;
+  color: black;
+
+  
 }
 
 .navbar {
@@ -41,4 +46,12 @@ h1, h2, h3 {
   100% {
     bottom: -50px
   }
+}
+
+form, a {
+  margin-left: 30px;
+}
+
+li {
+  list-style: none;
 }
