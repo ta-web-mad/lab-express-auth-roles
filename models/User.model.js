@@ -7,8 +7,13 @@ const userSchema = new Schema(
     name: String,
     password: String,
     profileImg: String,
-    description: String
+    description: String,
     // add roles setup here
+    role: {
+    type: String,
+    enum: ['STUDENT', 'DEV', 'TA', 'PM'],
+    default: 'STUDENT',
+  }
   },
   {
     timestamps: true
@@ -18,3 +23,4 @@ const userSchema = new Schema(
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+

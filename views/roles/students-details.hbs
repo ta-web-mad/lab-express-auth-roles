@@ -1,0 +1,19 @@
+<div class="container">
+<h1>Students details</h1>
+
+<p>User: {{student.username}}</p>
+{{#if isPm}}
+<a href="/students/delete/{{student.id}}">Borrar</a> <br>
+<a href="/students/edit/{{student.id}}">Editar</a> <br>
+<select name="Admin"> <br>
+
+    <option>Student</option>
+
+    <option>Dev</option>
+
+    <option>TA</option>
+    <br>
+    <input type="submit">
+</select>
+{{/if}}
+</div>
