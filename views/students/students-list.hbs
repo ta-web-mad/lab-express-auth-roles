@@ -1,14 +1,22 @@
-<h3>This are all our students</h3>
+<div class="list-container">
+    <div>
+        <h3 class="student-list-title">This are all our students:</h3>
+    </div>
 
-<ul>
-    {{#each allUsers}}
-        <li>{{username}}</li>
-        <a href="/students/{{id}}">View profile</a>
+    <div>
+        <ul class="list-ul">
+            {{#each allUsers}}
+                <div class="student-container">
+                    <h6 class="student-list-name">{{username}}</h6>
+                    <a class="student-btn-01" href="/students/{{id}}">View Profile</a>
 
-        {{#if ../isPM}}
-        <a href="/students/edit/{{id}}">Edit</a>
-        <a href="/students/disintigrate/{{id}}">Disintigrate student</a>
-        {{/if}}
-
-    {{/each}}
-</ul>
+                    {{#if ../isPM}}
+                    <a class="student-btn-02" href="/students/edit/{{id}}">Edit</a>
+                    <a class="student-btn-03" href="/students/disintigrate/{{id}}">Disintigrate student</a>
+                    {{/if}}
+                </div>
+                
+            {{/each}}
+        </ul>
+    </div>
+</div>        

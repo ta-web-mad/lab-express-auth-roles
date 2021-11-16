@@ -1,5 +1,15 @@
-<h1>{{student.username}}'s profile</h1>
+<div class="profile-container">
+    <h1 class="profile-title">{{student.username}}'s profile</h1>
 
-<p>Name: {{student.name}}</p>
-<p>Description: {{student.description}}</p>
-<img src="{{student.profileImg}}" alt="{{student.username}}'s profile picture">
+    <div class="profile-info">
+        <div class="profile-txt-container">
+            <p class="profile-txt-titles" >Name:</p>
+            <p class="profile-txt">{{student.name}}</p>
+            <p class="profile-txt-titles" >Description:</p>
+            <p class="profile-txt">{{student.description}}</p>
+        </div>
+        <div class="profile-img-container">
+            <img src="{{student.profileImg}}" alt="{{student.username}}'s profile picture">
+        </div>
+    </div>
+</div>
