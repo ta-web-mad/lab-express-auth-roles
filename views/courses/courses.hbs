@@ -1,0 +1,32 @@
+<a href="/" class="btn-menu"> >Back to menu</a>
+
+<div class="container text-center">
+  <h1 class="my-5">All Couses</h1>
+  <div class="column">
+    <div class="row">
+      {{#each courses}}
+        <div class="card col-lg-3 my-4 border-0">
+          <div class="card-body">
+            <a href="/courses/{{id}}">
+              <h5 class="card-title">{{title}}</h5>
+            </a>
+            <p class="card-text">{{startDate}} || {{endDate}}</p>
+            <p class="card-text">{{description}}</p>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+      {{/each}}
+    </div>
+  </div>
+  {{!-- {{#if isTA}}
+    <div class="d-flex justify-content-around">
+      <form action="/courses/{{student.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-primary">Delete Course</button>
+      </form>
+      <form action="/courses/{{student.id}}/create" method="POST">
+        <button type="submit" class="btn btn-primary">Create Course</button>
+      </form>
+      <a href="/courses/{{student.id}}/edit" class="btn btn-primary">Edit Course</a>
+    </div>
+  {{/if}} --}}
+</div>

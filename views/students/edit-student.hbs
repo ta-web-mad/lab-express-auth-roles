@@ -1,0 +1,71 @@
+<h1>Edit User</h1>
+
+<form action="/students/{{student.id}}" method="POST">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">New username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      name="username"
+      value="{{student.username}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">New name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      name="name"
+      value="{{student.name}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">New image</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      name="profileImg"
+      value="{{student.profileImg}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">New description</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      name="description"
+      value="{{student.description}}"
+    />
+  </div>
+  {{#if isPM}}
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="role"
+        value="DEV"
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault">
+        Give DEV role
+      </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="role"
+        value="TA"
+        id="flexCheckDefault2"
+      />
+      <label class="form-check-label" for="flexCheckDefault2">
+        Give TA role
+      </label>
+    </div>
+  {{/if}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
