@@ -12,13 +12,11 @@ module.exports = {
   checkRoles:
     (...roles) =>
     (req, res, next) => {
-      if (roles.includes(req.session.currentUser.role)) {
-        next()
-      } else {
-        res.render('auth/login', {
-          errorMsg: "You don't have the permissions to visit this page",
-        })
-      }
+      roles.includes(req.session.currentUser.role)
+        ? next()
+        : res.render('auth/login', {
+            errorMsg: "You don't have the permissions to visit this page",
+          })
     },
 
   checkIfCurrUserOrPM: (req, res, next) => {
