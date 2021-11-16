@@ -6,7 +6,7 @@ const User = require("../models/User.model")
 router.get('/registro', (req, res) => res.render('auth/signup'))
 router.post('/registro', (req, res) => {
 
-  const { username, userPwd } = req.body
+  const { username, userPwd, description } = req.body
 
   if (userPwd.length === 0 || username.length === 0) {      
     res.render('auth/signup-form', { errorMsg: 'Rellena todos los campos' })
@@ -27,7 +27,7 @@ router.post('/registro', (req, res) => {
       const hashPass = bcrypt.hashSync(userPwd, salt)    
 
       User
-        .create({ username, password: hashPass })         
+        .create({ username, password: hashPass, description, profileImg: 'https://www.tiendasdecuadros.com/archivos/images/bfl48885998jpg-red-1547145359.jpg'})     
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
     })
