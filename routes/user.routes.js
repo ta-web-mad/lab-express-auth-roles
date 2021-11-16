@@ -17,7 +17,7 @@ router.get("/students", isLoggedIn, (req, res, next) => {
 
 });
 
-router.get("/students/:id", (req, res, next) => {
+router.get("/students/:id", isLoggedIn, (req, res, next) => {
   const { id } = req.params
 
   User.findById(id)
@@ -43,20 +43,25 @@ router.get("/students/delete/:id", checkRoles("PM"), (req, res) => {
 });
 
 
-router.get("/students/edit/:id", (req, res) => {
+router.get("/students/edit/:id", isLoggedIn, (req, res) => {
   const { id } = req.params
 
   User.findById(id)
-    .then(student => res.render("user/edit", student))
+    .then(student => res.render("user/edit", {
+      student,
+      loggedUser: req.session.currentUser,
+      isAdmin: isAdmin(req.session.currentUser),
+      isOwner: isOwnerOfProfile(req.session.currentUser, id)
+    }))
     .catch(err => console.log(err))
 
-})
+}),
 
-router.post("/students/edit/:id", (req, res) => {
+router.post("/students/edit/:id", isLoggedIn, (req, res) => {
   const { id } = req.params
-  const { username, description, role} = req.body
+  const { username, description, role, role2, role3 } = req.body
 
-  User.findByIdAndUpdate(id, { username, description, role }, { new: true })
+  User.findByIdAndUpdate(id, { username, description, role: role, role2, role3 }, { new: true })
     .then(student => res.redirect(`/students/${student._id}`))
     .catch(err => console.log(err))
 })

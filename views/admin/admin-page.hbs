@@ -4,13 +4,8 @@
 <h3>Lista de usuarios</h3>
 
 <ul>
-  {{#each allUsers}}
-    <li> {{username}}
+  {{#each allStudents}}
+    <li> {{username}} es {{role}}
 
-      {{#if ../isAdmin}}
-        <a href="/students/delete/{{id}}">Borrar</a>
-        <a href="/students/edit/{{id}}">Editar</a>
-      {{/if}}
-    </li>
   {{/each}}
 </ul>

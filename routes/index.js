@@ -8,7 +8,6 @@ module.exports = app => {
   const authRoutes = require("./auth.routes");
   app.use("/", authRoutes); 
   app.use("/", require("./user.routes"))
-  app.use("/", require("./admin.routes"))
   app.use("/", require("./ta.routes"))
 
 
