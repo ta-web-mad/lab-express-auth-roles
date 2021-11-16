@@ -62,11 +62,12 @@ router.post('/iniciar-sesion', (req, res) => {
       }
 
       req.session.currentUser = user
-      res.redirect('/')
+      res.redirect('/students')
     })
     .catch(err => console.log(err))
 
 })
+
 
 
 // Logout
