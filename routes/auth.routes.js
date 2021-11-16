@@ -1,12 +1,12 @@
 const router = require("express").Router()
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 
 // Signup
 router.get('/registro', (req, res) => res.render('auth/signup'))
 router.post('/registro', (req, res) => {
 
-  const { username, userPwd } = req.body
+  const { username, userPwd, profileImg, description  } = req.body
 
   if (userPwd.length === 0 || username.length === 0) {      
     res.render('auth/signup-form', { errorMsg: 'Rellena todos los campos' })
@@ -27,7 +27,7 @@ router.post('/registro', (req, res) => {
       const hashPass = bcrypt.hashSync(userPwd, salt)    
 
       User
-        .create({ username, password: hashPass })         
+        .create({ username, password: hashPass, profileImg, description })         
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
     })
