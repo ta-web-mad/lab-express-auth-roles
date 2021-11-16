@@ -1,0 +1,29 @@
+<h1>Editar estudiante {{username}}</h1>
+
+<form action="/students/edit/{{id}}" method="POST">
+  <label for="username">
+    Username
+    <input value="{{username}}" name="username" id="username" type="text">
+  </label>
+  </br>
+  <label for="password">
+    Username
+    <input value="{{password}}" name="password" id="password" type="password">
+  </label>
+  </br>
+  <label for="">
+   Imagen Perfil  <input value="{{profileImg}}" name="profileImg" type="text">
+  </label>
+  </br>
+
+  <label for="">
+   Descripción <input value="{{description}}" name="description" type="text">
+  </label>
+  </br>
+
+  <label for="">
+    Role<input value="{{role}}" name="role" type="text">
+  </label>
+
+  <button type="submit">Editar Estudiante</button>
+</form>

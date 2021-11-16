@@ -1,0 +1,9 @@
+<h1>{{user.username}}</h1>
+<img src="{{user.profileImg}}" alt="student-photo" width="500">
+<p>{{user.description}}</p>
+
+{{#if isPM}}
+<a href="/students/edit/{{user.id}}">Editar</a>
+<a href="/students/delete/{{user.id}}">Borrar</a>
+{{/if}}
+  
