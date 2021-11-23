@@ -9,7 +9,7 @@ module.exports = app => {
   app.use("/", authRoutes); 
   
   // User Routes
-  const students = require("./user.routes");
-  app.use("/students", students); 
+  const users = require("./user.routes");
+  app.use("/users", users); 
 
 }

@@ -1,8 +1,8 @@
 body {
   font-weight: 200;
-  font-family: sans-serif;
-}
+  font-family: Verdana, sans-serif;
 
+}
 
 h1, h2, h3 {
   font-weight: 200;
@@ -23,6 +23,34 @@ h1, h2, h3 {
   animation: showFromBottom 6s forwards;
 }
 
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #efefef;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 14px 8px 6px 16px;
+  text-decoration: none!important;
+  font-size: 17px;
+  color: #3f3f3f;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #202020;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+
+}
 
 @keyframes  showFromBottom {
   0% {

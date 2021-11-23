@@ -7,19 +7,19 @@ const User = require("../models/User.model")
 router.get('/registro', (req, res) => res.render('auth/signup'))
 router.post('/registro', (req, res) => {
 
-  const { username, userPwd, description, profileImg, } = req.body
+  const { username, email, name, userPwd, img, league, team, journalist } = req.body
 
   if (userPwd.length === 0 || username.length === 0) {      
-    res.render('auth/signup-form', { errorMsg: 'Rellena todos los campos' })
+    res.render('auth/signup', { errorMsg: 'Rellena todos los campos' })
     return
   }
-
   User
     .findOne({ username })
     .then(user => {
 
       if (user) {                  
-        res.render('auth/signup', { errorMsg: 'Usuario ya registrado' })
+        console.log(username + "user")
+        res.render('auth/signup', { errorMsg: "El nombre de usuario " + username + " no está disponible" })
         return
       }
 
@@ -28,11 +28,31 @@ router.post('/registro', (req, res) => {
       const hashPass = bcrypt.hashSync(userPwd, salt)    
 
       User
-        .create({ username, password: hashPass, profileImg, description })         
+        .create({ username, email, name, password: hashPass, img, league, team, journalist })         
+        .then(() => res.redirect('/'))
+        .catch(err => console.log(err))
+    })
+    
+    User
+    .findOne({ email })
+    .then(user => {
+
+      if (user) {                  
+        res.render('auth/signup', { errorMsg: 'Email ya registrado' })
+        return
+      }
+
+      const bcryptSalt = 10
+      const salt = bcrypt.genSaltSync(bcryptSalt)
+      const hashPass = bcrypt.hashSync(userPwd, salt)    
+
+      User
+        .create({ username, email, name, password: hashPass, img, league, team, journalist})         
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
     })
     .catch(err => console.log(err))
+
 })
 
 

@@ -1,7 +1,7 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    console.log("lab-express-auth-roles JS imported successfully!");
+    console.log("FootScore imported successfully!");
   },
   false
 );

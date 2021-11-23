@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 module.exports = {
     isPM: (user) => user.role === "PM",
+    isStandard: (user) => user.role === "STANDARD",
   }
 
 //   cleanText: text => text.trim(),

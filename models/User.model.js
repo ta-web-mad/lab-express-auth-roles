@@ -4,15 +4,32 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
   {
     username: { type: String, unique: true },
-    name: String,
-    password: String,
-    profileImg: String,
-    description: String,
+    email: { type: String, unique: true },
+    password:{
+      type: String,
+      required: true,
+      minlength: 6,
+  },
+    league:{
+    type: String,
+    // required: true,
+    // enum: ['STANDARD', 'PRO', 'JOURNALIST', 'PM'],
+  },
+  team:{
+    type: String,
+    // required: true,
+    // enum: ['STANDARD', 'PRO', 'JOURNALIST', 'PM'],
+  },
+    img: String,
     role: {
       type: String,
-      enum: ['STUDENT', 'DEV', 'TA', 'PM'],
-      default: 'STUDENT',
+      enum: ['STANDARD', 'PRO', '-', 'PM'],
+      default: 'STANDARD',
     },
+    journalist:{
+      type: Boolean,
+      default: false
+    }
   },
   {
     timestamps: true
