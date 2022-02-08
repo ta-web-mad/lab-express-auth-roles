@@ -10,4 +10,8 @@ module.exports = app => {
 
   const userRouter = require("./users.routes");
   app.use("/user", userRouter); 
+
+
+  const courseRouter = require("./course.routes");
+  app.use("/course", courseRouter); 
 }

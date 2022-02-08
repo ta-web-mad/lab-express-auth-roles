@@ -4,7 +4,9 @@ const userSchema = new Schema(
   {
     username: { type: String, required: true },
     email: { type: String, unique: true, required: true },
-    password: String,
+    password: {
+     type:String,
+     required:true},
     profileImg: { type: String, default: 'https://i.stack.imgur.com/l60Hf.png' },
     description: { type: String, default: 'No existe descripción.' },
     roles:{
