@@ -17,7 +17,12 @@
                     </div>
                     <div class="col">
                         <label for="leadInput" class="form-label">Lead Teacher</label>
-                        <input type="text" class="form-control" id="leadInput" name="leadTeacher">
+                        <input list="users" type="text" class="form-control" id="leadInput" name="leadTeacher">
+                        <datalist id="users">
+                            {{#each users}}
+                            <option value="{{username}}">
+                            {{/each}}
+                        </datalist>
                         <div class="form-text">Requerido.</div>
                     </div>
                 </div>

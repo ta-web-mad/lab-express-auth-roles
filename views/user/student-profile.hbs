@@ -28,8 +28,9 @@
             {{/if}}
 
             {{#if isSelf}}
+            {{#unless isPM}}
             <a type="button" class="btn btn-success" href="/editar/{{student.id}}">Editar</a>
-            
+            {{/unless}}
             {{/if}}
         </div>
 
