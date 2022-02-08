@@ -2,8 +2,20 @@ body {
   font-weight: 200;
   font-family: sans-serif;
 }
+img {
+  width: 100%;
+}
 
+h1 {
+  font-size: 6em;
+}
+h2{
+  font-size: 4em;
+}
 
+p {
+  font-size: 2em;
+}
 h1, h2, h3 {
   font-weight: 200;
 }
@@ -15,6 +27,11 @@ h1, h2, h3 {
 .navbar form button {
   background: transparent;
   border: none;
+}
+
+.pics {
+  width: 30%;
+  height: 200px;
 }
 
 #errorMessage {

@@ -1,0 +1,31 @@
+<div class="container">
+    <form action="/students/{{id}}/edit" method="POST">
+
+        <div class="mb-3 row">
+            <div class="col">
+                <label for="emailInput" class="form-label">Dirección de email</label>
+                <input type="email" class="form-control" id="emailInput" name="email" value="{{email}}">
+            <br>
+            </div>
+                
+            <div class="mb-3">
+                <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control" id="usernameInput" name="username" value="{{username}}">
+            </div>
+                
+            <div class="mb-3">
+                <label for="imageInput" class="form-label">Imagen</label>
+                <input type="url" class="form-control" id="imageInput" name="profileImg" value="{{profileImg}}">
+            <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>          
+                
+            <div class="mb-3">
+                <label for="descriptionInput" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descriptionInput" rows="3" name="description">{{description}}</textarea>
+            </div>
+        </div>
+        
+        <input class="btn btn-danger" type="submit" value="Modify student's information">
+
+
+    </form>
+</div>
