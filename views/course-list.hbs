@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Cursos</h1>
+
+    <ul>
+        {{#each curso}}
+        <li>{{title}} <a href="/cursos/{{_id}}">Ver</a></li>
+        {{/each}}
+    </ul>
+
+
+    <form action="/cursos/crear" method="GET">
+        <button class="btn btn-primary">Crear curso</button>
+    </form>
+</div>

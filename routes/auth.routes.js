@@ -2,7 +2,8 @@ const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const Todo = require("../models/Todo.model")
-const { isPM, owner } = require("../utils/index")
+const Course = require("../models/Course.model")
+const { isPM, owner } = require("../utils")
 const { isLoggedIn, checkRoles, bothCheck } = require("../middleware/route-guard")
 const saltRounds = 10
 
@@ -52,16 +53,14 @@ router.get("/estudiantes", isLoggedIn, (req, res, next) => {
   User
     .find()
     .then(student => {
-      console.log(student.profileImg)
       res.render("students/student-list", { student })
     })
     .catch(error => next(error))
 })
 
+
 router.get("/estudiantes/:id", isLoggedIn, (req, res, next) => {
   const { id } = req.params
-
-
 
   User
       .findById(id)
@@ -73,13 +72,6 @@ router.get("/estudiantes/:id", isLoggedIn, (req, res, next) => {
       })
       .catch(error => next(error))
 })
-
-
-// PM PRIVILEGIOS
-
-
-
-
 
 
 
@@ -144,6 +136,75 @@ router.post("/estudiantes/:id/eliminar", isLoggedIn, checkRoles("PM"), (req, res
     .catch(error => next(error))
 })
 
+
+
+
+// TA PRIVILEGIOS
+
+router.get("/cursos", isLoggedIn, checkRoles("TA"), (req, res, next) => {
+  Course
+      .find()
+      .then(curso => {
+        res.render("course-list", {curso})
+      })
+      .catch(error => next(error))
+})
+
+
+// CREAR CURSOS
+
+router.get("/cursos/crear", isLoggedIn, checkRoles("TA"), (req, res, next) => {
+  res.render("create-course")
+})
+
+router.post("/cursos/crear", isLoggedIn, checkRoles("TA"), (req, res, next) => {
+  const { title } = req.body
+
+  Course
+    .create({ title })
+    .then(() => {
+      res.redirect("/cursos")
+    })
+    .catch(error => next(error))
+})
+
+
+
+
+
+
+router.get("/cursos/:id", isLoggedIn, checkRoles("TA"), (req, res, next) => {
+  const { id } = req.params
+
+  Course
+    .findById(id)
+    .then(curso => {
+      res.render("course-profile", {curso})
+    })
+    .catch(error => next(error))
+
+})
+
+
+
+
+
+
+
+
+
+// ELIMINAR CURSOS
+
+router.post("/cursos/:id/eliminar", isLoggedIn, checkRoles("TA"), (req, res, next) => {
+  const { id } = req.params
+
+  Course
+    .findByIdAndDelete(id)
+    .then(() => {
+      res.redirect("/cursos")
+    })
+    .catch(error => next(error))
+})
 
 
 
