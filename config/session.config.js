@@ -1,5 +1,5 @@
-const session = require('express-session')   // instalar
-const MongoStore = require('connect-mongo')  // instalar
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const mongoose = require('mongoose')
 
 module.exports = app => {
