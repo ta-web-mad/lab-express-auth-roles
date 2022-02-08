@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Estos son todos los students</h1>
+    <ul>
+        {{#each students}}
+        <li>
+            <img src="{{profileImg}}" alt="{{username}}">
+            {{username}}
+            <p>
+                {{email}}
+
+            </p>
+            <p>
+                {{description}}
+            </p>
+
+            <a href="/students/{{_id}}">mi perfil</a>
+            {{#if isPM}}
+            <a href="/students/{{_id}}/edit">Editar</a>
+            <form action="/students/{{_id}}/delete" method="POST">
+                <button>Eliminar</button>
+            </form>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</div>
