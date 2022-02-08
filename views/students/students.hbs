@@ -1,0 +1,73 @@
+<div class="container">
+
+    <div class="row">
+        {{#if currentUser}}
+        {{#each allStudents}}
+
+
+
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{username}}</h5>
+                <p class="card-text">{{description}}</p>
+
+                <a href="/student/{{_id}}" class="btn btn-primary">Detalles</a>
+                <form action="/student/{{_id}}/delete" method="POST">
+                    <button class="btn btn-primary">Delete</button>
+                </form>
+
+
+                <form action="/student/{{_id}}/edit" method="GET">
+                    <button class="btn btn-primary">Edit</button>
+                </form>
+                <form action="/student/{{_id}}/changestatustodev" method="POST">
+                    <button class="btn btn-primary">Mark as developer</button>
+                </form>
+                <form action="/student/{{_id}}/changestatustota" method="POST">
+                    <button class="btn btn-primary">Mark as TA</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+<div class="container">
+
+    <div class="row">
+        {{#unless currentUser}}
+        {{#each allStudents}}
+
+
+
+
+
+
+
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{username}}</h5>
+                <p class="card-text">{{description}}</p>
+
+                <a href="/student/{{_id}}" class="btn btn-primary">Detalles</a>
+            </div>
+        </div>
+
+
+
+
+
+        {{/each}}
+
+        {{/unless}}
+    </div>
+</div>
