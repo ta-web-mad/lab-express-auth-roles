@@ -21,10 +21,22 @@ require("./config")(app);
 app.locals.siteTitle = `IronLearn`;
 
 // Session config
-require('./config/session.config')(app)
+require("./config/session.config")(app);
 
 // Routes
-require("./routes")(app)
+require("./routes")(app);
+
+const index = require("./routes/base.routes");
+app.use("/", index);
+
+const baseRouter = require("./routes/base.routes");
+app.use("/", baseRouter);
+
+const authRouter = require("./routes/auth.routes");
+app.use("/", authRouter);
+
+const studentsRouter = require("./routes/students.routes");
+app.use("/", studentsRouter);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
