@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-6">
+
+            <h1>Perfil de {{user.username}}</h1>
+            <hr>
+            <p>Email: {{user.email}}</p>
+            <p>Role: {{user.role}}</p>
+            <p>Descripción: {{user.description}}</p>
+            <br>
+
+            {{#if isOwner}}
+            <a class='btn btn-outline-success d-grid gap-2 col-6' href="/edit/{{user._id}}">Editar</a>
+            {{/if}}
+
+
+            {{#if isPM}}
+            <form action="/delete/{{user._id}}" method="POST">
+                <button class='btn btn-outline-danger d-grid gap-2 col-6'>Eliminar</button>
+            </form>
+            <a class='btn btn-outline-success d-grid gap-2 col-6' href="/edit/{{user._id}}">Editar</a>
+
+            <form action="/edit/{{user._id}}/ta" method="POST">
+                <button class='btn btn-outline-dark d-grid gap-2 col-6'>Marcar como TA</button>
+            </form>
+
+            <form action="/edit/{{user._id}}/dev" method="POST">
+                <button class='btn btn-outline-dark d-grid gap-2 col-6'>Marcar como DEV</button>
+            </form>
+            {{/if}}
+        </div>
+        <div class="col-6">
+            <img src="{{user.profileImg}}" alt="Imagen de perfil">
+            <br>
+        </div>
+
+    </div>
+</div>
