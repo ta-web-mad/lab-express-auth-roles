@@ -19,9 +19,9 @@
                         <label for="leadInput" class="form-label">Lead Teacher</label>
                         <input list="users" type="text" class="form-control" id="leadInput" name="leadTeacher">
                         <datalist id="users">
-                            {{#each users}}
+                            {{#each data.users}}
                             <option value="{{username}}">
-                            {{/each}}
+                                {{/each}}
                         </datalist>
                         <div class="form-text">Requerido.</div>
                     </div>
@@ -39,7 +39,14 @@
 
                 <div class="mb-3">
                     <label for="taInput" class="form-label">Nombre del TA</label>
-                    <input class="text" id="taInput" name="ta"></input>
+                    <input list='taList' class="text" id="taInput" name="ta"></input>
+                    <datalist id="taList">
+                            {{#each data.ta}}
+                            
+                        <option value="{{username}}">
+                           
+                            {{/each}}
+                    </datalist>
                 </div>
                 <div class="mb-3">
                     <label for="imgInput" class="form-label">Imagen</label>
