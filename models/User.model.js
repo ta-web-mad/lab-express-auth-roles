@@ -4,14 +4,17 @@ const userSchema = new Schema(
   {
     username: { type: String, required: true },
     email: { type: String, unique: true, required: true },
-    password: String,
+    passwordHash: String,
     profileImg: { type: String, default: 'https://i.stack.imgur.com/l60Hf.png' },
-    description: { type: String, default: 'No existe descripción.' }
-    // add roles setup here
+    description: { type: String, default: 'No existe descripción.' },
+    role: { type: String, enum: ['PM', 'TA', 'DEV', 'STUDENT'], default: 'STUDENT' }
+
   },
+
   {
     timestamps: true
   }
+
 );
 
 
