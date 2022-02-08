@@ -1,0 +1,55 @@
+<div class='container'>
+
+  <div class='row justify-content-center'>
+
+    <div class='col-md-6'>
+
+      <h1>Perfil de usuario</h1>
+      <hr />
+
+      <article>
+        <h4>{{student.username}}</h4>
+        <ul>
+          <li>Correo:
+            {{student.email}}
+          </li>
+          <li>Descripción:
+            {{student.description}}
+          </li>
+          <li>Roles:
+            {{student.roles}}
+          </li>
+        </ul>
+
+      </article>
+
+      {{#if isMyProfile}}
+        <button>
+          <a href='/edit?student_id={{student.id}}'>Editar mis datos</a>
+
+        </button>
+      {{/if}}
+      {{#if isPM}}
+
+        <form action='/delete/{{student.id}}' method='post'>
+          <button>Borrar</button>
+        </form>
+        <button>
+          <a href='/edit?student_id={{student.id}}'>editar</a>
+        </button>
+
+        <form action='/set-rol/{{student.id}}/dev' method='post'>
+          <button>Añadir rol de DEVELOPER</button>
+        </form>
+        <form action='/set-rol/{{student.id}}/ta' method='post'>
+          <button>Añadir rol de TA</button>
+        </form>
+
+      {{/if}}
+      <button>
+        <a href='/students'>Volver al listado</a>
+      </button>
+    </div>
+  </div>
+
+</div>
