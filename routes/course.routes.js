@@ -1,5 +1,6 @@
 const { logueado, checkRole } = require("../middleware/route-ward")
 const User = require("../models/User.model")
+const Course = require("../models/Course.model")
 
 const router = require("express").Router()
 
@@ -14,7 +15,8 @@ router.get('/course', logueado, checkRole('TA'), (req, res, next) => {
         .then(ta => {
             data.ta = ta
             console.log(data)
-            res.render('course/create', { data }) })
+            res.render('course/create', { data })
+        })
         .catch(error => next(error))
 
 
@@ -22,7 +24,12 @@ router.get('/course', logueado, checkRole('TA'), (req, res, next) => {
 })
 
 router.post('/course', logueado, checkRole('TA'), (req, res, next) => {
-    res.redirect('https://cutt.ly/AOV18LS')
+    const { title, leadTeacher, startDate, endDate, ta, courseImg, description, status, students } = req.body
+
+    console.log(title, leadTeacher, startDate, endDate, ta, courseImg, description, status, students)
+    Course
+        .create({ title, leadTeacher, startDate, endDate, ta, courseImg, description, status, students })
+        .then(res.redirect('https://cutt.ly/AOV18LS'))
 })
 
 
