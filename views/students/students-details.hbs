@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+            <h2>The nicest profile ever</h2>
+        <div class="col-6 pics">
+            <img src="{{user.profileImg}}" alt="student's picture">
+        </div>
+        <div class="col-6">
+            <p>Username: {{user.username}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Description: {{user.description}}</p>
+            <p>Role: {{user.role}}</p>
+            {{#if isPM}}
+            <hr>
+                <a href="/students/{{user.id}}/edit" class="btn btn-warning mb-3">Edit student</a>
+                <form class="form" action="/students/{{user.id}}/delete" method="POST" >
+                <button class="btn btn-danger mb-3" type="submit">Delete student</button>
+                </form>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle mb-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Modify student's role
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/students/{{user.id}}/make/STUDENT">STUDENT</a></li>
+                        <li><a class="dropdown-item" href="/students/{{user.id}}/make/DEV">DEV</a></li>
+                        <li><a class="dropdown-item" href="/students/{{user.id}}/make/TA">TA</a></li>
+                    </ul>
+                </div>
+            {{/if}}
+            {{#if isOwn}}
+            <hr>
+                <a href="/students/{{user.id}}/edit" class="btn btn-warning mb-3">Edit student</a>
+                <form class="form" action="/students/{{user.id}}/delete" method="POST" >
+                <button class="btn btn-danger mb-3" type="submit">Delete student</button>
+                </form>
+                
+            {{/if}}
+        </div>
+    </div>
+    
+</div>

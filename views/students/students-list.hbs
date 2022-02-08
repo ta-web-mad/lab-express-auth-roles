@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>List of students</h2>
+
+    {{#each students}}
+    <p>{{this.username}}</p>
+    <br>
+    <a class="btn btn-dark" href="/students/{{id}}">View student profile</a>
+    <hr>
+    {{/each}}
+
+</div>
+    
