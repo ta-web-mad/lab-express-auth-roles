@@ -3,6 +3,14 @@ body {
   font-family: sans-serif;
 }
 
+img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+}
+
 
 h1, h2, h3 {
   font-weight: 200;
@@ -29,7 +37,7 @@ h1, h2, h3 {
 }
 
 
-@keyframes  showFromBottom {
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }
@@ -46,4 +54,8 @@ h1, h2, h3 {
   100% {
     bottom: -50px
   }
+}
+
+.user-list {
+  margin-left: 3rem;
 }
