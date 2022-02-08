@@ -7,4 +7,7 @@ module.exports = app => {
   // Auth routes
   const authRouter = require("./auth.routes");
   app.use("/", authRouter); 
+
+  const userRouter = require("./users.routes");
+  app.use("/user", userRouter); 
 }

@@ -1,0 +1,28 @@
+<h1>lista de estudiantes</h1>
+
+{{#each users}}
+<p>{{username}}</p>
+{{roles}}
+<br>
+<a href="/user/{{id}}/profile">
+<button>ver perfil</button>
+</a>
+
+{{#if ../isPm}}
+
+<form action="/user/{{id}}/delete" method="POST">
+    <button>eliminar</button>
+</form>
+<form action="/user/{{id}}/becomeDev" method="POST">
+    <button>Mark as Developer</button>
+</form>
+<form action="/user/{{id}}/becomeTa" method="POST">
+    <button>Mark as TA</button>
+</form>
+<form action="/user/{{id}}/becomeStudent" method="POST">
+    <button>Mark as Student</button>
+</form>
+{{/if}}
+    
+
+{{/each}}
