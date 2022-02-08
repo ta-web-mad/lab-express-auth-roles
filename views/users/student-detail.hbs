@@ -1,0 +1,30 @@
+<h2> Details of {{student.username}}</h2>
+<p>{{student.profileImg}}</p>
+<p>{{student.email}}</p>
+<p>{{student.description}}</p>
+<p>{{student.role}}</p>
+{{_id}}
+{{#if isPM}}
+<a href="/estudiantes/{{student.id}}/editar"> Edit Student</a>
+
+<form action="/estudiantes/{{student.id}}/eliminar" method="POST" style="display: inline-block;">
+<button type="submit"> Delete Student </button>
+</form>
+
+<form action="/estudiantes/{{student.id}}/to-dev" method="POST" style="display: inline-block;">
+    <button type="submit"> Mark as DEV </button>
+</form> 
+<form action="/estudiantes/{{student.id}}/to-TA" method="POST" style="display: inline-block;">
+    <button type="submit"> Mark as TA </button>
+</form>
+
+{{/if}}
+
+{{#if isSameStudent}}
+<a href="/estudiantes/{{student.id}}/editar"> Edit Student</a>
+{{/if}}
+
+
+
+
+

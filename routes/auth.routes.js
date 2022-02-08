@@ -9,6 +9,10 @@ router.post('/registro', (req, res, next) => {
 
   const { userPwd } = req.body
 
+  req.body.profileImg ? null : delete req.body.profileImg
+  req.body.description ? null : delete req.body.description
+   
+
   bcrypt
     .genSalt(saltRounds)
     .then(salt => bcrypt.hash(userPwd, salt))
