@@ -4,6 +4,7 @@ const {isLoggedIn, checkRole} = require('../middleware/route-guard')
 const {isPM, isOwn} = require('../utils')
 const { findOneAndUpdate } = require("../models/User.model")
 
+//Students routes
 router.get("/", isLoggedIn, (req, res, next) => {
   User
   .find({role: 'STUDENT'})
