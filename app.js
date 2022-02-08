@@ -13,6 +13,10 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+// Register the location for handlebars partials here:
+const path = require("path");
+hbs.registerPartials(path.join(__dirname, 'views/partials'));   // Necesario para el SETup de partials. Nota: "Colocar / "
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware

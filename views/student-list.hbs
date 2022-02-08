@@ -1,0 +1,18 @@
+<h1>Students List</h1>
+
+        {{#each studentsList}}
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4> Name : {{username}}</h4>
+                </div>
+                <div class="col-12">
+                    <h4>Role : {{role}}</h4>
+                </div>
+                <div class="col-12">
+                    <a href="/students/{{_id}}">View Student Profile</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        {{/each}}

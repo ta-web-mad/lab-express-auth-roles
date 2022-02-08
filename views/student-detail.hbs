@@ -1,0 +1,25 @@
+<h2>Students Details</h2>
+
+<p>Name: {{studentDetails.username}}</p>
+
+<p>Email: {{studentDetails.email}}</p>
+
+<p>ProfileImg: {{studentDetails.profileImg}}</p>
+
+<p>Description: {{studentDetails.description}}</p>
+
+{{!-- Is product manager : {{isProductManager}}
+Is allow to edit : {{allowEdit}} --}}
+
+{{#if allowEdit}}
+    {{>editpartial}}
+{{else if isProductManager}}
+    {{>editpartial}}
+    <form action="/students/{{studentDetails._id}}/delete" method="POST">
+        <div class="container">
+            <button class="btn btn-warning" type="submit">Delete Student</button>
+        </div>
+    </form>
+{{else}}
+    <p>Role: {{studentDetails.role}}</p>
+{{/if}}
