@@ -1,0 +1,19 @@
+<h1>Lista de students</h1>
+<hr>
+
+<ul>
+
+    {{#each students}}
+
+
+
+    <li> {{this.username}} </li>
+
+    <a href="/users/details/{{_id}}"><button class="submit">Ver perfil del student</button></a>
+
+
+
+    {{/each}}
+
+
+</ul>
