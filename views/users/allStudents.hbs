@@ -1,0 +1,11 @@
+<h2>List of students</h2>
+
+<ul>
+    {{#each users}}
+    <li>
+        {{username}} <a href="/students/{{_id}}">View student profile</a>
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/">Home</a>

@@ -1,0 +1,27 @@
+<h2>EDITAR: {{user.username}}</h2>
+<hr>
+
+<form action="/students/{{user._id}}/edit" method="post">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" name="username" value="{{user.username}}">
+        <label for="floatingInput">Nombre</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" name="email" value="{{user.email}}">
+        <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" name="description" value="{{user.description}}">
+        <label for="floatingInput">Description</label>
+    </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="role" value="{{user.role}}">
+            <label for="floatingInput">Role</label>
+        </div>
+
+    <input class="btn btn-primary" type="submit" value="update">
+
+</form>
+
+<a class="btn btn-warning" href="/students" role="button">Volver al listado</a>

@@ -1,0 +1,43 @@
+<h2>PROFILE</h2>
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{user.profileImg}}" class="img-fluid rounded-start" alt="foto">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{user.username}}</h5>
+                <h6 class="card-text">email: {{user.email}}</h6>
+                <h6 class="card-text">Description: {{user.description}}</h6>
+                <h6 class="card-text">Role: {{user.role}}</h6>
+            </div>
+        </div>
+        {{#if isPM}}
+        <form action="/students/{{user._id}}/delete" method="post" style="display: inline-block;">
+            <button class="btn btn-danger">Eliminar</button>
+        </form>
+
+        <form action="/students/{{user._id}}/edit" method="get" style="display: inline-block;">
+            <button class="btn btn-warning">Editar</button>
+        </form>
+
+        <form action="/students/{{user._id}}/editDev" method="post" style="display: inline-block;">
+            <button class="btn btn-primary">Cambiar Dev</button>
+        </form>
+        <form action="/students/{{user._id}}/editTA" method="post" style="display: inline-block;">
+            <button class="btn btn-primary">Cambiar a TA</button>
+        </form>
+        {{/if}}
+
+        {{#if isStudent}}
+        <form action="/students/{{user._id}}/edit" method="get" style="display: inline-block;">
+            <button class="btn btn-warning">Editar</button>
+        </form>
+        {{/if}}
+
+    </div>
+</div>
+
+<a class="btn btn-warning" href="/students" role="button">Volver al listado</a>
+<a class="btn btn-warning" href="/" role="button">Home</a>
