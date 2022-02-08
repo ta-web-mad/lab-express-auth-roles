@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>
+        Edit student
+    </h2>
+
+    <form action="/editar/{{_id}}" method="POST">
+
+
+        <label>
+            <input type="text" name="username" value="{{username}}">
+        </label>
+
+        <label>
+            <input type="text" name="genre" value="{{email}}"> </label>
+
+        <label>
+            <input type="text" name="profileImg" value="{{profileImg}}">
+        </label>
+
+        <label>
+            <input type="text" name="description" value="{{description}}">
+        </label>
+
+        <label>
+            <input type="text" name="role" value="{{role}}">
+        </label>
+
+
+        <input type="submit" value="Edit Student">
+
+    </form>
+</div>

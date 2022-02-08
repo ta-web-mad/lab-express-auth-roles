@@ -1,0 +1,57 @@
+<div class="container card-container">
+    {{#with users}}
+    <div class="card text-center" style="width: 18rem;">
+        <img src="{{profileImg}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{username}}</h5>
+            <p class="card-text">{{description}}</p>
+            <p class="card-text">{{email}}</p>
+            <p class="card-text">{{role}}</p>
+        </div>
+        {{/with}}
+        {{!-- {{#if itIsTheStudent}} --}}
+        {{#if isPm}}
+
+        <div class="display-flex">
+
+            <div>
+                <a href="/editar/{{users._id}}" class="btn btn-primary">Edit student</a>
+            </div>
+
+            <hr>
+
+            <div>
+                <form action="/students/{{users._id}}/delete" method="POST">
+
+
+                    <input type="submit" value="Delete student">
+                </form>
+            </div>
+
+            <div>
+                <form action="/students/{{users._id}}/toTA" method="POST">
+
+                    <input type="submit" value="toTA">
+                </form>
+            </div>
+
+            <div>
+                <form action="/students/{{users._id}}/toDEV" method="POST">
+
+                    <input type="submit" value="toDEV">
+                </form>
+            </div>
+
+
+        </div>
+        {{/if}}
+        {{!-- {{/if}} --}}
+        <br />
+
+    </div>
+
+
+
+
+
+</div>
