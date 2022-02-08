@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <h1>Edit {{users.username}}'s profile</h1>
+        <form action="/students/{{users._id}}/edit" method="POST">
+            {{#if isAllowed}}
+            <p>Active rol: <strong>{{users.role}}</strong></p>
+            <div class="mb-3">
+                <label>
+                    Change rol:
+                    <select name="role">
+                        <option value="STUDENT">STUDENT</option>
+                        <option value="DEV">DEV</option>
+                        <option value="TA">TA</option>
+                    </select>
+                </label>
+            </div>
+            {{/if}}
+
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="profileImgInput" name="emailImg" value="{{users.email}}">
+            </div>
+            <div class="mb-3">
+                <label for="profileImgInput" class="form-label">Imagen de perfil:</label>
+                <input type="text" class="form-control" id="profileImgInput" name="profileImg"
+                    value="{{users.profileImg}}" placeholder="Introduce la URL de una imagen">
+            </div>
+
+            <div class="mb-3">
+                <label for="usernameInput" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="usernameInput" name="username" value="{{users.username}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="descriptionInput" class="form-label">Description:</label>
+                <input type="text" class="form-control" id="descriptionInput" name="description"
+                    value="{{users.description}}">
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-dark block">Editar</button>
+            </div>
+        </form>
+    </div>
+</div>

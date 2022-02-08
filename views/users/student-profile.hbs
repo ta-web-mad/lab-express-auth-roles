@@ -1,0 +1,13 @@
+<img src="{{users.profileImg}}" alt="{{users.username}}">
+<h1>{{users.username}}'s profile</h1>
+<p>{{users.description}}</p>
+<br>
+{{#if isStudent}}
+<a href="/students/{{users._id}}/edit">Edit profile</a>
+{{/if}}
+{{#if isAllowed}}
+<form action="/students/{{users._id}}/delete" method="POST">
+    <button type="submit">Delete Student</button>
+</form>
+<a href="/students/{{users._id}}/edit">Edit Student</a>
+{{/if}}
