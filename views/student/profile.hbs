@@ -1,0 +1,27 @@
+<h1>Profile {{student.username}} </h1>
+<div class="container">
+    <div class="row">
+        <div>
+            <ul>
+
+                <li> {{student.username}},<img src="{{student.profileImg}}"> ,{{student.description}},{{student._id}}
+                </li>
+
+            </ul>
+            <form action="/students/profile/{{student._id}}" method="GET">
+                {{#if isPM}}
+                <button class="btn btn-warning">Editar contenido</button>
+            </form>
+            <form action="/students/profile/{{student._id}}" method="POST">
+                <button class="btn btn-dark">Eliminar</button>
+            </form>
+            <form action="/students/profile/{{student.role}}/change" method="post">
+                <button class="btn btn-light  btn-corner-dark">change role</button>
+            </form>
+            {{/if}}
+
+
+            </form>
+        </div>
+    </div>
+</div>

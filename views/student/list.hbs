@@ -1,0 +1,15 @@
+<h1>Students list</h1>
+<div class="container">
+    <div class="row">
+        <div>
+            <ul>
+                {{#each students}}
+                <li> {{username}},<img src="{{profileImg}}"> ,{{description}},{{_id}}</li>
+                <a href="/students/profile/{{_id}}"> to profile {{username}}</a>
+
+                {{/each}}
+            </ul>
+
+        </div>
+    </div>
+</div>
