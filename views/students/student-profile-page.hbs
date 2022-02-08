@@ -1,0 +1,46 @@
+<div class="container">
+
+    {{#if projectManager}}
+
+    ERES {{user.username}} Y TIENES EL ROL DE {{user.role}}
+
+    {{/if}}
+
+    <h1>SOY EL PORTAL DEL ESTUDIANTE {{student.username}}</h1>
+
+    <p>Email: {{student.email}}</p>
+    <p>Descripción: {{student.description}}</p>
+    <p>Rol: {{student.role}}</p>
+    <img src="{{student.profileImg}}" alt="{{student.username}} Profile Picture">
+
+    {{#if isCurrentStudent}}
+
+    <a href="/students/{{student.id}}/edit-my-profile" class="btn btn-info">Edit my profile</a>
+
+    {{/if}}
+
+    {{#if projectManager}}
+
+    <form action="/students/{{student._id}}/delete" method="POST">
+        <button class="btn btn-danger">Delete Student</button>
+    </form>
+
+    <a href="/students/{{student._id}}/edit" class="btn btn-warning">Edit Student</a>
+
+    <form action="/students/{{student._id}}/student-to-dev" method="POST">
+        <button class="btn btn-warning">Mark as Developer</button>
+    </form>
+
+    <form action="/students/{{student._id}}/student-to-ta" method="POST">
+        <button class="btn btn-warning">Mark as TA</button>
+    </form>
+
+    {{/if}}
+
+    {{#if errorMessage}}
+    <div id="errorMessage">
+        <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
+
+</div>
