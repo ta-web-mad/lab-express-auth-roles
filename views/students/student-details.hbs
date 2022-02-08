@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div>{{student.username}}</div>
+        <div>{{student.description}}</div>
+    </div>
+    <div>{{student.role}}</div>
+    {{#if isOwnProfile}}
+
+    <form action="/student/{{student._id}}/edit" method="GET">
+        <button class="btn btn-primary">Edit</button>
+    </form>
+
+    {{/if}}
+
+    <a href="/students" class="btn btn-secondary">Go back to students</a>
+</div>

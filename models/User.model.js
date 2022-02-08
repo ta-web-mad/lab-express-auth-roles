@@ -6,9 +6,20 @@ const userSchema = new Schema(
     email: { type: String, unique: true, required: true },
     password: String,
     profileImg: { type: String, default: 'https://i.stack.imgur.com/l60Hf.png' },
-    description: { type: String, default: 'No existe descripción.' }
+    description: { type: String, default: 'No existe descripción.' },
     // add roles setup here
+    role: {
+      type: String,
+      enum: ['STUDENT', 'DEV', 'TA', 'PM'],
+      default: 'STUDENT'
+    },
+    isPM: {
+      type: Boolean,
+      default: false
+    }
   },
+  //STUDENT, DEV, TA and PM
+
   {
     timestamps: true
   }
