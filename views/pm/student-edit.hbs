@@ -1,0 +1,47 @@
+<div class="container">
+    {{#with student}}
+    <h1>Edit student profile of: {{username}}</h1>
+{{#if isSameStudent}}
+    <form action="/estudiantes/{{_id}}/editar" method="POST">
+        <div class="mb-3">
+            <label for="usernameInput" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="usernameInput" name="username" value="{{username}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailInput" name="email" value="{{email}}">
+        </div>
+        
+        <div class="mb-3">
+            <label for="descriptionInput" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descriptionInput" name="description" value="{{description}}">
+        </div>
+        {{/if}}
+        {{/with}}
+
+        {{#if isPm}}
+        <div class="mb-3">
+            <label for="roleInput" class="form-label">Rol</label>
+            <select name="role">
+                <option value="STUDENT">Estudiante</option>
+                <option value="TA">Teacher Assistant</option>
+                <option value="DEV">Developer</option>
+            </select>
+        </div>
+        {{/if}}
+
+        
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-dark block">Editar</button>
+        </div>
+
+        {{#if errorMessage}}
+        <div id="errorMessage">
+            <p>{{errorMessage}}</p>
+        </div>
+        {{/if}}
+
+    </form>
+</div>

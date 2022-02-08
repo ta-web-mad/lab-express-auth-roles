@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="card" style="width: 28rem;">
+
+        <img src="{{user.profileImg}}" class="card-img-top" alt="{{user.username}}">
+        <div class="card-body">
+            <h5 class="card-title">{{user.username}}</h5>
+            <p class="card-text">{{user.description}}</p>
+
+            <form action="{{user._id}}" method="post">
+            {{#if isPm}}
+            <button class="btn btn-danger">Eliminar</button>
+            {{/if}}
+            </form>
+           
+            {{#if isPm}}
+            <a href="{{user._id}}/editar" class="btn btn-success">Editar estudiante</a>
+            {{/if}}
+            <br>
+
+            {{#if isSameStudent}}
+            <a href="{{user._id}}/editar" class="btn btn-success">Editar estudiante</a>
+            {{/if}}
+            <br>
+            
+
+            <a href="/estudiantes" class="btn btn-primary">Ir a la lista</a>
+
+        </div>
+    </div>
+
+
+</div>

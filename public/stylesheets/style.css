@@ -7,6 +7,9 @@ body {
 h1, h2, h3 {
   font-weight: 200;
 }
+.btn{
+  margin: 5px
+}
 
 .navbar {
   margin-bottom: 80px;
