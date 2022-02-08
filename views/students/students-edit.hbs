@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Editar Estudiante</h2>
+    <form method="POST" action="/students/{{students._id}}/edit">
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="{{students.username}}">
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" value="{{students.email}}">
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" value="{{students.password}}">
+
+        <label for="profileImg">Profile Image:</label>
+        <input type="text" name="profileImg" value="{{students.profileImg}}">
+
+        <label for="description">Descripción:</label>
+        <input type="text" name="description" value="{{students.description}}">
+
+        {{#if isPM}}
+        <label for="role">Rol: </label>
+        <select name="role">
+            <option name="STUDENT">STUDENT</option>
+            <option name="DEV">DEV</option>
+            <option name="TA">TA</option>
+        </select>
+        <button class="btn btn-dark" type="submit">Editar</button>
+        {{/if}}
+    </form>
+</div>

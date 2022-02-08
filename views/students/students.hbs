@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Estudiantes</h2>
+    <ul>
+        {{#each students}}
+        <li>
+            Nombre:{{username}}
+            <a href="/students/{{_id}}/">Ver Perfil</a>
+            {{#if ../isPM}}
+            <a href="/students/{{_id}}/edit">Editar Perfil</a>
+            <form action="/students/{{_id}}/delete" method="POST">
+                <button class="btn btn-danger">Borrar Perfil</button>
+            </form>
+            {{/if}}
+            {{#if ../isUser}}
+            <a href="/students/{{_id}}/edit">Editar Perfil</a>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</div>
