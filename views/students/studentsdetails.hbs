@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+
+  {{#with student}}
+
+    <h2>{{username}}</h2>
+    <br>
+    <p>{{email}}</p>
+    <p>{{role}}</p>
+    <p>{{profileImg}}</p>
+    <p>{{description}}</p>
+
+
+
+  {{#if ../isPM}}
+<form action="/students/edit-student/{{_id}}" method="GET">
+    <button class="btn btn-warning">Editar contenido</a>
+    </form>
+
+ <form
+    action="/students/delete-student/{{_id}}"
+    method="POST">
+    <button class="btn btn-danger">Eliminar contenido</button>
+  </form>
+
+<form action="/markasdeveloper/{{_id}}" method="POST">
+<button class="btn btn-outline-dark">Mark as developer
+</button></form>
+
+<form action="/markasta/{{_id}}" method="POST">
+<button class="btn btn-outline-dark">Mark as TA
+</button></form>
+  {{/if}}
+
+
+
+ {{#if ../checkIfStudent}}
+<form action="/students/edit-student/{{_id}}" method="GET">
+    <button class="btn btn-warning">Editar contenido</a>
+    </form>
+
+ <form
+    action="/students/delete-student/{{_id}}"
+    method="POST">
+    <button class="btn btn-danger">Eliminar contenido</button>
+  </form>
+
+ {{/if}}
+
+
+  {{/with}}
+</div>
+</div>
+</div>
