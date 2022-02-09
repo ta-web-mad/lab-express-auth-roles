@@ -17,9 +17,9 @@
         <li>{{student.email}}</li>
         <li>{{student.description}}</li>
 <br>
-    
+    {{#unless isPM}}
         <a href="/estudiantes/detalles/{{student._id}}/editar">Editar mi perfil</a>
-     
+     {{/unless}}
       </ul>
     {{#if isPM}}
       <a href="/estudiantes/detalles/{{student._id}}/editar">Editar alumno</a>
