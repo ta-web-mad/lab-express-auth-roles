@@ -1,0 +1,20 @@
+
+   <h2>  lista de estudiantesssss</h2>
+   
+   
+    {{#each allStudents}}
+      
+        <p>Nombre: {{username}}</p>
+        <p>email: {{email}}</p>
+        <p>imagen: {{profileImg}}</p>
+        <p>descripcion:{{description}}</p>
+      <button>
+          <a href='/students/{{_id}}'>ver perfil</a>
+        </button>
+      
+
+    {{/each}}
+
+
+
+   
