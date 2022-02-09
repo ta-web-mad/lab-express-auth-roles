@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row profilecard justify-content-evenly">
+        <div class="col-3 profile">
+            <img src="{{student.profileImg}}" alt="User image">
+        </div>
+        <div class="col-5">
+            <h2 class="profile username">{{student.username}}</h2>
+            <br>
+            <p>Description: {{student.description}}</p>
+            <p>Role: {{student.role}}</p>
+            {{#if isPM}}
+            <form action="/students/{{student._id}}/makeDev" method="POST">
+                <button class="btn btn-outline-warning btncenter">Make Dev</button>
+            </form>
+            <form action="/students/{{student._id}}/makeTA" method="POST">
+                <button class="btn btn-outline-warning btncenter">Make TA</button>
+            </form>
+            <form action="/students/{{student._id}}/makeStudent" method="POST">
+                <button class="btn btn-outline-warning btncenter">Make Student</button>
+            </form>
+            <form action="/students/{{student._id}}/edit" method="POST"><button
+                    class="btn btn-warning btncenter adminedit">EDIT</button></form>
+            {{/if}}
+            {{#if isOwner}}
+            <form action="/students/{{student._id}}/edit" method="POST"><button
+                    class="btn btn-warning btncenter">EDIT</button></form>
+            {{/if}}
+        </div>
+    </div>
+</div>

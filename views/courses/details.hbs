@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            <h3>Title:</h3>
+            <h4>{{title}}</h4>
+            <hr>
+            <h3>Lead teacher:</h3>
+            <h4>{{leadTeacher}}</h4>
+            <hr>
+            <h3>startDate:</h3>
+            <h4>{{startDate}}</h4>
+            <hr>
+            <h3>endDate:</h3>
+            <h4>{{endDate}}</h4>
+            <hr>
+            <ul>
+                <h3>TA's:</h3>
+
+                {{#each ta}}
+                <li>
+                    <h4>{{username}}</h4>
+                </li>
+                {{/each}}
+            </ul>
+            <hr>
+            <h3>Course Img:</h3>
+            <h4>{{courseImg}}</h4>
+            <hr>
+            <h3>Description:</h3>
+            <h4>{{description}}</h4>
+            <hr>
+            <h3>Status:</h3>
+            <h4>{{status}}</h4>
+            <hr>
+            <h3>Students:</h3>
+            <h4>{{students}}</h4>
+            <hr>
+        </div>
+    </div>
+</div>

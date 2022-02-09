@@ -4,8 +4,51 @@ body {
 }
 
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 200;
+}
+
+img {
+  width: 100%;
+}
+
+.profile img {
+  margin: 30px 0 0 30px;
+  border-radius: 50%;
+}
+
+.profilecard {
+  height: 80vh;
+  border: 1px solid black;
+}
+
+.profile.username {
+  font-weight: 600;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.profile.description {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-select {
+  margin-top: 20px;
+}
+
+.btncenter {
+  margin-top: 10px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.adminedit {
+  display: flex;
+  margin-top: 200px;
 }
 
 .navbar {
@@ -17,7 +60,65 @@ h1, h2, h3 {
   border: none;
 }
 
+.createcourse label {
+  margin-top: 20px;
+}
+
+.createcourse button {
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+.coursecard {
+  width: 100%;
+  border: 1px solid black;
+
+}
+
+
+
+.eachstudent {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, .05);
+}
+
+.liststudentsbuttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.liststudentsbuttons .btn-danger {
+  margin: 0 3px
+}
+
+.editStudentForm input {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.editStudentForm,
+.editStudentForm input {
+  text-align: center;
+}
+
+.editStudentForm label,
+.editStudentForm button {
+  margin-top: 10px;
+}
+
+.editForm {
+  height: 80vh;
+}
+
+
 #errorMessage {
+  font-weight: 800;
   background-color: rgb(255, 202, 202);
   width: 400px;
   position: fixed;
@@ -28,8 +129,14 @@ h1, h2, h3 {
   animation: showFromBottom 6s forwards;
 }
 
+.errorMessage {
+  display: flex;
+  margin-bottom: 0;
+  padding: 10px 0;
+}
 
-@keyframes  showFromBottom {
+
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }

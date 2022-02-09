@@ -1,0 +1,29 @@
+{{#with foundStudent}}
+<div class="container editForm">
+    <div class="row justify-content-center">
+        <div class='col-8 '>
+            <form action="/students/{{_id}}/edited" method="POST" class="editStudentForm d-flex flex-column">
+                <label for="_id">ID:</label>
+                <input type="text" name="_id" value="{{_id}}">
+                <label for="username">Username:</label>
+                <input type="text" name="username" value="{{username}}">
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="{{email}}">
+                <label for="profileImg">Profile Img:</label>
+                <input type="text" name="profileImg" value="{{profileImg}}">
+                <label for="description">Description:</label>
+                <input type="text" name="description" value="{{description}}">
+                {{#if ../isPM}}
+                <label for="role">Role:</label>
+                <select class="form-select" name="role">
+                    <option name='STUDENT' value="STUDENT">Student</option>
+                    <option name='DEV' value="DEV">Developer</option>
+                    <option name='TA' value="TA">TA</option>
+                </select>
+                {{/if}}
+                <button class="btn btn-outline-primary">EDIT</button>
+            </form>
+        </div>
+    </div>
+</div>
+{{/with}}

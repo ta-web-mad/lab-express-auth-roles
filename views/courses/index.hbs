@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            {{#if isMoreThanTaRole}}
+            <form action="/courses/createNew" method="POST">
+                <button class="btn btn-info">Create new course</button>
+            </form>
+            {{/if}}
+            {{#each allCourses}}
+            <div class="coursecard">
+                <h2>Course Title:</h2>
+                <p>{{title}}</p>
+                <a href="/courses/{{_id}}/details">
+                    <button class="btn btn-info">DETAILS</button>
+                </a>
+                {{#if ../isMoreThanTaRole}}
+                <form action="/courses/{{_id}}/edit" method="POST">
+                    <button class="btn btn-warning">EDIT</button>
+                </form>
+                <form action="/courses/{{_id}}/delete" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form action="/courses/create" method="POST" class="createcourse text-center">
+                <div class="form-group">
+                    <label for="title" class="titlecourseform">Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Título">
+                </div>
+                <div class="form-group">
+                    <label for="leadTeacher">Lead Teacher</label>
+                    <select multiple class="form-control" name="leadTeacher">
+                        {{#each users}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control" name="startDate"></input>
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="date" class="form-control" name="endDate"></input>
+                </div>
+                <div class="form-group">
+                    <label for="ta">TA</label>
+                    <select multiple class="form-control" name="ta">
+                        {{#each users}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="courseImg">Course Img</label>
+                    <input type="text" class="form-control" name="courseImg" placeholder="Imagen del curso">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" name="description" placeholder="Descripcion del curso">
+                </div>
+                <label for="ta">TA's</label>
+                <select multiple class="form-control" name="ta">
+                    {{#each users}}
+                    <option value="{{_id}}">{{username}}</option>
+                    {{/each}}
+                </select>
+                <label for="status">Status</label>
+                <select class="form-control" name="status">
+                    <option value="OFF">OFF</option>
+                    <option value="ON">ON</option>
+                </select>
+                <label for="students">Students</label>
+                <select multiple class="form-control" name="students">
+                    {{#each users}}
+                    <option value="{{_id}}">{{username}}</option>
+                    {{/each}}
+                </select>
+                <button class="btn btn-info">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
