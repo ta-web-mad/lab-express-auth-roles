@@ -1,0 +1,9 @@
+<h1>STUDENTS</h1>
+
+<ul>
+    {{#each students}}
+    <a href="/student/{{id}}">
+        <button type="button" class="btn btn-dark">{{this.username}}</button>
+    </a>
+    {{/each}}
+</ul>

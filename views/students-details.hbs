@@ -1,0 +1,30 @@
+<h1>{{students.username}}</h1>
+<h3>{{students.roles}}</h3>
+<img src="{{students.profileImg}}" alt="profile image">
+<br>
+<p>Email: {{students.email}}</p>
+<br>
+<p>{{students.description}}</p>
+
+{{#if isPM}}
+<a href="/student/{{students.id}}/edit">
+    <button type="button" class="btn btn-warning">Edit</button>
+</a>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Role
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        {{#each students.roles}}
+        <li><button class="dropdown-item" type="button">{{this}}</button></li>
+        {{/each}}
+    </ul>
+</div>
+
+
+<form action="/student/{{students.id}}/delete" method="POST">
+    <button type="button" class="btn btn-warning">Delete</button>
+</form>
+
+{{/if}}
