@@ -85,6 +85,9 @@ router.get("/courses/:id/edit", userLogged, privilegeCheck("TA"), (req, res, nex
         .findById(id)
         .then(course => {
 
+            course.start = formatDate(course.startDate)
+            course.end = formatDate(course.endDate)
+
             User
                 .find({ role: "DEV" })
 
