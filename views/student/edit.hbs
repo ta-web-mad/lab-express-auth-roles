@@ -1,0 +1,31 @@
+<h2>Update {{user.username}}</h2>
+
+<form action="/edit/{{_id}}" method="POST">
+
+
+    <label>
+        Nombre
+        <input type="text" name="name" value="{{{user.username}}">
+    </label>
+    <br>
+     <label>
+        Nº de hélices
+        <input type="number" name="E-mail" value="{{user.email}}">
+    </label>
+    <br>
+     <label>
+        Velocidad
+        <input type="number" name="User Role" value="{{user.role}}">
+    </label>
+    <br>
+    <label>
+        Velocidad
+        <input type="number" name="User Description" value="{{user.description}}">
+    </label>
+    <br>
+
+    <input type="submit" value="Guardar cambios">
+
+</form>
+
+

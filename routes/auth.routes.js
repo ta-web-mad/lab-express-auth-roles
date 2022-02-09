@@ -12,7 +12,7 @@ router.post('/registro', (req, res, next) => {
   bcrypt
     .genSalt(saltRounds)
     .then(salt => bcrypt.hash(userPwd, salt))
-    .then(hashedPassword => User.create({ ...req.body, passwordHash: hashedPassword }))
+    .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
     .then(createdUser => res.redirect('/'))
     .catch(error => next(error))
 })
@@ -31,12 +31,12 @@ router.post('/iniciar-sesion', (req, res, next) => {
       if (!user) {
         res.render('auth/login', { errorMessage: 'Email no registrado en la Base de Datos' })
         return
-      } else if (bcrypt.compareSync(userPwd, user.passwordHash) === false) {
+      } else if (bcrypt.compareSync(userPwd, user.password) === false) {
         res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
         return
       } else {
         req.session.currentUser = user
-        res.redirect('/')
+        res.redirect('/lista')
       }
     })
     .catch(error => next(error))
