@@ -1,12 +1,11 @@
 const router = require("express").Router()
-const { isLoggedIn } = require("../middleware/route-guard")
+const { isLoggedIn, checkRole } = require("../middleware/route-guard")
 const User = require('./../models/User.model')
 const { isPM, isDEV, isTA } = require('./../utils')
 
 router.get("/", (req, res, next) => {
   res.render("index")
 })
-
 
 // Students list
 router.get("/students", isLoggedIn, (req, res, next) => {
@@ -17,7 +16,6 @@ router.get("/students", isLoggedIn, (req, res, next) => {
     .catch(err => next(err))
 
 })
-
 
 // Student details
 router.get('/students/:id', isLoggedIn, (req, res, next) => {
@@ -45,8 +43,8 @@ router.post('/students/:id/delete', isLoggedIn, (req, res, next) => {
 })
 
 
-// Edit students render
-router.get('/students/:id/edit', isLoggedIn, (req, res, next) => {
+// Edit students 1 (render)
+router.get('/students/:id/edit', isLoggedIn, checkRole('PM'), (req, res, next) => {
   const { id } = req.params
   User
     .findById(id)
@@ -58,8 +56,8 @@ router.get('/students/:id/edit', isLoggedIn, (req, res, next) => {
 
 })
 
-// Edit students handler
-router.post('/students/:id/edit', isLoggedIn, (req, res, next) => {
+// Edit students 2 (handler)
+router.post('/students/:id/edit', isLoggedIn, checkRole('PM'), (req, res, next) => {
   const { id } = req.params
   User
     .findByIdAndUpdate(id, req.body)
@@ -67,6 +65,7 @@ router.post('/students/:id/edit', isLoggedIn, (req, res, next) => {
     .catch(err => console.log(err))
 })
 
+// Router to set role to TA
 router.post('/students/:id/TA', isLoggedIn, (req, res, next) => {
   const { id } = req.params
   User
@@ -75,6 +74,7 @@ router.post('/students/:id/TA', isLoggedIn, (req, res, next) => {
     .catch(err => console.log(err))
 })
 
+// Router to set role to DEV
 router.post('/students/:id/DEV', isLoggedIn, (req, res, next) => {
   const { id } = req.params
   User
@@ -82,6 +82,8 @@ router.post('/students/:id/DEV', isLoggedIn, (req, res, next) => {
     .then(() => res.redirect('/students'))
     .catch(err => console.log(err))
 })
+
+
 
 
 module.exports = router

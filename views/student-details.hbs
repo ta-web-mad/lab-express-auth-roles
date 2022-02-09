@@ -16,27 +16,23 @@
 
             {{#if isPM}}
             <a href="/students/{{student._id}}/edit">Editar perfil</a>
-            {{/if}}
 
             <hr>
-            {{#if isPM}}
 
             <form action="/students/{{student._id}}/delete" method="POST">
                 <button class="btn btn-danger" type="submit">Eliminar perfil</button>
             </form>
-            {{/if}}
 
             <hr>
 
-            {{#if isPM}}
             <form action="/students/{{student._id}}/TA" method="POST">
                 <button class="btn btn-success" type="submit">Hacer TA</button>
             </form>
-            {{/if}}
+
 
             <hr>
 
-            {{#if isPM}}
+
             <form action="/students/{{student._id}}/DEV" method="POST">
                 <button class="btn btn-primary" type="submit">Hacer DEV</button>
             </form>
