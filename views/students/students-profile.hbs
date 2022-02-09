@@ -1,0 +1,67 @@
+<main class="container">
+    <div class="row">
+
+
+
+
+        <div class="card col-md-6 text-dark bg-light mb-3" style="width: 500px;">
+            <img src={{profileImg}} class="card-img profile-pic" alt="{{username}} picture">
+            <div class="card-body">
+                <h5 class="card-title">{{username}}</h5>
+                <a href="">
+                    <h6>{{email}}</h6>
+                </a>
+                <p class="card-text">{{description}}</p>
+
+
+            </div>
+            <br>
+            <p>{{role}}</p>
+
+            {{#if isOwner}}
+            {{#unless isPM}}
+            <form class="d-grid gap-2" action="/students/profile/{{_id}}/delete" method="POST">
+                <a href="/students/profile/{{_id}}/edit" class="btn btn-warning btn-primary">edit</a>
+                <input class="btn btn-danger btn-primary" type="submit" value="delete">
+
+            </form>
+            {{/unless}}
+            {{/if}}
+
+            <hr>
+
+            {{#if isPM}}
+            <div class="admin-btn">
+
+
+
+                <form class="d-grid gap-2" action="/students/profile/{{_id}}/toTA" method="POST">
+
+                    <input class="btn  btn-secondary" type="submit" value="Upgrade to TA">
+
+                </form>
+
+                <form class="d-grid gap-2" action="/students/profile/{{_id}}/toDEV" method="POST">
+
+                    <input class="btn  btn-secondary" type="submit" value="Upgrade to DEV">
+
+                </form>
+
+                <form class="d-grid gap-2" action="/students/profile/{{_id}}/delete" method="POST">
+                    <a href="/students/profile/{{_id}}/edit" class="btn btn-warning btn-primary">edit</a>
+                    <input class="btn btn-danger btn-primary" type="submit" value="delete">
+
+                </form>
+
+            </div>
+            {{/if}}
+
+            <a class="btn btn-primary btn-lg btn-dark" href="http:/students">atras</a>
+        </div>
+        {{#if errorMessage}}
+        <div id="errorMessage">
+            <p>{{errorMessage}}</p>
+        </div>
+        {{/if}}
+
+</main>

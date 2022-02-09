@@ -28,7 +28,32 @@ h1, h2, h3 {
   animation: showFromBottom 6s forwards;
 }
 
+li{
+  list-style: none;}
 
+.card{padding: 15px;
+margin:10px;}
+.card-img-top{
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+  object-position: center;
+}
+.profile-pic{
+ 
+  height: auto;
+  width: 490px;
+  place-self: center;
+}
+
+.admin-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.admin-btn form{
+  margin: 5px;
+}
 @keyframes  showFromBottom {
   0% {
     bottom: -50px

@@ -1,0 +1,21 @@
+<h1>LISTA DE INSIGNES ESTUDIANTES</h1>
+
+
+<ul class="row">
+
+
+    {{#each users}}
+
+    <li class=" col-md-3 card text-center text-dark bg-light mb-3">
+        <img src={{profileImg}} class=" card-img-top" alt="{{username}} Pic">
+        <div class="card-body">
+            <h5 class="card-title">{{username}}</h5>
+
+            <a href="/students/profile/{{id}}" class="btn btn-primary btn-dark">Profile</a>
+        </div>
+
+    </li>
+    {{/each}}
+
+
+</ul>

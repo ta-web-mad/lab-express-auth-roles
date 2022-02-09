@@ -3,17 +3,22 @@ const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
 
+User.syncIndexes();
+
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
 
   const { userPwd } = req.body
 
+  req.body.profileImg || delete req.body.profileImg
+  req.body.description || delete req.body.description
+
   bcrypt
     .genSalt(saltRounds)
     .then(salt => bcrypt.hash(userPwd, salt))
-    .then(hashedPassword => User.create({ ...req.body, passwordHash: hashedPassword }))
-    .then(createdUser => res.redirect('/'))
+    .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
+    .then(() => res.redirect('/'))
     .catch(error => next(error))
 })
 
@@ -31,7 +36,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
       if (!user) {
         res.render('auth/login', { errorMessage: 'Email no registrado en la Base de Datos' })
         return
-      } else if (bcrypt.compareSync(userPwd, user.passwordHash) === false) {
+      } else if (bcrypt.compareSync(userPwd, user.password) === false) {
         res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
         return
       } else {
