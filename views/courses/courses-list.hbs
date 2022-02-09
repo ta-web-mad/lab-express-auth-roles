@@ -1,0 +1,68 @@
+<div class="container">
+    <h1>LISTA DE ITERESANTÍSIMOS CURSOS</h1>
+
+
+
+
+    <ul class="row">
+
+
+        {{#each courses}}
+
+        <li class=" col-md-3 card text-center text-dark bg-light mb-3">
+
+            <img src={{courseImg}} class=" card-img-top" alt="{{title}} Pic">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <hr>
+
+
+                <p>Del {{start}} al {{end}}</p>
+
+                <hr>
+                <p>{{description}}</p>
+                <hr>
+                <div class="card-header">
+                    {{#each leadTeacher}}
+                    <h4><span class="badge bg-secondary">PROF</span>{{username}}</h4>
+                    {{/each}}
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    {{#each ta}}
+                    <li class="list-group-item">
+                        <h5>{{username}}<span class="badge bg-secondary">TA</span></h5>
+                    </li>
+                    {{/each}}
+
+                </ul>
+
+
+            </div>
+
+            <span class="badge bg-info text-dark">{{status}}</span>
+
+            <hr>
+
+            {{#if isTA}}
+
+            <form class="d-grid gap-2" action="/courses/{{_id}}/delete" method="POST">
+                <a href="/courses/{{_id}}/edit" class="btn btn-warning btn-primary">editar</a>
+                <input class="btn btn-danger btn-primary" type="submit" value="borrar">
+
+
+            </form>
+            {{/if}}
+        </li>
+        {{/each}}
+
+
+        {{#if courses.isTA}}
+        <a class="btn btn-secondary btn-lg" href="http:/courses/create">CREAR CURSO</a>
+        {{/if}}
+    </ul>
+
+
+
+
+</div>

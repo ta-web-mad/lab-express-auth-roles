@@ -4,5 +4,14 @@
   <hr>
   <p>La plataforma de aprendizaje de IronHack</p>
   <p>Ahora con MÁS seguridad!</p>
-  
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <a class="btn btn-primary btn-lg btn-dark" href="http:/students">VER ALUMNOS</a>
+
+    <a class="btn btn-primary btn-lg btn-dark" href="http:/courses">VER CURSOS</a>
+  </div>
+  {{#if errorMessage}}
+  <div id="errorMessage">
+    <p>{{errorMessage}}</p>
+  </div>
+  {{/if}}
 </div>

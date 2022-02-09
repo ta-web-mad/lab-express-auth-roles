@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="col-md-6">
+
+        <h1>Edita {{title}}</h1>
+        <hr>
+
+        <form action="/course/{{_id}}/edit" method="POST">
+            <div class="mb-3">
+                <label for="LeadInput" class="form-label">Status</label>
+                <select name="status" id="LeadInput" class="form-select form-control"
+                    aria-label=".form-select-lg example">
+                    <option value="ON" selected>ACTIVO</option>
+
+                    <option value="OFF">INACTIVO</option>
+
+                </select>
+            </div>
+
+            <div class="mb-6 row">
+                <div class="col">
+                    <label for="titleInput" class="form-label">Nombre del curso</label>
+                    <input value="{{title}}" type="text" class="form-control" id="titleInput" name="title">
+                    <div class="form-text">Requerido.</div>
+                </div>
+
+                <div class="col">
+                    <label for="startDate" class="form-label">Fecha inicio</label>
+                    <input value="{{start}}" type="date" class="form-control" id="startDate" name="startDate">
+
+
+
+                </div>
+                <div class="col">
+
+                    <label for="endDate" class="form-label">Fecha fin</label>
+                    <input value="{{end}}" type="date" class="form-control" id="endDate" name="endDate">
+
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="LeadInput" class="form-label">Profesor</label>
+                    <select name="leadTeacher" id="LeadInput" class="form-select form-control"
+                        aria-label=".form-select-lg example">
+                        {{#each devs}}
+                        <option value={{this._id}}>{{this.username}}</option>
+                        {{/each}}
+
+
+                    </select>
+                </div>
+                <div class="mb-3">-
+                    <label for="taInput" class="form-label">Teacher Assistants</label>
+                    <select name="ta" id="taInput" class="form-select form-control"
+                        aria-label=".form-select-lg example">
+                        {{#each ayudantes}}
+                        <option value={{this._id}}>{{this.username}}</option>
+                        {{/each}}
+
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Imagen</label>
+                    <input value="{{courseImg}}" type="url" class="form-control" id="imageInput" name="courseImg">
+                    <div class="form-text">Imagen del curso</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3"
+                        name="description">{{description}}</textarea>
+                </div>
+
+
+
+
+
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Editar</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+        </form>
+    </div>
+</div>
+
+</div>
+</div>
