@@ -77,33 +77,48 @@ router.get("/courses", userLogged, (req, res, next) => {
 
 //editar
 
-router.get("/students/profile/:id/edit", userLogged, privilegeCheck("PM"), (req, res, next) => {
+router.get("/courses/:id/edit", userLogged, privilegeCheck("TA"), (req, res, next) => {
 
     const { id } = req.params
 
-    User
+    Course
         .findById(id)
-        .then(student => res.render("students/students-edit", student))
+        .then(course => {
+
+            User
+                .find({ role: "DEV" })
+
+                .then(devs => {
+                    course.devs = devs
+                    return User.find({ role: "TA" })
+                })
+                .then(ayudantes => {
+
+                    course.ayudantes = ayudantes
+                    console.log(course)
+                    res.render("courses/courses-edit", course)
+                })
+        })
         .catch(err => console.log(err))
 
 })
 
 
-router.post("/students/profile/:id/edit", userLogged, privilegeCheck("PM"), (req, res, next) => {
+router.post("/course/:id/edit", userLogged, privilegeCheck("TA"), (req, res, next) => {
 
     const { id } = req.params
-    const { email, userPwd1, userPwd2, username, profileImg, description } = req.body
 
-    let newUserPwd = undefined
+
+
 
     //gestion de errores al editar
-    if (email.length === 0 || username.length === 0 || userPwd1.length === 0 || userPwd2.length === 0 || description.length === 0) {
-        User
+    if (title.length === 0 || description.length === 0 || courseImg.length === 0) {
+        Course
             .findById(id)
-            .then(student => {
+            .then(course => {
 
-                student.errorMessage = "Por favor, complete todos los campos"
-                res.render("students/students-edit", student)
+                course.errorMessage = "Por favor, complete todos los campos"
+                res.render("courses/courses-edit", course)
 
             })
 
@@ -111,56 +126,21 @@ router.post("/students/profile/:id/edit", userLogged, privilegeCheck("PM"), (req
 
     }
 
-    //he dejado la imagen opcional para probar si funcionaba el default del modelo
-
-    //he comentado esto ya que si no las contraseñas son muy largas. pero funciona
-
-    // else if (!hasNumber(userPwd1) || userPwd1.length < 8) {
-
-    //     User
-    //         .findById(id)
-    //         .then(student => {
-
-    //             student.errorMessage = "La contraseña debe ser almenos 8 caracteres y contener un número"
-    //             res.render("students/students-edit", student)
-
-    //         })
-
-    // }
 
 
-    else if (userPwd1 !== userPwd2) {
-        User
-            .findById(id)
-            .then(student => {
 
-                student.errorMessage = "Las contraseñas no coinciden"
-                res.render("students/students-edit", student)
-
-            })
-    }
-    //actualizacion de contraseña
     else {
-        bcryptjs
-            .genSalt(saltRounds)
-            .then(salt => bcryptjs.hash(userPwd1, salt))
-            .then(hashedPassword => {
-                newUserPwd = hashedPassword
-            })
+        Course
+            .findByIdAndUpdate(id, { ...req.body })
+            .then(() =>
 
-
-        User
-            .findByIdAndUpdate(id, { username, email, password: newUserPwd, profileImg, description })
-            .then(student => {
-                student.isOwner = true
-                res.render("students/students-profile", student)
-            })
+                res.redirect("/courses")
+            )
             .catch(err => console.log(err)
             )
     }
-
-
-})
+}
+)
 
 
 //delete
@@ -169,7 +149,7 @@ router.post("/courses/:id/delete", userLogged, privilegeCheck("TA"), (req, res, 
 
     const { id } = req.params
 
-    User
+    Course
         .findByIdAndDelete(id)
 
         .then(() => res.render("index", { errorMessage: 'curso eliminado' }))
