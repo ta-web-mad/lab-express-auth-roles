@@ -80,28 +80,31 @@ router.get("/courses", userLogged, (req, res, next) => {
 router.get("/courses/:id/edit", userLogged, privilegeCheck("TA"), (req, res, next) => {
 
     const { id } = req.params
+    let data = {}
 
     Course
         .findById(id)
         .then(course => {
 
-            course.start = formatDate(course.startDate)
-            course.end = formatDate(course.endDate)
-
-            User
+            data = course
+            data.start = formatDate(course.startDate)
+            data.end = formatDate(course.endDate)
+            return User
                 .find({ role: "DEV" })
-
-                .then(devs => {
-                    course.devs = devs
-                    return User.find({ role: "TA" })
-                })
-                .then(ayudantes => {
-
-                    course.ayudantes = ayudantes
-                    console.log(course)
-                    res.render("courses/courses-edit", course)
-                })
         })
+
+
+        .then(devs => {
+            data.devs = devs
+            return User.find({ role: "TA" })
+        })
+        .then(ayudantes => {
+
+            data.ayudantes = ayudantes
+
+            res.render("courses/courses-edit", data)
+        })
+
         .catch(err => console.log(err))
 
 })
