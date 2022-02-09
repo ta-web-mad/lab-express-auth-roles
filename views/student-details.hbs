@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+
+
+            <h2>Datos de {{student.username}}: </h2>
+
+            <p>Correo electrónico: {{student.email}}</p>
+
+            <img src="{{student.profileImg}}" alt="profile image">
+
+            <p>Description: {{student.description}}</p>
+
+            {{#if isPM}}
+            <a href="/students/{{student._id}}/edit">Editar perfil</a>
+
+            <hr>
+
+            <form action="/students/{{student._id}}/delete" method="POST">
+                <button class="btn btn-danger" type="submit">Eliminar perfil</button>
+            </form>
+
+            <hr>
+
+            <form action="/students/{{student._id}}/TA" method="POST">
+                <button class="btn btn-success" type="submit">Hacer TA</button>
+            </form>
+
+
+            <hr>
+
+
+            <form action="/students/{{student._id}}/DEV" method="POST">
+                <button class="btn btn-primary" type="submit">Hacer DEV</button>
+            </form>
+            {{/if}}
+
+            <hr>
+
+            <a href="/students">Volver a estudiantes</a>
+
+        </div>
+    </div>
+
+</div>

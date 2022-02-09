@@ -1,0 +1,23 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Listado de los estudiantes: </h1>
+            <hr>
+
+            {{#each allStudents}}
+            <p>Nombre de usuario: {{username}}</p>
+
+            <p>Correo electrónico: {{email}}</p>
+
+            <a href="/students/{{_id}}">Detalles del perfil</a>
+
+            <hr>
+            {{/each}}
+
+        </div>
+    </div>
+
+</div>
