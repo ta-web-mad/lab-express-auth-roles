@@ -5,6 +5,7 @@
 const isTA = user => user.role === "TA"
 const isPM = user => user.role === "PM"
 const isDEV = user => user.role === "DEV"
+const isStudent = user => user.role === "STUDENT"
 const isOwner = (userId, id) => userId === id
 
 const hasNumber = string => {
@@ -29,4 +30,4 @@ const formatDate = date => {
 }
 
 
-module.exports = { isTA, isPM, isDEV, isOwner, hasNumber, capitalize, cleanText, checkMongoID, formatDate }
+module.exports = { isTA, isPM, isDEV, isOwner, hasNumber, capitalize, cleanText, checkMongoID, formatDate, isStudent }

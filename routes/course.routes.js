@@ -4,7 +4,7 @@ const User = require("../models/User.model")
 const Course = require("../models/Course.model")
 const { userLogged, privilegeCheck } = require("../middleware/route-guard")
 
-const { isTA, isPM, isDEV, isOwner, hasNumber, capitalize, cleanText, checkMongoID, formatDate } = require("../utils/index")
+const { isTA, isPM, isDEV, isOwner, isStudent, hasNumber, capitalize, cleanText, checkMongoID, formatDate } = require("../utils/index")
 
 const bcryptjs = require('bcryptjs')
 
@@ -115,37 +115,16 @@ router.post("/course/:id/edit", userLogged, privilegeCheck("TA"), (req, res, nex
     const { id } = req.params
 
 
+    Course
+        .findByIdAndUpdate(id, { ...req.body })
+        .then(() =>
 
-
-    //gestion de errores al editar
-    if (title.length === 0 || description.length === 0 || courseImg.length === 0) {
-        Course
-            .findById(id)
-            .then(course => {
-
-                course.errorMessage = "Por favor, complete todos los campos"
-                res.render("courses/courses-edit", course)
-
-            })
-
-
-
-    }
-
-
-
-
-    else {
-        Course
-            .findByIdAndUpdate(id, { ...req.body })
-            .then(() =>
-
-                res.redirect("/courses")
-            )
-            .catch(err => console.log(err)
-            )
-    }
+            res.redirect("/courses")
+        )
+        .catch(err => console.log(err)
+        )
 }
+
 )
 
 
