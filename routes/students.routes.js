@@ -28,8 +28,8 @@ router.get("/:id", isLoggedIn, (req, res, next) => {
             res.render('students/student-profile-page', {
                 student,
                 projectManager: isPM(req.session.currentUser),
-                user: req.session.currentUser, isCurrentStudent:
-                    isCurrentStudent(id, req.session.currentUser._id)
+                user: req.session.currentUser,
+                isCurrentStudent: isCurrentStudent(id, req.session.currentUser._id)
             })
         })
         .catch(err => console.log(err))
