@@ -8,6 +8,7 @@ require("./db");
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
+const req = require("express/lib/request");
 
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
@@ -19,6 +20,7 @@ const app = express();
 require("./config")(app);
 
 app.locals.siteTitle = `IronLearn`;
+
 
 // Session config
 require('./config/session.config')(app)

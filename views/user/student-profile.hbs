@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row ficha">
+        <div class="col md-4">
+            <figure>
+                <img src="{{student.profileImg}}" alt="profile img">
+            </figure>
+        </div>
+
+        <div class="col md-6">
+            <h3>{{student.username}}</h3>
+            <p>{{student.description}}</p>
+            <p>{{student.role}}</p>
+            {{#if isPM}}
+            <a type="button" class="btn btn-success" href="/editar/{{student.id}}">Editar</a>
+
+            <form action="/borrar/{{student.id}}" method="POST">
+                <button class="btn btn-danger">Borrar</button>
+            </form>
+
+            <form action="/upgrade/{{student.id}}/ta" method="POST">
+                <button class="btn btn-warning">Hacer TA</button>
+            </form>
+
+            <form action="/upgrade/{{student.id}}/dev" method="POST">
+                <button class="btn btn-primary">Hacer DEV</button>
+            </form>
+
+            {{/if}}
+
+            {{#if isSelf}}
+            {{#unless isPM}}
+            <a type="button" class="btn btn-success" href="/editar/{{student.id}}">Editar</a>
+            {{/unless}}
+            {{/if}}
+        </div>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Nuevo Curso</h1>
+            <hr>
+
+            <form action="/course/" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="titleInput" class="form-label">Titulo</label>
+                        <input type="text" class="form-control" id="emailInput" name="title">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                    <div class="col">
+                        <label for="leadInput" class="form-label">Lead Teacher</label>
+                        <input list="users" type="text" class="form-control" id="leadInput" name="leadTeacher">
+                        <datalist id="users">
+                            {{#each data.users}}
+                            <option value="{{username}}">
+                                {{/each}}
+                        </datalist>
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="startInput" class="form-label">Comienzo</label>
+                    <input type="date" class="form-control" id="startInput" name="startDate">
+                </div>
+
+                <div class="mb-3">
+                    <label for="endInput" class="form-label">Final</label>
+                    <input type="date" class="form-control" id="endInput" name="endDate">
+                </div>
+
+                <div class="mb-3">
+                    <label for="taInput" class="form-label">Nombre del TA</label>
+                    <input list='taList' class="text" id="taInput" name="ta"></input>
+                    <datalist id="taList">
+                            {{#each data.ta}}
+                            
+                        <option value="{{username}}">
+                           
+                            {{/each}}
+                    </datalist>
+                </div>
+                <div class="mb-3">
+                    <label for="imgInput" class="form-label">Imagen</label>
+                    <input class="text" id="imgInput" name="courseImg"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="descInput" class="form-label">Descripción</label>
+                    <input class="text" id="descInput" name="description"></input>
+                </div>
+                <label for="status" class="form-label">Estado</label>
+                <select name="status" id="status">
+                    <option value="ON">ON</option>
+                    <option value="OFF">OFF</option>
+                </select>
+
+                <div class="mb-3">
+                    <label for="studentsInput" class="form-label">Estudiantes</label>
+                    <input class="text" id="studentsInput" name="students"></input>
+                </div>
+
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Completar registro</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

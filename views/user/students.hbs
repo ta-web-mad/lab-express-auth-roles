@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+            <h2>Students View</h2>
+            
+            <ul class="list-group">
+                {{#each student}}
+                <li class="list-group-item usrPhoto">{{username}}
+                    <a href="/student-profile/{{_id}}">Más datos</a>
+                    <img src="{{profileImg}}" alt="foto de perfil">
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+</div>
