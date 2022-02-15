@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>SOY LA LISTA DE TODOS LOS CURSOS</h1>
+
+    <ul>
+        {{#each courses}}
+        <li>{{title}}</li>
+        <a href="/courses/{{_id}}" class="btn btn-info">View Course Details</a>
+        <form action="/courses/{{_id}}/delete" method="POST">
+            <button type="submit" class="btn btn-danger">Delete Course</button>
+        </form>
+        <hr>
+        {{/each}}
+    </ul>
+
+    {{#if teacherAssistant}}
+    <a href="/courses/create">Crear Nuevo Curso</a>
+
+
+    {{/if}}
+</div>
