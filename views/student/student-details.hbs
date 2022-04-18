@@ -1,0 +1,34 @@
+{{#with student}}
+
+<img class="profile-img" src="{{profileImg}}" alt="profile image">
+<h1>{{username}}</h1>
+<p>Contact: {{email}}</p>
+<p>Descripción: {{description}}</p>
+
+<a href="/students">Atrás</a>
+
+
+{{#if ../isMyProfile}}
+<a href="/students/{{id}}/edit">Edit</a>
+{{/if}}
+
+{{#if ../isPM}}
+
+<a href="/students/{{id}}/edit">Edit</a>
+
+<form action="/students/{{id}}/delete" method="POST">
+    <button class="btn btn-primary" type="submit">Delete</button>
+</form>
+
+<form action="/students/{{id}}/mk-dev" method="POST">
+    <button class="btn btn-primary" type="submit">Mark as Developer</button>
+</form>
+
+<form action="/students/{{id}}/mk-ta" method="POST">
+    <button class="btn btn-primary" type="submit">Mark as TA</button>
+</form>
+
+{{/if}}
+
+
+{{/with}}
