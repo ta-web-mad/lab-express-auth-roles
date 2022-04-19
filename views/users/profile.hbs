@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-6">
+
+            <h2>{{student.username}}</h2>
+
+            <hr>
+
+            <p class="features"><strong>E-mail</strong> {{student.email}}</p>
+            <p class="features"><strong>Descripción</strong> {{student.description}}</p>
+            <p class="features"><strong>Rol</strong> {{student.role}}</p>
+
+            {{#if isMyProfile}}
+            <a class="editButton" href="/estudiantes/{{student.id}}/editar">Editar Perfil</a>
+
+            <form action="/estudiantes/{{student.id}}/delete" method="POST">
+                <button class="btn btn-sm btn-warning" type="submit">Eliminar Perfil</button>
+            </form>
+            {{/if}}
+
+
+        </div>
+
+    </div>
+
+
+</div>
