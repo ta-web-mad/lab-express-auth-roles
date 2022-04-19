@@ -1,0 +1,17 @@
+{{user.username}}
+{{user.description}}
+{{user.email}}
+{{#if isPM}}
+<a href="/students/{{user.id}}/edit">editStudent</a>
+{{!-- <a href="/students/{{user.id}}/delete">>deleteStudent</a> --}}
+<form action="/students/{{user.id}}/delete" method="POST">
+    <button class="navFormBtn" type="submit">deleteStudent</button>
+</form>
+<form action="/students/{{user.id}}/setRole/:DEV" method="POST">
+    <button class="navFormBtn" type="submit">mark as dev</button>
+</form>
+<form action="/students/{{user.id}}/setRole/:TA" method="POST">
+    <button class="navFormBtn" type="submit">mark as ta</button>
+</form>
+{{/if}}
+<img src="{{profileImg}}" alt="">
