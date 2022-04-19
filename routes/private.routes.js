@@ -1,4 +1,5 @@
 //role based accesscontrol
+const Mongoose = require('mongoose')
 const User = require('../models/User.model')
 const Courses = require('../models/Course.model')
 
@@ -6,6 +7,7 @@ const router = require('express').Router()
 
 const { isLoggedIn, checkRole } = require('./../middlewares/route-guard')
 
+//students handling
 
 router.get('/students', isLoggedIn, checkRole('STUDENT', 'PM'), (req, res, next) => {
     User
@@ -29,12 +31,32 @@ router.get('/students/:id', isLoggedIn, checkRole('STUDENT', 'TA', 'DEV', 'PM'),
         })
         .catch(err => console.log(err))
 })
-router.get('/courses', isLoggedIn, checkRole('TA'), (req, res, next) => {
+///Course handling
+
+router.get('/courses', isLoggedIn, checkRole('STUDENT'), (req, res, next) => {
 
     Courses
         .find()
+        .populate('ta')
+        .populate('students')
         .then(courses => {
             res.render('private/courses-view', { courses })
+            console.log(courses.ta)
+        })
+        .catch(err => console.log(err))
+
+})
+
+router.post('/join-course/:id', (req, res, next) => {
+
+    let { students } = req.body
+    students = Mongoose.Types.ObjectId(`${req.session.currentUser._id}`);
+
+    Courses
+        .findById(req.params.id)
+        .update({$push:{students}})
+        .then(() => {
+            res.redirect('/courses')
         })
         .catch(err => console.log(err))
 
@@ -45,7 +67,7 @@ router.get('/creation-of-courses', isLoggedIn, checkRole('TA'), (req, res, next)
     User
         .find()
         .then(users => {
-            res.render('private/course-creation-view',{users})
+            res.render('private/course-creation-view', { users })
         })
         .catch(err => console.log(err))
 
@@ -64,7 +86,6 @@ router.post('/course-creation', (req, res, next) => {
         .catch(err => console.log(err))
 
 })
-
 
 //Delete Student
 router.post('/students/:id/delete', isLoggedIn, checkRole('PM'), (req, res, next) => {

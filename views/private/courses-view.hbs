@@ -1,3 +1,28 @@
 {{#each courses}}
-<h1>{{title}}</h1>
+<div class="container">
+    <h1>Curso de {{title}}</h1>
+
+    <figure>
+        <img src={{courseImg}} alt="">
+    </figure>
+    <p>Description: {{description}}</p>
+    <p>Fecha de inicio: {{startDate}} </p>
+    <p>Fecha de finalización: {{endDate}} </p>
+    <span>TA's:</span>
+    <ul>
+        {{#each ta}}
+        <li>{{username}}</li>
+        {{/each}}
+    </ul>
+    <span>{{status}}</span>
+    <p>STUDENTS SUBSCRIBED</p>
+    <ul>
+        {{#each students}}
+        <li>{{username}}</li>
+        {{/each}}
+    </ul>
+    <form action="/join-course/{{id}}" method="POST">
+        <button class="nav-link btn btn-warning" type="submit">JOIN COURSE</button>
+    </form>
+</div>
 {{/each}}
