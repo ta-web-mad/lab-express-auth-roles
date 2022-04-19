@@ -1,0 +1,42 @@
+heyyyy
+
+{{#each courses}}
+<ul>
+    <li> <strong> TITLE:</strong> {{title}}</li>
+    <li>END DATE: {{endDate}}</li>
+    <li>TA: <ul>
+            {{#each ta}}
+            <li>{{username}}</li>
+            {{/each}}
+        </ul>
+    </li>
+    <li>LEAD: <ul>{{#each leadTeacher}}
+            <li>{{username}}</li>
+            {{/each}}
+        </ul>
+    </li>
+    <li>STUDENTS: <ul>
+            {{#each students}}
+            <li>{{username}}</li>
+            {{/each}}
+        </ul>
+    </li>
+</ul>
+
+<form action="/courses/{{id}}/join" method="POST">
+    <button class="btn btn-dark " type="submit">UNIRTE AL CURSO</button>
+</form>
+
+{{#if ../isTA}}
+<a href="/courses/{{id}}/edit" class="btn btn-dark">EDITAR</a>
+
+
+<form action="/courses/{{id}}/delete" method="POST">
+    <button class="btn btn-dark " type="submit">ELIMINAR</button>
+</form>
+{{/if}}
+{{/each}}
+
+{{#if isTA}}
+<a class="btn btn-primary" href="/courses/new-course" role="button">Crear nuevo curso</a>
+{{/if}}

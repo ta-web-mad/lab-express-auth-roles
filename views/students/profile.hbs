@@ -1,0 +1,31 @@
+{{user.username}}
+
+{{user.email}}
+
+{{user.role}}
+
+FOTO <img src="{{user.profileImg}}" alt="">
+
+{{#if isTheUser}}
+
+<a href="/students/{{user.id}}/edit" class="btn btn-dark">EDITAR</a>
+
+{{/if}}
+
+{{#if isPM}}
+
+<a href="/students/{{user.id}}/edit" class="btn btn-dark">EDITAR</a>
+
+
+<form action="/students/{{user.id}}/delete" method="POST">
+    <button class="btn btn-dark " type="submit">ELIMINAR</button>
+</form>
+
+<form action="/students/{{user.id}}/makeDEV" method="POST">
+    <button class="btn btn-dark " type="submit">Hacer DEV</button>
+</form>
+
+<form action="/students/{{user.id}}/makeTA" method="POST">
+    <button class="btn btn-dark " type="submit">Hacer TA</button>
+</form>
+{{/if}}

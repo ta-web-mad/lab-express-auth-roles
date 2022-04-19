@@ -1,0 +1,88 @@
+<h1>Update {{course.title}}</h1>
+
+
+<form action="/courses/{{course.id}}/edit" method="POST">
+
+    <div class="mb-3 row">
+        <div class="col">
+            <label for="title" class="form-label">Nombre del curso</label>
+            <input type="string" class="form-control" id="title" name="title" value="{{course.title}}">
+            <div class="form-text">Requerido.</div>
+        </div>
+        <div class="col">
+            <label for="leadTeacher" class="form-label">Lead Teacher</label>
+            <select name="leadTeacher" class="form-select">
+                {{#each users}}
+
+                <option value={{id}}>{{username}}</option>
+
+                {{/each}}
+            </select>
+        </div>
+        <div class="col">
+            <label for="startDate" class="form-label">Fecha de comienzo</label>
+            <input type="date" class="form-control" id="startDate" name="startDate" value="{{course.startDate}}">
+            <div class="form-text">Requerido.</div>
+        </div>
+        <div class="col">
+            <label for="endDate" class="form-label">Fecha de finalización</label>
+            <input type="date" class="form-control" id="endDate" name="endDate" value="{{course.endDate}}">
+            <div class="form-text">Requerido.</div>
+        </div>
+    </div>
+
+    <div class="col">
+        <label for="ta" class="form-label">TA's</label>
+        <select name="ta" class="form-select" multiple>
+            {{#each users}}
+
+            <option value={{id}}>{{username}}</option>
+
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="courseImg" class="form-label">Imagen</label>
+        <input type="url" class="form-control" id="courseImg" name="courseImg" value="{{course.courseImg}}">
+        <div class="form-text">Imagen del curso.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea class="form-control" id="description" rows="3" name="description"
+            value="{{course.description}}"></textarea>
+    </div>
+
+    <div class="col">
+        <label for="status" class="form-label">Status</label>
+        <input type="string" class="form-control" id="status" name="status" value="{{course.status}}">
+        <div class="form-text">Requerido.</div>
+    </div>
+    <div class="col">
+        <label for="students" class="form-label">Estudiantes</label>
+        <select name="students" class="form-select" multiple>
+            {{#each users}}
+
+            <option value={{id}}>{{username}}</option>
+
+            {{/each}}
+        </select>
+    </div>
+
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-dark block">Completar registro</button>
+    </div>
+
+    {{#if errorMessage}}
+    <div id="errorMessage">
+        <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
+
+</form>
+</div>
+</div>
+
+</div>
