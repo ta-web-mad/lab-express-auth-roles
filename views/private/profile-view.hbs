@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>Pefil de {{user.username}}</h1>
+
+    <p>Email: {{user.email}}</p>
+    <figure>
+        <img src={{user.profileImg}} alt="">
+    </figure>
+    <p>Description: {{user.description}}</p>
+    <p>Role: {{user.role}}</p>
+    {{#if isPM}}
+    <form action="/students/{{user.id}}/delete" method="POST">
+        <button class="nav-link btn btn-warning" type="submit">DELETE STUDENT</button>
+    </form>
+    {{/if}}
+    {{#if isPM}}
+    <a class="nav-link btn btn-warning" type="submit" href="/students/{{user.id}}/edit">EDIT</a>
+    {{/if}}
+    {{#if isCurrentId}}
+    <a class="nav-link btn btn-warning" type="submit" href="/students/{{user.id}}/edit">EDIT</a>
+    {{/if}}
+    {{#if isPM}}
+    <form action="/students/{{user.id}}/dev-update" method="POST">
+        <button class="nav-link btn btn-info" type="submit">Mark as Developer</button>
+    </form>
+    {{/if}}
+
+    {{#if isPM}}
+    <form action="/students/{{user.id}}/ta-update" method="POST">
+        <button class="nav-link btn btn-info" type="submit">Mark as TA</button>
+    </form>
+    {{/if}}
+
+
+
+</div>

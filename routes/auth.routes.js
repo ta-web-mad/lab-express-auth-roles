@@ -7,12 +7,12 @@ const saltRounds = 10
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
 
-  const { userPwd } = req.body
+  const {userPwd } = req.body
 
   bcrypt
     .genSalt(saltRounds)
     .then(salt => bcrypt.hash(userPwd, salt))
-    .then(hashedPassword => User.create({ ...req.body, passwordHash: hashedPassword }))
+    .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
     .then(createdUser => res.redirect('/'))
     .catch(error => next(error))
 })

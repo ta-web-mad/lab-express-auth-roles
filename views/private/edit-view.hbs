@@ -1,0 +1,38 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Edición de Personal Ironhack/h1>
+
+            <hr>
+
+            <form action="/students/{{user.id}}/edit" method="POST">
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{user.username}}">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{user.email}}">
+                </div>
+                <div class="mb-3">
+                    <label for="profileImg" class="form-label">URL de la imagen</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg" value="{{user.profileImg}}">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{user.description}}">
+                </div>
+                <button type="submit" class="btn btn-dark">Editar</button>
+            </form>
+
+
+            <hr>
+
+
+        </div>
+    </div>
+
+
+</div>
