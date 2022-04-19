@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h2>Detalles de {{detStudent.username}}</h2>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{detStudent.username}}</h5>
+                    <p class="card-text">Correo electronico: {{detStudent.email}}</p>
+                    <p class="card-text">Descripcion: {{detStudent.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    {{#if isPM}}
+    <form action="/students/{{detStudent.id}}/delete" method="POST">
+        <button class="btn btn-sm btn-warning" type="submit">Eliminar</button>
+    </form>
+
+    <a href="/students/{{detStudent.id}}/edit" class="btn btn-dark">Editar</a>
+
+    <form action="/students/{{detStudent.id}}/updateTA" method="POST">
+        <button class="btn btn-sm btn-dark" type="submit">Marcar como TA</button>
+    </form>
+
+    <form action="/students/{{detStudent.id}}/updateDEV" method="POST">
+        <button class="btn btn-sm btn-dark" type="submit">Marcar como DEV</button>
+    </form>
+    {{/if}}
+
+    {{#if isStudent}}
+    <a href="/students/{{detStudent.id}}/edit" class="btn btn-dark">Editar</a>
+    {{/if}}
+
+</div>

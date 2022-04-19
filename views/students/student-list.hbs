@@ -1,0 +1,18 @@
+<div class="container">
+
+    <h2>Lista Estudiantes</h2>
+
+    <hr>
+
+    <ul>
+        {{#each students}}
+        <li>
+            <a href="/students/{{id}}">{{username}}</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <hr>
+
+
+</div>

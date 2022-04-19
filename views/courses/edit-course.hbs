@@ -1,0 +1,71 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Editar {{editCourse.title}}</h1>
+
+            <hr>
+
+            <form action="/courses/{{id}}/edit" method="POST">
+                <h5 class="card-title">{{title}}</h5>
+                {{#each leadTeacher}}
+                <p class="card-text">Lead Teacher: {{username}}</p>
+                {{/each}}
+                {{#each ta}}
+                <p class="card-text">TA's: {{username}}</p>
+                {{/each}}
+                <p class="card-text">Descripcion: {{editCourse.description}}</p>
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{editCourse.title}}">
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="status" name="status" value="{{editCourse.status}}">
+                </div>
+                <div class="mb-3">
+                    <label for="courseImg" class="form-label">Imagen</label>
+                    <input type="text" class="form-control" id="courseImg" name="courseImg"
+                        value="{{editCourse.courseImg}}">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                        value="{{editCourse.description}}">
+                </div>
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Fecha de inicio</label>
+                    <input type="text" class="form-control" id="genre" name="genre" value="{{editCourse.startDate}}">
+                </div>
+                <div class="mb-3">
+                    <label for="plot" class="form-label">Fecha de fin</label>
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{editCourse.endDate}}">
+                </div>
+                <div class="mb-3">
+                    <label for="ta" class="form-label">TA's</label>
+                    <select id="ta" class="form-select" name="ta" multiple>
+                        {{#each editUser}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Estudiantes</label>
+                    <select id="students" class="form-select" name="students">
+                        {{#each editUser}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Guardar edición</button>
+                <a href="/" class="btn btn-dark">Volver al inicio</a>
+            </form>
+
+            <hr>
+
+        </div>
+    </div>
+
+</div>
