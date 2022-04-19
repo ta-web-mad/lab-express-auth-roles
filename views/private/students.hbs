@@ -1,4 +1,22 @@
-{{#each users }}
-{{username}}
-<a href="/students/{{id}}">view student profile</a>
-{{/each}}
+
+<div class="container">
+
+    <h1>Students list</h1>
+
+    <hr>
+
+    <ul>
+        {{#each users}}
+        <li class="item-row">
+            <a href="/students/{{id}}" class="btn btn-primary">{{username}}</a>
+            {{!-- <p><strong>{{username}}</strong></p> --}}
+
+        </li>
+        {{/each}}
+    </ul>
+
+
+
+    <a href="/" class="btn btn-dark">Volver al incio</a>
+
+</div>

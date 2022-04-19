@@ -1,11 +1,9 @@
 const router = require("express").Router()
-const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
-const saltRounds = 10
-const { isLoggedIn, checkRole } = require('./../middlewares/route-guard')
+const { isLoggedIn, checkRole, isPMorCurrentStudent } = require('./../middlewares/route-guard')
 
 // Students
-router.get('/students', (req, res, next) => {
+router.get('/students', isLoggedIn, (req, res, next) => {
 
     User
         .find()
@@ -16,15 +14,30 @@ router.get('/students', (req, res, next) => {
 router.get('/students/:id', isLoggedIn, (req, res, next) => {
 
     const isPM = req.session.currentUser.role === 'PM'
+    const isCurrentStudent = req.session.currentUser._id === req.params.id
+    const { id } = req.params
+    let userFound = true
     // const isEditor = req.session.currentUser.role === 'EDITOR'
-    User
-        .findById(req.params.id)
-        .then(user => res.render('private/student', { user, isPM}))
-        .catch(error => next(error));
+    if (id.match(/^[0-9a-fA-F]{24}$/)) {
+        console.log("yes it match")
+        User
+            .findById(id)
+            .then(user => {
+                if (!user) {
+                    userFound = false
+                }
+                res.render('private/student', { user, isPM, isCurrentStudent, userFound, badId: false })
+            })
+            .catch(error => {
+                console.log("thr")
+                next(error)
+            })
+    }
+    else res.render('private/student', { badId: true })
 
 })
 
-router.get('/students/:id/edit', isLoggedIn, checkRole("PM"), (req, res, next) => {
+router.get('/students/:id/edit', isLoggedIn, isPMorCurrentStudent, (req, res, next) => {
 
 
     // const isPM = req.session.currentUser.role === 'PM'
@@ -33,10 +46,10 @@ router.get('/students/:id/edit', isLoggedIn, checkRole("PM"), (req, res, next) =
         .findById(req.params.id)
         .then(user => res.render('private/edit-student', user))
         .catch(error => next(error));
-
 })
 
-router.post('/students/:id/edit', isLoggedIn, checkRole("PM"), (req, res, next) => {
+
+router.post('/students/:id/edit', isLoggedIn, isPMorCurrentStudent, (req, res, next) => {
 
 
     // const isPM = req.session.currentUser.role === 'PM'
@@ -48,6 +61,9 @@ router.post('/students/:id/edit', isLoggedIn, checkRole("PM"), (req, res, next) 
         .catch(error => next(error));
 
 })
+
+
+
 
 router.post('/students/:id/setRole/:role', isLoggedIn, checkRole("PM"), (req, res, next) => {
 
@@ -63,7 +79,7 @@ router.post('/students/:id/setRole/:role', isLoggedIn, checkRole("PM"), (req, re
 
 })
 
-router.post('/students/:id/delete', isLoggedIn, checkRole("PM"), (req, res, next) => {
+router.post('/students/:id/delete', isLoggedIn, (req, res, next) => {
 
 
     User
@@ -72,6 +88,9 @@ router.post('/students/:id/delete', isLoggedIn, checkRole("PM"), (req, res, next
         .catch(error => next(error));
 
 })
+
+
+
 
 // router.post('/registro', (req, res, next) => {
 

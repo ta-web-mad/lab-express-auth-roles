@@ -12,6 +12,10 @@ module.exports = app => {
   const privateRouter = require("./private-zone.routes");
   app.use("/", privateRouter); 
 
+  const coursesRouter = require("./private-courses.routes");
+  app.use("/", coursesRouter); 
+
+
   
 }
 
