@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h2>All Students</h2>
+
+    <hr>
+
+    <ul>
+        {{#each students}}
+        <li class="celebrity-row">
+            <a href="/perfil/{{id}}">
+                {{username}}
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Home</a>
+
+</div>
