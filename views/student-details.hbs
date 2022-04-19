@@ -1,0 +1,19 @@
+<div class="container">
+
+<h3>{{username}}</h3>
+
+<p>Descripcion: {{description}}</p>
+<p> Correo electrónico: {{email}}</p>
+<p> Numero idetificador: {{id}}</p>
+<p> contraseña: {{assword}}</p>
+
+
+<a href="/students/{{id}}/editar"><button class="btn btn-warning">Editar</button></a>
+<hr>
+<form action="/students/{{id}}/eliminar" method="POST">
+    <button class="btn btn-warning">Eliminar</button>
+</form>
+</div>
+
+
+

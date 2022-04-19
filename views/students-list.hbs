@@ -1,0 +1,26 @@
+
+
+<h2>Listado de nuestros estudiantes:</h2>
+{{#each students}}
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <p>{{username}}</p>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+          <p>nombre:  {{username}}</p>
+          <p>direccion de correo electrónico:  {{email}}</p>
+          <p>Rol : {{role}}</p>
+          <hr>
+          <a href="/students/{{id}}">Detalles del estudiante</a>
+        
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+{{/each}}
+
