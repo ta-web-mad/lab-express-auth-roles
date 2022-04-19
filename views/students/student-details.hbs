@@ -1,0 +1,36 @@
+<h2>Student page</h2>
+<img src="{{student.profileImg}}" alt="image student">
+<u>
+    <li>
+        <h3>{{student.username}}</h3>
+    </li>
+    <li>
+        <p>{{student.email}}</p>
+    </li>
+
+
+
+    {{#if isCurrentUser}}
+
+    <a class="btn btn-primary" href="/students/{{student.id}}/edit">EDIT</a>
+    <form action="/students/{{student.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-warning">DELETE</button>
+    </form>
+    {{/if}}
+
+
+    {{#if isPm}}
+    <a class="btn btn-primary" href="/students/{{student.id}}/edit">EDIT</a>
+    <form action="/students/{{student.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-warning">DELETE</button>
+    </form>
+
+    <form action="/students/{{student.id}}/editToDEV" method="POST">
+        <button type="submit" class="btn btn-success">Mark as Developer</button>
+    </form>
+
+    <form action="/students/{{student.id}}/editToTA" method="POST">
+        <button type="submit" class="btn btn-success">Mark as TA</button>
+    </form>
+    {{/if}}
+</u>
