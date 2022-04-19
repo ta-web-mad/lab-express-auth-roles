@@ -1,0 +1,46 @@
+<div class="container">
+
+    <h1>Student Profile</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{student.profileImg}}" alt="{{student.username}}" style="width: 100%">
+        </div>
+        <div class="col-md-8">
+            <h3>Student Info</h3>
+            <p><strong>Username:</strong> {{student.username}}</p>
+            <p><strong>Email:</strong> {{student.email}}</p>
+            <p><strong>Description:</strong> {{student.description}}</p>
+            <p><strong>Role:</strong> {{student.role}}</p>
+
+        </div>
+
+    </div>
+
+    {{#if isPM}}
+
+    <form action="/students/{{student.id}}/delete" method="POST">
+        <button class="btn btn-sm btn-warning" type="submit">Delete Student</button>
+    </form>
+    <hr>
+    <form action="/students/{{student.id}}/role-dev" method="POST">
+        <button class="btn btn-sm btn-warning" type="submit">Mark as Developer</button>
+    </form>
+    <hr>
+    <form action="/students/{{student.id}}/role-ta" method="POST">
+        <button class="btn btn-sm btn-warning" type="submit">Mark as TA</button>
+    </form>
+    {{/if}}
+
+    {{#if isCurrentUser}}
+    <a href="/students/{{student.id}}/edit">Edit My Student Profile</a>
+
+    {{/if}}
+
+
+
+
+
+</div>
