@@ -1,0 +1,31 @@
+<div class="container-list">
+
+    <h2>Students</h2>
+
+    <hr>
+
+    <ul>
+        {{#each student}}
+        <li class="students-list">
+            <p>¡Hola {{username}}!</p>
+
+            <p>Estás aquí porque eres {{role}}</p>
+
+            <a href="/students/{{id}}">View Student Profile</a>
+
+            {{#if ../isPM}}
+            <a href="/students/{{id}}/edit">Edit Student</a>
+
+            {{/if}}
+
+
+            <hr>
+        </li>
+        {{/each}}
+    </ul>
+
+
+
+    <a href="/" class="btn btn-dark">Inicio</a>
+
+</div>

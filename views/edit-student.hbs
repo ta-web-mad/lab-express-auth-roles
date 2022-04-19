@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Edit {{student.username}}</h1>
+
+            <hr>
+
+            <form action="/students/{{student.id}}/edit" method="POST">
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{student.username}}">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{student.email}}">
+                </div>
+                <div class="mb-3">
+                    <label for="profileImg" class="form-label">Profile Image</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg"
+                        value="{{student.profileImg}}">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                        value="{{student.description}}">
+                </div>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <input type="text" class="form-control" id="role" name="role" value="{{student.role}}">
+                </div>
+
+
+                <button type="submit" class="btn btn-dark">Save Edit</button>
+                <a href="/students" class="btn btn-dark">Back to Student Portal</a>
+            </form>
+
+
+            <hr>
+
+
+        </div>
+    </div>
+
+
+</div>
