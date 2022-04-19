@@ -1,0 +1,14 @@
+<h1>cursos</h1>
+<a href="/course/create-course">nuevo curso</a>
+
+{{#each courses}}
+<h5>{{title}}</h5>
+{{#each leadTeacher}}
+<p>{{username}}</p>
+{{/each}}
+<p>{{description}}</p>
+<form action="/course/{{id}}/delete" method="POST">
+    <button>eliminar</button>
+</form>
+{{/each}}
+

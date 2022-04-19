@@ -1,0 +1,65 @@
+
+
+
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>nuevo curso</h1>
+            <hr>
+
+            <form action="/course/create-course" method="POST">
+                <div class="mb-3">
+                    <label for="courseinput" class="form-label">nombre del curso</label>
+                    <input type="text" class="form-control" id="courseinput" name="title">
+                    <label for="courseinput" class="form-label">url de la imagen</label>
+                    <input type="text" class="form-control" id="courseinput" name="courseImg">
+                    
+                </div>
+                <label for="start">Start date:</label>
+            
+                <input type="date" id="start" name="startDate" value="2022-07-22" min="2022-01-01" max="2050-12-31">
+                <label for="start">end date:</label>
+                
+                <input type="date" id="end" name="endDate" value="2022-07-22" min="2022-01-01" max="2050-12-31">
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">descripcion</label>
+                    <input type="text" class="form-control" id="descriptionInput" name="description">
+
+                    <select name="status">
+                        <option value="ON">ON</option>
+                        <option value="OFF" selected>OFF</option>                       
+                    </select>
+
+                    <select multiple name="students">
+                        {{#each users}}
+                        <option value="{{id}}" >{{username}}</option>
+                        {{/each}}
+                    </select>
+                    <select  multiple name="leadTeacher">
+                        {{#each tas}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                    
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">crear</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="error">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>

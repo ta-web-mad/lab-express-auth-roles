@@ -12,7 +12,7 @@ router.post('/registro', (req, res, next) => {
   bcrypt
     .genSalt(saltRounds)
     .then(salt => bcrypt.hash(userPwd, salt))
-    .then(hashedPassword => User.create({ ...req.body, passwordHash: hashedPassword }))
+    .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
     .then(createdUser => res.redirect('/'))
     .catch(error => next(error))
 })
@@ -36,16 +36,12 @@ router.post('/iniciar-sesion', (req, res, next) => {
         return
       } else {
         req.session.currentUser = user
+        console.log(user)
         res.redirect('/')
       }
     })
     .catch(error => next(error))
 })
 
-
-// Logout
-router.post('/cerrar-sesion', (req, res, next) => {
-  req.session.destroy(() => res.redirect('/iniciar-sesion'))
-})
 
 module.exports = router
