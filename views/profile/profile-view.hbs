@@ -1,0 +1,23 @@
+<div class="container">
+<h1>Perfil de {{username}}</h1>
+<img src="{{profileImg}}" alt="foto de perfil de {{username}}">
+<p>{{description}}</p>
+<a href="{{id}}/editar">Editar</a>
+</div>
+<div class="container">
+
+    <p>Estás aquí porque eres {{username}} y tienes el rol {{role}}</p>
+
+    
+    <button class="btn btn-dark">Editar estudiante</button>
+    <button class="btn btn-dark">Editar estudiante</button>
+
+    {{#if PM}}
+    <button class="btn btn-warning">Editar estudiante</button>
+    {{/if}}
+
+    {{#if PM}}
+    <button class="btn btn-danger">Eliminar estudiante</button>
+    {{/if}}
+
+</div>

@@ -1,0 +1,36 @@
+<h1>editar {{title}}</h1>
+
+<form action="/perfil/{{id}}/editar" method="POST">
+
+    <label>
+        Nombre
+        <input type="text" name="nombre" value="{{username}}">
+    </label>
+
+    <br><br>
+
+    <label>
+        Email
+        <input type="text" name="email" value="{{email}}">
+    </label>
+
+    <br><br>
+
+    <label>
+        Descripción
+        <input type="text" name="plot" value="{{description}}">
+    </label>
+
+    <br><br>
+
+    <label>
+        Imagen
+        <input type="url" name="cast" value="{{profileImg}}">
+    </label>
+
+    <br><br>
+
+    <input type="submit" value="Save edition">
+</form>
+
+<a href="/lista">Volver a la lista</a>
