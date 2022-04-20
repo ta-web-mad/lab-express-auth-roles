@@ -1,0 +1,26 @@
+<div class="card bg-dark text-white">
+    <img src="{{user.profileImg}}" class="card-img" alt="...">
+    <div class="card-img-overlay">
+        <h5 class="card-title">{{user.username}}</h5>
+        <p class="card-text">{{user.description}}</p>
+        <p class="card-text">Last updated 3 mins ago</p>
+        {{#if isPm}}
+        <form action="/student/{{user.id}}/edit" method="post">
+            <button class="btn btn-primary">Cambiar a TA/Dev</button>
+        </form>
+        <br>
+        {{/if}}
+        {{#if isMe}}
+
+        <a href="/student/{{user.id}}/edit-student" class="btn btn-primary">Editar</a>
+
+        <br>
+        {{/if}}
+
+    </div>
+</div>
+
+<div class="mb-3">
+    <label for="name" class="form-label">name</label>
+    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+</div>
