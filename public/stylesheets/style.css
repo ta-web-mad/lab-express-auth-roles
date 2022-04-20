@@ -4,7 +4,9 @@ body {
 }
 
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 200;
 }
 
@@ -18,7 +20,9 @@ h1, h2, h3 {
 }
 
 #errorMessage {
-  background-color: rgb(255, 202, 202);
+  background-color: rgba(255, 68, 68, 0.799);
+  color: white;
+  font-size: large;
   width: 400px;
   position: fixed;
   right: 10px;
@@ -29,7 +33,7 @@ h1, h2, h3 {
 }
 
 
-@keyframes  showFromBottom {
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }
@@ -46,4 +50,8 @@ h1, h2, h3 {
   100% {
     bottom: -50px
   }
+}
+
+.img-student {
+  width: 170px;
 }
