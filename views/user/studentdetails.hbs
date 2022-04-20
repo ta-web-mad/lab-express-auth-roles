@@ -1,0 +1,7 @@
+<a href="/students">Alumnos</a>
+<h1>{{student.username}}</h1>
+<p>{{student.description}}</p>
+<img src={{student.profileImg}}>
+{{#if isMe}}
+<a href="/students/{{student.id}}/edityourself">Edita tu perfil</a>
+{{/if}}

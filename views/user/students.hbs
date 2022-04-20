@@ -1,0 +1,14 @@
+<h1>Compañeros</h1>
+{{#each students}}
+<ul>
+    <li>
+        <a href="/students/{{id}}">{{username}}</a>
+        {{#if ../isPM}}
+        <a href="/students/{{id}}/edit">Editar</a>
+        <form action="/students/{{_id}}/delete" method="POST">
+            <button class="btn btn-light btn-sm" type="submit">Delete</button>
+        </form>
+        {{/if}}
+    </li>
+</ul>
+{{/each}}
