@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
 
+
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
@@ -12,7 +13,7 @@ router.post('/registro', (req, res, next) => {
   bcrypt
     .genSalt(saltRounds)
     .then(salt => bcrypt.hash(userPwd, salt))
-    .then(hashedPassword => User.create({ ...req.body, passwordHash: hashedPassword }))
+    .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
     .then(createdUser => res.redirect('/'))
     .catch(error => next(error))
 })
