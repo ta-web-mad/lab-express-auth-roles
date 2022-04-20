@@ -1,0 +1,32 @@
+<h1>Student Profile</h1>
+<ul>
+    <img class="img-student" src={{student.profileImg}} alt="Student profile image">
+    <hr>
+    <h2>Nombre: {{student.username}}</h2>
+    <p>Descripción: {{student.description}}</p>
+    <p>Email: {{student.email}}</p>
+    <p>Role: {{student.role}}</p>
+    {{#if isStudent}}
+    <button>
+        <a href="/students/{{student.id}}/edit">Editar</a>
+    </button>
+    {{/if}}
+
+    {{#if isAdmin}}
+    <button>
+        <a href="/students/{{student.id}}/edit">Editar</a>
+    </button>
+    <form action="/students/{{student.id}}/delete" method="POST">
+        <button>Borrar</button>
+    </form>
+    <form action="/students/{{student.id}}/mark-dev" method="POST">
+        <button>Marcar como Dev</button>
+    </form>
+    <form action="/students/{{student.id}}/mark-ta" method="POST">
+        <button>Marcar como TA</button>
+    </form>
+    {{/if}}
+    <button>
+        <a href="/students">Regresar</a>
+    </button>
+</ul>

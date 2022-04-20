@@ -12,8 +12,8 @@ router.post('/registro', (req, res, next) => {
   bcrypt
     .genSalt(saltRounds)
     .then(salt => bcrypt.hash(userPwd, salt))
-    .then(hashedPassword => User.create({ ...req.body, passwordHash: hashedPassword }))
-    .then(createdUser => res.redirect('/'))
+    .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
+    .then(createdUser => res.redirect('/iniciar-sesion')) // modificado, antes redirigia a '/'
     .catch(error => next(error))
 })
 
