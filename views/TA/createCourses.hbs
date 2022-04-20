@@ -1,0 +1,71 @@
+<div class="container">
+
+    <div class="col-12  mt-5 bg-light bg-secondary p-3">
+        <div class="col-md-12">
+            <h2>Crear Curso</h2>
+            <hr>
+            <form action="/TA/createCourses" method="POST">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">leadTeacher</label>
+                    <select class="form-select" aria-label="Default select example" name="leadTeacher">
+                        {{#each userDev}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">Empieza_Fecha</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate">
+                </div>
+                <div class="mb-3">
+                    <label for="endDate" class="form-label">final_Fecha</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate">
+                </div>
+                <div class="mb-3">
+                    <label for="ta" class="form-label">Ta</label>
+                    <select class="form-select" aria-label="Default select example" name="ta">
+                        {{#each userTA}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="courseImg" class="form-label">courseImg</label>
+                    <input type="string" class="form-control" id="courseImg" name="courseImg">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="string" class="form-control" id="description" name="description">
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">status</label>
+                    <select class="form-select" aria-label="Default select example" name="status">
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="students" class="form-label">students</label>
+                    <select class="form-select" aria-label="Default select example" name="students">
+                        {{#each userStudents}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+
+                    </select>
+
+                </div>
+
+                <button type="submit" class="btn btn-dark">Guardar edición</button>
+                <a href="/" class="btn btn-dark">Volver al incio</a>
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
