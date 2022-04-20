@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Courses list</h1>
+    
+    <hr>
+
+<ul>
+
+    {{#each courses }}
+    <li class="item-row">
+    {{!-- {{title}} --}}
+    <a href="/courses/{{id}}" class="btn btn-primary">{{title}}</a>
+    {{#if ../isTA}}
+    <a href="/courses/{{id}}/edit" class="btn btn-warning">update</a>
+    <form action="/courses/{{id}}/delete" method="POST">
+        <button class="btn btn-danger" type="submit">deleteCourse</button>
+    </form>
+    {{/if}}
+    {{#if ../isStudent}}
+    <form action="/courses/{{id}}/join" method="POST">
+        <button class="btn btn-primary" type="submit">Join course</button>
+    </form>
+    {{/if}}
+    </li>
+    {{/each}}
+
+    </ul>
+    <a href="/createcourse" class="btn btn-dark">New course</a>
+</div>
+
+
+

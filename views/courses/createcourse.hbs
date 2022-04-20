@@ -1,0 +1,98 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Create course</h1>
+            <hr>
+
+            <form action="/createcourse" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="titleInput" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="titleInput" name="title" required>
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="start" class="form-label">Start date:</label>
+                        <input type="date" id="start" name="startDate" value="2018-07-22" min="2018-01-01"
+                            max="2018-12-31" required>
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="end" class="form-label">End date:</label>
+                        <input type="date" id="end" name="endDate" value="2018-07-22" min="2018-01-01" max="2018-12-31" required>
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="courseImage" class="form-label">Course image</label>
+                    <input type="url" class="form-control" id="courseImage" name="courseImg" value="https://news.artnet.com/app/news-upload/2019/01/Cat-Photog-Feat-728x1024.jpg"required>
+                    <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="ta" class="form-label">Choose TAs</label>
+                    <select name="ta" class="form-select" multiple>
+                        {{#each this.tas}}
+                        {{!-- {{#if isPresent}} --}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{!-- {{else}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/if}} --}}
+                        {{/each}}
+                    </select>
+                </div>
+
+                {{!-- <div class="mb-3">
+                    <label for="imageInput" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="imageInput" name="profileImg">
+                    <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
+                </div> --}}
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3" name="description" required></textarea>
+                </div>
+                <label for="ta" class="form-label">Choose status</label>
+                <select name="status" class="form-select" multiple>
+                    {{!-- {{#if isPresent}} --}}
+                    <option value="ON">ON</option>
+                    <option value="OFF">OFF</option>
+                    {{!-- {{else}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/if}} --}}
+                </select>
+
+                <div class="mb-3">
+                    <label for="ta" class="form-label">Choose TAs</label>
+                    <select name="ta" class="form-select" multiple>
+                        {{#each this.students}}
+                        {{!-- {{#if isPresent}} --}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{!-- {{else}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/if}} --}}
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Completar registro</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+    <hr>
+
+</div>

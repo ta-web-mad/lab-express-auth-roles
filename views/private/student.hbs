@@ -1,0 +1,46 @@
+<div class="container">
+
+    {{!-- CONTROL BUTTONS --}}
+    <div class="buttonGr">
+        {{#if isPM}}
+        <a href="/students/{{user.id}}/edit" class="btn btn-primary">editStudent</a>
+
+        {{!-- <a href="/students/{{user.id}}/delete">>deleteStudent</a> --}}
+        <form action="/students/{{user.id}}/delete" method="POST">
+            <button class="btn btn-danger" type="submit">deleteStudent</button>
+        </form>
+
+        <form action="/students/{{user.id}}/setRole/DEV" method="POST">
+            <button class="btn btn-secondary" type="submit">mark as dev</button>
+        </form>
+
+        <form action="/students/{{user.id}}/setRole/TA" method="POST">
+            <button class="btn btn-warning" type="submit">mark as ta</button>
+        </form>
+
+        {{/if}}
+        {{#if isCurrentStudent}}
+        <a href="/students/{{user.id}}/edit" class="btn btn-primary">edit my profile</a>
+        <hr>
+        {{/if}}
+    </div>
+    <hr>
+
+    {{#unless badId}}
+    {{#if userFound}}
+    <h1>Profile of {{user.username}}</h1>
+
+    <p><strong>Description: </strong>{{user.description}}</p>
+    <p><strong>Email: </strong>{{user.email}}</p>
+    <p><strong>Role: </strong>{{user.role}}</p>
+    <hr>
+    <img src="{{user.profileImg}}" alt="">
+    <hr>
+    <a href="/courses" class="btn btn-primary">Volver al listado</a>
+    {{else}}
+    <h3>USER NOT FOUND</h3>
+    {{/if}}
+    {{else}}
+    <h3>USER NOT FOUND (bad id)</h3>
+    {{/unless}}
+</div>
