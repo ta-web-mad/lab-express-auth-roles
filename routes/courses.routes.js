@@ -95,14 +95,16 @@ router.post('/:id/delete', isLoggedIn, checkRole('TA'), isLoggedIn, (req, res, n
 
 });
 
-router.post('/:id/join', isLoggedIn, isLoggedIn, (req, res, next) => {
+router.post('/:id/join', isLoggedIn, checkRole('STUDENT'), (req, res, next) => {
 
-    const { id, students } = req.params
+    const { id } = req.params
 
-    // req.session.currentUser
+
+    console.log(id)  // el curso lo está pillando bien
 
     Course
-        .findByIdAndUpdate(id, students = req.session.currentUser)
+        .findByIdAndUpdate(id, { $push: { students: req.session.currentUser._Id } },)
+        .then(() => res.redirect('/courses/list'))
         .catch(err => console.log(err))
 
 
