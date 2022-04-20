@@ -1,0 +1,21 @@
+<div class="container box-text"">
+    <h1>Estudiantes</h1>
+    <hr>
+    <div class=" row>
+    {{#each students}}
+
+    <a href="/estudiantes/{{id}}">
+        <p><strong>Nombre de usuario: </strong>{{username}}</p>
+    </a>
+    <img class="student-img" src="{{profileImg}}" alt="foto-perfil">
+    <br><br>
+    <p><strong>{{role}}</strong></p>
+    <hr>
+
+
+    {{/each}}
+
+</div>
+
+
+</div>

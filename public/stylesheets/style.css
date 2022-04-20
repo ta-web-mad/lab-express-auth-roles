@@ -4,7 +4,9 @@ body {
 }
 
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 200;
 }
 
@@ -28,8 +30,34 @@ h1, h2, h3 {
   animation: showFromBottom 6s forwards;
 }
 
+.box-text {
+  width: 50%;
+  margin: auto;
 
-@keyframes  showFromBottom {
+
+}
+
+.box-text p {
+  list-style: none;
+  color: black;
+}
+
+.student-img {
+  width: 20%;
+  margin-bottom: 20px;
+}
+
+.student-img-id {
+  width: 40%;
+
+}
+
+.btn-pm {
+  width: 30%;
+  margin-bottom: 30px;
+}
+
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }
