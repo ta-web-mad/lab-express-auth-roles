@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>ALL STUDENTS</h1>
+
+    <ul>
+
+        {{#each student}}
+        <li>{{username}} | <a href="/student/{{id}}">Ver perfil</a></li>
+        
+        {{/each}}
+
+    </ul>
+</div>

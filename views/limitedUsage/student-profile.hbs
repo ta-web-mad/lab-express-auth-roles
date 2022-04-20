@@ -1,0 +1,26 @@
+<h1>Student profile</h1>
+
+
+
+<h2>{{selectedStudent.username}}</h2>
+<h6>{{selectedStudent.email}}</h6>
+<h6>{{selectedStudent.role}}</h6>
+{{selectedStudent.profileImg}}
+
+{{!-- ONLY PM RENDERING --}}
+{{#if isPM}}
+
+<form action="/student/{{selectedStudent.id}}/delete" method="POST">
+    <button class="btn btn-sm btn-warning" type="submit">Eliminar</button>
+</form>
+<a href="/student/{{selectedStudent.id}}/edit">Editar</a>
+
+<form action="/student/{{selectedStudent.id}}/role" method="GET">
+    <button class="btn btn-sm btn-warning" type="submit" name="role" value="DEV">Marcar como Developer</button>
+</form>
+
+<form action="/student/{{selectedStudent.id}}/role" method="GET">
+    <button class="btn btn-sm btn-warning" type="submit" name="role" value="TA">Marcar como TA</button>
+</form>
+
+{{/if}}

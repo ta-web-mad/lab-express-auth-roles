@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Cursos disponibles</h1>
+
+    <ul>
+        {{#each allCourses}}
+        <li>{{title}}</li>
+
+        {{!-- ONLY TA RENDERING --}}
+        {{#if ...isTA}}
+        <form action="/course/{{id}}/delete" method="POST">
+            <button class="btn btn-sm btn-warning" type="submit">Eliminar</button>
+        </form>
+        <a href="/course/{{id}}/edit">Editar</a>
+        {{/if}}
+
+        {{/each}}
+    </ul>
+
+    {{!-- ONLY TA RENDERING --}}
+    {{#if isTA}}
+    <a href="/new-course">Crear nuevo curso</a>
+    {{/if}}
+
+
+</div>
