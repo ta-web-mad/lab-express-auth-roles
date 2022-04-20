@@ -1,0 +1,98 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>EDIT</h1>
+            <hr />
+
+            <form action="/students/{{id}}/edit" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">
+                            EMAIL</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="emailInput"
+                            name="email"
+                            value="{{email}}"
+                        />
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                    <div class="col">
+                        <label
+                            for="pwdInput"
+                            class="form-label"
+                        >PASSWORD</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="pwdInput"
+                            name="password"
+                            value="{{password}}"
+                            disabled
+                        />
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label">
+                        USER NAME</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="usernameInput"
+                        name="username"
+                        value="{{username}}"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Image</label>
+                    <input
+                        type="url"
+                        class="form-control"
+                        id="imageInput"
+                        name="profileImg"
+                        value="{{profileImg}}"
+                    />
+                    <div class="form-text">Introduce la URL a la imagen que
+                        desees de perfil.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label
+                        for="description"
+                        class="form-label"
+                    >description</label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="description"
+                        name="description"
+                        value="{{description}}"
+                    />
+
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Edit this
+                        student</button>
+                </div>
+
+                {{#if errorMessage}}
+                    <div id="errorMessage">
+                        <p>{{errorMessage}}</p>
+                    </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>
