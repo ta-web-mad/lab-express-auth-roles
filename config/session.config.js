@@ -1,9 +1,9 @@
-const session = require('express-session')   // instalar
-const MongoStore = require('connect-mongo')  // instalar
-const mongoose = require('mongoose')
+const session = require("express-session"); // instalar
+const MongoStore = require("connect-mongo"); // instalar
+const mongoose = require("mongoose");
 
-module.exports = app => {
-    app.set('trust proxy', 1);
+module.exports = (app) => {
+    app.set("trust proxy", 1);
 
     app.use(
         session({
@@ -11,14 +11,16 @@ module.exports = app => {
             resave: true,
             saveUninitialized: false,
             cookie: {
-                sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-                secure: process.env.NODE_ENV === 'production',
+                sameSite:
+                    process.env.NODE_ENV === "production" ? "none" : "lax",
+                secure: process.env.NODE_ENV === "production",
                 httpOnly: true,
-                maxAge: 60000
+                maxAge: 6000000,
             },
             store: MongoStore.create({
-                mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/basic-auth'
-            })
+                mongoUrl:
+                    process.env.MONGODB_URI || "mongodb://localhost/basic-auth",
+            }),
         })
     );
 };

@@ -1,0 +1,77 @@
+<div class="container">
+
+    <h1>THIS STUDENT</h1>
+
+    <h2>{{student.username}}</h2>
+
+    <article>
+
+        <figure>
+            <img src="{{student.profileImg}}" alt="profile image" />
+        </figure>
+        <h5>{{student.description}}</h5>
+        <h3>{{student.role}}</h3>
+    </article>
+
+
+
+     {{#if isSameId}}
+
+        <button class="btn btn-warning">
+            <a href="/students/{{student.id}}/edit">editar</a>
+        </button>
+
+     {{/if}}
+
+
+    {{#if isPM}}
+    
+        {{! boton de editar }}
+
+        <button class="btn btn-warning">
+            <a href="/students/{{student.id}}/edit">editar</a>
+        </button>
+
+        {{! boton de Eliminar }}
+
+        <div>
+            <form action="/students/{{student.id}}/delete" method="POST">
+                <button
+                    class="btn btn-sm btn-dark"
+                    type="submit"
+                >Eliminar</button>
+            </form>
+
+        </div>
+
+        <div class="mb-3">
+
+            <form action="/students/{{student.id}}/edit-role" method="POST">
+            
+                <label for="role" class="form-label">ROLE IF THIS STUDENT</label>
+
+                    <select name="role" class="form-select" multiple>
+
+                        <option value="TA">TA</option>
+                        <option value="DEV">DEV</option>
+
+                    </select>
+
+                </div>
+
+                <button type="submit" class="btn btn-dark">chance the role</button>
+            
+            
+            </form>
+
+           
+
+    {{/if}}
+
+
+   
+
+
+
+
+</div>
