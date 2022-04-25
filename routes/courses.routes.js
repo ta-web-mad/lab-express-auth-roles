@@ -25,10 +25,7 @@ router.get("/", isLoggedIn, (req, res, next) => {
 
 // Create Courses
 router.get("/create", isLoggedIn, checkRole('TA'), (req, res, next) => {
-    const promise1 = User.find()
-    const promise2 = User.find({ role: 'TA' })
-    const promise3 = User.find({ role: 'STUDENT' })
-    const promise4 = User.find({ role: 'PM' })
+
 
     User
         .find()
