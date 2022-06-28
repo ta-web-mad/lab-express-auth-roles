@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h2>Students</h2>
+
+    <hr>
+    <ul>
+        {{#each students}}
+        <li class="students-row">
+            <a href="/students/{{id}}">{{username}}</a>
+            <a href="/students/{{id}}/edit">Edit</a>
+            <form action="/students/{{id}}/delete" method="POST">
+                <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+            </form>
+        </li>
+
+        {{#if ../isPM}}
+        <button class="btn btn-danger">Delete12</button><br>
+        <button class="btn btn-warning">Edit12</button><br>
+        {{/if}}
+
+
+        {{/each}}
+
+
+
+    </ul>
+
+
+    <a href="/" class="btn btn-dark">Home</a>
+</div>
