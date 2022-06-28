@@ -1,0 +1,28 @@
+<div class="container">
+    {{#each studentData}}
+    <img src="{{profileImg}}" alt="{{username}}">
+    <h2>{{username}}</h2>
+    <p>{{email}}</p>
+    <p>{{description}}</p>
+
+    {{/each}}
+
+    <a href="/students/edit/{{studentData.id}}" class="btn btn-sm btn-warning">Editar</a>
+
+    {{#if roles.isPM}}
+    <form action="/students/delete/{{studentData.id}}" method="POST" style="display: inline-block">
+        <input type="submit" value="eliminar" class="btn btn-danger btn-sm">
+    </form>
+
+
+    <hr>
+    <form action="/students/updateTA/{{studentData.id}}" method="POST" style="display: inline-block">
+        <input type="submit" value="Set as TA" class="btn btn-info btn-sm">
+    </form>
+    <form action="/students/updateDEV/{{studentData.id}}" method="POST" style="display: inline-block">
+        <input type="submit" value="Set as DEV" class="btn btn-success btn-sm">
+    </form>
+    {{/if}}
+
+
+</div>
