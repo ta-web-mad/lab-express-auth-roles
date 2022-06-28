@@ -1,0 +1,34 @@
+<div class="container-student-edit">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>EDITAR ESTUDIANTE</h1>
+
+            <hr>
+
+            <form action="/students/{{students.id}}/edit" method="POST">
+
+                <div class="mb-3">
+                    <label for="{{students.username}}" class="form-label">USERNAME</label>
+                    <input type="text" class="form-control" id="{{students.username}}" name="{{students.username}}"
+                        value="{{username}}">
+                </div>
+                <div class="mb-3">
+                    <label for="{{students.email}}" class="form-label">EMAIL</label>
+                    <input type="text" class="form-control" id="{{students.email}}" name="{{students.email}}"
+                        value="{{students.email}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{students.description}}" class="form-label">DESCRIPCIÓN</label>
+                    <input type="text" class="form-control" id="{{students.description}}"
+                        name="{{students.description}}" value="{{students.description}}">
+                </div>
+
+                <button type="submit" class="btn btn-dark">GUARDAR</button>
+                <a href="/students" class="btn btn-dark">VOLVER A ESTUDIANTES</a>
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="container-courses">
+
+        <h1>BOOTCAMPS DISPONIBLES</h1>
+
+        <hr>
+        {{#each courses}}
+        <h6><a href="/courses">{{title}}</a></h6>
+        <hr>
+        {{/each}}
+
+        <a href="/" class="btn btn-dark">INICIO</a>
+
+        {{#if isTA}}
+        <button class="btn btn-sm btn-dark"> <a href="/courses/{{students.id}}/edit">EDITAR</a></button>
+        {{/if}}
+    </div>
+</div>

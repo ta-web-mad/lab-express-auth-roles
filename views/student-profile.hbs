@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="container-student-details">
+
+        <h4>PERFIL DEL ESTUDIANTE </h4>
+        <h1>{{students.username}}</h1>
+        <hr>
+        <p><strong>Descripción:</strong> {{students.description}}</p>
+        <hr>
+        <a href="/students" class="btn btn-dark">VOLVER A LA LISTA</a>
+
+        {{#if isPM}}
+        <form action="/students/{{students.id}}/delete" method="POST"><button class="btn btn-sm btn-dark"
+                type="submit">ELIMINAR</button>
+        </form><br>
+
+        <button class="btn btn-sm btn-dark"> <a href="/students/{{students.id}}/edit">EDITAR</a></button>
+        <br>
+        <br>
+
+        <form action="/students/{{students.id}}/edit/TA" method="POST"><button class="btn btn-sm btn-dark"
+                type="submit">HACER TA</button></form>
+
+
+        <form action="/students/{{students.id}}/edit/DEV" method="POST"><button class="btn btn-sm btn-dark"
+                type="submit">HACER
+                DEV</button>
+        </form>
+        {{/if}}
+
+        {{#if isSameID}}
+        <button class="btn btn-sm btn-dark"> <a href="/students/{{students.id}}/edit">EDITAR</a></button>
+        {{/if}}
+
+    </div>
+</div>
