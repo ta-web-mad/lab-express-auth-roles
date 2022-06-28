@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Student details</h1>
+
+    {{#with student}}
+
+
+    {{../isUser}}
+    <p>{{username}}</p>
+    <p>{{email}}</p>
+    <p>{{description}}</p>
+    <p>{{profileImg}}</p>
+
+    {{#if ../isUser}}
+    <a href="/edit/{{id}}">edit</a>
+    {{/if}}
+    {{/with}}
+
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Private</h1>
+    <ul>
+        {{#each user}}
+        <li>
+            <p>{{username}} | {{role}} | <a href="/students/{{_id}}">details</a></p>
+
+            {{#if ../isPM}}
+            <a href="/edit/{{id}}">Editar</a>
+            <br>
+            <form action="/delete/{{id}}" method="POST">
+                <button class="btn btn-danger">Eliminar</button> <br>
+            </form>
+            <form action="/update-role/{{id}}" method="POST">
+                <input type="radio" id="dev" name="role" value="DEV">
+                <label for="dev">DEV</label><br>
+                <input type="radio" id="TA" name="role" value="TA">
+                <label for="TA">TA</label><br>
+                <input type="radio" id="STUDENT" name="role" value="STUDENT">
+                <label for="STUDENT">STUDENT</label><br>
+                <button type="submit">Update Role</button>
+            </form>
+            <hr>
+            {{/if}}
+        </li>
+        {{/each}}
+
+    </ul>
+    <p>¡Hola {{currentUser.username}}!</p>
+    <hr>
+    <p>Tienes role de {{currentUser.role}}</p>
+    <p>Con ID {{currentUser._id}}</p>
+</div>

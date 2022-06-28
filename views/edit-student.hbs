@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Edit student</h1>
+
+    <form action="/edit/{{id}}" method="POST">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" value='{{username}}'>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" value='{{email}}'>
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" value='{{description}}'>
+        <label for="profileImg">ProfileImg</label>
+        <input type="text" id="profileImg" name="profileImg" value='{{profileImg}}'>
+        <button type="submit">Send</button>
+
+    </form>
+
+</div>
