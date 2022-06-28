@@ -7,4 +7,8 @@ module.exports = app => {
   // Auth routes
   const authRouter = require("./auth.routes");
   app.use("/", authRouter); 
+
+  //Private routes
+  const privateRouter = require("./private.routes");
+  app.use("/", privateRouter);
 }

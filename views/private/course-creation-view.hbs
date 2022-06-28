@@ -1,0 +1,65 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Crear Curso</h1>
+
+            <hr>
+
+            <form action="/course-creation" method="POST">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Nombre del curso</label>
+                    <input type="text" class="form-control" id="title" name="title" value="" required>
+                </div>
+                <div class="mb-3">
+                    <label for="leadTeacher">LEAD TEACHER</label>
+                    <select name="leadTeacher" id="leadTeacher">
+                        {{#each users}}
+                        <option value={{id}}>{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="">TA's</label>
+                    <select name="ta" id="ta" multiple>
+                        {{#each users}}
+                        <option value={{id}}>{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">Fecha de Inicio</label>
+                    <input type="text" class="form-control" id="startDate" name="startDate"
+                        value="" required>
+                </div>
+                <div class="mb-3">
+                    <label for="endDate" class="form-label">Fecha Final</label>
+                    <input type="text" class="form-control" id="endDate" name="endDate" value="" required>
+                </div>
+                <div class="mb-3">
+                    <label for="courseImg" class="form-label">Imagen del curso (url)</label>
+                    <input type="text" class="form-control" id="courseImg" name="courseImg" value="" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                        value="" required>
+                </div>
+               
+                <div class="mb-3">
+                    <label for="status" class="form-label">STATUS (ON-OFF)</label>
+                    <input type="text" class="form-control" id="status" name="status" required>
+                </div>
+                <button type="submit" class="btn btn-dark">Crear</button>
+            </form>
+
+
+            <hr>
+
+
+        </div>
+    </div>
+
+
+</div>
