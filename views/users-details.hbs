@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h2>El usuario específico es: {{user.username}}</h2>
+
+    <hr>
+
+    <p>E-mail: {{user.email}}</p>
+    <p>Description: {{user.description}}</p>
+    <p>Image profile: {{user.profileImg}}</p>
+
+    <a href="/students">Volver a la lista de estudiantes</a>
+
+    {{#if roles.isPM}}
+    <form action="/students/{{user._id}}/delete" method="post">
+        <input type="submit" value="eliminar">
+    </form>
+
+    <a href="/students/{{user._id}}/edit">editar</a> {{!-- Todos href comienzan con barra --}}
+
+    <form action="/students/{{user._id}}/delete" method="post">
+        <input type="submit" value="eliminar">
+    </form>
+    <form action="/students/{{user._id}}/delete" method="post">
+        <input type="submit" value="eliminar">
+    </form>
+    {{/if}}
+
+</div>

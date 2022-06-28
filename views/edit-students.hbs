@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Editando perfiles de alumnos</h2>
+
+    <form action="/students/{{_id}}/edit" method="POST"> {{!-- Este es el id que se toma de la base de datos, por eso se
+        escribe así --}}
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" aria-describedby="emailHelp" value="{{username}}"
+                name="username">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">e-mail</label>
+            <input type="text" class="form-control" id="email" value="{{email}}" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="profileImg" class="form-label">Foto de perfil</label>
+            <input type="text" class="form-control" id="profileImg" value="{{profileImg}}" name="profileImg">
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" value="{{description}}" name="descripcion">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+</div>
+
+{{!-- Los formularios tienen 3 puntos importantes que siempre hay que tener en cuenta para enviar sus datos: action,
+method y name --}}
