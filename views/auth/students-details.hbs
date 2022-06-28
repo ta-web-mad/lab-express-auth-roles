@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Detalles del Estudiante:</h1>
+    Usuario: {{student.username}}
+    <br>
+    Email: {{student.email}}
+    <br>
+    Descripción: {{student.description}}
+    <br>
+    Rol: {{student.role}}
+    <br>
+    <img src="{{student.profileImg}}" alt="goblin" class="mb-3">
+    <br>
+    {{#if isMatch}}
+    <a href="/edit/{{student.id}}" class="btn btn-primary">EDÍTAME, TÍO</a>
+    {{/if}}
+</div>
