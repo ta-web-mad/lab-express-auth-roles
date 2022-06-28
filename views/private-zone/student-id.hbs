@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-md-4 box-text ">
+            <img class="student-img-id" src="{{studentId.profileImg}}" alt="">
+
+        </div>
+        <div class="col-md-8 box-text ">
+            <p><strong>Nombre de usuario: </strong>{{studentId.username}}</p>
+            <p><strong>Email: </strong>{{studentId.email}}</p>
+            <p><strong>{{studentId.role}}</strong></p>
+            <a class="btn btn-dark btn-pm" href="/estudiantes/{{studentId.id}}/editar">Editar</a><br>
+
+            {{#if isCheckPM}}
+            <a class="btn btn-dark btn-pm" href="/estudiantes/{{studentId.id}}/editar">Añadir como TA</a><br>
+            <a class="btn btn-dark btn-pm" href="/estudiantes/{{studentId.id}}/editar">Añadir como DEV</a>
+
+            <form action="/estudiantes/{{studentId.id}}/eliminar" method="POST">
+                <button class="btn btn-dark btn-pm" type="submit">Eliminar</button> <br>
+            </form>
+            {{/if}}
+            <hr>
+
+
+        </div>
+    </div>
+</div>

@@ -20,6 +20,7 @@ router.post('/registro', (req, res, next) => {
 
 
 // Login
+
 router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
 router.post('/iniciar-sesion', (req, res, next) => {
 
@@ -44,8 +45,11 @@ router.post('/iniciar-sesion', (req, res, next) => {
 
 
 // Logout
+
 router.post('/cerrar-sesion', (req, res, next) => {
   req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
+
+
 
 module.exports = router
