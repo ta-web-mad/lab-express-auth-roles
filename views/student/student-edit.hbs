@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img src="{{user.profileImg}}" alt="user profile image">
+        </div>
+        <div class="col-8">
+            <form action="/student/{{user.id}}/edit" method="POST">
+                <div class="mb-3">
+                    <label for="url" class="form-label">URL de la nueva imagen</label>
+                    <input type="text" class="form-control" id="url" name="profileImg" value="{{user.profileImg}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pwdInput" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="pwdInput" name="username" value="{{user.username}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{user.description}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" value="{{user.email}}">
+                </div>
+
+                {{#if role.isAdmin}}
+                <select name="role" class="form-select">
+                    <option>DEV</option>
+                    <option>TA</option>
+                    <option>STUDENT</option>
+                </select>
+                {{/if}}
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Editar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

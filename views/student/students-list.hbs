@@ -1,0 +1,37 @@
+<div class="container">
+
+    <h1>Nuestros estudiantes</h1>
+
+    <hr>
+
+    {{#each users}}
+    <div class="row">
+        <div class="col-2">
+            <p>{{username}}<br>
+                {{role}}
+            </p>
+        </div>
+
+        {{#if ../roles.isAdmin}}
+        <div class="col-2">
+            <a href="/students/{{id}}" class="btn btn-sm btn-warning">Ver perfil</a>
+        </div>
+
+        <div class="col-1">
+            <form action="/students/{{id}}/delete" method="POST" class="mb-5">
+                <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            </form>
+        </div>
+        {{/if}}
+
+        {{#unless ../roles.isAdmin}}
+        {{#if isSame}}
+        <div class="col-2">
+            <a href="/students/{{id}}" class="btn btn-sm btn-warning">Ver perfil</a>
+        </div>
+        {{/if}}
+        {{/unless}}
+    </div>
+    {{/each}}
+
+</div>
