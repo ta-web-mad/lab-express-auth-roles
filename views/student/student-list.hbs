@@ -1,0 +1,21 @@
+<div class="container">
+
+
+    <h1>Listado de estudiantes</h1>
+
+    <hr>
+
+    {{#each students}}
+    <hr>
+    {{username}}
+    <hr>
+    <img src="{{profileImg}}" alt="pic">
+
+    <a href="/students/{{id}}" class="btn btn-warning btn-sm">View {{username}} Profile</a>
+
+    {{/each}}
+
+    <hr>
+
+
+</div>
