@@ -1,0 +1,29 @@
+<h1>Perfil de {{student.username}}</h1>
+<img src="{{student.profileImg}}">
+<p>Descripción: {{student.description}}</p>
+<p>E-mail :{{student.email}}</p>
+<a class="btn btn-info" href="/students/{{student.id}}/editar">Editar</a>
+
+{{#if isPM}}
+
+<form action="/students/{{student.id}}/delete" method="POST">
+    <button class="btn btn-danger" type="submit">Eliminar</button>
+    <br>
+</form>
+<br>
+
+
+
+<br>
+
+<form action="/students/{{student.id}}/editar/TA" method="POST">
+    <button class="btn btn-dark" type="submit">Conventir en TA</button>
+
+</form>
+<br>
+<form action="/students/{{student.id}}/editar/DEV" method="POST">
+    <button class="btn btn-dark" type="submit">Convertir en DEV</button>
+</form>
+<br>
+
+{{/if}}
