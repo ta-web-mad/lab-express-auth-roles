@@ -1,0 +1,36 @@
+<div class="container">
+
+    <h1>Lista de estudiantes</h1>
+
+    <hr>
+
+    {{#each user}}
+    <p>{{username}} </p>
+
+
+    <a href="/students/{{id}}/details" class="btn btn-info btn-sm">Detalles del estudiante</a>´
+    <a href="/students/{{id}}/edit" class="btn btn-sm btn-warning">Editar</a>
+    <a href="/" class="btn btn-dark btn-sm">Volver</a>
+    <br>
+    <br>
+    {{#if ../roles.isAdmin}}
+
+    <form action="/students/{{id}}/edit-role-TA" method="POST" style="display: inline-block">
+        <button class="btn btn-sm btn-warning">Cambiar role a TA</button>
+    </form>
+    <form action="/students/{{id}}/edit-role-DEV" method="POST" style="display: inline-block">
+        <button class="btn btn-sm btn-warning">Cambiar role a DEV</button>
+    </form>
+    <form action="/students/{{id}}/delete" method="POST" style="display: inline-block">
+        <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+    </form>
+
+    {{/if}}
+    <hr>
+    {{/each}}
+
+
+
+
+
+</div>
