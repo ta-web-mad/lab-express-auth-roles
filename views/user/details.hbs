@@ -1,0 +1,24 @@
+<div class="container">
+    <h2 class="page-title">Detalles de {{user.username}}</h2>
+    <div class="row">
+        <div class="col-3 mb-5 mt-5">
+            <div class="card" style="width: 18rem;">
+                <img src="{{user.profileImg}}" class="card-img-top" alt="{{user.username}} photo">
+                <div class="card-body">
+                    <h5 class="card-title">Username: {{user.username}}</h5>
+                    <p class="card-text">Email: {{user.email}}</p>
+                    <p class="card-text">Class: {{user.description}}</p>
+                    <a href="/students" class="btn btn-primary">Volver a lista</a>
+                    {{#if roles.isPm}}
+                    <form action="/students/{{user.id}}/change-role-DEV" method="POST" style="display: inline-block">
+                        <input type="submit" value="Cambiar a DEV" class="btn btn-danger btn-sm">
+                    </form>
+                    <form action="/students/{{user.id}}/change-role-TA" method="POST" style="display: inline-block">
+                        <input type="submit" value="Cambiar a TA" class="btn btn-warning btn-sm">
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

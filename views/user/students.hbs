@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 class="page-title">Listado de estudiantes</h2>
+    <div class="row">
+        {{#each students}}
+        <div class="col-3 mb-5 mt-5">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{username}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <a href="/students/{{id}}" class="btn btn-primary">Ver perfil</a>
+                    {{#if ../roles.isPm}}
+                    <form action="/students/{{id}}/delete" method="POST" style="display: inline-block">
+                        <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                    </form>
+                    <a href="/students/{{id}}/edit" class="btn btn-sm btn-warning">Editar</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
