@@ -7,7 +7,12 @@ const saltRounds = 10
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
 
-  const { userPwd } = req.body
+  const { email, userPwd } = req.body
+
+  if (email.length < 8 || userPwd.length < 8) {
+    res.render('auth/login', { errorMessage: 'Los campos son obligatorios' })
+    return
+  }
 
   bcrypt
     .genSalt(saltRounds)
@@ -24,6 +29,9 @@ router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
 router.post('/iniciar-sesion', (req, res, next) => {
 
   const { email, userPwd } = req.body
+
+
+
 
   User
     .findOne({ email })
@@ -47,5 +55,8 @@ router.post('/iniciar-sesion', (req, res, next) => {
 router.post('/cerrar-sesion', (req, res, next) => {
   req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
+
+
+
 
 module.exports = router
