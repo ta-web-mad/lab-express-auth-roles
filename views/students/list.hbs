@@ -1,0 +1,18 @@
+<div class="container">
+    {{#each students}}
+    <div class="col-md-4">
+
+        <div class="card border-light beer-card">
+
+            <div class="card-body">
+
+                <p class="card-text">Nombre: {{username}}</p>
+                <a href="/students/{{id}}" class="btn btn-warning btn-sm">Detalles</a>
+
+
+            </div>
+        </div>
+
+    </div> {{/each}}
+
+</div>
