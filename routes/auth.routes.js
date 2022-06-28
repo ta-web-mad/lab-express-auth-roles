@@ -11,10 +11,15 @@ router.post('/registro', (req, res, next) => {
 
   bcrypt
     .genSalt(saltRounds)
-    .then(salt => bcrypt.hash(userPwd, salt))
-    .then(hashedPassword => User.create({ ...req.body, passwordHash: hashedPassword }))
+    .then(salt => {
+      if (!/\d/.test(userPwd)) {
+        throw ("password must contain at least one number");
+      }
+      return bcrypt.hash(userPwd, salt)
+    })
+    .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
     .then(createdUser => res.redirect('/'))
-    .catch(error => next(error))
+    .catch(error => res.render('auth/signup', { errorMessage: error }))
 })
 
 
@@ -24,7 +29,6 @@ router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
 router.post('/iniciar-sesion', (req, res, next) => {
 
   const { email, userPwd } = req.body
-
   User
     .findOne({ email })
     .then(user => {

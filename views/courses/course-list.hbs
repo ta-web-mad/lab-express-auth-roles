@@ -1,0 +1,54 @@
+<div class="container">
+    <h2 class="listText">Courses</h2>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Image of course</th>
+                <th scope="col">Title</th>
+                <th scope="col">Start</th>
+                <th scope="col">End</th>
+                <th scope="col">Status</th>
+                <th scope="col">Description</th>
+                <th></th>
+                {{#if roles.isTA}}
+                <th></th>
+                <th></th>
+                {{/if}}
+                {{#if roles.isStudent}}
+                <th></th>
+                {{/if}}
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each dataWithDates}}
+            <tr>
+                <td><img src="{{course.courseImg}}" id="profilePic" alt="Profile picture of {{username}}"> </td>
+                <td>{{course.title}}</td>
+                <td>{{date.start}}</td>
+                <td>{{date.end}}</td>
+                <td>{{course.status}}</td>
+                <td>{{course.description}}</td>
+                <td><a class="btn btn-primary list-btn" href="/courses/{{course.id}}">Details</a></td>
+                {{#if ../roles.isTA}}
+                <td>
+                    <form action="/courses/{{course.id}}/delete" method="POST">
+                        <button type="submit" class="btn btn-danger list-btn">Delete</button>
+                    </form>
+                </td>
+                <td><a href="/courses/{{course.id}}/edit" class="btn btn-warning list-btn">Edit</a></td>
+                {{/if}}
+                {{#if ../roles.isStudent}}
+                <td>
+                    <form action="/courses/{{course.id}}/add" method="POST">
+                        <button type="submit" class="btn btn-primary list-btn">Singup</button>
+                    </form>
+                </td>
+                {{/if}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

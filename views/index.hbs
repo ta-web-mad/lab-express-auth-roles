@@ -1,8 +1,13 @@
 <div class="container">
 
-  <h1>{{siteTitle}} 🚀</h1>
+  <h1>Iron Learn 🚀</h1>
   <hr>
   <p>La plataforma de aprendizaje de IronHack</p>
   <p>Ahora con MÁS seguridad!</p>
-  
+  {{#if errorMessage}}
+  <div id="errorMessage">
+    <p>{{errorMessage}}</p>
+  </div>
+  {{/if}}
+
 </div>

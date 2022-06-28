@@ -1,0 +1,29 @@
+{{#unless data}}
+<div class="container">
+    <h1>Student does not exits</h1>
+</div>
+{{/unless}}
+<div class="container">
+    {{#with data}}
+    <h2>{{username}}</h2>
+    <img src="{{profileImg}}" id="profilePic" alt="profile picture of {{username}}">
+    <h4>{{email}}</h4>
+    <h5>{{description}}</h5>
+    {{/with}}
+
+    {{#if userMatch}}
+    <br>
+    <a href="/students/{{data.id}}/edit" class="btn btn-warning list-btn">Edit</a>
+    <br>
+    {{/if}}
+
+    {{#if roles.isPM}}
+    <br>
+    <a href="/students/{{data.id}}/edit" class="btn btn-warning list-btn">Edit</a>
+    <br>
+    <form action="/students/{{data.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-danger list-btn">Delete</button>
+    </form>
+
+    {{/if}}
+</div>

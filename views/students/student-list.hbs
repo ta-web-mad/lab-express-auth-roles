@@ -1,0 +1,50 @@
+<div class="container">
+    <h2 class="listText">Students</h2>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Profile picture</th>
+                <th scope="col">Username</th>
+                <th scope="col">Description</th>
+                <th></th>
+
+                {{#if roles.isPM}}
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                {{/if}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td><img src="{{profileImg}}" id="profilePic" alt="Profile picture of {{username}}"> </td>
+                <td>{{username}}</td>
+                <td>{{description}}</td>
+                <td><a href="/students/{{id}}" class="btn btn-primary list-btn">Details</a></td>
+                {{#if ../roles.isPM}}
+                <td><a href="/students/{{id}}/edit" class="btn btn-warning list-btn">Edit</a></td>
+                <td>
+                    <form action="/students/{{id}}/delete" method="POST">
+                        <button type="submit" class="btn btn-danger list-btn">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/students/{{id}}/changeRole/TA" method="POST">
+                        <button type="submit" class="btn btn-info list-btn">Set as TA</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/students/{{id}}/changeRole/DEV" method="POST">
+                        <button type="submit" class="btn btn-info list-btn">Set as DEV</button>
+                    </form>
+                </td>
+                {{/if}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

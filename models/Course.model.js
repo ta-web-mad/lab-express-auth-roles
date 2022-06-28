@@ -3,15 +3,27 @@ const Schema = mongoose.Schema;
 
 const courseSchema = new Schema(
   {
-    title: String,
-    leadTeacher: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    startDate: Date,
-    endDate: Date,
-    ta: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    courseImg: String,
+    title: {
+      type: String,
+      required: true
+    },
+    leadTeacher: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
+    startDate: {
+      type: Date,
+      required: true
+    },
+    endDate: {
+      type: Date,
+      required: true
+    },
+    ta: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
+    courseImg: {
+      type: String,
+      required: true
+    },
     description: String,
     status: { type: String, enum: ['ON', 'OFF'], default: 'ON' },
-    students: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+    students: [{ type: Schema.Types.ObjectId, ref: 'User', unique: true }]
   },
   {
     timestamps: true
