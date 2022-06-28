@@ -7,4 +7,12 @@ module.exports = app => {
   // Auth routes
   const authRouter = require("./auth.routes");
   app.use("/", authRouter); 
+
+
+  const privateRouter = require("./private.routes");
+  app.use("/", privateRouter); 
+
+
+  const coursesRouter = require("./courses.routes")
+  app.use("/", coursesRouter)
 }

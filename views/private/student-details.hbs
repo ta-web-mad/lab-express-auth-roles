@@ -1,0 +1,41 @@
+<div class="container">
+{{#with student}}
+
+    <h2>{{username}}</h2>
+
+    <hr>
+
+    <div class="row">
+         <div class="col-md-4">            
+            <img src="{{profileImg}}" alt="{{username}}" style="width: 100%">         
+        </div>
+        <div class="col-md-8">
+            <p><strong>ROle:</strong> {{role}}</p>
+            <p><strong>Email:</strong> {{email}}</p>
+            <p><strong>Description:</strong> {{description}}</p>
+            {{#if ../thisUser}} 
+            <a href="/students/{{_id}}/edit" class="btn btn-warning">Editar mi perfil</a> <br>
+            {{/if}}
+            {{#if ../isAdmin}}             
+            <a href="/students/{{_id}}/edit" class="btn btn-warning">Editar</a> <br>
+            <form action="/students/{{_id}}/delete" method="POST"> 
+                <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+            </form>
+            <hr>
+            <p>ROLE CHANGE : MARK AS</p>
+            <form action="/students/{{_id}}/role-to-ta" method="POST"> 
+                <button class="btn btn-sm btn-warning" type="submit">TA</button>
+            </form>
+            <form action="/students/{{_id}}/role-to-dev" method="POST"> 
+                <button class="btn btn-sm btn-warning" type="submit">DEVELOPER</button>
+            </form>
+            {{/if}}
+        </div>        
+    </div>
+
+    <hr>
+
+  {{/with}}  
+
+</div>
+

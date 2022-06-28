@@ -1,0 +1,54 @@
+<div class="container">
+
+    <h1>SOY LA LISTA DE TODOS LOS CURSOS</h1>
+    <br>
+
+    {{#if isTA}}
+    <a href="/courses/create">Crear Nuevo Curso</a>
+    {{/if}}
+
+    
+
+    <ul>
+    {{#each courses}}
+    <h2>{{title}}</h2>
+
+    <hr>
+
+    <div class="row">
+         <div class="col-md-4">            
+            <img src="{{courseImg}}" alt="{{title}}" style="width: 100%">         
+        </div>
+        <div class="col-md-8">
+            <p><strong>LEAD TEACHER:</strong> {{leadTeacher}}</p>
+            <p><strong>Start Date:</strong> {{startDate}}</p>
+            <p><strong>End Date: </strong> {{endDate}}</p>
+            <p><strong>Description:</strong> {{description}}</p>
+        <hr>           
+            {{#if ../isTA}}             
+            <a href="/courses/{{_id}}/edit" class="btn btn-warning">Editar</a> <br>
+            <form action="/courses/{{_id}}/delete" method="POST"> 
+                <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+            </form>               
+            {{/if}}
+        </div>        
+    </div>
+
+    <hr>   
+    {{/each}}
+    </ul>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

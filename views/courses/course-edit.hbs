@@ -1,0 +1,77 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+            <h2>EDITAR CURSO: {{title}}</h2>
+
+            <form action="/courses/{{id}}/edit" method="POST">
+
+                <div class="mb-3">
+                    <label for="titleInput" class="form-label">Nombre del curso</label>
+                    <input type="text" class="form-control" id="titleInput" name="title" value="{{title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="leadTeacherInput" class="form-label">Lead Teacher:</label>
+                    <select id="leadTeacherInput" class="form-select" name="leadTeacher" value="{{leadTeacher}}">
+                        {{#each users}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="startDateInput" class="form-label">Fecha de inicio:</label>
+                    <input type="date" class="form-control" id="startDateInput" name="startDate" value="{{startDate}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="endDateInput" class="form-label">Fecha de finalización:</label>
+                    <input type="date" class="form-control" id="endDateInput" name="endDate" value="{{endDate}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción: </label>
+                    <textarea class="form-control" id="descriptionInput" rows="3" name="description"value="{{description}}"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="taInput" class="form-label">TA's:</label>
+                    <select id="taInput" class="form-select" name="ta">
+                        {{#each ta}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="statusInput" class="form-label">Status:</label>
+                    <select id="statusInput" class="form-select" name="status" value="{{status}}">
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="studentsInput" class="form-label">Estudiantes:</label>
+                    <select id="studentsInput" class="form-select" name="students" multiple>
+                        {{#each users}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+
+
+
+                <button type="submit" class="btn btn-success">Editar curso</button>
+
+
+
+            </form>
+
+        </div>
+
+    </div>
+</div> 
