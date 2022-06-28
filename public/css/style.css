@@ -3,9 +3,17 @@ body {
   font-family: sans-serif;
 }
 
+img {
+  width: 100%;
+}
 
 h1, h2, h3 {
   font-weight: 200;
+}
+
+span {
+  /* color: rgb(148, 148, 148); */
+  font-weight: bolder;
 }
 
 .navbar {
