@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>New Course</h1>
+            <hr>
+
+            <form action="/CreateCourses" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                    <div class="col">
+                        <label for="leadTeacher">Lead Teacher:</label>
+                        <select name="leadTeacher" id="leadTeacher">
+                            {{#each devUser}}
+                            <option value="{{id}}">{{username}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="start">Start date:</label>
+
+                        <input type="date" id="startDate" name="startDate" value="2018-07-22" min="2018-01-01"
+                            max="3000-12-31">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                    <div class="col">
+                        <label for="ta">Tas:</label>
+                        <select name="ta" id="ta" multiple>
+                            {{#each taUser}}
+                            <option value="{{id}}">{{username}}</option>
+                            {{/each}}
+                        </select>
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Crea tu curso</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

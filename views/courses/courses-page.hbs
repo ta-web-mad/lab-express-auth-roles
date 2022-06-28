@@ -1,0 +1,17 @@
+<h1>CURSOS</h1>
+
+{{#each allCourse}}
+<h5>{{title}}</h5>
+<ul>
+    {{#each leadTeacher}}
+    <li>{{username}}</li>
+    {{/each}}
+    <li>{{startDate}}</li>
+
+    {{#each ta}}
+    <li>{{username}}</li>
+    {{/each}}
+</ul>
+
+
+{{/each}}

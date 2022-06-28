@@ -16,9 +16,6 @@ router.post('/registro', (req, res, next) => {
     .then(createdUser => res.redirect('/'))
     .catch(error => next(error))
 })
-
-
-
 // Login
 router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
 router.post('/iniciar-sesion', (req, res, next) => {
@@ -27,6 +24,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
 
   User
     .findOne({ email })
+
     .then(user => {
       if (!user) {
         res.render('auth/login', { errorMessage: 'Email no registrado en la Base de Datos' })
