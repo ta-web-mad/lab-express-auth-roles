@@ -1,0 +1,10 @@
+<h1>Detalles del alumno</h1>
+{{student.username}}
+<br>
+<img src="{{student.profileImg}}" alt="profileImg" class="profImg">
+<br>
+{{student.email}}
+{{student.description}}
+{{#if check}}
+<a href="/alumnos/{{student.id}}/editar" class="btn btn-sm btn-warning">Editar</a>
+{{/if}}

@@ -1,0 +1,26 @@
+<h1>Lista de alumnos</h1>
+<div>
+    {{#each users}}
+    <div class="card" style="width: 18rem;">
+        <img src="{{profileImg}}" class="card-img-top" alt="profileImg">
+        <div class="card-body">
+            <h5 class="card-title">{{username}}</h5>
+            <p class="card-text">{{description}}</p>
+            <p class="card-text"><a href="/alumnos/{{id}}">Details</a></p>
+
+            {{#if ../role.isPM}}
+            <a href="/alumnos/{{id}}/editar" class="btn btn-sm btn-warning">Editar</a>
+            <form action=" /alumnos/{{id}}/eliminar" method="POST" style="display: inline-block">
+                <input type="submit" value="eliminar" class="btn btn-danger btn-sm">
+            </form>
+            <form action=" /alumnos/{{id}}/dev" method="POST" style="display: inline-block">
+                <input type="submit" value="DEV" class="btn btn-secondary btn-sm">
+            </form>
+            <form action=" /alumnos/{{id}}/TA" method="POST" style="display: inline-block">
+                <input type="submit" value="TA" class="btn btn-primary btn-sm">
+            </form>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</div>
