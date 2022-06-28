@@ -35,7 +35,14 @@ router.post('/iniciar-sesion', (req, res, next) => {
         res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
         return
       } else {
-        req.session.currentUser = user
+        req.session.currentUser = user  // iniciamos la sesión
+
+        // BONUS --> Comprobamos si es un TA, y lo guardamos en una variable
+        if (req.session.currentUser.role === 'TA') {
+          req.app.locals.isTA = true
+        } else {
+          req.app.locals.isTA = false
+        }
         res.redirect('/')
       }
     })

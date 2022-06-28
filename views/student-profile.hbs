@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row align-items-start">
+        {{#with student}}
+        <div class="col">
+            <img src="{{profileImg}}" class="img-fluid" alt="student picture">
+        </div>
+        <div class="col">
+            <h2>{{username}}'s profile </h2>
+            <p>Name: {{username}}</p>
+            <p>Email:{{email}}</p>
+            <p>Description: {{description}}</p>
+
+            {{#if ../isPM}}
+            <a href="/students/{{id}}/edit" class="btn btn-dark">Edit</a>
+
+            <form action="/students/{{id}}/delete" method="POST">
+                <button class="btn btn-dark" type="submit">Remove</button>
+            </form>
+
+            <form action="/students/{{id}}/upgrade-dev" method="POST">
+                <button class="btn btn-dark" type="submit">Mark as Developer</button>
+            </form>
+
+            <form action="/students/{{id}}/upgrade-ta" method="POST">
+                <button class="btn btn-dark" type="submit">Mark as TA</button>
+            </form>
+            {{/if}}
+
+            {{#if ../isMine}}
+            <a href="/students/{{id}}/edit" class="btn btn-dark">Edit my profile</a>
+            {{/if}}
+
+        </div>
+        <a href="/students" class="btn btn-light">Back to students list</a>
+        {{/with}}
+    </div>
+</div>
