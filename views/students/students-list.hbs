@@ -1,0 +1,15 @@
+{{#each user}}
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <ul>
+                <li>
+                    <p>Nombre: {{username}}</p>
+                    <img src="{{profileImg}}" alt="photo">
+                    <a class="btn btn-secondary btn-sm" href="/students/{{id}}"> Ver perfil del estudiante </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{{/each}}

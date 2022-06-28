@@ -1,0 +1,18 @@
+<h1>Students Profile</h1>
+
+<div class="container">
+    <p>Nombre del usuario: {{user.username}}</p>
+    <p>Email: {{user.email}}</p>
+    <img src="{{user.profileImg}}" alt="photo">
+    <p>Descripcion: {{user.description}}</p>
+    <div class="container">
+        {{#if roles.isPM}}
+        <a href="/students/{{user.id}}/edit" class="btn btn-sm btn-warning">Editar</a>
+        <form action="/students/eliminar/{{user.id}}" method="POST" style="display: inline-block">
+            <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+        </form>
+        <a href="/students/{{user.id}}/change" class="btn btn-sm btn-success">Cambiar a Developer</a>
+        <a href="/students/{{user.id}}/changeTA" class="btn btn-sm btn-success">Cambiar a TA</a>
+        {{/if}}
+    </div>
+</div>
