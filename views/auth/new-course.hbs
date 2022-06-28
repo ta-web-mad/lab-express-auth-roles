@@ -1,0 +1,65 @@
+<div class="container create-form">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1 class="create-main-title">Nuevo Curso</h1>
+
+            <hr>
+
+            <form action="/new-course" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label"><i>Título</i></label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+
+                <div class="mb-3">
+                    <label for="leadTeacher" class="form-label"><i>Lead Teacher</i></label>
+                    {{!-- <input type="text" class="form-control" id="leadTeacher" name="leadTeacher"> --}}
+                    <select name="" multiple id="">
+                        <option value=""></option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="iDate" class="form-label"><i>Fecha de inicio</i></label>
+                    <input type="date" class="form-control" id="iDate" name="iDate">
+                </div>
+
+                <div class="mb-3">
+                    <label for="eDate" class="form-label"><i>Fecha de Finalización</i></label>
+                    <input type="date" class="form-control" id="eDate" name="eDate">
+                </div>
+
+                <div class="mb-3">
+                    <label for="ta" class="form-label"><i>TA</i></label>
+                    <input type="text" class="form-control" id="ta" name="ta">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pic" class="form-label"><i>Imagen</i></label>
+                    <input type="text" class="form-control" id="pic" name="pic">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label"><i>Descripción</i></label>
+                    <input type="text" class="form-control" id="description" name="description">
+                </div>
+
+                <div class="mb-3">
+                    <label for="status" class="form-label"><i>Status</i></label>
+                    <input type="text" class="form-control" id="status" name="status">
+                </div>
+
+                <div class="mb-3">
+                    <label for="students" class="form-label"><i>Estudiantes</i></label>
+                    <input type="text" class="form-control" id="students" name="students">
+                </div>
+
+                <button type="submit" class="btn btn-dark submit-link">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+</div>

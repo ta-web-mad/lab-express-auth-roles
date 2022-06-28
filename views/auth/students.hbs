@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Estos son nuestros estudiantes:</h1>
+    {{#each students}}
+    Usuario: {{username}}
+    <br>
+    <a href="/students/{{id}}" class="btn btn-dark mb-1">Perfil completo</a>
+    <br>
+    {{#if ../roles.isAdmin}}
+    <a href="/delete/{{id}}" class="btn btn-sm btn-danger">Eliminar</a>
+    <a href="/edit/{{id}}" class="btn btn-sm btn-warning">Editar</a>
+    <a href="/edit/{{id}}/role-ta" class="btn btn-sm btn-primary">Hazme TA</a>
+    <a href="/edit/{{id}}/role-dev" class=" btn btn-sm btn-secondary">Hazme DEV</a>
+    {{/if}}
+    <hr>
+    {{/each}}
+</div>
