@@ -1,7 +1,10 @@
 const router = require("express").Router()
-const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
+
+
+const bcrypt = require('bcryptjs')
 const saltRounds = 10
+
 
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
@@ -15,8 +18,8 @@ router.post('/registro', (req, res, next) => {
     .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
     .then(createdUser => res.redirect('/'))
     .catch(error => next(error))
-})
 
+})
 
 
 // Login
