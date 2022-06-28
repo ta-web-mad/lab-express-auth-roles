@@ -1,0 +1,13 @@
+<div class="container">
+
+    {{#with user}}
+    <h1>Bienvenid@, {{username}}</h1>
+    <p>Tu mail con el que estás registrado: {{email}}</p>
+    <p>Brecha de seguridad, tu password es: {{password}}</p>
+    <p>Tu descripción es : {{description}}</p>
+    <p>{{role}}</p>
+
+    <a class="btn btn-dark block" href="/student/{{_id}}/updatemiprofile">Editar mi perfil</a>
+
+    {{/with}}
+</div>

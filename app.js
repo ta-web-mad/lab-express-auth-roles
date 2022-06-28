@@ -20,6 +20,7 @@ require("./config")(app);
 
 app.locals.siteTitle = `IronLearn`;
 
+
 // Session config
 require('./config/session.config')(app)
 

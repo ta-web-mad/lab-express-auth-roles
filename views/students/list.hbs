@@ -1,0 +1,19 @@
+<h1> Nuestros estudiantes</h1>
+
+{{#each students}}
+<p>{{username}}</p>
+
+<a href="/students/{{id}}">Detalles del estudiante</a>
+
+{{#if ../roles.isPM}}
+<a href="/student/{{id}}/delete" class="btn btn-sm btn-danger">Eliminar</a>
+<a href="/student/{{id}}/edit" class="btn btn-sm btn-warning">Editar</a>
+<a href="/student/{{id}}/upgrade" class="btn btn-sm btn-light">Hacer DEV</a>
+<a href="/student/{{id}}/upgradeTa" class="btn btn-sm btn-light">Hacer TA</a>
+{{/if}}
+{{/each}}
+
+
+<p>{{email}}</p>
+<p>{{description}}</p>
+<p>{{role}}</p>
