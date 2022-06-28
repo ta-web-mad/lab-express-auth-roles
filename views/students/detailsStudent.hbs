@@ -1,0 +1,42 @@
+<div class="container">
+
+
+
+    {{#with student}}
+
+    <h1>hola {{username}}</h1>
+    <h2>{{email}}</h2>
+
+
+    <img src={{profileImg}} alt="">
+
+    <h1>id {{id}}</h1>
+
+
+    <h2>rol {{roles}}</h2>
+
+    {{#if ../isMine}}
+
+    {{#if ../isTA}}
+
+    <a href="/TA/listaCursos">Lista de Cursos</a>
+    <a href="/TA/listaCursos">Crear Curso</a>
+
+
+
+
+    {{/if}}
+
+
+    <a href="/students/name/{{id}}">Editar</a>
+
+    {{/if}}
+
+
+
+
+
+
+    {{/with}}
+
+</div>

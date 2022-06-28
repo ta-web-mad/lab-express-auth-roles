@@ -1,0 +1,40 @@
+<div class="container">
+
+
+
+    <h1>hola</h1>
+
+
+
+    {{#each students}}
+    <li>
+        <h3>{{username}}</h3>
+        <a href="/students/{{id}}">Ver perfil</a>
+
+        <br>
+
+
+
+        {{#if ../isAdmin}}
+
+        <form action="/students/{{id}}/delete" method="POST">
+            <button class="btn btn-danger" type="submit">Eliminar</button> <br>
+        </form>
+
+        {{!-- <button class="btn btn-warning">Editar</button> <br> --}}
+        <a href="/students/{{id}}/edit">Editar</a>
+
+        <form action="/students/{{id}}/edit/TA" method="POST">
+            <button class="btn btn-danger" type="submit">TA</button> <br>
+        </form>
+
+        <form action="/students/{{id}}/edit/DEV" method="POST">
+            <button class="btn btn-danger" type="submit">DEV</button> <br>
+        </form>
+
+        {{/if}}
+
+    </li>
+    {{/each}}
+
+</div>

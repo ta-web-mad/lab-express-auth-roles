@@ -1,0 +1,49 @@
+<div class="container">
+    <p>
+        {{#each courses}}
+
+
+    <h1>{{title}}</h1>
+
+    {{#each leadTeacher}}
+
+
+    <p>leadTeacher{{username}}</p>
+
+
+    {{/each}}
+    <p>{{startDate}}</p>
+
+    {{endDate}}
+
+
+    {{#each ta}}
+
+
+    <p>TA{{username}}</p>
+
+
+    {{/each}}
+
+    {{description}}
+    {{status}}
+
+    {{#each students}}
+
+
+    <p> students{{username}}</p>
+
+
+    {{/each}}
+
+    <form action="/TA/Eliminar/{{id}}" method="post">
+
+        <button type="submit">Eliminar</button>
+    </form>
+
+
+
+
+    {{/each}}
+    </p>
+</div>
