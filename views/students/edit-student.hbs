@@ -1,0 +1,28 @@
+<h1>Update {{username}}</h1>
+
+<hr>
+
+<form action="/students/{{_id}}/edit" method="POST">
+
+    <div class="mb-3">
+        <label for="username" class="form-label">Usuario</label>
+        <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{email}}">
+    </div>
+    <div class="mb-3">
+        <label for="profileImg" class="form-label">Imagen</label>
+        <input type="string" class="form-control" id="profileImg" name="profileImg" value="{{profileImg}}">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <input type="string" class="form-control" id="description" name="description" value="{{description}}">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-dark">Update!</button>
+    <a href="/" class="btn btn-dark">HOME</a>
+</form>

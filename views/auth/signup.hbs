@@ -17,31 +17,33 @@
                     </div>
                     <div class="col">
                         <label for="pwdInput" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="pwdInput" name="userPwd">
+                        <input type="password" class="form-control" id="pwdInput" name="userPwd"
+                            pattern="[A-Za-z0-9]*[0-9][A-Za-z0-9]*" minlength="8"
+                            title="La contraseña debe contener al menos un número y tener al menos 8 caracteres!">
                         <div class="form-text">Requerido.</div>
                     </div>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="usernameInput" class="form-label">Nombre de usuario</label>
                     <input type="text" class="form-control" id="usernameInput" name="username">
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="imageInput" class="form-label">Imagen</label>
                     <input type="url" class="form-control" id="imageInput" name="profileImg">
                     <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
                 </div>
-                
+
                 <div class="mb-3">
-                  <label for="descriptionInput" class="form-label">Descripción</label>
-                  <textarea class="form-control" id="descriptionInput" rows="3" name="description"></textarea>
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3" name="description"></textarea>
                 </div>
 
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark block">Completar registro</button>
                 </div>
-                
+
                 {{#if errorMessage}}
                 <div id="errorMessage">
                     <p>{{errorMessage}}</p>
