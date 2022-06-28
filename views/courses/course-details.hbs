@@ -1,0 +1,38 @@
+<div class="container">
+
+    <h2>Detalles de {{title}}</h2>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    {{#each leadTeacher}}
+                    <p class="card-text">Lead Teacher: {{username}}</p>
+                    {{/each}}
+                    <p class="card-text">Fecha de Inicio: {{startDate}}</p>
+                    <p class="card-text">Fecha de fin: {{endDate}}</p>
+                    {{#each ta}}
+                    <p class="card-text">TA's: {{username}}</p>
+                    {{/each}}
+                    <p class="card-text">Descripcion: {{description}}</p>
+                    <p class="card-text">Status: {{status}}</p>
+                    {{#each students}}
+                    <p class="card-text">Estudiantes: {{username}}</p>
+                    {{/each}}
+                    <p class="card-text">Imagen: {{courseImg}}</p>
+                </div>
+            </div>
+                <form action="/courses/{{id}}/delete" method="POST">
+                    <button class="btn btn-sm btn-warning" type="submit">Eliminar</button>
+                </form>
+                
+                <a href="/courses/{{id}}/edit" class="btn btn-dark">Editar curso</a>
+                
+                <a href="/courses" class="btn btn-dark">Volver a la lista</a>
+        </div>
+    </div>
+
+</div>

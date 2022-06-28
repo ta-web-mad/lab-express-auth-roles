@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h2>Listado cursos</h2>
+
+    <hr>
+
+    <ul>
+        {{#each courses}}
+        <li class="book-row">
+            <a href="/courses/{{_id}}">{{title}}</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver al inicio</a>
+    {{#if ta}}
+    <a href="/courses/create" class="btn btn-dark">Crear un curso</a>
+    {{/if}}
+</div>

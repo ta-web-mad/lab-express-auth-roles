@@ -7,6 +7,7 @@ const saltRounds = 10
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
 
+    console.log(req.body);
   const { userPwd } = req.body
 
   bcrypt
