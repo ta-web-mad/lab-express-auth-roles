@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Students List</h1>
+    <p>{{user.username}}</p>
+    <p>{{user.description}}</p>
+    <a href="/students/{{id}}/details" class="btn btn-info btn-sm">Detalles del estudiante</a>´
+    <a href="/students/{{id}}/edit" class="btn btn-sm btn-warning">Editar</a>
+    <a href="/" class="btn btn-dark btn-sm">HOME</a>
+    <hr>
+    {{#if ../roles.isAdmin}}
+
+    <form action="/students/{{id}}/edit-role-TA" method="POST" style="display: inline-block">
+        <button class="btn btn-sm btn-warning">TA-Role</button>
+    </form>
+    <form action="/students/{{id}}/edit-role-DEV" method="POST" style="display: inline-block">
+        <button class="btn btn-sm btn-warning">Dev Role</button>
+    </form>
+    <form action="/students/{{id}}/delete" method="POST" style="display: inline-block">
+        <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+    </form>
+
+    {{/if}}
+</div>
