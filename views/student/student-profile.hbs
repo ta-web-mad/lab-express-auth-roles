@@ -1,0 +1,23 @@
+<h1>Perfil de {{student.username}}</h1>
+<h2>email: {{student.email}}</h2>
+{{#if isPM}}
+<form action="/students/{{student._id}}/eliminar" method="POST">
+    <button class="btn btn-danger" type="submit">Eliminar</button>
+    <br>
+</form>
+<a class="btn btn-info" href="/students/{{student._id}}/editar">Editar</a>
+
+<hr>
+
+<form action="/students/{{student._id}}/edit/TA" method="POST">
+    <button class="btn btn-dark" type="submit">TA</button>
+</form>
+
+<hr>
+
+<form action="/students/{{student._id}}/edit/DEV" method="POST">
+    <button class="btn btn-dark" type="submit">DEV</button>
+</form>
+
+
+{{/if}}
