@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{student.profileImg}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Username:{{student.username}}</h5>
+                    <p class="card-text">Description:{{student.description}}<br> Email:{{student.email}}</p>
+                    <a href="/students/{{student.id}}/edit" class="btn btn-primary">Edit profile</a>
+                </div>
+            </div>
+            {{#if roles.isPM}}
+            <form action="/students/{{student.id}}/delete" method="POST">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+            <form action="/students/{{student.id}}/edit-role-DEV" method="POST">
+                <button class="btn btn-danger">Promote to TA</button>
+            </form>
+            <form action="/students/{{student.id}}/edit-role-TA" method="POST">
+                <button class="btn btn-danger">Promote to DEV</button>
+            </form>
+            {{/if}}
+        </div>
+    </div>
+</div>
