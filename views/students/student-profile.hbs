@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>Perfil estudiante {{student.username}}</h1>
+
+    <div>
+        <p>Imagen</p>
+        <img src="{{student.profileImg}}" alt="">
+    </div>
+
+    <p>Descripción: {{student.description}}</p>
+
+    <p>Role: {{student.role}}</p>
+
+    <div>
+        {{#if isPM}}
+        <form action="/estudiantes/{{student._id}}/editar" method="GET" style="display: inline-block">
+            <button class="btn btn-warning">Editar</button>
+        </form> 
+        {{/if}}
+
+        {{#if isPM}}
+        <form action="/estudiantes/{{student._id}}/eliminar" method="GET" style="display: inline-block">
+            <button class="btn btn-danger">Eliminar</button>
+        </form> 
+        {{/if}}
+        
+
+        {{#if isPM}}
+        <form action="/estudiantes/{{student._id}}/dev" method="GET" style="display: inline-block">
+            <button class="btn btn-primary">Hacer Developer o TA</button>
+        </form> 
+        {{/if}}
+
+        {{#if owner}}
+        <form action="/estudiantes/{{student._id}}/editar" method="GET" style="display: inline-block">
+            <button class="btn btn-warning">Editar</button>
+        </form>
+        {{/if}}
+
+
+
+        
+    </div>
+    
+</div>
