@@ -1,0 +1,12 @@
+<h1>Edit the student</h1>
+<div>
+    <form action="/students/edit/{{student._id}}" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" value="{{student.username}}">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="{{student.email}}">
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" value="{{student.description}}">
+        <button type="submit">Edit</button>
+    </form>
+</div>
