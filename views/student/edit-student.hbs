@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-center">
+        <h2 class="text-center">Update Student: <span class="text-danger">{{username}}</span></h2>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <form action="/students-list/{{_id}}/edit" method="post">
+
+            <label for="username">Username:</label>
+            <input type="text" name="username">
+
+            <label class="ml-2" for="description">Description:</label>
+            <input type="text" name="description">
+
+            <label for="role">role:</label>
+            <input type="text" name="role">
+
+            <button class="btn btn-warning" type="submit">Update Student</button>
+
+        </form>
+    </div>
+</div>
+<div class="d-flex justify-content-center mt-4">
+    <a class="btn btn-secondary px-4 text-white nav-link" href="/students-list">Back</a>
+</div>

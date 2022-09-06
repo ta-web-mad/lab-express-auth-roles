@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center mt-2">
+    <h2 class="text-center">Students List</h2>
+</div>
+
+<div class="d-flex flex-row justify-content-around mt-4">
+    {{#each allStudents}}
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src={{profileImg}} alt="Student">
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold">Username: {{username}}</h5>
+            <p class="card-text font-weight-bold"> Description: {{description}}</p>
+            <p class="card-text font-weight-bold"> Email: {{email}}</p>
+            <p class="card-text font-weight-bold"> Rol: <br> <span class="text-danger font-italic">{{role}}</span>
+            </p>
+        </div>
+
+        <div class="d-flex justify-content-around">
+            <div class="row">
+                <a href="{{_id}}/profile" class="btn btn-warning">Profile</a>
+            </div>
+            <div class="row">
+                <a href="{{_id}}/edit" class="btn btn-warning">Edit</a>
+            </div>
+            <div class="row">
+                <form action="{{_id}}/delete" method="post">
+                    <button type="submit" class="btn btn-danger row">Delete</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    {{/each}}
+</div>
