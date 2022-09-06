@@ -2,19 +2,36 @@ const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
+const hasNumber = require('../utils/checkNumber')
 
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
+  // clean the req.body from empty arrays
+  for (const key in req.body) {
+    if (!req.body[key]) delete req.body[key]
+  }
 
-  const { userPwd } = req.body
+  const { email, userPwd, username, profileImg, description } = req.body
 
-  bcrypt
-    .genSalt(saltRounds)
-    .then(salt => bcrypt.hash(userPwd, salt))
-    .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
-    .then(createdUser => res.redirect('/'))
-    .catch(error => next(error))
+  if (userPwd.length > 7 && hasNumber(userPwd)) {
+    bcrypt
+      .genSalt(saltRounds)
+      .then(salt => bcrypt.hash(userPwd, salt))
+      .then(hashedPassword => User.create({ email, password: hashedPassword, username, profileImg, description }))
+      .then(createdUser => res.redirect('/iniciar-sesion'))
+      .catch(error => {
+        console.log(error._message)
+        if (error.code === 11000) {
+          // console.log('User validation failed')
+          res.render('auth/signup', { errorMessage: 'Duplicated value' })
+        } else {
+          next(error)
+        }
+      })
+  } else {
+    res.render('auth/signup', { errorMessage: 'La contraseña debe tener minimo 8 caracteres y contener un numero ' })
+  }
 })
 
 

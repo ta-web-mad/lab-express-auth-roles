@@ -1,0 +1,28 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4 p-2">
+                <img src="{{profileImg}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{username}}</h5>
+                    <h6 class="card-subtitle">{{email}}</h6>
+                    <p class="card-text">{{description}}</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="col-12">
+                {{#if isPm}}
+                <a href="/students/{{_id}}/edit" class="btn btn-success">EDIT</a>
+                <a href="/students/{{_id}}/delete" class="btn btn-danger">DELETE</a>
+                <a href="/students/{{_id}}/updateToDev" class="btn btn-warning">Mark as Dev</a>
+                <a href="/students/{{_id}}/updateToTa" class="btn btn-warning">Mark as TA</a>
+                {{/if}}
+                {{#if isUser}}
+                <a href="/students/{{_id}}/edit" class="btn btn-success">EDIT</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

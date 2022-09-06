@@ -1,0 +1,58 @@
+{{!-- <h2>{{title}}</h2>
+<p>Lead Teacher:
+    {{#each leadTeacher}}
+    {{username}}
+    {{/each}}
+</p>
+<p>{{startDate}}</p>
+<p>{{endDate}}</p>
+<p>TA: {{#each ta}}
+    {{username}}
+    {{/each}}</p>
+<p>Descripcion: {{description}}</p>
+<p>STATUS: {{status}}</p>
+<p>STUDENTS:</p>
+<ul>
+    {{#each students}}
+    <li><a href="/students/{{_id}}">{{username}}</a></li>
+    {{/each}}
+</ul>
+<a href="/courses/{{_id}}/edit">EDIT</a>
+<a href="/courses/{{_id}}/delete">DELETE</a>
+
+--}}
+<div class="container align-items-center justify-content-center">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0 ">
+            <div class="col-md-4">
+                <img src="{{courseImg}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <p class="card-text">{{startDate}}</p>
+                    <p class="card-text">{{endDate}}</p>
+                    <p class="card-text">STATUS: {{status}}</p>
+                    <p>Lead Teacher:
+                        {{#each leadTeacher}}
+                        {{username}}
+                        {{/each}}
+                    </p>
+                    <p>TA: {{#each ta}}
+                        {{username}}
+                        {{/each}}</p>
+                    <p>STUDENTS:
+                    <ul>
+                        {{#each students}}
+                        <li><a href="/students/{{_id}}">{{username}}</a></li>
+                        {{/each}}
+                    </ul>
+                    </p>
+                    <a href="/courses/{{_id}}/edit" class="btn btn-success">EDIT</a>
+                    <a href="/courses/{{_id}}/delete" class="btn btn-danger">DELETE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
