@@ -1,6 +1,8 @@
 const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
+const { PM } = require('../const/user.const');
+const { roleValidation } = require('../middleware/roles.middleware');
 const saltRounds = 10
 
 // Signup

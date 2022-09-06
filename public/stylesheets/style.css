@@ -3,13 +3,18 @@ body {
   font-family: sans-serif;
 }
 
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 200;
 }
 
+img {
+  width: 20%;
+}
+
 .navbar {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .navbar form button {
@@ -29,7 +34,7 @@ h1, h2, h3 {
 }
 
 
-@keyframes  showFromBottom {
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }

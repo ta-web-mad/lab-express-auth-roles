@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 class="h4">{{student.username}}</h1>
+    <p>email: {{student.email}}</p>
+    <p>description: {{student.description}}</p>
+    <div>
+        <img src="{{student.profileImg}}">
+    </div>
+    <figcaption>
+        <p>Imagen de perfil</p>
+    </figcaption>
+    <p>rol: {{student.role}}</p>
+
+    {{#if isAdmin}}
+    <div class="d-flex">
+        <div>
+            <a class="btn btn-info" href="/students/{{student.id}}/edit-form">Edit</a>
+        </div>
+        <div class="ps-3">
+            <form action="/students/{{student.id}}/delete" method="POST">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if canEdit}}
+    <div>
+        <a class="btn btn-info" href="/students/{{student.id}}/edit-form">Edit</a>
+    </div>
+    {{/if}}
+</div>
