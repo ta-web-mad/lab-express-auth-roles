@@ -4,30 +4,32 @@
 
         <div class="col-md-6">
 
-            <h1>Editar a {{username}}</h1>
+            <h1>Editar a {{student.username}}</h1>
             <hr>
 
-            <form action="/students/{{id}}/edit-form" method="POST">
+            <form action="/students/{{student.id}}/edit-form" method="POST">
                 <div class="mb-3">
                     <label for="emailInput" class="form-label">Nuevo nombre de usuario</label>
                     <input type="text" class="form-control text-muted" id="emailInput" name="username"
-                        value="{{username}}">
+                        value="{{student.username}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="pwdInput" class="form-label">Nueva descripción</label>
                     <input type="text" class="form-control text-muted" id="pwdInput" name="description"
-                        value="{{description}}">
+                        value="{{student.description}}">
                 </div>
 
 
                 <div class="mb-3">
                     <label for="imageInput" class="form-label">Nueva Imagen</label>
-                    <input type="url" class="form-control" id="imageInput" name="profileImg" value="{{profileImg}}">
+                    <input type="url" class="form-control" id="imageInput" name="profileImg"
+                        value="{{student.profileImg}}">
                     <div class="form-text">Introduce la nueva URL a la imagen que desees de perfil.</div>
                 </div>
 
 
+                {{#if isAdmin}}
                 <div class="mb-3">
                     <select class="form-select" aria-label="Default select example" name="role">
                         <option selected>STUDENT</option>
@@ -35,6 +37,7 @@
                         <option value="DEV">DEV</option>
                     </select>
                 </div>
+                {{/if}}
 
                 <div class=" d-grid gap-2">
                     <button type="submit" class="btn btn-dark block">Guardar</button>

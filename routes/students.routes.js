@@ -40,10 +40,15 @@ router.get('/:id/view', roleValidation([PM, STUDENT, TA, DEV]), (req, res, next)
 
 
 router.get('/:id/edit-form', (req, res, next) => {
+    let isAdmin = false
     UserModel.findById(req.params.id)
         .then((student) => {
             console.log(student)
-            res.render('students/edit-form', student)
+            if (req.session.currentUser.role === PM) {
+                isAdmin = true
+            }
+
+            res.render('students/edit-form', { student, isAdmin })
         })
         .catch((err) => {
             next(err);
