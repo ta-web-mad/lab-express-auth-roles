@@ -1,0 +1,13 @@
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">Student</div>
+    <div class="card-body">
+        {{!-- {{#each studentID}} --}}
+        <img src="{{profileImg}}" alt="profile-img">
+        <h5 class="card-title">Username: {{username}}</h5>
+        <p class="card-text"> Email: {{email}}</p>
+        <p class="card-text">Role: {{role}}</p>
+        <p class="card-text">Description: {{description}}</p>
+        <a href="/students/delete/{{_id}}" class="btn btn-danger">Delete</a>
+        <a href="/students/update/{{_id}}" class="btn btn-warning">Edit User</a>
+        {{!-- {{/each}} --}}
+    </div>

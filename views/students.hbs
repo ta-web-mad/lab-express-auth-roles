@@ -1,0 +1,10 @@
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">Students</div>
+    <div class="card-body">
+        {{#each foundStudents}}
+        <h5 class="card-title">{{username}}</h5>
+        {{!-- <p class="card-text">{{role}}</p> --}}
+        <a class="btn btn-primary" href="/students/{{_id}}">View Profile</a>
+        </form>
+        {{/each}}
+    </div>

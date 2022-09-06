@@ -7,6 +7,8 @@ const saltRounds = 10
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
 
+  console.log(req.body)
+
   const { userPwd } = req.body
 
   bcrypt
@@ -35,7 +37,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
         res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
         return
       } else {
-        req.session.currentUser = user
+        req.session.user = user
         res.redirect('/')
       }
     })
