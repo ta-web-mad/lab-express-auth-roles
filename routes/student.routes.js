@@ -73,5 +73,17 @@ router.post('/delete/:id', isLogedin, roleValidation([PM]), (req, res, next) => 
         .catch(err => next(err));
 });
 
+//Upgrade student
+router.post('/upgrade/:id', isLogedin, roleValidation([PM]), (req, res, next) => {
+    const { id } = req.params;
+    const { newRole } = req.body;
+    console.log(newRole);
+    User.findByIdAndUpdate(id, { role: newRole }, { new: true })
+        .then(() => {
+            res.redirect('/students');
+        })
+        .catch(err => next(err));
+});
+
 module.exports = router;
 

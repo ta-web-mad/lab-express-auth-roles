@@ -11,5 +11,16 @@
     <form action="/students/delete/{{student._id}}" method="post">
         <button>Delete</button>
     </form>
+
+    <form action="/students/upgrade/{{student._id}}" method="post">
+        {{!-- <button type="submit" value="PM">Upgrade</button> --}}
+
+        <select name="newRole" id="pet-select">
+            <option value="">--Please choose an option--</option>
+            <option value="TA">TA</option>
+            <option value="DEV">DEV</option>
+        </select>
+        <button type="submit">Upgrade</button>
+    </form>
     {{/if}}
 </div>
