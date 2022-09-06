@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        {{#each students}}
+        <div class="col-6 card mb-5 me-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{username}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{email}}</h6>
+                <p class="card-text">{{description}}.</p>
+                <a href="/student/{{id}}" class="card-link">View Profile</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
