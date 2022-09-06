@@ -35,8 +35,8 @@ router.post('/iniciar-sesion', (req, res, next) => {
         res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
         return
       } else {
-        req.session.currentUser = user
-        res.redirect('/')
+        req.session.user = user
+        res.redirect('/students')
       }
     })
     .catch(error => next(error))
@@ -45,6 +45,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
 
 // Logout
 router.post('/cerrar-sesion', (req, res, next) => {
+  req.app.locals.role = null
   req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
 

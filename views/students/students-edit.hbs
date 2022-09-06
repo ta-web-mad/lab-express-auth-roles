@@ -1,0 +1,66 @@
+<h2>Estas en estudents edit</h2>
+
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Registro</h1>
+            <hr>
+
+            <form action="/students/{{_id}}/edit" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">Dirección de email</label>
+                        <input type="email" value="{{userForUpDate.email}}" class="form-control" id="emailInput"
+                            name="email">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                    <input type="text" value="{{userForUpDate.username}}" class="form-control" id="usernameInput"
+                        name="username">
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="imageInput" name="profileImg">
+                    <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3"
+                        name="description">{{userForUpDate.description}}</textarea>
+                </div>
+                {{#if isPM}}
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <select class="form-select w-25" name="role" size="3" aria-label="multiple select example">
+                        <option>STUDENT</option>
+                        <option>TA</option>
+                        <option>DEV</option>
+                        <option>PM</option>
+                    </select>
+                </div>
+                {{/if}}
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Update</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>
