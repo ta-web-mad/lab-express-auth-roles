@@ -24,11 +24,16 @@ router.get('/', isLogedin, roleValidation([STUDENT, PM]), (req, res, next) => {
 //Student details
 router.get('/:id', isLogedin, roleValidation([STUDENT, PM]), (req, res, next) => {
     const { id } = req.params;
+    const { currentUser } = req.session;
     User.findById(id)
         .then(student => {
             if (req.session.currentUser.role === PM) {
                 const isPM = true;
                 res.render('students/student-details', { student, isPM });
+            }
+            else if (id.toString() === currentUser._id.toString()) {
+                const canEditMyself = true;
+                res.render('students/student-details', { student, canEditMyself });
             }
             else {
                 res.render('students/student-details', { student });
@@ -38,27 +43,46 @@ router.get('/:id', isLogedin, roleValidation([STUDENT, PM]), (req, res, next) =>
 });
 
 //Edit student
-router.get('/edit/:id', isLogedin, roleValidation([PM]), (req, res, next) => {
+router.get('/edit/:id', isLogedin, roleValidation([STUDENT, PM]), (req, res, next) => {
     const { id } = req.params;
+    const { currentUser } = req.session;
     User.findById(id)
         .then(student => {
-            if (req.session.currentUser.role === PM) {
+            // console.log(id.toString());
+            // console.log(req.session.currentUser._id.toString());
+            if (currentUser.role === PM) {
                 const isPM = true;
                 res.render('students/student-edit', { student, isPM });
             }
+            else if (id.toString() === currentUser._id.toString()) {
+                const canEditMyself = true;
+                // console.log('====================================');
+                // console.log("COSA");
+                // console.log('====================================');
+                res.render('students/student-edit', { student, canEditMyself });
+            }
             else {
-                res.render('students/student-edit', { student });
+                res.redirect('/');
             }
         })
         .catch(err => next(err));
 });
 
-router.post('/edit/:id', isLogedin, roleValidation([PM]), (req, res, next) => {
+router.post('/edit/:id', isLogedin, roleValidation([STUDENT, PM]), (req, res, next) => {
     const { id } = req.params;
+    const { currentUser } = req.session;
     const { username, email, description } = req.body;
     User.findByIdAndUpdate(id, { username, email, description }, { new: true })
-        .then(student => {
-            res.redirect(`/students/${student._id}`);
+        .then(() => {
+            if (currentUser.role === PM) {
+                res.redirect(`/students/${id}`);
+            }
+            else if (id.toString() === currentUser._id.toString()) {
+                res.redirect(`/students/${id}`);
+            } else {
+                // res.redirect(`/students/${student._id}`);
+                res.redirect('/');
+            }
         })
         .catch(err => next(err));
 });
@@ -84,6 +108,7 @@ router.post('/upgrade/:id', isLogedin, roleValidation([PM]), (req, res, next) =>
         })
         .catch(err => next(err));
 });
+
 
 module.exports = router;
 

@@ -3,6 +3,12 @@
     <h3>username: {{student.username}}</h3>
     <p>email: {{student.email}}</p>
     <p>description: {{student.description}}</p>
+
+    {{#if canEditMyself}}
+    <form action="/students/edit/{{student._id}}" method="get">
+        <button type="submit">Edit</button>
+    </form>
+    {{/if}}
     {{#if isPM}}
     <form action="/students/edit/{{student._id}}" method="get">
         <button>Edit</button>
