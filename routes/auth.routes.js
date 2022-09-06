@@ -35,7 +35,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
         res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
         return
       } else {
-        req.session.currentUser = user
+        req.session.user = user
         res.redirect('/')
       }
     })
@@ -47,5 +47,6 @@ router.post('/iniciar-sesion', (req, res, next) => {
 router.post('/cerrar-sesion', (req, res, next) => {
   req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
+
 
 module.exports = router

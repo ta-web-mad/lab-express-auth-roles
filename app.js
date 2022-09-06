@@ -20,6 +20,15 @@ require("./config")(app);
 
 app.locals.siteTitle = `IronLearn`;
 
+// app.use((req, res, next) => {
+//     if (req.session.user) {
+//       app.locals.username = req.session.user.username;
+//     } else {
+//       app.locals.username = null;
+//     }
+//     next();
+//   })
+
 // Session config
 require('./config/session.config')(app)
 

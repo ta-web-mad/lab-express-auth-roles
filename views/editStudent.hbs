@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Update</h1>
+            <hr>
+
+            <form action="/students/{{_id}}/edit" method="POST">
+
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                    <input type="text" value="{{username}}" class="form-control" id="usernameInput" name="username">
+                </div>
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3"
+                        name="description">{{description}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <select name="role" id="cast" >
+                        
+                        <option>STUDENT</option>
+                        <option>TA</option>
+                        <option>DEV</option>
+                        
+                    </select>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Update</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>
