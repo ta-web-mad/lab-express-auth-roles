@@ -12,4 +12,7 @@ module.exports = app => {
   const studentRouter = require("./student.routes");
   app.use("/students", studentRouter);
 
+  //Course routes
+  const courseRouter = require("./course.routes");
+  app.use("/courses", courseRouter);
 }
