@@ -3,6 +3,8 @@ const User = require('../models/User.model');
 const { STUDENT, PM } = require('../const/user.const');
 const isLogedin = require('../middleware/islogedin.middleware');
 const { roleValidation } = require('../middleware/roles.middleware');
+
+const { compare, compare2 } = require('../utils/compareID');
 //List of students
 router.get('/', isLogedin, roleValidation([STUDENT, PM]), (req, res, next) => {
     User.find()
