@@ -46,7 +46,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
     .findOne({ email })
     .then(user => {
       if (!user) {
-        res.render('auth/login', { errorMessage: 'Email no registrado en la Base de Datos' })
+        res.render('auth/login', { errorMessage: 'Email no registrado' })
         return
       } else if (bcrypt.compareSync(userPwd, user.password) === false) {
         res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })

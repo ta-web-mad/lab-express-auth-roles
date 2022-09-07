@@ -2,14 +2,14 @@
     <h2>STUDENTS</h2>
     <div class="row align-items-center justify-content-center">
         {{#each students}}
-        {{!-- {{> studentCardpartial this}} --}}
-        <div class="card col-3">
+        {{> studentCardpartial}}
+        {{!-- <div class="card col-3">
             <img src="{{profileImg}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{username}}</h5>
                 <a href="/students/{{_id}}" class="btn btn-primary">More</a>
             </div>
-        </div>
+        </div> --}}
         {{/each}}
     </div>
 </div>

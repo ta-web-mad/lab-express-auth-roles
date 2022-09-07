@@ -44,6 +44,11 @@
             <a class="nav-link" href="/courses">Cursos</a>
           </li>
           {{/if}}
+          {{#if isStudent}}
+          <li class="nav-item">
+            <a class="nav-link" href="/courses">Cursos</a>
+          </li>
+          {{/if}}
           {{else}}
           <li class="nav-item">
             <a class="nav-link" href="/registro">Registro</a>

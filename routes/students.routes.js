@@ -4,7 +4,7 @@ const UserModel = require('../models/User.model')
 
 router.get('/', (req, res, next) => {
     UserModel.find({ role: STUDENT })
-        .select('username _id')
+        .select('username profileImg _id')
         .then((students) => {
             res.render('student/students', { students })
         })
@@ -20,6 +20,10 @@ router.get('/:id', (req, res, next) => {
     let isUser = false;
     UserModel.findById(req.params.id)
         .then((student) => {
+            console.log('ta: ', req.app.locals.isTa)
+            console.log('student: ', req.app.locals.isStudent)
+            console.log('pm: ', req.app.locals.isPm)
+            console.log('dev: ', req.app.locals.isDev)
             const { _id, username, email, profileImg, description, role } = student
             if (req.session.currentUser) {
                 if (_id.equals(req.session.currentUser._id)) {

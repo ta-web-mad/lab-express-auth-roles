@@ -49,8 +49,14 @@
                         {{/each}}
                     </ul>
                     </p>
+                    {{#if isTa}}
                     <a href="/courses/{{_id}}/edit" class="btn btn-success">EDIT</a>
                     <a href="/courses/{{_id}}/delete" class="btn btn-danger">DELETE</a>
+                    {{/if}}
+
+                    {{#if isStudent}}
+                    <a href="/courses/{{_id}}/join" class="btn btn-success">UNIRME AL CURSO</a>
+                    {{/if}}
                 </div>
             </div>
         </div>

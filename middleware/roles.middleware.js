@@ -13,7 +13,7 @@ const checkRole = (req, res, next) => {
                 req.app.locals.isStudent = true;
                 break;
             case DEV:
-                req.app.locals.isPm = true;
+                req.app.locals.isDev = true;
                 break;
             case TA:
                 req.app.locals.isTa = true;

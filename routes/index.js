@@ -1,4 +1,4 @@
-const { TA } = require("../const")
+const { TA, STUDENT } = require("../const")
 const isLogged = require("../middleware/isLogged.middleware")
 const checkRole = require("../middleware/roles.middleware")
 const roleValidation = require('../middleware/roleValidation.middleware')
@@ -21,5 +21,5 @@ module.exports = app => {
   // Courses routes
   // Aqui podemos meter un if con isTa por ejemplo, pero voy a hacer un middleware
   const coursesRouter = require("./courses.routes");
-  app.use("/courses", roleValidation(TA), coursesRouter);
+  app.use("/courses", roleValidation(TA, STUDENT), coursesRouter);
 }
