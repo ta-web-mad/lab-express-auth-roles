@@ -18,14 +18,18 @@
             <div class="row">
                 <a href="{{_id}}/profile" class="btn btn-warning">Profile</a>
             </div>
+            {{!-- {{#if isStudent}} --}}
             <div class="row">
                 <a href="{{_id}}/edit" class="btn btn-warning">Edit</a>
             </div>
+            {{!-- {{/if}} --}}
+            {{!-- {{#if isStudent}} --}}
             <div class="row">
                 <form action="{{_id}}/delete" method="post">
                     <button type="submit" class="btn btn-danger row">Delete</button>
                 </form>
             </div>
+            {{!-- {{/if}} --}}
         </div>
 
     </div>

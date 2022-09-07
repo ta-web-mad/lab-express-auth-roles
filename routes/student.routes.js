@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const User = require("../models/User.model")
 const isLogedin = require('../middleware/is_logedin.middleware');
-
+const { userIsPm, userIsStudent } = require('../const/checkrole') //No sé dónde aplicarlo
 
 //Students List
 router.get('/students-list', isLogedin, (req, res, next) => {
@@ -33,11 +33,16 @@ router.get('/:idStudent/profile', isLogedin, (req, res, next) => { //Params acce
 
 //Edit Student
 router.get('/:idStudent/edit', (req, res, next) => {
-    User.findById(req.params.idStudent)
-        .then((updateStudent) => {
-            res.render('student/edit-student', updateStudent)
-        })
-});
+    if (req.params.id === req.session.currentUser._id || req.session.currentUser.role === 'PM') {
+        User.findById(req.params.idStudent)
+            .then((updateStudent) => {
+                res.render('student/edit-student', updateStudent)
+            })
+            .catch((err) => next(err));
+    } else {
+        res.render('auth/login', { errorMessage: 'Get out of here!' })
+    }
+})
 
 router.post('/:idStudent/edit', (req, res, next) => {
     const { username, description, role } = req.body;
@@ -51,12 +56,16 @@ router.post('/:idStudent/edit', (req, res, next) => {
 
 // Delete Student
 router.post('/:id/delete', (req, res, next) => {
-    User.findByIdAndDelete(req.params.id)
-        .then((deleteStudent) => {
-            console.log(deleteStudent)
-            res.redirect('/students-list');
-        })
-        .catch((err) => next(err));
+    if (req.params.id === req.session.currentUser._id || req.session.currentUser.role === 'PM') {
+        User.findByIdAndDelete(req.params.id)
+            .then((deleteStudent) => {
+                console.log(deleteStudent)
+                res.redirect('/students-list');
+            })
+            .catch((err) => next(err));
+    } else {
+        res.render('auth/login', { errorMessage: 'Get out of here!' })
+    }
 });
 
 
