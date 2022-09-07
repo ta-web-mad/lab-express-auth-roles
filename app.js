@@ -18,7 +18,24 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
+const session = require('./config/session.config');
+session(app);
+
 app.locals.siteTitle = `IronLearn`;
+
+app.use((req, res, next) => {
+    if (req.session.currentUser) {
+        app.locals.username = req.session.currentUser.username;
+        app.locals.profileImg = req.session.currentUser.profileImg;
+        app.locals._id = req.session.currentUser._id;
+    } else {
+        app.locals.username = null;
+        app.locals.profileImg = null;
+        app.locals._id = null;
+    }
+    next();
+});
+
 
 // Session config
 require('./config/session.config')(app)
