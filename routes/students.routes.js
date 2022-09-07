@@ -1,6 +1,6 @@
 const router = require("express").Router()
-//const isLogged = require('../middleware/is_logged.middleware')
 const UserModel = require("../models/User.model")
+
 const { PM, STUDENT, TA, DEV } = require('../const/user.const');
 const { roleValidation } = require('../middleware/roles.middleware');
 
@@ -79,25 +79,6 @@ router.post('/:id/delete', (req, res, next) => {
         });
 });
 
-/*
-router.post('/:id/edit-form', (req, res, next) => {
-    let canEdit = false
-    const { username, description, profileImg, role } = req.body;
-    if (req.session.currentUser.id.toString() === req.params.id.toString()) {
-        canEdit = true
-        UserModel.findByIdAndUpdate(req.params.id, { username, description, profileImg, role })
-            .then((updateUser) => {
-                console.log(updateUser)
-                res.redirect('/students')
-            })
-            .catch((err) => {
-                next(err);
-            });
-
-    }
-
-});
-*/
 
 module.exports = router
 
