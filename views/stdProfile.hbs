@@ -6,9 +6,9 @@
     <p class="card-text">Description: {{description}}</p>
     <p class="card-text">Role: {{role}}</p>
   </div>
-  
-<a class="btn btn-warning" href="/students/{{_id}}/edit">Update Student</a>
-<a class="btn btn-danger" href="/students/{{_id}}/delete">Delete Student :(</a>
+  {{#if canPress}}
+<a class="btn btn-warning" href="/students/{{_id}}/edit">Update Student</a>{{/if}}
+{{#if canDelete}}<a class="btn btn-danger" href="/students/{{_id}}/delete">Delete Student :(</a> {{/if}}
 </div>
 
 

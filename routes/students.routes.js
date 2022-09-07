@@ -14,14 +14,18 @@ router.get("/", roleValidation(ROLES), (req, res, next) => {
     
     
     router.get("/:id",roleValidation(ROLES), (req, res, next) => {
-      // let isStudent = false
-      // if(req.params.id === req.session.user._id) {
-      //   isStudent = true
-      // }
+      let canPress = false
+      let canDelete = false
+      if(req.params.id === req.session.user._id || req.session.user.role === PM) {
+        canPress = true
+      }
+      if(req.session.user.role === PM) {
+        canDelete = true
+      }
       const studentsId = req.params.id
       User.findById(studentsId) 
       .then((student)=> {
-        res.render("stdProfile", student)
+        res.render("stdProfile", {student, canPress, canDelete })
       })
     })
     
