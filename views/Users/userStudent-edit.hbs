@@ -1,0 +1,33 @@
+<div class="container">
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4">
+
+            <h1>Edición de estudiante</h1>
+            <br>
+            <hr>
+            <br>
+
+            <form action="/students/userEdit/:{{_id}}" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input value="{{username}}" type="text" class="form-control" id="username" name="username">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Editar</button>
+            </form>
+
+            {{#if errorMsg}}
+            <p id="errorMessage">{{errorMsg}}</p>
+            {{/if}}
+
+            <hr>
+
+
+
+        </div>
+    </div>
+
+
+</div>

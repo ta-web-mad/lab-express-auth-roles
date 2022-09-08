@@ -17,7 +17,7 @@ module.exports = app => {
                 maxAge: 60000
             },
             store: MongoStore.create({
-                mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/basic-auth'
+                mongoUrl: process.env.MONGODB_URI || 'mongodb://0.0.0.0/basic-auth'
             })
         })
     );
