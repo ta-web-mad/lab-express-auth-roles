@@ -1,0 +1,82 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>CREA UN NUEVO CURSO</h1>
+            <hr>
+
+            <form action="/courses/create" method="POST">
+
+                <div class="mb-3 ">
+                    <label for="emailInput" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="titleInput" name="title">
+                    {{!-- <div class="form-text">Requerido.</div> --}}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Lead Teacher</label>
+                    <select class="selectpicker" name="leadTeacher" aria-label="size 3 select example">
+                        {{#each devs}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="start">Start date:</label>
+                    <input type="date" id="start" name="startDate" value="06/09/2022">
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="start">End date:</label>
+                    <input type="date" id="end" name="endDate" value="06/09/2022">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">TA</label>
+                    <select class="selectpicker" name="ta" aria-label="size 3 select example">
+                        {{#each teachers}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="imageInput" name="courseImg" value="{{profileImg}}">
+                    <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3" name="description"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">STATUS</label>
+                    <!-- Rounded switch -->
+                    <label class="switch">
+                        <input type="checkbox" name="statusCreate">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Students</label>
+                    <select class="selectpicker" name="students" aria-label="size 3 select example" multiple>
+                        {{#each allstudents}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="d-grid gap-2 m-2">
+                    <button type="submit" class="btn btn-dark block">CREATE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

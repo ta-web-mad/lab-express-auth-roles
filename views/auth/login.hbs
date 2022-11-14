@@ -10,15 +10,15 @@
             <form action="/iniciar-sesion" method="POST">
                 <div class="mb-3">
                     <label for="emailInput" class="form-label">Dirección de email</label>
-                    <input type="email" class="form-control" id="emailInput" name="email">
+                    <input type="email" class="form-control" id="emailInput" name="email" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="pwdInput" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="pwdInput" name="userPwd">
+                    <input type="password" class="form-control" id="pwdInput" name="userPwd" required>
                 </div>
 
-                <div class="d-grid gap-2">
+                <div class="d-grid gap-2 m-2">
                     <button type="submit" class="btn btn-dark block">Acceder</button>
                 </div>
 
