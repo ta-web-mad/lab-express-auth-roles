@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row justify-content-center d-flex">
+		<div class="col-md-3">
+			<img src="{{course.courseImg}}" class="img-fluid rounded-start" alt="course image" />
+		</div>
+		<div class="col-md-8">
+			<h1 class="card-title mb-3">{{course.title}}</h1>
+			<div class="border-start border-danger border-4 ps-3 py-3 mb-3 bg-danger bg-opacity-10">
+				<p class="card-text"><em>{{course.description}}</em></p>
+			</div>
+			<p><strong class="text-danger">Fechas:</strong></p>
+			<ul>
+				<li class="card-text"><strong>Inicio:</strong> {{course.startDate}}</li>
+				<li class="card-text"><strong>Fin:</strong> {{course.endDate}}</li>
+			</ul>
+			<p><strong class="text-danger">Profesor:</strong>
+				{{#each course.leadTeacher}} <span>{{username}}</span> {{/each}}
+			</p>
+			<p><strong class="text-danger">TA:</strong>{{#each course.ta}} <span>{{username}} |</span> {{/each}}</p>
+			<p><strong class="text-danger">Estudiantes:</strong>
+				{{#each course.students}}
+					<a href="/students/details/{{_id}}">{{username}}</a>
+					|
+				{{/each}}
+			</p>
+			{{#if isDev}}
+				<hr />
+				<a href="/courses/details/{{course._id}}/edit" class="btn btn-warning">Editar curso</a>
+				<form action="/courses/{{course.id}}/delete" method="POST" style="display: inline">
+					<input type="submit" value="Eliminar curso" class="btn btn-danger" />
+				</form>
+			{{/if}}
+		</div>
+	</div>
+</div>

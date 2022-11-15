@@ -8,15 +8,23 @@ const { isLoggedOut } = require("../middleware/route-guard");
 
 // Signup
 router.get("/registro", isLoggedOut, (req, res, next) => res.render("auth/signup"));
+
 router.post("/registro", isLoggedOut, (req, res, next) => {
 	const { userPwd } = req.body;
 
-	bcrypt
-		.genSalt(saltRounds)
-		.then((salt) => bcrypt.hash(userPwd, salt))
-		.then((hashedPassword) => User.create({ ...req.body, password: hashedPassword }))
-		.then((createdUser) => res.redirect("/"))
-		.catch((error) => next(error));
+	// Me ha quedado pendiente esto del regex
+	/* var regex =  /^[A-Za-z]\w{7,14}$/ */
+
+	if (userPwd.length > 9) {
+		bcrypt
+			.genSalt(saltRounds)
+			.then((salt) => bcrypt.hash(userPwd, salt))
+			.then((hashedPassword) => User.create({ ...req.body, password: hashedPassword }))
+			.then((createdUser) => res.redirect("/"))
+			.catch((error) => next(error));
+	} else {
+		res.render("auth/signup", { errorMessage: "La contraseña debe tener al menos 8 caracteres." });
+	}
 });
 
 // Login
