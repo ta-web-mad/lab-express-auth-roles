@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Portal del alumno {{students.username}}</h1>
+    <img src="{{students.profileImg}}" alt="{{students.username}}">
+    <p>{{description}}</p>
+
+    {{#if isPM}}
+    <a href="/students/student/edit/{{students._id}}" class="btn btn-warning">Editar estudiante</a>
+    <form action="/students/student/delete/{{students._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Eliminar estudiante" class="btn btn-danger">
+    </form>
+    {{/if}}
+
+</div>
