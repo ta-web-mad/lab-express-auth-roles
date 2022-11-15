@@ -15,8 +15,17 @@ function isLoggedOut(req, res, next) {
     }
 }
 
+const checkRoles = (...rolesToCheck) => (req, res, next) => {
+    if (rolesToCheck.includes(req.session.currentUser.role)) {
+        next()
+    } else {
+        res.render('auth/login', { errorMessage: `No puedes pasar, necesitas permisos de ${roleToCheck}` })
+    }
+}
+
 
 module.exports = {
     isLoggedIn,
-    isLoggedOut
+    isLoggedOut,
+    checkRoles
 }

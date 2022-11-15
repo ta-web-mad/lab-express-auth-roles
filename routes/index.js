@@ -1,3 +1,5 @@
+const router = require("./index.routes");
+
 module.exports = app => {
 
   // Base routes
@@ -12,3 +14,5 @@ module.exports = app => {
   const studentRouter = require("./students.routes")
   app.use("/", studentRouter);
 }
+
+
