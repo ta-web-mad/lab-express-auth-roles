@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Detalles de {{student.username}}</h1>
+  <hr />
+  <p>Email:{{student.email}}</p>
+  <p>Description:{{student.description}}</p>
+  <img src={{student.profileImg}} alt="image" />
+
+  <hr />
+  {{#if isPM}}
+
+    <div>
+      <p>Student role:{{student.role}}</p>
+      <hr />
+      <p>Change this user's role</p>
+      <a
+        href="/students/editarRole/{{student._id}}"
+        class="btn btn-dark"
+      >Developer </a>
+
+      <a href="/students/changToTa/{{student._id}}" class="btn btn-dark">TA </a>
+
+    </div>
+
+    <hr />
+    <a href="/students/editar/{{student._id}}" class="btn btn-warning">Edit</a>
+    <form
+      action="/students/eliminar/{{student._id}}"
+      method="POST"
+      style="display: inline"
+    >
+      <input type="submit" value="Delete the student" class="btn btn-danger" />
+    </form>
+  {{/if}}
+  {{#if isMY}}
+    <a href="/students/editar/{{student._id}}" class="btn btn-warning">Edit</a>
+  {{/if}}
+  <a href="/students" class="btn btn-dark">Back to cheack all students</a>
+
+</div>
