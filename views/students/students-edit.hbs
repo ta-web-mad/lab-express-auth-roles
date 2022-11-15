@@ -1,0 +1,16 @@
+<h1>Edit the {{username}}</h1>
+<div>
+
+    <form action="/students/{{_id}}/edit" method="post">
+        <label for="">User Name: </label>
+        <input type="text" name="username" value="{{username}}">
+        <br><label for="">Email: </label>
+        <input type="text" name="email" value="{{email}}">
+        <br><label for="">Role: </label>
+        <input type="text" name="role" value="{{role}}">
+        <br><label for="">Description:</label>
+        <input type="text" name="description" value="{{description}}">
+        <button type="submit">Update</button>
+
+    </form>
+</div>

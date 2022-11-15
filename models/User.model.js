@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose')
+const { ENUM_ROLES, STUDENT } = require("../const/user.const")
 
 const userSchema = new Schema(
   {
@@ -6,13 +7,14 @@ const userSchema = new Schema(
     email: { type: String, unique: true, required: true },
     password: String,
     profileImg: { type: String, default: 'https://i.stack.imgur.com/l60Hf.png' },
-    description: { type: String, default: 'No existe descripción.' }
-    // add roles setup here
+    description: { type: String, default: 'No existe descripción.' },
+    role: { type: String, trim: true, enum: ENUM_ROLES, default: 'Student' }
   },
   {
     timestamps: true
   }
 );
 
+const UserModel = model("User", userSchema)
 
-module.exports = model('User', userSchema)
+module.exports = UserModel
