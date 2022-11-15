@@ -1,0 +1,26 @@
+<h1>Ficha del Estudiante al detalle</h1>
+<div class="container">
+    <div class="row">
+
+        <h4>Estudiante: {{User.username}}</h4>
+        <h4>Email: {{User.email}}</h4>
+        <h4>ProfileImg: <img src="{{User.profileImg}}" alt="imagen del estudiante"></h4>
+        <h4>Description: {{User.description}}</h4>
+        <h4>Role: {{User.role}}</h4>
+        {{#if isPM}}
+        <a href="/students/editar/{{User._id}}" class="btn btn-warning">Editar estudiante</a>
+        <form action="/students/eliminar/{{User._id}}" method="POST" style="display: inline">
+            <input type="submit" value="Eliminar estudiante" class="btn btn-danger">
+        </form>
+        <form action="/students/editar/{{User._id}}/DEV" method="POST" style="display: inline">
+            <input type="submit" value="DEV" class="btn btn-primary">
+        </form>
+        <form action="/students/editar/{{User._id}}/TA" method="POST" style="display: inline">
+            <input type="submit" value="TA" class="btn btn-DEV">
+        </form>
+        {{/if}}
+        {{#if isOwner}}
+        <a href="/students/editar/{{User._id}}" class="btn btn-warning">Editar mi Perfil</a>
+        {{/if}}
+    </div>
+</div>
