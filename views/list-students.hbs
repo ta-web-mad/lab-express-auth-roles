@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Estudiantes</h1>
+    <hr>
+
+    {{#each students}}
+    <ul>
+        <li" /list-students/{{_id}}">{{username}}</li>
+            <a href="/students/student-details/{{_id}}" type="button" class="btn btn-info" style="float:right">Info
+                Estudiante</a>
+    </ul>
+    <hr>
+    {{/each}}
+
+
+
+    <a href="/" class="btn btn-dark">Volver a incio</a>
+</div>
