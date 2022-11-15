@@ -50,6 +50,8 @@ router.get('/edit/:user_id', (req, res) => {
 router.post('/edit/:user_id', (req, res) => {
     console.log('Entro aqui')
     const { username, description, role } = req.body
+    console.log(req.body)
+
     const { user_id } = req.params
 
     User

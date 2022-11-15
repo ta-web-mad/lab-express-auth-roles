@@ -36,7 +36,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
         return
       } else {
         req.session.currentUser = user
-        res.redirect('/students/lista')
+        res.redirect('/mi-perfil')
       }
     })
     .catch(error => next(error))

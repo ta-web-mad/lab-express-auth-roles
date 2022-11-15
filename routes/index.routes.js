@@ -12,7 +12,7 @@ router.get("/mi-perfil", isLoggedIn, (req, res, next) => {
   res.render("user/Profile", {
     user: req.session.currentUser,
     isAdmin: req.session.currentUser.role === 'PM',
-    //isOwner: req.session.currentUser._id === user_id,
+    isOwner: true,
   })
 })
 
