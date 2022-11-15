@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Detalles de {{students.username}}</h1>
+    <hr>
+    <img src="{{profileImg}}" alt="images">
+    <p><strong>Name: {{students.username}}</strong></p>
+    <p>Email: {{students.email}}</p>
+    <p>Role: {{students.role}}</p>
+
+
+    <hr>
+
+
+    {{#if isPM}}
+    <a href="/students/{{students._id}}/edit" class="btn btn-warning">Editar Informacion</a>
+    <form action="/students/{{students._id}}/delete" method="POST" style="display: inline">
+        <input type="submit" value="Eliminar Alumno" class="btn btn-danger">
+    </form>
+    <a href="/students/{{students._id}}/updaterole/DEV" class="btn btn-primary">Hacer DEV</a>
+    <a href="/students/{{students._id}}/updaterole/TA" class="btn btn-success">Hacer TA</a>
+    {{/if}}
+
+    {{#if isCurrentUser}}
+    <a href="/students/{{students._id}}/edit" class="btn btn-warning">Editar Informacion</a>
+    {{/if}}
+    <a href="/students" class="btn btn-dark">Volver al listado</a>
+
+
+</div>
