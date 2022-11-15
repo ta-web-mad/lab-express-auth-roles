@@ -1,0 +1,13 @@
+<h2>Estudiantes</h2>
+<hr>
+
+{{#each student}}
+{{#if isPM}}
+
+<p>
+    <a href="/students/details/{{_id}}">{{student.username}}</a>
+</p>
+
+{{/if}}
+
+{{/each}}

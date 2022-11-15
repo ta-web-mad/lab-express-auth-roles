@@ -1,0 +1,18 @@
+<h2>Detalles del estudiante</h2>
+
+<hr>
+
+<p>{{student.username}}</p>
+
+<p>{{student.email}}</p>
+
+<img src={{student.profileImg}} alt="studentImage">
+
+<p>{{student.description}}</p>
+
+{{#if isPM}}
+<a href="/students/edit/{{student._id}}" class="btn btn-warning">Editar</a>
+<form action="/students/delete/{{student.id}}" method="POST">
+    <input type="submit" value="Eliminar libro" class="btn btn-danger">
+</form>
+{{/if}}
