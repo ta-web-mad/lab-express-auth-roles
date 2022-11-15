@@ -1,0 +1,63 @@
+
+
+<div class="container my-5 p-2 bg-dark rounded">
+
+    <div class="row m-4">
+
+        <div class="col-4 my-2 bg-light rounded p-4">
+            <img class="w-100" src="{{student.profileImg}}" alt="{{student.username}} profile image">
+        </div>
+
+        <div class="col-8 my-2 bg-light rounded p-4">
+
+            <h4>{{student.username}}</h4>
+
+            <h5>Email: {{student.email}}</h5>
+
+            <h6>Description: {{student.description}}</h6>
+
+        {{#if isPM}}
+            <h6>Rol: {{student.role}}</h6>
+        {{/if}}
+        </div>
+
+        {{#if studentEditor}}
+        <div class="col-2">
+            <a href="/students/details/{{student._id}}/edit" type="button" class="btn btn-warning w-100">Edit profile</a>
+        </div>
+        {{/if}}
+
+        {{#if isPM}}
+        <div class="col-2">
+
+            <form action="/students/details/{{student._id}}/setRole/DEV" method="POST" style="display: inline">
+            <input type="submit" value="Mark as DEV" class="btn btn-outline-light  btn-lg my-1 w-100">
+            </form>     
+
+        </div>
+
+        <div class="col-2">
+
+            <form action="/students/details/{{student._id}}/setRole/TA" method="POST" style="display: inline">
+            <input type="submit" value="Mark as TA" class="btn btn-outline-light  btn-lg my-1 w-100">
+            </form> 
+
+        </div>
+        {{/if}}
+
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row m-4">
+
+        <div class="col-2 bg-light rounded">
+
+            <a href="/students/list" class="btn btn-outline-danger btn-lg my-1 w-100">Go back</a>
+
+        </div>
+    </div>
+</div>
+    
+
