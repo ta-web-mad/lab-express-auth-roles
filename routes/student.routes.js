@@ -30,6 +30,7 @@ router.get('/details/:student_id', isLoggedIn, (req, res) => {
       res.render('student/student-profile', {
         student,
         isPM: req.session.currentUser.role === 'PM',
+        isTheStudent: req.session.currentUser._id === student_id,
       })
     })
     .catch(err => console.log(err))
@@ -102,4 +103,44 @@ router.post('/details/:student_id/TA', isLoggedIn, checkRoles('PM'), (req, res) 
 
 
 
+
+
+
+
+
+// Edit my student profile
+
+router.get('/details/:student_id/edit-me', isLoggedIn, (req, res, next) => {
+
+  const { student_id } = req.params
+  if (req.session.currentUser._id === student_id) {
+    User
+      .findById(student_id)
+      .then(student => {
+        res.render('student/edit-me', student)
+      })
+      .catch(err => console.log(err))
+  } else {
+    res.redirect('/student/list')
+  }
+
+})
+
+
+
+router.post('/details/:student_id/edit-me', isLoggedIn, (req, res) => {
+
+  const { username, email, profileImg, description } = req.body
+  const { student_id } = req.params
+
+  if (req.session.currentUser._id === student_id) {
+    User
+      .findByIdAndUpdate(student_id, { username, email, profileImg, description })
+      .then(() => res.redirect(`/student/list`))
+      .catch(err => console.log(err))
+  } else {
+    res.redirect('/student/list')
+  }
+
+})
 module.exports = router
