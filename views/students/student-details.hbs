@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h1>Student Details</h1>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <hr>
+            <h2>{{studentFromDB.username}}</h2>
+            <img src="{{studentFromDB.profileImg}}" class="card-img-top" alt="...">
+            <p><button type="button" class="btn btn-outline-secondary my-2">{{studentFromDB.email}}</button></p>
+            <p class="card-text">Description: {{studentFromDB.description}}</p>
+            <hr>
+
+            {{#if isCurrentUser}}
+            <a href="/students/{{studentFromDB._id}}/edit" class="btn btn-warning">Edit</a>
+            {{/if}}
+            {{#if isPM}}
+
+            <a href="/students/{{studentFromDB._id}}/edit" class="btn btn-warning">Edit</a>
+            <form action="/students/{{studentFromDB._id}}/delete" method="POST" style="display: inline">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+            <form action="/students/{{studentFromDB._id}}/updaterole/DEV" method="POST" style="display: inline">
+                <input type="submit" value="Make DEV" class="btn btn-secondary">
+            </form>
+            <form action="/students/{{studentFromDB._id}}/updaterole/TA" method="POST" style="display: inline">
+                <input type="submit" value="Make TA" class="btn btn-secondary">
+            </form>
+            {{/if}}
+        </div>
+    </div>
+
+</div>
