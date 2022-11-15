@@ -1,0 +1,25 @@
+<div class="container">
+	<h1 class="pb-5">Todos los cursos</h1>
+
+	{{#each courses}}
+		<div class="card text-center">
+			<div class="card-header">
+				Curso de Web Development
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">{{title}}</h5>
+				<p class="card-text">{{description}}</p>
+				<a href="#" class="mb-3 btn btn-primary">Más detalles</a>
+				<p class="card-text"><em>{{startDate}}</em></p>
+
+				<p><em>{{endDate}}</em></p>
+			</div>
+			<div class="card-footer text-muted">
+				<p class="mb-0">Impartido por:
+					{{#each leadTeacher}} <span>{{username}}</span> {{/each}}</p>
+				{{!-- {{leadTeacher.username}} --}}
+			</div>
+		</div>
+	{{/each}}
+	<a href="/" class="mt-5 btn btn-dark">Volver a inicio</a>
+</div>
