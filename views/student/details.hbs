@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>{{users.username}}</h1>
+    <hr>
+    <div class="container">
+
+        <p><img src="{{users.profileImg}}" alt="img" width="300px"></p>
+        <p>{{users.email}}</p>
+
+        <p>{{users.description}}</p>
+
+
+        {{#if isPM}}
+        <p>{{users.role}}</p>
+        <hr>
+
+        <a href="/student/edit/{{users._id}}" class="btn btn-warning">Editar</a>
+
+        <a href="/student/updateRole/DEV/{{users._id}}" class="btn btn-success">Hacer DEV</a>
+        <a href="/student/updateRole/TA/{{users._id}}" class="btn btn-success">Hacer TA</a>
+        <form action="/student/delete/{{users._id}}" method="POST" style="display: inline">
+            <input type="submit" value="Eliminar" class="btn btn-danger">
+        </form>
+        {{/if}}
+        {{#if isOwner}}
+        <a href="/student/edit/{{users._id}}" class="btn btn-warning">Editar</a>
+        {{/if}}
+        <a href="/student/list" class="btn btn-dark">Volver al listado</a>
+
+
+
+    </div>
+</div>
