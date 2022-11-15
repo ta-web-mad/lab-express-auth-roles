@@ -1,0 +1,17 @@
+<h1>Our Students</h1>
+<hr>
+<div class="container d-flex flex-warp gap-3">
+
+    {{#each users}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{username}}</h5>
+            <a href="details/{{_id}}" class="btn btn-dark">Student details</a>
+        </div>
+    </div>
+    {{/each}}
+
+
+</div>
+<hr>
+<a href="/" class="btn btn-dark">Volver a incio</a>
