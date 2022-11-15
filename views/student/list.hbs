@@ -1,0 +1,22 @@
+<div class="container">
+	<h1 class="pb-5">Todos los estudiantes</h1>
+
+	{{#each student}}
+		<div class="card mb-3 py-3">
+			<div class="row g-0 justify-content-around align-items-center">
+				<div class="col-md-2 d-flex justify-content-center align-items-center">
+					<img src="{{profileImg}}" class="student-img img-fluid rounded-start" alt="student picture" />
+				</div>
+				<div class="col-md-6">
+					<div class="card-body">
+						<h5 class="card-title">{{username}}</h5>
+						<p class="card-text"><small class="text-muted">Añadido hoy</small></p>
+					</div>
+				</div>
+				<a href="/students/details/{{_id}}" class="col-md-2 btn btn-dark">Ver perfil</a>
+			</div>
+
+		</div>
+	{{/each}}
+	<a href="/" class="mt-4 btn btn-dark">Volver a inicio</a>
+</div>

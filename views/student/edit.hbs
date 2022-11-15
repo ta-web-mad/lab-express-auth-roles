@@ -1,0 +1,35 @@
+<div class="container mt-5 d-flex flex-column justify-content-center">
+
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+
+			<h1>Editar {{username}}</h1>
+
+			<form action="/students/details/{{_id}}/edit" method="POST">
+				<div class="mb-3">
+					<label for="username" class="form-label">Nombre</label>
+					<input type="text" class="form-control" id="username" name="username" value="{{username}}" />
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label>
+					<input type="email" class="form-control" id="email" name="email" value="{{email}}" />
+				</div>
+				<div class="mb-3">
+					<label for="description" class="form-label">Description</label>
+					<textarea class="form-control" id="description" name="description" rows="8">{{description}}</textarea>
+				</div>
+				<div class="mb-3">
+					<label for="profileImg" class="form-label">Imagen</label>
+					<input type="text" class="form-control" id="profileImg" name="profileImg" value="{{profileImg}}" />
+				</div>
+				<div class="d-grid">
+					<button type="submit" class="btn btn-success">Actualizar</button>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
+	<a href="/students" class="btn btn-dark m-auto mt-5">Volver al listado</a>
+</div>

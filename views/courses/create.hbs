@@ -1,0 +1,79 @@
+<div class="container">
+
+	<div class="row justify-content-center">
+
+		<div class="col-md-8">
+
+			<h1>Crear curso</h1>
+			<hr />
+
+			<form action="/courses/create-course" method="POST">
+
+				<div class="mb-3">
+					<label for="emailInput" class="form-label">Nombre</label>
+					<input type="text" class="form-control" id="titleInput" name="title" value="{{title}}" />
+					<div class="form-text">Requerido.</div>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Profesor</label>
+					<select class="selectpicker" name="leadTeacher">
+						{{#each devs}}
+							<option value="{{_id}}">{{username}}</option>
+						{{/each}}
+					</select>
+				</div>
+				<div class="mb-3">
+					<label for="start">Fecha de inicio</label>
+					<input type="date" id="start" name="startDate" value="{{startDate}}" />
+				</div>
+
+				<div class="mb-3">
+					<label for="start">Fecha de finalización</label>
+					<input type="date" id="end" name="endDate" value="{{endDate}}" />
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label">TA</label>
+					<select class="selectpicker" name="ta">
+						{{#each tas}}
+							<option value="{{_id}}">{{username}}</option>
+						{{/each}}
+					</select>
+				</div>
+
+				<div class="mb-3">
+					<label for="imageInput" class="form-label">Imagen</label>
+					<input type="url" class="form-control" id="imageInput" name="courseImg" value="{{profileImg}}" />
+					<div class="form-text">Introduce la URL a la imagen que desees para el curso.</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="descriptionInput" class="form-label">Descripción</label>
+					<textarea class="form-control" id="descriptionInput" rows="3" name="description">{{description}}</textarea>
+				</div>
+
+				<div class="mb-3">
+					<label for="" class="form-label">Estado</label>
+					<label class="switch">
+						<input type="checkbox" name="statusCreate" />
+						<span class="slider round"></span>
+					</label>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label">Estudiantes</label>
+					<select multiple="true" class="selectpicker" name="students" aria-label="size 3 select example">
+						{{#each students}}
+							<option value="{{_id}}">{{username}}</option>
+						{{/each}}
+					</select>
+				</div>
+
+				<div class="d-grid gap-2">
+					<button type="submit" class="btn btn-dark block">Actualizar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>
