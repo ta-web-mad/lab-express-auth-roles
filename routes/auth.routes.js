@@ -2,10 +2,12 @@ const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
+const { isLoggedOut } = require("../middleware/route.guard")
+const app = require("../app")
 
 // Signup
-router.get('/registro', (req, res, next) => res.render('auth/signup'))
-router.post('/registro', (req, res, next) => {
+router.get('/registro', isLoggedOut, (req, res, next) => res.render('auth/signup'))
+router.post('/registro', isLoggedOut, (req, res, next) => {
 
   const { userPwd } = req.body
 
@@ -20,8 +22,9 @@ router.post('/registro', (req, res, next) => {
 
 
 // Login
-router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
-router.post('/iniciar-sesion', (req, res, next) => {
+router.get('/iniciar-sesion', isLoggedOut, (req, res, next) => res.render('auth/login'))
+
+router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
 
   const { email, userPwd } = req.body
 
@@ -36,6 +39,8 @@ router.post('/iniciar-sesion', (req, res, next) => {
         return
       } else {
         req.session.currentUser = user
+        if (req.session.currentUser.role == "PM") req.app.locals.isPM = true
+        if (req.session.currentUser.role == "TA") req.app.locals.isTA = true
         res.redirect('/')
       }
     })
@@ -45,6 +50,8 @@ router.post('/iniciar-sesion', (req, res, next) => {
 
 // Logout
 router.post('/cerrar-sesion', (req, res, next) => {
+  req.app.locals.isPM = false
+  req.app.locals.isTA = false
   req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
 

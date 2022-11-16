@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card d-flex flex-row justify-content-around p-3" style="width:70%" id="detail-card">
+
+            <img class="card-img-top d-block" style="width:40%" src="{{student.profileImg}}" alt="Card image cap">
+            <div class="ml-5">
+                <p class="card-title "><strong>Nombre: </strong>{{student.username}}</p>
+                <p class="card-text "><strong>Correo electrónico: </strong>{{student.email}}</p>
+                <p class="card-title "><strong>Descripción: </strong>{{student.description}}</p>
+                {{#if isPM}}
+                <div class="d-grid">
+                    <a href="/students/{{student._id}}/updateDEV" class="btn btn-dark btn-sm btn-rounded">
+                        Ascender a DEV
+                    </a>
+                    <a href="/students/{{student._id}}/updateTA" class="btn btn-dark btn-sm btn-rounded">
+                        Ascender a TA
+                    </a>
+                </div>
+                {{/if}}
+            </div>
+            {{#if isStudent}}
+            <div>
+                <a href="/students/{{student._id}}/edit" class="btn btn-dark btn-sm btn-rounded">
+                    Editar
+                </a>
+            </div>
+            {{/if}}
+
+        </div>
+
+    </div>
+</div>

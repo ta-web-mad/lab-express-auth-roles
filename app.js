@@ -23,6 +23,8 @@ app.locals.siteTitle = `IronLearn`;
 // Session config
 require('./config/session.config')(app)
 
+hbs.registerPartials(__dirname + "/views/partials")
+
 // Routes
 require("./routes")(app)
 
