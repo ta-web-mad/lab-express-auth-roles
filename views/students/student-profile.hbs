@@ -1,0 +1,47 @@
+<div class="container">
+    <a href="/students/students-list" class="btn btn-warning">Back</a>
+
+    <h1> <img class="student-pic" src="{{student.profileImg}}" alt="Card image cap"> Welcome to your profile,
+        {{student.username}}</h1>
+    <div class="student-pic">
+
+    </div>
+    <p> {{student.description}} </p>
+
+    <h6> Contact: {{student.email}}</h6>
+
+
+    <h6> Role: {{student.role}}</h6>
+
+    {{#if isSTUDENT}}
+
+    <a href="/students/profile/{{student._id}}/edit" class="btn btn-info">Edit My Profile</a>
+    {{/if}}
+
+    {{#if isPM}}
+    <div class="buttons">
+        <div> <a href="/students/profile/{{student._id}}/edit" class="btn btn-dark">Edit Student</a>
+        </div>
+
+        <form action="/students/{{student._id}}/delete" method="POST">
+            <input type="submit" value="Delete Student" class="btn btn-danger">
+        </form>
+
+        <form action="/students/profile/{{student._id}}/developer" method="POST">
+            <input type="submit" value="Mark as Developer" class="btn btn-primary">
+        </form>
+
+        <form action="/students/profile/{{student._id}}/ta" method="POST">
+            <input type="submit" value="Mark as TA" class="btn btn-info">
+
+
+        </form>
+    </div>
+    {{/if}}
+
+
+
+
+</div>
+
+{{!-- es student._id porque no esta metido en un each --}}
