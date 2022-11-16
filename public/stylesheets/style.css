@@ -4,7 +4,9 @@ body {
 }
 
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 200;
 }
 
@@ -28,8 +30,24 @@ h1, h2, h3 {
   animation: showFromBottom 6s forwards;
 }
 
+.a-button-form {
+  padding: 10px;
+  background-color: #00b7ff;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-top: 20px;
+}
 
-@keyframes  showFromBottom {
+.a-button-form:hover,
+.a-button-form:active {
+  color: white;
+  text-decoration: none;
+}
+
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }

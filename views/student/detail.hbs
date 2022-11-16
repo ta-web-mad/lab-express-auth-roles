@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <p>{{username}}</p>
+            <p>{{email}}</p>
+            <p>{{description}}</p>
+            {{#if pm}}
+            <a class="a-button-form" href="/student/{{_id}}/edit">Edit</a>
+            <a class="a-button-form" href="/student/{{_id}}/delete">Borrar</a>
+            {{/if}}
+        </div>
+    </div>
+</div>
