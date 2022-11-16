@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Bienvenid@, {{student.username}}</h1>
+    <hr>
+    <img src="{{student.profileImg}}">
+    <ul>
+        <li>{{student.description}}</li>
+        <li>{{student.role}}</li>
+    </ul>
+
+
+    {{#if isPM}}
+    <a href="/students/profile/{{student._id}}/editar" class="btn btn-outline-warning">Editar Estudiante</a>
+    <form action="/students/profile/{{student._id}}/delete" method="POST">
+        <input type="submit" value="Eliminar Estudiante" class="btn btn-outline-danger">
+    </form>
+    <form action="/students/profile/{{student._id}}/promotetoTA" method="POST">
+        <input type="submit" value="Convertir a TA" class="btn btn-outline-success">
+    </form>
+    <form action="/students/profile/{{student._id}}/promotetoDEV" method="POST">
+        <input type="submit" value="Convertir a DEV" class="btn btn-outline-success">
+    </form>
+    {{/if}}
+
+    {{#if isTheStudent}}
+    <a href="/students/profile/{{student._id}}/editar" class=" btn btn-outline-warning">Editar Perfil</a>
+    {{/if}}
