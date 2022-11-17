@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <h1>Student details</h1>
+        <div class="card me-2" style="width: 18rem;">
+            <img class="card-img-top" src="{{student.profileImg}}">
+            <div class="card-body">
+                <h5 class="card-title">{{student.username}}</h5>
+                <p class="card-text">Email: {{student.email}}</p>
+                <p class="card-text">Role: {{student.role}}</p>
+                <p class="card-text">Description: {{student.description}}</p>
+                {{#if isPm}}
+                <form action="/students/{{student._id}}/delete" method="post">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+                <form action="/students/{{student._id}}/edit" method="get">
+                    <button class="btn btn-primary" type="submit">Edit</button>
+                </form>
+                {{/if}}
+                {{#if isStudent}}
+                <form action="/students/{{student._id}}/edit" method="get">
+                    <button class="btn btn-primary" type="submit">Edit</button>
+                </form>
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</div>
