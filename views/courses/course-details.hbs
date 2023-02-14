@@ -1,0 +1,88 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="mb-4 col-8">
+
+            <h2>{{course.title}}</h2>
+            <hr>
+
+            <img src="{{course.courseImg}}" alt="User image" class="profileImg mb-3">
+
+            <h5 class="card-text">{{course.description}}</h5>
+
+            <h6>Lead Teacher: {{course.leadTeacher.[0].username}}</h6>
+
+            <p>Start Date: {{course.startDate}}</p>
+
+            <p>End Date: {{course.endDate}}</p>
+
+
+            {{#if isTA}}
+
+            <p>TA: {{course.ta.[0].username}}</p>
+
+            <p>Students:</p>
+            <ul>
+                {{#each course.students}}
+
+                <li>{{this.username}}</li>
+
+                {{/each}}
+
+            </ul>
+
+
+            <hr>
+
+            <div class="row">
+                <div class="col-2">
+                    <a href="/courses/edit/{{course._id}}" class="btn btn-warning mb-2">Edit Course</a>
+                </div>
+
+                <div class="col-2">
+                    <form action="/courses/delete/{{course._id}}" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </div>
+            </div>
+
+            {{/if}}
+
+            {{#if isPM}}
+
+            <p>TA: {{course.ta}}</p>
+
+            <p>Students: {{course.students}}</p>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-2">
+                    <a href="/courses/edit/{{course._id}}" class="btn btn-warning mb-2">Edit Course</a>
+                </div>
+
+                <div class="col-2">
+                    <form action="/courses/delete/{{course._id}}" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </div>
+            </div>
+
+            {{/if}}
+
+            {{#if isDEV}}
+
+            <p>TA: {{course.ta}}</p>
+
+            <p>Students: {{course.students}}</p>
+
+            {{/if}}
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
