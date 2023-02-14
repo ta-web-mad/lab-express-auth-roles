@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-6 ">
+            <h1 class="text-center">{{course.title}} course</h1>
+            <div class="card text-center">
+
+                <div class="card-body text-start">
+                    <img class="card-img-top user-photo-details" src="{{course.courseImg}}"
+                        alt="{{course.title}} profile photo">
+
+                    <p class="card-text"><strong>Title:</strong> {{course.title}}</p>
+                    <p class="card-text"><strong>Start date:</strong> {{course.startDate}}</p>
+                    <p class="card-text"><strong>End date:</strong> {{course.endDate}}</p>
+                    <p class="card-text"><strong>TA's:</strong>
+                    <ul>
+                        {{#each course.ta}}
+                        <li>{{username}}</li>
+                        {{/each}}
+                    </ul>
+                    </p>
+                    <p class="card-text"><strong>leadTeacher:</strong>
+                    <ul>
+                        {{#each course.leadTeacher}}
+                        <li>{{username}}</li>
+                        {{/each}}
+                    </ul>
+                    </p>
+                    <p class="card-text"><strong>Description:</strong> {{course.description}}</p>
+                    {{#if role.isPM}}
+                    <form action="/courses/{{course.id}}/delete" method="post" class="d-grid gap-2">
+                        <td><a href="/courses/{{course.id}}/edit" class="btn btn-success">Update</a></td>
+                        <input type="submit" class="btn btn-danger" value="Delete">
+
+                    </form>
+                    {{/if}}
+                    {{#if role.isTA}}
+                    <form action="/courses/{{course.id}}/delete" method="post" class="d-grid gap-2">
+                        <td><a href="/courses/{{course.id}}/edit" class="btn btn-success">Update</a></td>
+                        <input type="submit" class="btn btn-danger" value="Delete">
+
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,46 @@
+<div class="container p-5">
+    <div class="row justify-content-center">
+
+        <div class="col-md-6 p-4">
+
+            <h2>Edit {{student.username}}</h2>
+            <img class="card-img-top user-photo-details" src="{{student.profileImg}}"
+                alt="{{student.username}} profile photo">
+            <form class="row g-3" action="/students/{{student.id}}/edit" method="POST">
+                <div class="col-12">
+                    <label for="username" class="form-label">Userame</label>
+                    <input type="text" name="username" class="form-control" id="username" value="{{student.username}}">
+                </div>
+                <div class="col-md-12">
+                    <label for="profileImg" class="form-label">Profile img:</label>
+                    <input type="text" name="profileImg" class="form-control" id="profileImg"
+                        value="{{student.profileImg}}">
+                </div>
+                <div class="col-md-12">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" name="email" class="form-control" id="email" value="{{student.email}}">
+                </div>
+
+                <div class="col-md-12">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea type="text" name="description" class="form-control"
+                        id="description">{{student.description}}</textarea>
+                </div>
+                {{#if isPM}}
+                <div class="col-md-12">
+                    <label for="role" class="form-label">Role:</label>
+                    <select class="form-select" aria-label="Default select example" name="role" id="role">
+                        <option value="STUDENT">Student</option>
+                        <option value="DEV">Dev</option>
+                        <option value="TA">TA</option>
+                    </select>
+                </div>
+                {{/if}}
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">Update</button>
+                    <td><a href="/students/{{student.id}}" class="btn btn-dark">Back</a></td>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

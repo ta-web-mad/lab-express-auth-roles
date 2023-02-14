@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-6 ">
+            <h1 class="text-center">{{student.username}} profile</h1>
+            <div class="card text-center">
+
+                <div class="card-body text-start">
+                    <img class="card-img-top user-photo-details" src="{{student.profileImg}}"
+                        alt="{{student.username}} profile photo">
+
+                    <p class="card-text"><strong>Username:</strong> {{student.username}}</p>
+                    <p class="card-text"><strong>Description:</strong> {{student.description}}</p>
+                    <p class="card-text"><strong>Role:</strong> {{student.role}}</p>
+                    {{#if role.isPM}}
+                    <form action="/students/{{student.id}}/delete" method="post" class="d-grid gap-2">
+                        <td><a href="/students/{{student.id}}/edit" class="btn btn-success">Update</a></td>
+                        <input type="submit" class="btn btn-danger" value="Delete">
+
+                    </form>
+                    {{/if}}
+                    {{#if canEdit}}
+                    <div class="d-grid gap-2">
+
+                        <td><a href="/students/{{student.id}}/edit" class="btn btn-success">Update</a></td>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
