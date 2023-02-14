@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+        <img src="{{student.profileImg}}" class="card-img-top" alt="Profile Img">
+        <h5 class="card-title">{{student.username}}</h5>
+        <hr>
+        <p class="card-text">{{student.email}}</p>
+        <hr>
+        <p class="card-text">{{student.description}}</p>
+        <hr>
+        <p class="card-text">ROLE: {{student.role}}</p>
+
+        {{#if isPM}}
+        <div class="row justify-content-center">
+            <div class="col-md-2 d-grid">
+                <a class="btn btn-warning" href="/students/edit/{{student._id}}" role="button">Edit</a>
+            </div>
+            <div class="col-md-2 d-grid">
+                <form class="d-grid" action="/students/delete/{{student._id}}" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                </form>
+            </div>
+            <div class="col-md-2 d-grid">
+                <form class="d-grid" action="/students/DEV/{{student._id}}" method="POST">
+                    <input type="submit" value="DEV" class="btn btn-success btn-sm">
+                </form>
+            </div>
+            <div class="col-md-2 d-grid">
+                <form class="d-grid" action="/students/TA/{{student._id}}" method="POST">
+                    <input type="submit" value="TA" class="btn btn-success btn-sm">
+                </form>
+            </div>
+            <div class="col-md-2 d-grid">
+                <form class="d-grid" action="/students/STUDENT/{{student._id}}" method="POST">
+                    <input type="submit" value="STUDENT" class="btn btn-success btn-sm">
+                </form>
+            </div>
+
+        </div>
+        {{/if}}
+
+        {{#if own}}
+        <div class="row justify-content-center">
+            <div class="col-md-3 d-grid">
+                <a class="btn btn-warning" href="/students/edit/{{student._id}}" role="button">Edit</a>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>

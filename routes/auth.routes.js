@@ -7,7 +7,11 @@ const saltRounds = 10
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
 
-  const { userPwd } = req.body
+  const { username, userPwd, email, profileImg, description } = req.body
+
+  for (let key in req.body) {
+    if (req.body[key] === "") delete req.body[key]
+  }
 
   bcrypt
     .genSalt(saltRounds)
@@ -16,7 +20,6 @@ router.post('/registro', (req, res, next) => {
     .then(createdUser => res.redirect('/'))
     .catch(error => next(error))
 })
-
 
 
 // Login

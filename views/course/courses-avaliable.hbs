@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+    <h1>Avaliable Courses!</h1>
+    {{#each courses}}
+    <div class="card col-md-4" style="width: 18rem;">
+        <img src="{{courseImg}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{startDate}}</h5>
+            <p class="card-text">{{description}}</p>
+            <div class="d-grid mb-2">
+                <a href="/course/{{id}}" class="btn btn-success">Details</a>
+            </div>
+            <div class="d-grid mb-2">
+                <a href="#" class="btn btn-warning">Join</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <div class="d-grid">
+        <a class="btn btn-dark" href="/course/create" role="button">Create new Course</a>
+    </div>
+</div>
