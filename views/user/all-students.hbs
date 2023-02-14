@@ -1,0 +1,28 @@
+<h2>STUDENTS</h2>
+<div class="container">
+    {{#each students}}
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{profileImg}}" class="card-img-top object-fit-scale img" alt="{{username}}">
+
+            </div>
+        </div>
+        <div class=" col-md-6">
+            <div class="card-body">
+                <h5 class="card-title"> <span>{{username}}</span></h5>
+                <p class="card-text"> <span>EMAIL: </span> {{email}}</p>
+
+                <p class="card-text"> <span>DESCRIPTION: </span> {{description}}</p>
+                <p class="card-text"><span>ROLE:</span> {{role}}
+                <div class="card-text">
+
+                    <a href="/students/{{_id}}" class="btn btn-dark">VIEW STUDENT PROFILE</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    {{/each}}
+</div>

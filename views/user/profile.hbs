@@ -1,0 +1,28 @@
+<h2>MY PROFILE</h2>
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{user.profileImg}}" class="card-img-top object-fit-scale img" alt="{{user.username}}">
+
+            </div>
+        </div>
+        <div class=" col-md-6">
+            <div class="card-body">
+                <h5 class="card-title"> <span>{{user.username}}</span></h5>
+                <p class="card-text"> <span>EMAIL: </span> {{user.email}}</p>
+
+                <p class="card-text"> <span>DESCRIPTION: </span> {{user.description}}</p>
+                <p class="card-text"><span>ROLE:</span> {{user.role}}
+
+
+
+                    <a href="/students/{{user._id}}/edit" class="btn btn-dark btn-sm">EDIT</a>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
