@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Listado de alumnos</h1>
+            <hr>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{#each users}}
+
+                    <tr>
+
+                        <td>{{username}}</td>
+
+                        <td>
+                            <a href="/alumnos/{{_id}}" class="btn btn-dark btn-sm">Ver el perfil del alumno</a>
+                        </td>
+
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+            </table>
+
+            <a href="/" class="btn btn-dark">Volver a inicio</a>
+
+        </div>
+    </div>
+
+
+</div>
