@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
 
-// Signup
+
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
 
@@ -19,7 +19,7 @@ router.post('/registro', (req, res, next) => {
 
 
 
-// Login
+
 router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
 router.post('/iniciar-sesion', (req, res, next) => {
 
