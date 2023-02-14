@@ -1,0 +1,18 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        {{#each students}}
+        <div class="col-4 card students-card">
+            <div class="card-body">
+                <h5 class="username text-center"><b>Username:</b> {{username}}</h5>
+                <img class="image text-center img-fluid" src="{{profileImg}}" alt="{{username}}"></img>
+                <div class="col-12 text-center p-5">
+                    <a class="btn btn-light border-dark" href="/students/{{id}}">Perfil del Estudiante</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>
