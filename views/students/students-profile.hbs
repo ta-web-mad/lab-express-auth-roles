@@ -1,0 +1,27 @@
+<div class="container">
+
+    <h1>Detalles de {{student.username}}</h1>
+    <hr>
+    <img src="{{student.profileImg}}" alt="">
+    <hr>
+    <p>Descripción: {{student.description}}</p>
+    <hr>
+    <p>Rol Status: {{student.role}}</p>
+
+    {{#if isPM}}
+    <a href="/students/{{student._id}}/edit" class="btn btn-warning btn-md">Editar</a>
+
+
+    <form action="/students/{{student._id}}/delete" method="POST">
+        <input type="submit" value="Eliminar" class="btn btn-danger btn-md">
+    </form>
+    {{/if}}
+
+    {{#if isOwner}}
+    <a href="/students/{{student._id}}/edit" class="btn btn-warning btn-md">Editar</a>
+    {{/if}}
+
+
+
+
+</div>
