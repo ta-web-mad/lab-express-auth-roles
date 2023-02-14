@@ -9,7 +9,7 @@ router.get('/listado', (req, res, next) => {
 
     User
         .find()   // Devuelve un array
-        .then(users => res.render('students/list', { users }))
+        .then(users => res.render('students/list', { users }))  // Pasamos el array convertido en objeto
         .catch(err => console.log(err))
 })
 
