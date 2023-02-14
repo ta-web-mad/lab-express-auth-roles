@@ -1,7 +1,13 @@
 const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
+
+const { isLoggedOut, isLoggedIn, userIsAdmin } = require('./../middlewares/route-guard')
+
+
 const saltRounds = 10
+
+
 
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
@@ -43,7 +49,87 @@ router.post('/iniciar-sesion', (req, res, next) => {
 })
 
 
+// Students
+
+router.get('/students', isLoggedIn, (req, res, next) => {
+
+  User
+    .find({ role: 'STUDENT' })
+    .sort({ username: 1 })
+    .then(users => res.render('students', { users }))
+    .catch(error => next(error))
+})
+
+
+
+// Students Detail
+
+
+router.get('/students/:_id', userIsAdmin('PM'), (req, res, next) => {
+
+  const { _id } = req.params
+
+  User
+    .findById(_id)
+    .then(user => {
+      res.render('profile', {
+        user,
+        userIsAdmin: req.session.currentUser?.role === 'PM',
+      })
+    })
+    .catch(err => console.log(err))
+})
+
+
+
+
+
+//  Edit Students
+
+
+router.get('/edit/:_id', isLoggedIn, userIsAdmin('PM'), (req, res, next) => {
+
+  const { _id } = req.params
+
+  User
+    .findById(_id)
+    .then(user => res.render('edit-profile', user))
+    .catch(error => next(error))
+})
+
+
+router.post('/edit/:id', isLoggedIn, userIsAdmin('PM'), (req, res, next) => {
+
+  const { username, profileImg, description, role, _id } = req.body
+
+  User
+    .findByIdAndUpdate(_id, { username, profileImg, description, role, })
+    .then(user => res.redirect(`profile/${_id}`))
+    .catch(error => next(error))
+})
+
+
+
+
+
+// Delete Students
+
+router.post('/delete/:id', isLoggedIn, userIsAdmin('PM'), (req, res, next) => {
+
+  const { _id } = req.params
+
+  User
+    .findByIdAndDelete(_id)
+    .then(() => res.redirect('/students'))
+    .catch(error => next(error))
+})
+
+
+
+
+
 // Logout
+
 router.post('/cerrar-sesion', (req, res, next) => {
   req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
