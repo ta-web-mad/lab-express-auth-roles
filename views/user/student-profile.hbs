@@ -1,0 +1,78 @@
+<div class="card text-center img-profile">
+    <div class="card-header">
+        {{user.email}}
+    </div>
+    <div class="card-body">
+        <img src="{{user.profileImg}}" class="card-img-top" alt="{{user.username}} image">
+        <h5 class="card-title">{{user.username}}</h5>
+        <p class="card-text">{{user.description}}</p>
+
+        {{#if isOwner}}
+        <div class="container d-flex justify-content-center">
+            <form action="/student-edit/{{user._id}}">
+                <input type="submit" value="Editar" class="btn btn-warning btn m-3">
+            </form>
+        </div>
+        {{/if}}
+
+        {{#if isPM}}
+        {{!-- <div class="container d-flex justify-content-center">
+            <form action="/student-edit/{{user._id}}">
+                <input type="submit" value="Editar" class="btn btn-warning btn m-3">
+            </form>
+            <form action="/delete/{{user._id}}" method="POST">
+                <input type="submit" value="Eliminar" class="btn btn-danger btn m-3">
+            </form>
+            <form action="/user/{{user._id}}/promote/STUDENT" method="POST">
+                <input type="submit" value="Go Back to Student" class="btn btn-dark btn m-3">
+            </form>
+            <form action="/user/{{user._id}}/promote/DEV" method="POST">
+                <input type="submit" value="Promote DEV" class="btn btn-success btn m-3">
+            </form>
+            <form action="/user/{{user._id}}/promote/TA" method="POST">
+                <input type="submit" value="Promote TA" class="btn btn-success btn m-3">
+            </form>
+        </div> --}}
+
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-dark">
+                <form action="/student-edit/{{user._id}}">
+                    <input type="submit" value="Editar" class="btn btn-warning btn m-3">
+                </form>
+            </button>
+            <button type="button" class="btn btn-dark">
+                <form action="/delete/{{user._id}}" method="POST">
+                    <input type="submit" value="Eliminar" class="btn btn-danger btn m-3">
+                </form>
+            </button>
+
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Promover
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <form action="/user/{{user._id}}/promote/STUDENT" method="POST">
+                            <input type="submit" value="Go Back to Student" class="btn btn-dark btn m-3">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="/user/{{user._id}}/promote/DEV" method="POST">
+                            <input type="submit" value="Promote DEV" class="btn btn-success btn m-3">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="/user/{{user._id}}/promote/TA" method="POST">
+                            <input type="submit" value="Promote TA" class="btn btn-success btn m-3">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+    <div class="card-footer text-muted">
+        Your role is {{user.role}}
+    </div>
+</div>
