@@ -1,7 +1,15 @@
+const { userIsStaff, userLoggedIn } = require("../middleware/route-guard")
+
 const router = require("express").Router()
 
 router.get("/", (req, res, next) => {
-  res.render("index")
+
+  // const isStaff = userIsStaff(req.session.currentUser)
+
+  res.render("index", {
+    user: req.session.currentUser,
+    // isStaff
+  })
 })
 
 module.exports = router

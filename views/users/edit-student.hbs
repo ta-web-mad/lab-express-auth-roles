@@ -1,0 +1,71 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Editar {{user.username}}</h1>
+            <hr>
+
+            <form action="/students/{{user.id}}/edit" method="POST">
+
+                <input type="hidden" name="user_id" value="{{user.id}}">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">Dirección de email</label>
+                        <input type="email" class="form-control" id="emailInput" name="email" value="{{user.email}}">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                    <input type="text" class="form-control" id="usernameInput" name="username"
+                        value="{{user.username}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="imageInput" name="profileImg"
+                        value="{{user.profileImg}}">
+                    <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3"
+                        name="description">{{user.description}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    {{#if isPM}}
+                    <div class="col">
+                        <label for="role" class="form-label">Rol</label>
+                        {{!-- <input type="password" class="form-control" id="role" name="role"> --}}
+                        <select class="form-select" aria-label="Default select example" name="role">
+                            <option selected>{{user.role}}</option>
+                            <option value="STUDENT">Student</option>
+                            <option value="DEV">Developer</option>
+                            <option value="TA">Teacher Assitant</option>
+                            <option value="PM">Project Manager</option>
+                        </select>
+                    </div>
+                    {{/if}}
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Guardar cambios</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>
