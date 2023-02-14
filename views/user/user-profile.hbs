@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row justify-content-left">
+
+        <h2>{{user.username}}</h2>
+        <hr>
+
+        <div class="col-12 col-lg-4 col-xxl-3">
+            <div class="card text-center mb-3" style="width: 18rem;">
+
+                <img src="{{user.profileImg}}" class="img-thumbnail" alt="profile-img">
+
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-8 col-xxl-9">
+            <br>
+            <h4>Email: {{user.email}}</h4>
+            <h4>Descripción: {{user.description}}</h4>
+            <h4>Rol: {{user.role}}</h4>
+            <hr>
+
+            {{#if rolePM}}
+
+            <div class="row">
+                <div class="col-2">
+                    <a href="/perfil/editar/{{user._id}}" class="btn btn-dark btn-sm">Editar</a>
+                </div>
+
+                <div class="col-10">
+                    <form action="/perfil/eliminar/{{user._id}}" method="POST">
+                        <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                    </form>
+                </div>
+            </div>
+
+            {{/if}}
+
+            {{#if yourProfile}}
+
+            <div class="row">
+                <div class="col-2">
+                    <a href="/perfil/editar/{{user._id}}" class="btn btn-dark btn-sm">Editar</a>
+                </div>
+
+            </div>
+
+            {{/if}}
+
+        </div>
+
+    </div>
+</div>
