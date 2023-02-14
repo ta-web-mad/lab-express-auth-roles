@@ -1,0 +1,24 @@
+<h2>Our students</h2>
+
+
+<div class="row row-cols-3">
+    {{#each student}}
+    <div class="col">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="{{profileImg}}" class="img-fluid rounded m-2" alt="student-image">
+                </div>
+                <div class="col-md-8">
+                    <div class="d-grid card-body">
+                        <h5 class="card-title">{{username}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <a href="/students/{{id}}" class="btn btn-success">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+</div>
