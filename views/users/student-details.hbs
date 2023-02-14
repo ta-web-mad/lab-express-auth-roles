@@ -1,0 +1,83 @@
+<div class="card text-center bg-dark">
+    <div class="card-body">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{student.profileImg}}" class="img-fluid rounded-start" alt="student-image">
+                </div>
+                <div class="col-md-8 d-flex flex-column">
+                    <div class="card-body">
+                        <h5 class="card-title">{{student.username}}</h5>
+                        <p class="card-text">{{student.description}}</p>
+                    </div>
+                    {{#if isVisible}}
+                    <div class="row row-cols-3 mb-1">
+
+                        <div>
+                            <a href="/students/{{student._id}}/edit" class="btn btn-success">Editar</a>
+                        </div>
+
+                        <form action="/students/{{student._id}}/delete" method="post">
+                            <button class="btn btn-success">Eliminar</button>
+                        </form>
+
+                        <form action="/students/{{student._id}}/change-role" method="post" class="d-flex">
+                            <select class="form-select" aria-label="Default select example" name="role">
+
+                                <option selected>{{student.role}}</option>
+                                {{#unless isStud}}
+                                <option value="STUDENT">STUDENT</option>
+                                {{/unless}}
+                                {{#unless isDev}}
+                                <option value="DEV">DEV</option>
+                                {{/unless}}
+                                {{#unless isTa}}
+                                <option value="TA">TA</option>
+                                {{/unless}}
+                                {{#unless isPm}}
+                                <option value="PM">PM</option>
+                                {{/unless}}
+
+                            </select>
+                            <button type="submit" class="btn btn-success">Change</button>
+                        </form>
+                    </div>
+                    {{/if}}
+                    {{#if isOwner}}
+                    <div class="row row-cols-3 mb-1">
+
+                        <div>
+                            <a href="/students/{{student._id}}/edit" class="btn btn-success">Editar</a>
+                        </div>
+
+                        <form action="/students/{{student._id}}/delete" method="post">
+                            <button class="btn btn-success">Eliminar</button>
+                        </form>
+
+                        <form action="/students/{{student._id}}/change-role" method="post" class="d-flex">
+                            <select class="form-select" aria-label="Default select example" name="role">
+
+                                <option selected>{{student.role}}</option>
+                                {{#unless isStud}}
+                                <option value="STUDENT">STUDENT</option>
+                                {{/unless}}
+                                {{#unless isDev}}
+                                <option value="DEV">DEV</option>
+                                {{/unless}}
+                                {{#unless isTa}}
+                                <option value="TA">TA</option>
+                                {{/unless}}
+                                {{#unless isPm}}
+                                <option value="PM">PM</option>
+                                {{/unless}}
+
+                            </select>
+                            <button type="submit" class="btn btn-success">Change</button>
+                        </form>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
