@@ -3,21 +3,43 @@ const Schema = mongoose.Schema;
 
 const courseSchema = new Schema(
   {
-    title: String,
-    leadTeacher: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    startDate: Date,
-    endDate: Date,
-    ta: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    courseImg: String,
-    description: String,
-    status: { type: String, enum: ['ON', 'OFF'], default: 'ON' },
-    students: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+    title: {
+      type: String
+    },
+    leadTeacher:
+      [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }],
+    startDate: {
+      type: Date
+    },
+    endDate: {
+      type: Date
+    },
+    ta: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }],
+    courseImg: {
+      type: String
+    },
+    description: {
+      type: String
+    },
+    status: {
+      type: String,
+      enum: ['ON', 'OFF'],
+      default: 'ON'
+    },
+    students: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }]
   },
   {
     timestamps: true
   }
-);
+)
 
-const Course = mongoose.model('Course', courseSchema);
-
-module.exports = Course;
+module.exports = model('Course', courseSchema)
