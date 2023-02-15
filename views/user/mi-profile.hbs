@@ -1,0 +1,20 @@
+<div class='container'>
+    <div class="position-relative">
+        <div class="position-absolute  start-50 translate-middle">
+            <h1>Mi perfil</h1>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="card mt-4 p-3" style="width: 18rem;">
+            <img src="{{user.profileImg}}" class="card-img-top" alt="foto de perfil">
+            <div class="card-body">
+                <h5 class="card-title">Nombre: {{user.username}}</h5>
+                <p>email: {{user.email}}</p>
+                <p>Descripción: {{user.description}}</p>
+                <p>Role: {{user.role}}</p>
+                <a href="/edit/{{user._id}}" class="btn btn-dark mt-2 d-grid">Editar</a>
+            </div>
+        </div>
+    </div>
+</div>

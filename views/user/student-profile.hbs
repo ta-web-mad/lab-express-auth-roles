@@ -1,0 +1,37 @@
+<div class='container'>
+    <div class="position-relative">
+        <div class="position-absolute  start-50 translate-middle">
+            <h1>Perfil del usuario</h1>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="card mt-4 p-3 m-3" style="width: 18rem;">
+            <img src="{{user.profileImg}}" class="card-img-top" alt="foto de perfil">
+            <div class="card-body">
+                <h5 class="card-title">Nombre: {{user.username}}</h5>
+                <p>email: {{user.email}}</p>
+                <p>Descripción: {{user.description}}</p>
+                <p>Role: {{user.role}}</p>
+               
+                {{#if isPm}}
+
+                <a href="/edit/{{user._id}}" class="btn btn-dark d-grid">Editar</a>
+                <div class='d-flex justify-content-center'>
+                    <form action="/roleTa/{{user._id}}" method="POST">
+                        <input type="submit" value="TA" class="btn btn-dark btn-sm mt-3 m-2">
+                    </form>
+
+                    <form action="/roleDev/{{user._id}}" method="POST">
+                        <input type="submit" value="DEV" class="btn btn-dark btn-sm mt-3 m-2">
+                    </form>
+
+                    <form action="/delete/{{user._id}}" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger btn-sm mt-3 m-2">
+                    </form>
+                </div>
+                <input type="hidden" name="student_id" value="{{_id}}">
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
