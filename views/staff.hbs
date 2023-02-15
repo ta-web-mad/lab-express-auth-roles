@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Estos son todos los estudiantes inscritos</h2>
+    <div class="row">
+        {{#each users}}
+        <div class="card col-3 my-2 mx-2">
+            <img src="{{profileImg}}" class="card-img-top" alt="{{username}}">
+            <div class="card-body">
+                <h5 class="card-title">{{username}}</h5>
+                <a href="/students/{{_id}}" class="btn btn-dark">Ver detalles</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

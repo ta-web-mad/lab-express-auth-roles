@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Student details</h2>
+    <div class="row">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{user.profileImg}}" class="img-fluid rounded-start" alt="{{user.username}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{user.username}}</h5>
+                        <p class="card-text">{{user.description}}</p>
+                        <p class="card-text">{{user.email}}</p>
+                        <p class="card-text"><small class="text-muted">{{user.role}}</small></p>
+                        {{#if isCurrentUser}}
+                        <a href="/students/edit/{{user._id}}" class="btn btn-dark btn-sm">Editar</a>
+                        <form action="/students/delete/{{user._id}}" method="POST">
+                            <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                        </form>
+                        {{/if}}
+                        {{#if isPM}}
+                        <div>
+                            <a href="/students/edit/{{user._id}}" class="btn btn-dark btn-sm">Editar</a>
+                            <form action="/students/delete/{{user._id}}" method="POST">
+                                <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                            </form>
+                        </div>
+                        <div>
+                            <form action="/students/update/{{user._id}}/STUDENT" method="POST">
+                                <input type="submit" value="Make Student" class="btn btn-light btn-sm">
+                            </form>
+                            <form action="/students/update/{{user._id}}/TA" method="POST">
+                                <input type="submit" value="Make TA" class="btn btn-light btn-sm">
+                            </form>
+                            <form action="/students/update/{{user._id}}/DEV" method="POST">
+                                <input type="submit" value="Make DEV" class="btn btn-light btn-sm">
+                            </form>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
