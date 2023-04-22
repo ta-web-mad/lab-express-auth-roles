@@ -8,9 +8,10 @@ const userSchema = new Schema(
     profileImg: { type: String, default: 'https://i.stack.imgur.com/l60Hf.png' },
     description: { type: String, default: 'No existe descripción.' }, 
     roles: { 
-      type: String
+      type: String,
+      enum: ["STUDENT", "DEV", "TA", "PM"],
+      default: 'STUDENT'
     }
-    // add roles setup here
   },
   {
     timestamps: true
