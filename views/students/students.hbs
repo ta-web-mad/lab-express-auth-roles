@@ -1,0 +1,14 @@
+<h1> List of Students </h1>
+
+{{#each students}}
+
+  <p>Nombre de usuario: {{username}}</p>
+  <p>Email: {{email}}</p>
+  <p>Imagen de perfil:</p>
+  <img src="{{profileImg}}" alt="Imagen de perfil" />
+  <p>Descripción: {{description}}</p>
+
+<a href="/students/{{_id}}">Ver perfil</a>
+  <hr />
+
+{{/each}}
