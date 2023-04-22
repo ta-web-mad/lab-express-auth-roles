@@ -36,16 +36,28 @@ router.get("/:id/edit", async (req, res, next) => {
 router.post("/:id/edit", async (req, res, next) => {
   try {
     const user = req.body;
+    console.log(user);
     if (user.userPwd) {
+      bcrypt
+        .genSalt(saltRounds)
+        .then((salt) => bcrypt.hash(user.userPwd, salt))
+        .then(async (hashedPassword) => {
+          await Users.findByIdAndUpdate(req.params.id, {
+            ...user,
+            password: hashedPassword,
+          });
+          res.redirect("/");
+        });
     }
-    bcrypt
-      .genSalt(saltRounds)
-      .then((salt) => bcrypt.hash(userPwd, salt))
-      .then((hashedPassword) =>
-        User.findOneandUpdate({ ...req.body, password: hashedPassword })
-      )
-      .then(() => res.redirect("/studens"))
-      .catch((error) => next(error));
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.get("/:id/delete", async (req, res, next) => {
+  try {
+    await Users.findByIdAndDelete(req.params.id);
+    res.redirect("/");
   } catch (e) {
     next(e);
   }
