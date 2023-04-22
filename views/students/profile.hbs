@@ -9,6 +9,12 @@
   <p>Imagen de perfil:</p>
   <img src="{{profileImg}}" alt="Imagen de perfil" />
   <p>Descripción: {{description}}</p>
-
-
+{{#if ../canEdit}}
+  <a href="/students/{{_id}}/edit">Edit</a>
+{{/if}}
+{{#if ../canDelete}}
+  <form action="/students/{{_id}}/delete" method="post">
+    <button type="summit">🗑️</button>
+  </form>
+{{/if}}
 {{/with}}
