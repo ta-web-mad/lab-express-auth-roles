@@ -16,11 +16,13 @@ router.get("/", isLoggedIn, async (req, res, next) => {
 router.get("/:id", isLoggedIn, async (req, res, next) => {
   try {
     const user = await Users.findById(req.params.id);
+    console.log(req.session);
     res.render("userDetails", {
       user,
       canEdit:
         req.session.currentUser &&
-        ["PM"].includes(req.session.currentUser.role),
+        (["PM"].includes(req.session.currentUser.role) ||
+          req.session.currentUser.email == user.email),
       canDelete:
         req.session.currentUser &&
         ["PM"].includes(req.session.currentUser.role),
@@ -32,12 +34,23 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
 
 router.get(
   "/:id/edit",
-  [isLoggedIn, checkRole(["PM"])],
+  [isLoggedIn, checkRole(["PM", "STUDENT"])],
   async (req, res, next) => {
     try {
       const user = await Users.findById(req.params.id);
-      console.log(user);
-      res.render("auth/form-edit", { user });
+      if (
+        user.email == req.session.currentUser.email ||
+        req.session.currentUser.role == "PM"
+      ) {
+        res.render("auth/form-edit", {
+          user,
+          canEditPM:
+            req.session.currentUser &&
+            ["PM"].includes(req.session.currentUser.role),
+        });
+      } else {
+        res.render("auth/login", { errorMessage: "No tienes permisos." });
+      }
     } catch (error) {
       next(error);
     }
@@ -46,11 +59,10 @@ router.get(
 
 router.post(
   "/:id/edit",
-  [isLoggedIn, checkRole(["PM"])],
+  [isLoggedIn, checkRole(["PM", "STUDENT"])],
   async (req, res, next) => {
     try {
       const user = req.body;
-      console.log(user);
       if (user.userPwd) {
         bcrypt
           .genSalt(saltRounds)
@@ -62,6 +74,11 @@ router.post(
             });
             res.redirect("/");
           });
+      } else {
+        await Users.findByIdAndUpdate(req.params.id, {
+          ...req.body,
+        });
+        res.redirect("/");
       }
     } catch (e) {
       next(e);

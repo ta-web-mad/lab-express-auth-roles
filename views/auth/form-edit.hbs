@@ -66,6 +66,16 @@
             name="description"
           >{{user.description}}</textarea>
         </div>
+        {{#if canEditPM}}
+          <div class="mb-3">
+            <label for="roleInput" class="form-label">Role:</label>
+            <select name="role">
+              <option value="STUDENT">Student</option>
+              <option value="DEV">Dev</option>
+              <option value="TA">TA</option>
+            </select>
+          </div>
+        {{/if}}
 
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-dark block">Actualizar registro</button>
