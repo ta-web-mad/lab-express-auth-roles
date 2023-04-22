@@ -5,5 +5,10 @@
 <p>Role: {{this.role}}</p>
 <p>Image: </p><img src="{{this.profileImg}}"> 
 <p>Description: {{this.description}}</p>
- 
+{{#if ../canDelete}}
+ <a href="/students/{{this._id}}/delete">Delete</a>
+{{/if}}
+{{#if ../canEdit}}
+ <a href="/students/{{this._id}}/edit">Edit</a>
+{{/if}}
 {{/with}}
