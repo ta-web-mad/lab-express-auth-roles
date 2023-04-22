@@ -2,8 +2,6 @@
 // https://www.npmjs.com/package/dotenv
 require("dotenv/config");
 
-//holita
-
 // ℹ️ Connects to the database
 require("./db");
 
