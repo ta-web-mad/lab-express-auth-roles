@@ -1,0 +1,6 @@
+<h2>Students list</h2>
+{{#each students}}
+{{this.username}}
+<a href="/students/{{this._id}}">View student profile</a>
+<br>
+{{/each}}
