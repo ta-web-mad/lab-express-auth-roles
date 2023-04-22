@@ -1,5 +1,4 @@
-module.exports = app => {
-
+module.exports = (app) => {
   // Base routes
   const indexRouter = require("./index.routes");
   app.use("/", indexRouter);
@@ -9,7 +8,6 @@ module.exports = app => {
   app.use("/", authRouter);
 
   //STUDENT
-  const indexStudent = require('./students.routes');
-  app.use("/students", indexStudent);
-
-}
+  const indexStudent = require("./users.routes");
+  app.use("/users", indexStudent);
+};
