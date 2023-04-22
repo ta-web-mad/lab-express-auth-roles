@@ -7,11 +7,16 @@ const userSchema = new Schema(
     password: String,
     profileImg: {
       type: String,
-      default: "https://i.stack.imgur.com/l60Hf.png",
+      default:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRYrnSJeMTj5XCUfbCvZ43CMY-ZU2Y23nmZvKZjE-thA&s",
     },
     description: { type: String, default: "No existe descripción." },
     // add roles setup here
-    roles: { type: String, enum: ["STUDENT", "TA", "DEV", "PM"] },
+    roles: {
+      type: String,
+      enum: ["STUDENT", "TA", "DEV", "PM"],
+      default: "STUDENT",
+    },
   },
   {
     timestamps: true,
