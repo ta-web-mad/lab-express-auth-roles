@@ -58,7 +58,7 @@ router.get("/students/:id", isLoggedIn, async (req, res, next) => {
   res.render("Users/student-detail", {
     student,
     canEdit:
-      req.session.currentUser && ["PM"].includes(req.session.currentUser.role),
+      req.session.currentUser && ["STUDENT", "DEV", "TA", "PM"].includes(req.session.currentUser.role),
     canDelete:
       req.session.currentUser && ["PM"].includes(req.session.currentUser.role),
   });
@@ -66,7 +66,7 @@ router.get("/students/:id", isLoggedIn, async (req, res, next) => {
 
 router.get(
   "/students/:id/edit",
-  [isLoggedIn, checkRole("PM")],
+  [isLoggedIn, checkRole(["STUDENT", "DEV", "TA", "PM"])],
   async (req, res, next) => {
     const { id } = req.params;
     const student = await User.findById(id);
@@ -76,7 +76,7 @@ router.get(
 
 router.post(
   "/students/:id/edit",
-  [isLoggedIn, checkRole("PM")],
+  [isLoggedIn, checkRole(["STUDENT", "DEV", "TA", "PM"])],
   async (req, res, next) => {
     const { id } = req.params;
     await User.findByIdAndUpdate(id, req.body);
