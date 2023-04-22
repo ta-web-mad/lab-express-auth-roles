@@ -1,0 +1,29 @@
+<h2>Update student</h2>
+{{#with student}}
+<form action="/students/{{_id}}/edit" method="POST">
+  <div>
+    <label for="username">Name: </label>
+    <input type="text" value="{{username}}" name="name">
+  </div>
+
+  <div>
+    <label for="email">Email: </label>
+    <input type="email" value="{{email}}" name="email">
+  </div>
+
+  <div>
+    <label for="profileImg">Image: </label>
+    <input type="text" value="{{profileImg}}" name="profileImg">
+  </div>
+
+  <div>
+    <label for="description">Description: </label>
+    <input type="text" value="{{description}}" name="description">
+  </div>
+
+  <button type="submit">Edit</button>
+</form>
+
+<a href="/students/{{_id}}">Go back</a>
+
+{{/with}}

@@ -1,9 +1,22 @@
 <h2>details</h2>
 {{#with student}}
-<p>{{username}}</p>
-<p>{{email}}</p>
-<img src="{{profileImg}}"with="200" height="200">
-<p>{{description}}</p>
-<form action="/students">
-<button type ="submit">students list</button></form>
+  <p>{{username}}</p>
+  <p>{{email}}</p>
+  <img src="{{profileImg}}" with="200" height="200" />
+  <p>{{description}}</p>
+
+{{#if ../canEdit}}
+  <form action="/students/{{_id}}/edit" method="get">
+    <button type="submit">Edit student</button>
+  </form>
+{{/if}}
+
+{{#if ../canDelete}}
+  <form action="/students/{{_id}}/delete" method="post">
+  <button type="submit">Delete student</button>
+  </form>
+{{/if}}
+  <form action="/students">
+    <button type="submit">Students list</button>
+  </form>
 {{/with}}
