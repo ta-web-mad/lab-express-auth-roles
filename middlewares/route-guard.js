@@ -7,4 +7,16 @@ const isLoggedIn = (req, res, next) => {
   }
 };
 
-module.exports = { isLoggedIn }
+const checkRole =
+  (roles = []) =>
+  (req, res, next) => {
+    console.log(roles);
+    console.log(req.session.currentUser);
+    if (roles.includes(req.session.currentUser.role)) {
+      next();
+    } else {
+      res.render("auth/login", { errorMessage: "No tiene permisos" });
+    }
+  };
+
+module.exports = { isLoggedIn, checkRole };
