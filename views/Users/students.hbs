@@ -1,0 +1,9 @@
+<h2>students list</h2>
+{{#each students}}
+<p>{{username}}</p>
+
+<form action="/students/{{_id}}">
+<button type ="submit">view details</button></form>
+{{/each}}
+
+

@@ -2,6 +2,8 @@ const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
+const {isLoggedIn, isLoggedOut} = require ("../middleware/route-guard");
+
 
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
@@ -42,6 +44,15 @@ router.post('/iniciar-sesion', (req, res, next) => {
     .catch(error => next(error))
 })
 
+router.get("/students", isLoggedIn, async (req, res, next)=> {
+  const students = await User.find();
+  res.render("Users/students", {students})
+});
+ router.get("/students/:id", isLoggedIn, async (req, res, next) => {
+  const { id } = req.params;
+  const student = await User.findById(id);
+  res.render("Users/student-detail", {student})
+ });
 
 // Logout
 router.post('/cerrar-sesion', (req, res, next) => {
