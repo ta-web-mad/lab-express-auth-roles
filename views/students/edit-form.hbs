@@ -34,6 +34,16 @@
                   <textarea class="form-control"  id="descriptionInput" rows="3" name="description">{{student.description}}</textarea>
                 </div>
 
+                <div class="mb-3">
+                    <label for="role" class="form-label">Rol</label>
+                    <select class="form-select" name="role">
+                        <option value="{{user.role}}">Seleccionar...</option>
+                        <option value="STUDENT">STUDENT</option>
+                        <option value="DEV">DEV</option>
+                        <option value="TA">TA</option>
+                    </select>
+                </div>
+                
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark block">Actualizar registro</button>
                 </div>
@@ -45,6 +55,7 @@
                 {{/if}}
 
             </form>
+            
         </div>
     </div>
 
