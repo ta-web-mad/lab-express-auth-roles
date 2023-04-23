@@ -3,13 +3,18 @@ body {
   font-family: sans-serif;
 }
 
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 200;
 }
 
 .navbar {
   margin-bottom: 80px;
+}
+
+.nav-link-hidden {
+  display: none;
 }
 
 .navbar form button {
@@ -28,15 +33,13 @@ h1, h2, h3 {
   animation: showFromBottom 6s forwards;
 }
 
-
-@keyframes  showFromBottom {
+@keyframes showFromBottom {
   0% {
-    bottom: -50px
+    bottom: -50px;
   }
 
   10% {
     bottom: 10px;
-
   }
 
   90% {
@@ -44,6 +47,6 @@ h1, h2, h3 {
   }
 
   100% {
-    bottom: -50px
+    bottom: -50px;
   }
 }
