@@ -52,6 +52,7 @@ router.get("/students", isLoggedIn, async (req, res, next) => {
   const students = await User.find();
   res.render("Users/students", { students });
 });
+
 router.get("/students/:id", isLoggedIn, async (req, res, next) => {
   const { id } = req.params;
   const student = await User.findById(id);
@@ -70,7 +71,17 @@ router.get(
   async (req, res, next) => {
     const { id } = req.params;
     const student = await User.findById(id);
-    res.render("Users/update-form", { student });
+    if (
+      student.email == req.session.currentUser.email ||
+      req.session.currentUser.role == "PM"
+    ) {
+      res.render("Users/update-form", {
+        student,
+        canChangeRole:
+          req.session.currentUser &&
+          ["PM"].includes(req.session.currentUser.role),
+      });
+    }
   }
 );
 

@@ -1,4 +1,4 @@
-<h2>details</h2>
+<h2>Details</h2>
 {{#with student}}
   <p>{{username}}</p>
   <p>{{email}}</p>
@@ -16,7 +16,5 @@
   <button type="submit">Delete student</button>
   </form>
 {{/if}}
-  <form action="/students">
-    <button type="submit">Students list</button>
-  </form>
+  <a href="/students">Students list</a>
 {{/with}}
