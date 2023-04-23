@@ -1,7 +1,11 @@
 const router = require("express").Router();
 const express = require("express");
 const User = require("../models/User.model");
-const { isLoggedIn, checkRole } = require("../middlewares/route-guard");
+const {
+  isLoggedIn,
+  checkRole,
+  profilePermise,
+} = require("../middlewares/route-guard");
 
 router.get("/", async (req, res, next) => {
   const students = await User.find();
@@ -14,7 +18,10 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
   res.render("students/profile", {
     profile,
     canEdit:
-      req.session.currentUser && ["PM"].includes(req.session.currentUser.role),
+      (req.session.currentUser &&
+        ["PM"].includes(req.session.currentUser.role)) ||
+      req.session.currentUser._id === id,
+
     canDelete:
       req.session.currentUser && ["PM"].includes(req.session.currentUser.role),
   });
