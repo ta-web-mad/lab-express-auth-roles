@@ -34,6 +34,22 @@
                   <label for="descriptionInput" class="form-label">Descripción</label>
                   <textarea class="form-control" id="descriptionInput" rows="3" name="description" value="{{student.description}} "></textarea>
                 </div>
+                
+                {{#if ../canChangeRole}}
+                <div class="mb-3">
+                  <label for="roleInput" class="form-label">Role
+                    <select name="role" value="{{student.role}}">
+                        <option value="STUDENT">STUDENT</option>
+                        <option value="DEV">DEV</option>
+                        <option value="TA">TA</option>
+                        <option value="PM">PM</option>
+                    </select>
+                  </label>
+                  
+                  
+                </div>
+
+                {{/if}}
 
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark block">Completar Edición</button>
