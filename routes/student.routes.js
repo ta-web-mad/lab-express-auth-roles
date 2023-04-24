@@ -21,7 +21,6 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
       (req.session.currentUser &&
         ["PM"].includes(req.session.currentUser.role)) ||
       req.session.currentUser._id === id,
-
     canDelete:
       req.session.currentUser && ["PM"].includes(req.session.currentUser.role),
   });
@@ -37,7 +36,7 @@ router.get(
   }
 );
 
-router.post("/:id/edit", async (req, res, next) => {
+router.post("/:id/edit", checkRole(["PM"]), async (req, res, next) => {
   const { id } = req.params;
   await User.findByIdAndUpdate(id, req.body);
   // res.redirect("/students/" + id);
