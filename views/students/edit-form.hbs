@@ -35,6 +35,7 @@
                 </div>
 
                 <div class="mb-3">
+                  {{#if canEditPM}}
                     <label for="role" class="form-label">Rol</label>
                     <select class="form-select" name="role">
                         <option value="{{user.role}}">Seleccionar...</option>
@@ -42,6 +43,7 @@
                         <option value="DEV">DEV</option>
                         <option value="TA">TA</option>
                     </select>
+                   {{/if}}
                 </div>
                 
                 <div class="d-grid gap-2">

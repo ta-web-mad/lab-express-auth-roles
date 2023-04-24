@@ -32,7 +32,10 @@ router.get(
   async (req, res, next) => {
     const { id } = req.params;
     const student = await User.findById(id);
-    res.render("students/edit-form", { student });
+    res.render("students/edit-form", {
+      student,
+      canEditPM: ["PM"].includes(req.session.currentUser.role),
+    });
   }
 );
 
