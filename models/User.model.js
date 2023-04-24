@@ -7,13 +7,12 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-      validate: {
-        validator: function (v) {
-          return /^(?=.*\d).{8,}$/.test(v);
-        },
-        message: "Password must have at least 8 characters and 1 number",
-      },
+      match: [
+        /^(?=.*[A-Z]).{8}$/,
+        "Password needs to have at least 8 chars and must contain one number.",
+      ],
     },
+
     role: {
       type: String,
       enum: ["STUDENT", "DEV", "TA", "PM"],

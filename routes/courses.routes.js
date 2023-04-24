@@ -41,7 +41,8 @@ router.get("/:id", async (req, res, next) => {
 router.get("/:id/edit", async (req, res, next) => {
   try {
     const course = await Course.findById(req.params.id);
-    res.render("courses/edit-course", { course });
+    const dbUsers = await User.find();
+    res.render("courses/edit-course", { course, dbUsers });
   } catch (error) {
     res.render("error", { error });
   }

@@ -60,14 +60,17 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="students"> Students:
-                            <select name="lead-teacher">
-                            <option disable selected value=""></option>
-                            {{#each dbUsers}}
-                            <option value="{{_id}}"> {{username}} </option>
-                            {{/each}}
-                            </select>
-                        </label>
+                  <label for="students" name="students"> Students:
+                    <br>
+                        {{#each dbUsers}}
+                        <div>
+                        <input type="checkbox" name="students" value="{{_id}}">
+                        <label for="students">{{username}}</label>
+                        <br>
+                        </div>
+                        {{/each}}
+
+                 </label>
 
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark block">Registrar curso</button>
