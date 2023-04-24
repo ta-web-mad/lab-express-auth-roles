@@ -9,7 +9,7 @@ const {
 router.get("/", isLoggedIn, async (req, res, next) => {
   try {
     const students = await User.find();
-    res.render("students", { students });
+    res.render("users/students", { students });
   } catch (error) {
     res.render("error", { error });
   }
@@ -18,7 +18,7 @@ router.get("/", isLoggedIn, async (req, res, next) => {
 router.get("/:id", isLoggedIn, async (req, res, next) => {
   try {
     const student = await User.findById(req.params.id);
-    res.render("user-profile", {
+    res.render("users/user-profile", {
       student,
       canDelete:
         req.session.currentUser &&
@@ -51,7 +51,7 @@ router.get("/:id/edit", async (req, res, next) => {
     ) {
       try {
         const student = await User.findById(req.params.id);
-        res.render("student-edit", { student });
+        res.render("users/student-edit", { student });
       } catch (error) {
         res.render("error", { error });
       }
