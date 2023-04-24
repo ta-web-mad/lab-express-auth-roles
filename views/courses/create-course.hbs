@@ -1,0 +1,89 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Crear curso</h1>
+            <hr>
+
+            <form action="/courses/create" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="title" class="form-label">Course title</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                    <div class="col">
+                        <label for="lead-teacher-select"> Lead teacher:
+                            <select name="lead-teacher">
+                            <option disable selected value=""></option>
+                            {{#each dbUsers}}
+                            <option value="{{_id}}"> {{username}} </option>
+                            {{/each}}
+                            </select>
+                        </label>
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate">
+                </div>
+
+                 <div class="mb-3">
+                    <label for="endDate" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="courseImg" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="image" name="courseImg">
+                    <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="description" class="form-label">Descripción</label>
+                  <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="status" class="form-label">Status</label>
+                            <select name="status">
+                            <option disable selected value=""></option>
+                            <option value="ON">ON</option>
+                            <option value="OFF">OFF</option>
+                            </select>
+                        </label>
+                </div>
+
+                <div class="mb-3">
+                  <label for="students" name="students"> Students:
+                    <br>
+                        {{#each dbUsers}}
+                        <div>
+                        <input type="checkbox" name="students" value="{{_id}}">
+                        <label for="students">{{username}}</label>
+                        <br>
+                        </div>
+                        {{/each}}
+
+                 </label>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Registrar curso</button>
+                </div>
+                
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>

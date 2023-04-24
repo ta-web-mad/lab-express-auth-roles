@@ -1,0 +1,17 @@
+{{#with student}}
+<h2>{{this.username}}'s profile</h2>
+<p>Username: {{this.username}}</p>
+<p>eMail: {{this.email}}</p>
+<p>Role: {{this.role}}</p>
+<p>Image: </p><img src="{{this.profileImg}}"> 
+<p>Description: {{this.description}}</p>
+{{#if ../canDelete}}
+
+<form action="/students/{{_id}}/delete" method="post">
+    <button type="submit">🗑</button>
+</form>
+{{/if}}
+{{#if ../canEdit}}
+ <a href="/students/{{this._id}}/edit">Edit</a>
+{{/if}}
+{{/with}}

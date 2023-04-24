@@ -1,0 +1,21 @@
+{{#with course}}
+<h2>{{this.title}}'s info</h2>
+<p>Title: {{this.title}}</p>
+<p>Lead Teacher: {{this.leadTeacher}}</p>
+<p>Start Date: {{this.startDate}}</p>
+<p>End Date: {{this.endDate}}</p>
+<p>TA: {{this.ta}}</p>
+<p>Description: {{this.description}}</p>
+<p>Status: {{this.status}}</p>
+<p>Students: {{this.students}}</p>
+
+
+{{#if ../canDelete}}
+ <form action="/courses/{{_id}}/delete" method="post">
+    <button type="submit">🗑</button>
+</form>
+{{/if}}
+{{#if ../canEdit}}
+ <a href="/courses/{{this._id}}/edit">Edit</a>
+{{/if}}
+{{/with}}
