@@ -1,11 +1,17 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User.model");
-const isLoggedIn = require("../middlewares/login-roles");
+const {
+  isLoggedIn,
+  isLoggedOut,
+  checkRole,
+} = require("../middlewares/login-roles");
 const saltRounds = 10;
 
 // Signup
-router.get("/registro", (req, res, next) => res.render("auth/signup"));
+router.get("/registro", isLoggedOut, (req, res, next) =>
+  res.render("auth/signup")
+);
 router.post("/registro", (req, res, next) => {
   const { userPwd } = req.body;
 
@@ -38,7 +44,7 @@ router.post("/iniciar-sesion", (req, res, next) => {
         return;
       } else {
         req.session.currentUser = user;
-        res.redirect("/");
+        res.redirect("/students");
       }
     })
     .catch((error) => next(error));
@@ -46,13 +52,52 @@ router.post("/iniciar-sesion", (req, res, next) => {
 
 router.get("/students", isLoggedIn, async (req, res, next) => {
   const users = await User.find();
-  res.render("students/list", { users });
+  console.log(
+    "Can edit and delete",
+    req.session.currentUser && ["PM"].includes(req.session.currentUser.roles)
+  );
+  res.render("students/list", {
+    users,
+    isPM:
+      req.session.currentUser && ["PM"].includes(req.session.currentUser.roles),
+  });
 });
 
-router.get("/student/:studentId", isLoggedIn, async (req, res, next) => {
+router.get("/student/:studentId", async (req, res, next) => {
   const student = await User.findById(req.params.studentId);
   res.render("students/details", { student });
 });
+
+router.get(
+  "/student/:studentId/edit",
+  [isLoggedIn, checkRole(["PM"])],
+  async (req, res, next) => {
+    const student = await User.findById(req.params.studentId);
+    res.render("students/update-form", { student });
+  }
+);
+
+router.post(
+  "/student/:studentId/edit",
+  [isLoggedIn, checkRole(["PM"])],
+  async (req, res, next) => {
+    const student = await User.findByIdAndUpdate(
+      req.params.studentId,
+      req.body
+    );
+    res.redirect("/students");
+  }
+);
+
+router.post(
+  "/student/:studentId/delete",
+  isLoggedIn,
+  async (req, res, next) => {
+    const { id } = req.params;
+    await User.findByIdAndDelete(id);
+    res.redirect("/students");
+  }
+);
 
 // Logout
 router.post("/cerrar-sesion", (req, res, next) => {
