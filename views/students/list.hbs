@@ -1,0 +1,16 @@
+<div class="users">
+  {{#each users}}
+    <h2>
+      Hi
+      {{username}}
+    </h2>
+    La imagen de homero
+    <img src="{{profileImg}}" />
+    <p>
+      {{description}}
+    </p>
+    <a href="/student/{{_id}}">
+      <button>View student details</button>
+    </a>
+  {{/each}}
+</div>

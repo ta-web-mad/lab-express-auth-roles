@@ -1,0 +1,17 @@
+<form action="/students/{{id}}/edit" method="POST">
+  <input type="hidden" name="_method" value="EDIT">
+  <label for="username">Username</label>
+  <input type="text" name="username" value="{{username}}">
+  <label for="email">Email</label>
+  <input type="text" name="email" value="{{email}}">
+  <label for="description">Description</label>
+  <input type="text" name="description" value="{{description}}">
+  <label for="password">Password</label>
+  <input type="password" name="password" value="">
+  <label for="roles">Rol</label>
+  <select name="roles">
+    <option value="TA">TA</option>
+    <option value="DEV">DEV</option>
+    <option value="PM">PM</option>
+  </select>
+  <button type="submit">Editar</button>
