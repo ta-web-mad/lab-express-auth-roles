@@ -1,7 +1,11 @@
 const router = require("express").Router();
 const express = require("express");
 const User = require("../models/User.model");
-const { isLoggedIn, checkRole } = require("../middlewares/route-guard");
+const {
+  isLoggedIn,
+  checkRole,
+  profilePermise,
+} = require("../middlewares/route-guard");
 
 router.get("/", async (req, res, next) => {
   const students = await User.find();
