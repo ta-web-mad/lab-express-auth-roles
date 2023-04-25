@@ -7,7 +7,11 @@ module.exports = (app) => {
   const authRouter = require("./auth.routes");
   app.use("/", authRouter);
 
-  //STUDENT
+  // Users routes
   const indexStudent = require("./users.routes");
   app.use("/users", indexStudent);
+
+  // Course routes
+  const indexCourse = require("./courses.routes");
+  app.use("/courses", indexCourse);
 };
