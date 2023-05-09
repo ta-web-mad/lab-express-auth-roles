@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>Holi {{student.username}}</h1>
+    <p>{{student._id}}</p>
+    {{#if isPM }}
+    <p>ASDFGHJKL</p>
+    <a href="#" class="btn btn-danger">Delete</a>
+    <a href="/students/{{student._id}}/edit" class="btn btn-warning">Edit</a>
+    {{/if}}
+</div>
