@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Staff</h2>
+    <hr>
+
+
+    <div class="row justify-content-center">
+
+        {{#each staff}}
+
+        <div class="mb-4 col-12 col-md-6 col-lg-4">
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{profileImg}}" class="card-img-top mt-2" alt="User image">
+                <div class="card-body">
+                    <h5 class="card-title">{{username}}</h5>
+                    <p>{{role}}</p>
+                    <a href="/staff/{{_id}}" class="btn btn-info">View profile</a>
+                </div>
+            </div>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="mb-4 col-8">
+
+            <h2>{{student.username}}</h2>
+            <hr>
+
+            <img src="{{student.profileImg}}" alt="User image" class="profileImg">
+
+            <h5 class="card-text">{{student.description}}</h5>
+
+            <p>Email: {{student.email}}</p>
+
+            <p>Role: {{student.role}}</p>
+
+
+            {{#if isUserProfile}}
+            <hr>
+
+            <div class="row">
+                <div class="col-2">
+                    <a href="/students/edit/{{student._id}}" class="btn btn-warning mb-2">Edit profile</a>
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if isPM}}
+
+            <hr>
+
+            <div class="row">
+                <div class="col-2">
+                    <a href="/students/edit/{{student._id}}" class="btn btn-warning mb-2">Edit profile</a>
+                </div>
+
+                <div class="col-2">
+                    <form action="/students/delete/{{student._id}}" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-2">
+                    <form action="/students/TA/{{student.role}}/{{student._id}}" method="POST">
+                        <input type="submit" value="Mark as TA" class="btn btn-secondary">
+                    </form>
+                </div>
+
+                <div class="col-2">
+                    <form action="/students/DEV/{{student._id}}" method="POST">
+                        <input type="submit" value="Mark as Developer" class="btn btn-secondary">
+                    </form>
+                </div>
+            </div>
+
+            {{/if}}
+
+
+        </div>
+    </div>
+
+
+</div>

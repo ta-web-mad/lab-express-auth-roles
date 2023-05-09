@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Courses</h2>
+    <hr>
+
+    <div class="row justify-content-center">
+
+        {{#each course}}
+
+        <div class="mb-4 col-12 col-md-6 col-lg-4">
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{courseImg}}" class="card-img-top mt-2" alt="User image">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p>{{startDate}} / {{endDate}}</p>
+                    <a href="/courses/{{_id}}" class="btn btn-info">View course</a>
+                </div>
+            </div>
+
+        </div>
+
+        {{/each}}
+
+
+        {{#if isTA}}
+
+        <div class="d-grid gap-2">
+            <a href="/courses/create" class="btn btn-dark">Create new course</a>
+        </div>
+
+        {{/if}}
+
+    </div>
+</div>

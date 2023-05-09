@@ -1,0 +1,56 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="mb-4 col-8">
+
+            <h2>{{staff.username}}</h2>
+            <hr>
+
+            <img src="{{staff.profileImg}}" alt="User image" class="profileImg">
+
+            <h5 class="card-text">{{staff.description}}</h5>
+
+            <p>Email: {{staff.email}}</p>
+
+            <p>Role: {{staff.role}}</p>
+
+            {{#if isPM}}
+
+            <hr>
+
+            <div class="row">
+                <div class="col-2">
+                    <a href="/staff/edit/{{staff._id}}" class="btn btn-warning mb-2">Edit profile</a>
+                </div>
+
+                <div class="col-2">
+                    <form action="/staff/delete/{{staff._id}}" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-2">
+                    <form action="/staff/TA/{{staff._id}}" method="POST">
+                        <input type="submit" value="Mark as TA" class="btn btn-secondary">
+                    </form>
+                </div>
+
+                <div class="col-2">
+                    <form action="/staff/DEV/{{staff._id}}" method="POST">
+                        <input type="submit" value="Mark as Developer" class="btn btn-secondary">
+                    </form>
+                </div>
+            </div>
+
+            {{/if}}
+
+        </div>
+
+    </div>
+
+
+</div>
