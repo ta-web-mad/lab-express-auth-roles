@@ -1,0 +1,75 @@
+<div class="container p-5">
+    <div class="row justify-content-center">
+
+        <div class="col-md-6 p-4">
+            <h2>Edit {{course.title}}</h2>
+            <form class="row g-3" action="/courses/{{course.id}}/edit" method="POST">
+                <div class="col-12">
+                    <label for="title" class="form-label">Title</label>
+                    <input value="{{course.title}}" name="title" type="text" title="title" class="form-control"
+                        id="title">
+                </div>
+                <div class="col-12">
+                    <label for="leadTeacher" class="form-label">Lead teacher:</label>
+                    <select id="leadTeacher" name="leadTeacher" class="form-select" multiple
+                        aria-label="multiple select example">
+                        {{#each leadTeacher}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="startDate" class="form-label">Start date:</label>
+                    <input value="{{course.startDate}}" type="date" name="startDate" class="form-control"
+                        id="startDate">
+                </div>
+                <div class="col-md-6">
+                    <label for="endDate" class="form-label">End date:</label>
+                    <input value="{{course.endDate}}" type="date" name="endDate" class="form-control" id="endDate">
+                </div>
+                <div class="col-12">
+                    <label for="ta" class="form-label">Ta:</label>
+                    <select id="ta" name="ta" class="form-select" multiple aria-label="multiple select example">
+                        {{#each ta}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="students" class="form-label">Students:</label>
+                    <select id="students" name="students" class="form-select" multiple
+                        aria-label="multiple select example">
+                        {{#each students}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea value="{{course.description}}" type="text" name="description" class="form-control"
+                        id="description">{{course.description}}</textarea>
+
+                </div>
+                <div class="col-md-12">
+                    <label for="courseImg" class="form-label">Course img:</label>
+                    <input value="{{course.courseImg}}" type="text" name="courseImg" class="form-control"
+                        id="courseImg">
+                </div>
+                <div class="col-6">
+                    <label for="status" class="form-label">Status:</label>
+                    <select id="status" name="status" class="form-select" aria-label="multiple select example">
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success">Update
+                        </button>
+                        <a class="btn btn-dark" href="/courses/{{course.id}}">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

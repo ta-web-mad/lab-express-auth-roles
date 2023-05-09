@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <h1 class="text-center">Courses list</h1>
+        <div class="row">
+
+            {{#each courses}}
+            <div class="col-3 py-3">
+
+                <div class="card pt-3" style="width: 18rem;">
+                    <img class="card-img-top user-photo-details" src="{{courseImg}}" alt="{{title}} profile photo">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <div class="d-grid gap-2">
+                            <a href="/courses/{{_id}}" class="btn btn-dark">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {{/each}}
+            {{#if role.isTA}}
+            <div class="my-3 d-flex justify-content-center align-items-center">
+                <h3 class="my-2">Do you want add a new course?</h3>
+                <a href="/courses/create" class="btn btn-success mx-3">Add course</a>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

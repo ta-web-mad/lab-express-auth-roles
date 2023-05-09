@@ -1,20 +1,36 @@
+img {
+  width: 100%;
+  object-fit: contain;
+}
+
+
 body {
   font-weight: 200;
   font-family: sans-serif;
 }
 
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 200;
 }
 
 .navbar {
-  margin-bottom: 80px;
+  margin-bottom: 30px;
 }
 
 .navbar form button {
   background: transparent;
   border: none;
+}
+
+.user-photo {
+  height: 200px;
+}
+
+.user-photo-details {
+  height: 500px;
 }
 
 #errorMessage {
@@ -29,7 +45,7 @@ h1, h2, h3 {
 }
 
 
-@keyframes  showFromBottom {
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }

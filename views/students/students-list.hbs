@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <h1 class="text-center">Students list</h1>
+        <div class="row">
+
+            {{#each students}}
+            <div class="col-3 py-3">
+
+                <div class="card pt-3" style="width: 18rem;">
+                    <img class="card-img-top user-photo" src="{{profileImg}}" alt="{{username}} profile photo">
+                    <div class="card-body">
+                        <h5 class="card-title">{{username}}</h5>
+                        <p class="card-text">{{description}}</p>
+                        <div class="d-grid gap-2">
+                            <a href="/students/{{_id}}" class="btn btn-dark">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
