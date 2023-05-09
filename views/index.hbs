@@ -4,5 +4,24 @@
   <hr>
   <p>La plataforma de aprendizaje de IronHack</p>
   <p>Ahora con MÁS seguridad!</p>
-  
+
+  {{!-- {{#each students}} --}}
+
+  {{#if isPM}}
+
+  <a href="/students/students-list" class="btn btn-dark">Students List</a>
+
+  {{/if}}
+
+  {{#if isDEV}}
+
+  <a href="/students/students-list" class="btn btn-dark">Students List</a>
+
+  {{/if}}
+
+  {{#if isSTUDENT}}
+  <a href="/students/profile/{{id}}" class="btn btn-info">Go to your Profile</a>
+  {{!-- {{/each}} --}}
+  {{/if}}
+
 </div>
