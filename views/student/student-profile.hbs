@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-4">
+            <img src="{{student.profileImg}}" alt="{{student.username}}">
+        </div>
+
+        <div class="col-6">
+
+            <h2>TU PERFIL</h2>
+
+            <hr>
+
+            <p>{{student.username}}</p>
+
+            <p>{{student.description}}</p>
+
+            <p>{{student.role}}</p>
+
+    
+            {{#if userRole.isPM}}
+                <form action="/estudiantes/{{student.id}}/TA" method="POST" style="display: inline">
+                    <input type="submit" value="TA" class="btn btn-sm btn-danger">
+                </form>
+
+                <form action="/estudiantes/{{student.id}}/DEV" method="POST" style="display: inline">
+                    <input type="submit" value="DEV" class="btn btn-sm btn-info">
+                </form>
+            {{/if}}
+
+        </div>
+           
+
+        <hr>
+
+        {{#if userRole.isPM}}
+            <a href="/estudiantes/{{student.id}}/edit" class="btn btn-warning">editar</a>
+            
+            <form action="/estudiantes/{{student.id}}/eliminar" method="POST" style="display: inline">
+                <input type="submit" value="eliminar" class="btn btn-danger">
+            </form>
+        {{/if}}
+
+        {{#if userRole.isStudent}}
+            <a href="/estudiantes/{{student.id}}/edit" class="btn btn-warning">editar</a>
+        {{/if}}
+
+        <div class="my-5">
+            <a href="/" class="btn btn-dark">Inicio</a>
+        </div>
+
+    </div>
+
+</div>
