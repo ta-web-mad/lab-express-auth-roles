@@ -1,0 +1,34 @@
+<div class="container">
+
+    <h1>Detalles de {{user.username}}</h1>
+
+    <hr>
+
+    <p>email: {{user.email}}</p>
+    <p>Imagen: <img src={{user.profileImg}} alt=""> </p>
+    <p>Descripción: {{user.description}}</p>
+
+    <hr>
+
+    {{#if userRole.isPM}}
+
+    <a href="editar/{{user._id}}" class="btn btn-sm btn-info">editar</a>
+
+    <form action="eliminar/{{user._id}}" method="POST" style="display: inline">
+        <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+    </form>
+
+    <form action="developer/{{user._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Mark as Developer" class="btn btn-sm btn-danger">
+    </form>
+
+    <form action="teacher-assistant/{{user._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Mark as TA" class="btn btn-sm btn-danger">
+    </form>
+
+    {{/if}}
+    {{#if userMercho.isUser}}
+    <a href="editar/{{user._id}}" class="btn btn-sm btn-info">editar</a>
+    {{/if}}
+    <a href="/students" class="btn btn-dark">Volver al listado</a>
+</div>
