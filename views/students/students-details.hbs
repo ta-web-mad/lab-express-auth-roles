@@ -1,0 +1,38 @@
+<div class="row">
+    <h1>Detalles del usuario</h1>
+
+
+    <div class="col-12 col-md-4 mt-4">
+        <div class="card px-2 py-4">
+
+            <img src="{{user.profileImg}}" alt="" class="mb-4">
+            <h3>{{user.username}}</h3>
+            <p><strong>Email: </strong>{{user.email}}</p>
+            <p><strong>Descripcion:</strong> {{user.description}}</p>
+            <p><strong>Role: </strong>{{user.role}}</p>
+
+            {{#if userRole.isOwner}}
+            <a href="/students/{{user._id}}/edit" class="btn btn-sm btn-info">Editar</a>
+            {{/if}}
+
+            {{#if userRole.isPM}}
+            <a href="/students/{{user._id}}/edit" class="btn btn-sm btn-info">Editar</a>
+            <a href="#" class="btn btn-sm btn-danger">Eliminar</a>
+
+
+            <div class="mt-2">
+                <form action="/students/{{user._id}}/ta" method="POST" style="display: inline">
+                    <input type="submit" value="Convertir a TA" class="btn btn-sm btn-warning">
+                </form>
+
+                <form action="/students/{{user._id}}/dev" method="POST" style="display: inline">
+                    <input type="submit" value="Convertir a DEV" class="btn btn-sm btn-success">
+                </form>
+            </div>
+            {{/if}}
+
+        </div>
+
+    </div>
+
+</div>
