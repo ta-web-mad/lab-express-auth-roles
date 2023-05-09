@@ -1,0 +1,39 @@
+<div class="container">
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <img class="img-random" src="{{student.profileImg}}" alt="Image random">
+        </div>
+        <div class="col-md-6">
+            <div>
+                <h2 class="card-title">Nombre: {{student.username}}</h2>
+                <h3 class="card-text">Email: {{student.email}}</h3>
+                <p>Description: {{student.description}}</p>
+                <p>Tu Rol es: {{student.role}}</p>
+            </div>
+            {{#if userRole.isPM}}
+            <a href="/students/edit/{{student._id}}" class="btn btn-sm btn-info">Editar</a>
+
+            <form action="/students/delete/{{student._id}}" method="POST" style="display: inline">
+                <input type="submit" value="Eliminar" class="btn btn-sm btn-danger">
+            </form>
+
+            <form action="/students/ta/{{student._id}}" method="POST" style="display: inline">
+                <input type="submit" value="TA" class="btn btn-sm btn-success">
+            </form>
+
+            <form action="/students/dev/{{student._id}}" method="POST" style="display: inline">
+                <input type="submit" value="DEV" class="btn btn-sm btn-warning">
+            </form>
+            {{/if}}
+
+            {{#if userRole.isStudent}}
+            <a href="/students/edit/{{student._id}}" class="btn btn-sm btn-info">Editar</a>
+            {{/if}}
+        </div>
+    </div>
+    <hr>
+    <a href="/students" class="btn btn-dark">Volver al listado</a>
+</div>
