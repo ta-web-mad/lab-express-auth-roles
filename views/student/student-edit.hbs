@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Actualizar {{username}}</h2>
+
+    <hr>
+    <div class="row justify-content-center">
+
+        <div class="col-6">
+            <form action="/estudiantes/{{id}}/edit" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" value="{{email}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="profileImg" class="form-label">Image</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg" value="{{profileImg}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{description}}">
+                </div>
+
+                {{#if userRole.isPM}}
+                    <form action="/estudiantes/{{id}}/cambiaraDEV" method="POST" style="display: inline">
+                        <input type="submit" value="cambiar a DEV" class="btn btn-sm btn-danger">
+                    </form>
+                {{/if}}
+
+                <button type="submit" class="mb-5 mt-2 btn btn-dark">Actualizar estudiante</button>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
