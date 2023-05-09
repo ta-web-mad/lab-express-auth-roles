@@ -1,0 +1,47 @@
+<div class="container">
+
+    <h1>Detalles de {{user.username}}</h1>
+
+    <hr>
+
+    <p>correo: {{user.email}}</p>
+
+    <hr>
+
+    <p>rol: {{user.role}}</p>
+
+    <hr>
+
+
+    <img src="{{user.profileImg}}" alt="IMG-STUDENT">
+
+    <a href="/students" class="btn btn-dark">Volver al listado</a>
+
+    {{#if userRole.isStudent}}
+    <a href="/students/edit/{{user.id}}" class="btn btn-sm btn-info">editar</a>
+    {{/if}}
+
+
+    {{#if userRole.isPm}}
+    <a href="/student/edit/{{user.id}}" class="btn btn-sm btn-info">editar</a>
+
+    <form action="/student/delete/{{user.id}}" method="POST" style="display: inline">
+        <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+    </form>
+
+    <form action="/student/editTA/{{user.id}}" method="POST" style="display: inline">
+        <input type="submit" value="UPGRADE to TA" class="btn btn-sm btn-danger">
+    </form>
+
+    <form action="/student/editDEV/{{user.id}}" method="POST" style="display: inline">
+        <input type="submit" value="UPGRADE to DEV" class="btn btn-sm btn-danger">
+    </form>
+
+
+    {{/if}}
+
+
+
+    <hr>
+
+</div>
