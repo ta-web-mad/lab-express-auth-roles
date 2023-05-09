@@ -1,0 +1,16 @@
+<h1>Nuestros cursos:</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            {{#each allCourses}}
+            <p>{{title}}</p>
+            <img src="{{courseImg}}" alt=`{{title}}-img`>
+            <p>{{startDate}}</p>
+
+            {{/each}}
+        </div>
+    </div>
+    {{#if userRole.isTA}}
+    <a href="/courses-create" class="btn btn-warning">Crear nuevo curso</a>
+    {{/if}}
+</div>
