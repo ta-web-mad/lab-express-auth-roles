@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Listado de Usuarios</h1>
+    <hr class="mb-3">
+
+    {{#each users}}
+
+    {{username}}
+
+    <a href="/students/detalles/{{_id}}" class="btn btn-sm btn-dark">ver detalles</a>
+
+
+    {{!--{{#if ../userRole.isEditor}}
+    <a href="/libros/editar/{{_id}}" class="btn btn-sm btn-info">editar</a>
+    {{/if}}
+
+
+
+    {{#if ../userRole.isAdmin}}
+    <a href="/libros/editar/{{_id}}" class="btn btn-sm btn-info">editar</a>
+
+    <form action="/libros/eliminar/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+    </form>
+    {{/if}}--}}
+
+    <hr>
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+</div>
