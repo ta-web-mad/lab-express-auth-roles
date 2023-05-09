@@ -1,7 +1,7 @@
 <div class="container mt-5 pt-5">
   <h1>Users</h1>
   <hr />
-  <table class="table align-middle mt-5">
+  <table class="table table-striped align-middle mt-5">
     <thead>
       <tr>
         <th scope="col" class="text-center">#</th>
@@ -19,8 +19,8 @@
         {{/if}}
       </tr>
     </thead>
-    {{#each usuarios}}
       <tbody>
+    {{#each usuarios}}
         <tr>
           <th scope="row" class="text-center">{{this.counter}}</th>
           <td class="text-center">{{username}}</td>
@@ -56,7 +56,7 @@
             </td>
           {{/if}}
         </tr>
-      </tbody>
     {{/each}}
+      </tbody>
   </table>
 </div>
