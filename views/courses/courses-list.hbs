@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <table class="table mb-0 align-middle bg-white">
+            <thead class="bg-light">
+                <tr>
+                    <th>Nombre del curso</th>
+                    <th>Profesor</th>
+                    <th>Dia de comienzo</th>
+                    <th>Dia de finalizacion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each courses}}
+                <tr>
+                    <td>
+                        {{title}}
+                    </td>
+                    <td>
+                        <span>{{description}}<span>
+                    </td>
+                    {{#if ../isPM}}
+                    <td>
+                        {{role}}
+                    </td>
+                    {{/if}}
+                    <td>
+                        <a href="/students/{{_id}}" class="btn btn-dark btn-sm btn-rounded">
+                            Ver perfil
+                        </a>
+                        {{#if ../isPM}}
+                        <a href="/students/{{_id}}/edit" class="btn btn-dark btn-sm btn-rounded">
+                            Editar
+                        </a>
+                        <form action="/students/{{_id}}/delete" method="post" class="d-inline">
+                            <input type="submit" class="btn btn-dark btn-sm btn-rounded" value="Eliminar">
+                        </form>
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{#if errorMessage}}
+    <div id="errorMessage">
+        <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
+</div>
