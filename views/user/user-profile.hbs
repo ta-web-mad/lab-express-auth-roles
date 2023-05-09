@@ -1,0 +1,47 @@
+<div class="container pt-5 mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-3 mx-auto" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="{{usuario.profileImg}}"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5
+                class="card-title text-center text-uppercase"
+              >{{usuario.username}}</h5>
+              <p class="card-text">Description:{{usuario.description}}.</p>
+              <p class="card-text">Email: {{usuario.email}}.</p>
+              <p class="card-text">Actual Role:{{usuario.role}}</p>
+              {{#if userRole.isPM}}
+                <p class="card-text">
+                  <form
+                    action="/editar/rol/{{usuario.id}}"
+                    method="POST"
+                    class="text-center"
+                  >
+                    <select class="form-select" name="nuevoRol">
+                      <option selected>Edit Role</option>
+                      <option value="STUDENT">STUDENT</option>
+                      <option value="DEV">DEV</option>
+                      <option value="TA">TA</option>
+                    </select>
+                    <button
+                      type="submit"
+                      class="btn btn-danger mt-1"
+                    >Actualizar</button>
+                  </form>
+                </p>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

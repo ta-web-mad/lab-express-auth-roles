@@ -4,23 +4,24 @@
 
     <div class="col-md-6">
 
-      <h1>Registro</h1>
+      <h1 class="text-center">Actualizar</h1>
       <hr />
 
-      <form action="/registro" method="POST">
+      <form action="/editar/{{id}}" method="POST">
 
         <div class="mb-3 row">
-          <div class="col">
+          {{!-- <div class="col">
             <label for="emailInput" class="form-label">Dirección de email</label>
             <input
               type="email"
               class="form-control"
               id="emailInput"
               name="email"
+              value="{{email}}"
             />
             <div class="form-text">Requerido.</div>
-          </div>
-          <div class="col">
+          </div> --}}
+          {{! <div class="col">
             <label for="pwdInput" class="form-label">Contraseña</label>
             <input
               type="password"
@@ -29,7 +30,7 @@
               name="userPwd"
             />
             <div class="form-text">Requerido.</div>
-          </div>
+          </div> }}
         </div>
 
         <div class="mb-3">
@@ -39,6 +40,7 @@
             class="form-control"
             id="usernameInput"
             name="username"
+            value="{{username}}"
           />
         </div>
 
@@ -49,6 +51,7 @@
             class="form-control"
             id="imageInput"
             name="profileImg"
+            value="{{profileImg}}"
           />
           <div class="form-text">Introduce la URL a la imagen que desees de
             perfil.</div>
@@ -61,19 +64,13 @@
             id="descriptionInput"
             rows="3"
             name="description"
-          ></textarea>
+          >{{description}}</textarea>
         </div>
 
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-dark block">Completar registro</button>
+          <button type="submit" class="btn btn-dark block">Enviar registro
+            actualizado</button>
         </div>
-
-        {{#if errorMessage}}
-          <div id="errorMessage">
-            <p>{{errorMessage}}</p>
-          </div>
-        {{/if}}
-
       </form>
     </div>
   </div>

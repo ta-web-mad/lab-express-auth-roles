@@ -1,0 +1,62 @@
+<div class="container mt-5 pt-5">
+  <h1>Users</h1>
+  <hr />
+  <table class="table table-striped align-middle mt-5">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col" class="text-center">Username</th>
+        <th scope="col" class="text-center">Email</th>
+        <th scope="col" class="text-center">Description</th>
+        <th scope="col" class="text-center">Avatar</th>
+        <th scope="col" class="text-center">Profile</th>
+        {{#if userRole.isPM}}
+          <th scope="col" class="text-center">Edit</th>
+        {{/if}}
+
+        {{#if userRole.isPM}}
+          <th scope="col" class="text-center">Delete</th>
+        {{/if}}
+      </tr>
+    </thead>
+      <tbody>
+    {{#each usuarios}}
+        <tr>
+          <th scope="row" class="text-center">{{this.counter}}</th>
+          <td class="text-center">{{username}}</td>
+          <td class="text-center">{{email}}</td>
+          <td class="text-start">{{description}}</td>
+          <td class="text-center"><img
+              src={{profileImg}}
+              alt=""
+              style="width: 50px;"
+            /></td>
+          <td class="text-center"><a
+              href="/usuarios/{{id}}"
+              class="btn btn-success text-white"
+            >view</a></td>
+
+          {{#if ../userRole.isPM}}
+        <td class="text-center"><a
+              href="/editar/{{id}}"
+              class="btn btn-warning text-white"
+            >edit</a>
+        </td>
+          {{/if}}
+
+          {{#if ../userRole.isPM}}
+            <td class="text-center">
+              <form
+                action="/eliminar/{{_id}}"
+                method="POST"
+                style="margin-bottom:0"
+              >
+                <input type="submit" value="delete" class="btn btn-danger" />
+              </form>
+            </td>
+          {{/if}}
+        </tr>
+    {{/each}}
+      </tbody>
+  </table>
+</div>
