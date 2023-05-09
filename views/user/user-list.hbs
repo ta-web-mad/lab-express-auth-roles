@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Listado de Usuarios</h1>
+</div>
+
+{{#each users}}
+
+<div class="container">
+    <h3>Nombre Usuario: {{username}}</h3>
+    <a href="/students/profile/{{_id}}" class="btn btn-sm btn-dark">ver perfil</a>
+    {{#if ../userRole.isPM}}
+    <a href="/edit/students/profile/{{_id}}" class="btn btn-sm btn-dark">editar perfil</a>
+    <form action="/delete/students/profile/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="eliminar perfil" class="btn btn-sm btn-dark">
+    </form>
+    <form action="/edit/students/profile/role/ta/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="modificar Rol a TA" class="btn btn-sm btn-dark">
+    </form>
+    <form action="/edit/students/profile/role/dev/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="modificar Rol a DEV" class="btn btn-sm btn-dark">
+    </form>
+    {{/if}}
+    <a href="/edit/students/ownprofile/{{_id}}" class="btn btn-sm btn-dark">Modificar Propio Perfil</a>
+
+</div>
+<hr>
+
+{{/each}}

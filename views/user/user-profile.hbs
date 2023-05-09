@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Perfil de Usuario</h1>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-3 col-gd-3 container">
+        <img src="{{userFound.profileImg}}" alt="foto_perfil">
+    </div>
+    <div class="col-md-6 col-gd-6">
+        <h2>Nombre de Usuario: {{userFound.username}}</h2>
+        <li>
+            Correo Electrónico: {{userFound.email}}
+        </li>
+        <li>
+            Descripción: {{userFound.description}}
+        </li>
+        <li>
+            Rol de APP: {{userFound.role}}
+        </li>
+
+        {{#if userRole.isTA}}
+        <a href="/new/course" class="btn btn-sm btn-dark">Crear nuevo Curso</a>
+        {{/if}}
+
+    </div>
+
+
+
+</div>

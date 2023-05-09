@@ -1,0 +1,83 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h1>Editar Curso</h1>
+            <hr>
+
+            <form action="/edit/course/details/{{courseFound.id}}" method="POST">
+                <div class="mb-3 mt-5">
+                    <label for="courseTitle" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="courseTitle" name="title" value={{courseFound.title}}>
+                </div>
+
+                <div class="mb-3">
+                    <label for="courseStartDate" class="form-label">Fecha de inicio</label>
+                    <input type="date" class="form-control" id="courseStartDate" name="startDate"
+                        value={{courseFound.startDate}}>
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="courseEndDate" class="form-label">Fecha de finalización</label>
+                    <input type="date" class="form-control" id="courseEndDate" name="endDate"
+                        value={{courseFound.endDate}}>
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="courseDescription" class="form-label">Descripcion</label>
+                    <input type="text" class="form-control" id="courseDescription" name="description"
+                        value={{courseFound.description}}>
+                </div>
+                <div class="mb-3 ">
+                    <label for="courseImage" class="form-label">Imagen Curso</label>
+                    <input type="text" class="form-control" id="courseImage" name="courseImg"
+                        value={{courseFound.courseImg}}>
+                </div>
+                <div class="mb-3 ">
+                    <label for="courseStatus" class="form-label">Estatus</label>
+
+                    <select class="form-select form-select-lg mb-3" id="courseStatus" name="status"
+                        value={{courseFound.status}}>
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+                    </select>
+                </div>
+                <div class="mb-3 ">
+                    <label for="courseTeacher" class="form-label">Profesor Titular</label>
+
+                    <select class="form-select form-select-lg mb-3" id="courseTeacher" multiple name="leadTeacher">
+                        <option selected disabled>Elegir Profesor</option>
+                        {{#each users}}
+                        <option value={{id}}>{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3 ">
+                    <label for="courseStudents" class="form-label">Estudiantes del curso</label>
+                    <select class="form-select form-select-lg mb-3" id="courseStudents" multiple name="students">
+                        <option selected disabled>Elegir Estudiantes</option>
+                        {{#each users}}
+                        <option value={{id}}>{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3 ">
+                    <label for="courseTA" class="form-label">TAs del curso</label>
+                    <select class="form-select form-select-lg mb-3" id="courseTA" multiple name="ta">
+                        <option selected disabled>Elegir TAs</option>
+                        {{#each users}}
+                        <option value={{id}}>{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Guardar Cambios</button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>

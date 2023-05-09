@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>Detalles del Curso</h1>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-3 col-gd-3 container">
+        <img src="{{courseImg}}" alt="foto_curso">
+    </div>
+    <div class="col-md-6 col-gd-6">
+        <h2>Nombre del curso: {{title}}</h2>
+        <li>
+            Fecha de Inicio: {{startDate}}
+        </li>
+        <li>
+            Fecha Fin: {{endDate}}
+        </li>
+        <li>
+            Descripción: {{description}}
+        </li>
+        <li>
+            Status Curso: {{status}}
+        </li>
+        <li>
+            Estudiantes: {{#each students}} {{username}} / {{/each}}
+
+        </li>
+
+    </div>
+
+    <div>
+
+    </div>
+
+
+</div>

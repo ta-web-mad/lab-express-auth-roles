@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Listado de Cursos</h1>
+</div>
+<hr>
+{{#each courses}}
+
+<div class="container">
+    <h4>Nombre Curso: {{title}}</h4>
+    <a href="/course/details/{{_id}}" class="btn btn-sm btn-dark">ver detalles</a>
+    {{#if ../userRole.isTA}}
+    <a href="/edit/course/details/{{_id}}" class="btn btn-sm btn-dark">editar curso</a>
+    <form action="/delete/course/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="eliminar curso" class="btn btn-sm btn-dark">
+    </form>
+    {{!-- <form action="/edit/students/profile/role/ta/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="modificar Rol a TA" class="btn btn-sm btn-dark">
+    </form>
+    <form action="/edit/students/profile/role/dev/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="modificar Rol a DEV" class="btn btn-sm btn-dark">
+    </form> --}}
+    {{/if}}
+
+    <form action="/ad/students/course/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="Unirse al curso" class="btn btn-sm btn-dark">
+    </form>
+
+</div>
+<hr>
+
+{{/each}}
