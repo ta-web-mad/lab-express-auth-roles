@@ -1,0 +1,54 @@
+<div class="body-student-details">
+
+    <div class="containter">
+
+        <h2 class="mb-4">Student's details</h2>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <img src="{{users.profileImg}}" alt="{{users.username}}" style="width: 100%">
+            </div>
+
+            <div class="col-md-6">
+
+                <h2>{{users.username}}</h2>
+                <p>{{users.email}}</p>
+                <p>{{users.description}}</p>
+                <p>{{users.role}}</p>
+            </div>
+
+
+        </div>
+
+
+
+        {{#if userRole.isPM}}
+
+        <div class="buttons-details">
+
+
+            <a href="/students/edit/{{users.id}}" class="btn btn-success mt-4">Edit Student</a>
+
+            <form action="/students/delete/{{users.id}}" method="POST" style="display: inline">
+                <input type="submit" value="Delete" class="btn btn-danger mt-4">
+            </form>
+
+            <form action="/students/mark-as-dev/{{users.id}}" method="POST" style="display: inline">
+                <input type="submit" value="Mark as Developer" class="btn btn-outline-dark mt-4 btn-block">
+            </form>
+
+            <form action="/students/mark-as-ta/{{users.id}}" method="POST" style="display: inline">
+                <input type="submit" value="Mark as TA" class="btn btn-outline-dark mt-4 btn-block">
+            </form>
+
+
+        </div>
+
+        {{/if}}
+
+
+
+    </div>
+
+</div>
