@@ -1,0 +1,23 @@
+<div class="student-list">
+    <div class="container">
+        <h1>Todos los estudiantes</h1>
+        <hr>
+        <div class="row">
+            {{#each user}}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src={{profileImg}} class="card-img-top" alt="profile img">
+                    <div class="card-body">
+                        <p class="card-text">{{username}}</p>
+                        <a href="/student-profile/{{_id}}" class="btn btn-sm btn-dark">Ver perfil</a>
+                        {{!-- {{#if ../userRole.isStudent}} --}}
+                        {{!-- <a href="/student-edit/{{_id}}" class="btn btn-sm btn-info">Editar perfil</a> --}}
+                        {{!-- {{/if}} --}}
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
