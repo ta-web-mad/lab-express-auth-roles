@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card">
+        <h1> <strong> Hello </strong> {{username}}</h1>
+        <div class="row">
+
+            <img class="col-6" src={{profileImg}} alt="{{username}}">
+            <p class="col-6"> <strong>DESCRIPTION: </strong>{{description}}</p>
+        </div>
+    </div>
+    {{!-- {{#if userRole.isPM}}
+    <a href="/students/{{_id}}/edit" class="btn btn-sm btn-danger">Edit</a>
+
+    <form action="/students/{{_id}}/delete" method="POST" style="display: inline">
+        <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+    </form>
+    <form action="/students/{{_id}}/dev" method="POST" style="display: inline">
+        <input type="submit" value="Make DEV" class="btn btn-sm btn-danger">
+    </form>
+    <form action="/students/{{_id}}/ta" method="POST" style="display: inline">
+        <input type="submit" value="Make TA" class="btn btn-sm btn-danger">
+    </form>
+    {{/if}} --}}
+
+    <hr>
+    <a href="/students" class="btn btn-dark">Go back</a>
+</div>

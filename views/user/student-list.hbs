@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Lista de estudiantes</h1>
+    <div class="row">
+        {{#each users}}
+        <div class="col-4">
+
+            <div class="card">
+                <p>{{username}}</p>
+                <a href="/students/{{_id}}" class="btn btn-sm btn-info">Profile</a>
+
+                {{#if ../userRole.isPM}}
+                <a href="/students/{{_id}}/edit" class="btn btn-sm btn-danger">Edit</a>
+
+                <form action="/students/{{_id}}/delete" method="POST" style="display: inline">
+                    <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+                </form>
+                <form action="/students/{{_id}}/dev" method="POST" style="display: inline">
+                    <input type="submit" value="Make DEV" class="btn btn-sm btn-danger">
+                </form>
+                <form action="/students/{{_id}}/ta" method="POST" style="display: inline">
+                    <input type="submit" value="Make TA" class="btn btn-sm btn-danger">
+                </form>
+                {{/if}}
+                <a href="/students/{{_id}}/profile" class="btn btn-sm btn-info">My profile edition</a>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>

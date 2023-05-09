@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h1>Edit {{username}}</h1>
+            <hr>
+
+
+            {{!-- ENVIAMOS EL ID COMO PARAM AL ENDPOINT YA QUE ES NECESARIO PARA EDITARLO --}}
+            <form action="/students/{{_id}}/edit" method="POST">
+                <div class="mb-3 mt-5">
+                    <label for="studentUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="studentUsername" name="username" value="{{username}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="studentDescription" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="studentDescription" name="description"
+                        value="{{description}}">
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="studentEmail" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="studentEmail" name="email" value="{{email}}">
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="studentProfileImg" class="form-label">ProfileImg</label>
+                    <input type="text" class="form-control" id="studentProfileImg" name="profileImg"
+                        value="{{profileImg}}">
+                </div>
+                <div class="mb-3 ">
+                    <label for="studentRole" class="form-label">Role</label>
+                    <input type="text" class="form-control" id="studentRole" name="role" value="{{role}}">
+                </div>
+
+
+                <button type="submit" class="btn btn-dark">Save changes</button>
+                <a href="/students" class="btn btn-sm btn-dark">Back</a>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>

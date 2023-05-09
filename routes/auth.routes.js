@@ -2,10 +2,11 @@ const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
+const { isLoggedIn, isLoggedOut, checkRoles } = require('../middlewares/route-guards')
 
 // Signup
-router.get('/registro', (req, res, next) => res.render('auth/signup'))
-router.post('/registro', (req, res, next) => {
+router.get('/registro', isLoggedOut, (req, res, next) => res.render('auth/signup'))
+router.post('/registro', isLoggedOut, (req, res, next) => {
 
   const { email, userPwd, username, profileImg, description } = req.body
 
@@ -20,8 +21,8 @@ router.post('/registro', (req, res, next) => {
 
 
 // Login
-router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
-router.post('/iniciar-sesion', (req, res, next) => {
+router.get('/iniciar-sesion', isLoggedOut, (req, res, next) => res.render('auth/login'))
+router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
 
   const { email, userPwd } = req.body
 
@@ -36,7 +37,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
         return
       } else {
         req.session.currentUser = user
-        res.redirect('/')
+        res.redirect('/profile')
       }
     })
     .catch(error => next(error))
