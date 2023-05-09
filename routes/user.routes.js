@@ -29,12 +29,11 @@ router.get("/usuarios/:id", isLoggedIn, (req, res, next) => {
         isDEV: req.session.currentUser?.role === 'DEV'
     }
 
-    const Roles = { student: "STUDENT", dev: "DEV", ta: "TA" }
     const { id } = req.params
     User
         .findById(id)
         .then((usuario) => {
-            res.render("user/user-profile", { usuario, userRole, Roles });
+            res.render("user/user-profile", { usuario, userRole });
         })
         .catch(err => console.log(err))
 });
@@ -62,10 +61,11 @@ router.post('/editar/:id', isLoggedIn, checkRoles('PM'), (req, res, next) => {
 //actulizar roles de estudiantes
 router.post('/editar/rol/:id', isLoggedIn, checkRoles('PM'), (req, res, next) => {
 
-    const { id } = req.params
+    const { id } = req.params;
+    const nuevoRol = req.body.nuevoRol
 
     User
-        .findByIdAndUpdate(id)
+        .findByIdAndUpdate(id, { role: nuevoRol })
         .then(() => res.redirect("/usuarios"))
         .catch(err => console.log(err))
 });

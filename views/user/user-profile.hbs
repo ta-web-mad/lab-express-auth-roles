@@ -20,19 +20,20 @@
               <p class="card-text">Actual Role:{{usuario.role}}</p>
               {{#if userRole.isPM}}
                 <p class="card-text">
-                  <form action="/editar/rol/:id">
-                    <select
-                      class="form-select"
-                      aria-label="Default select example"
-                    >
+                  <form
+                    action="/editar/rol/{{usuario.id}}"
+                    method="POST"
+                    class="text-center"
+                  >
+                    <select class="form-select" name="nuevoRol">
                       <option selected>Edit Role</option>
-                      <option value="{{usuario.id}}">{{Roles.student}}</option>
-                      <option value="{{usuario.id}}">{{Roles.dev}}</option>
-                      <option value="{{usuario.id}}">{{Roles.ta}}</option>
+                      <option value="STUDENT">STUDENT</option>
+                      <option value="DEV">DEV</option>
+                      <option value="TA">TA</option>
                     </select>
                     <button
                       type="submit"
-                      class="btn btn-danger"
+                      class="btn btn-danger mt-1"
                     >Actualizar</button>
                   </form>
                 </p>
