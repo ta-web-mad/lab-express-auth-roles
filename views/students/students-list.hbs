@@ -1,0 +1,26 @@
+<h1>Estos son los estudiantes que tenemos:</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            {{#each allStudents}}
+            <p>{{username}}</p>
+            <img src="{{profileImg}}" alt=`{{username}}-img`>
+
+            <a href="profile/{{_id}}" class="btn btn-sm btn-dark">ver perfil</a>
+
+            {{#if ../userRole.isPM}}
+            <a href="/edit/{{_id}}" class="btn btn-sm btn-info">editar</a>
+
+            <form action="/delete/{{_id}}" method="POST" style="display: inline">
+                <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+            </form>
+
+
+            <a href="/changePriv/{{_id}}/Dev" class="btn btn-warning">Hacer DEV</a>
+            <a href="/changePriv/{{_id}}/Ta" class="btn btn-warning">Hacer TA</a>
+
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
