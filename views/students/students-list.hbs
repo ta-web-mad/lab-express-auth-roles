@@ -1,0 +1,15 @@
+<h1>LISTA DE ESTUDIANTES</h1>
+
+{{#each users}}
+
+<div class="card" style="width: 18rem;">
+    <img src="{{profileImg}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h2>{{username}}</h2>
+    </div>
+</div>
+<div class="btn new">
+    <a href="/students/{{_id}}" class="btn btn-dark">PROFILE</a>
+</div>
+
+{{/each}}
