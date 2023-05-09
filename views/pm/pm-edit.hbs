@@ -1,0 +1,41 @@
+<h2>Edit Student: {{username}}</h2>
+<form class="mb-5" action="/pm/{{id}}/editar" method="POST">
+
+    <div class="mb-3 row">
+        <div class="col">
+            <label for="emailInput" class="form-label">Dirección de email</label>
+            <input type="email" class="form-control" id="emailInput" name="email" value="{{email}}">
+            <div class="form-text">Requerido.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="usernameInput" class="form-label">Nombre de usuario</label>
+        <input type="text" class="form-control" id="usernameInput" name="username" value="{{username}}">
+    </div>
+
+    <div class="mb-3">
+        <label for="imageInput" class="form-label">Imagen</label>
+        <input type="url" class="form-control" id="imageInput" name="profileImg" value="{{profileImg}}">
+    </div>
+
+    <div class="mb-3">
+        <label for="descriptionInput" class="form-label">Descripción</label>
+        <textarea class="form-control" id="descriptionInput" rows="3" name="description">{{description}}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <p>rol actual: {{userRoles}}</p>
+        <select class="form-select form-select-lg mb-3" aria-label="Ejemplo de .form-select-lg" style="width: 50%;"
+            name="userRoles">
+            <option name="userRoles">Student</option>
+            <option name="userRoles">Dev</option>
+            <option name="userRoles">TA</option>
+        </select>
+    </div>
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-dark block">Guardar Resultado</button>
+    </div>
+
+</form>

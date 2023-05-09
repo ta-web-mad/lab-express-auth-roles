@@ -1,0 +1,19 @@
+<h1>Hola {{currentUser.username}}</h1>
+<hr>
+<h4 class="mb-5">Aqui estan tus Compañeros: </h4>
+
+<div class="row mx-auto mb-5">
+    {{#each users}}
+    <div class="col-md-4 row mx-auto justify-content-center">
+        <div class="card p-2" style="width: 18rem; height: 90%;">
+            <img src={{profileImg}} class="card-img-top" alt={{username}} style="height: 50%;">
+            <div class="card-body">
+                <h4 class="card-title">{{username}}</h4>
+                <p>{{userRoles}}</p>
+                <p class="card-text">{{description}}</p>
+            </div>
+            <a href="/{{id}}" class="btn btn-primary" style=>Detalles</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
