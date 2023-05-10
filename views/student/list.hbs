@@ -1,0 +1,39 @@
+<div class="container">
+    <hr class="mb-3">
+
+    {{#each user}}
+    <h1>{{username}}</h1>
+
+
+    <a href="/students/{{id}}" class="btn btn-sm btn-dark">ver detalles</a>
+
+
+    {{#if ../userRole.isPM}}
+    <a href="/editar/{{id}}" class="btn btn-sm btn-info">editar</a>
+    {{/if}}
+
+
+    {{#if ../userRole.isPM}}
+    <a href="/dev/{{id}}" class="btn btn-sm btn-info">DEV</a>
+    {{/if}}
+
+
+    {{#if ../userRole.isPM}}
+    <a href="/ta/{{id}}" class="btn btn-sm btn-info">TA</a>
+    {{/if}}
+
+
+
+    {{#if ../userRole.isPM}}
+    <form action="/eliminar/{{id}}" method="POST" style="display: inline">
+        <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+    </form>
+    {{/if}}
+
+    <hr>
+
+    {{/each}}
+
+    <hr>
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+</div>
