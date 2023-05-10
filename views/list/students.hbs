@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Listado de estudiantes</h2>
+    <hr>
+    <div class="row">
+        {{#each user}}
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <hr>
+                <h3 class="card-title">{{username}}</h3>
+                <a href="/students/{{_id}}">Details</a>
+                <hr>
+
+                {{#if ../userRole.isPM}}
+                <h3>role: {{role}}</h3>
+                <div>
+                    <form action="/students/{{_id}}/makeDEV" method="POST" style="display: inline;">
+                        <input type="submit" value="Mark as DEV" class="btn btn-sm btn-success">
+                    </form>
+
+                    <form action="/students/{{_id}}/makeTA" method="POST" style="display: inline;">
+                        <input type="submit" value="Mark as TA" class="btn btn-sm btn-primary">
+                    </form>
+
+                    <a href="/students/{{_id}}/edit" class="btn btn-md btn-warning"> Edit </a>
+
+                    <form action="/students/{{_id}}/delete" method="POST" style="display: inline;">
+                        <input type="submit" value="  delete  " class="btn btn-md btn-danger">
+                    </form>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <a class="btn btn-dark m-3" href="/">Back to menu</a>
+</div>
