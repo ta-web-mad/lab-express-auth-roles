@@ -1,0 +1,42 @@
+{{#with student}}
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2>{{username}}</h2>
+                <hr>
+                <h3>Email:</h3>
+                <h5>{{email}}</h5>
+                <hr>
+                <h3>Description:</h3>
+                <h5>{{description}}</h5>
+                <hr>
+                <a class="btn btn-sm btn-dark" href="/">Back to menu</a>
+                <a class="btn btn-sm btn-dark m-3" href="/students">Back to list</a>
+
+                {{#if ../userRole.isOwner}}
+                <a class="btn btn-sm btn-warning ml-3" href="/students/{{_id}}/edit">Edit</a>
+                {{/if}}
+
+                {{#if ../userRole.isPM}}
+                <div>
+                    <form action="/students/{{_id}}/delete" method="POST" style="display: inline;">
+                        <input type="submit" value="delete" class="btn btn-sm btn-danger">
+                    </form>
+                    <a class="btn btn-sm btn-warning ml-3" href="/students/{{_id}}/edit">Edit</a>
+                    <form action="/students/{{_id}}/makeDEV" method="POST" style="display: inline;">
+                        <input type="submit" value="Mark as DEV" class="btn btn-sm btn-success">
+                    </form>
+
+                    <form action="/students/{{_id}}/makeTA" method="POST" style="display: inline;">
+                        <input type="submit" value="Mark as TA" class="btn btn-sm btn-primary">
+                    </form>
+                </div>
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</div>
+{{/with}}
