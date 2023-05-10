@@ -2,7 +2,7 @@ const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
-
+const { isLoggedOut } = require('../middlewares/route-guard')
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
@@ -16,7 +16,6 @@ router.post('/registro', (req, res, next) => {
     .then(createdUser => res.redirect('/'))
     .catch(error => next(error))
 })
-
 
 
 // Login
