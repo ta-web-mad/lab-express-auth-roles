@@ -1,0 +1,46 @@
+<h1>Editarllega algo?????</h1>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h1>Editar {{username}}</h1>
+            <hr>
+
+            <form action="/students/edit/{{id}}" method="POST">
+
+                <div class="mb-3 ">
+                    <label for="studentUsername" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="studentUsername" name="username" value="{{username}}">
+                    <div class="form-text">Requerido.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="studentsEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="studentsEmail" name="email" value="{{email}}">
+                    <div class="form-text">Requerido.</div>
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="studentProfileImg" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="studentProfileImg" name="profileImg"
+                        value="{{profileImg}}">
+                    <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="studentDescription" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="studentDescription" name="description"
+                        value="{{description}}">
+                </div>
+
+
+                <button type="submit" class="btn btn-dark">Guardar edición</button>
+            </form>
+
+
+
+        </div>
+    </div>
+</div>

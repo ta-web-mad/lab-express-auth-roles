@@ -3,6 +3,11 @@ const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
 
+
+// HELENA: Aquí traes los middlewares
+const { isLoggedOut } = require('../middlewares/route-guard')
+
+
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {

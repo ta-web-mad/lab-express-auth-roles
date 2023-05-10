@@ -1,0 +1,18 @@
+<div class="body-student-profile">
+
+    <div class="containter">
+
+        <h2 class="mb-2"><strong>Bienvenida {{users.username}}</strong></h1>
+            <p>Tu mail es <strong>{{users.email}}</strong></p>
+            <div class="col-md-4">
+                <img src="{{users.profileImg}}" alt="{{users.username}}" style="width: 50%">
+            </div>
+
+    </div>
+
+
+    <div class="buttons-details">
+        <a href="/students/edit/{{users._id}}" class="btn btn-success mt-4">Edit Student</a>
+    </div>
+
+</div>
