@@ -3,6 +3,9 @@ body {
   font-family: sans-serif;
 }
 
+img{
+  width: 100%;
+}
 
 h1, h2, h3 {
   font-weight: 200;
@@ -28,6 +31,22 @@ h1, h2, h3 {
   animation: showFromBottom 6s forwards;
 }
 
+
+.list-img-students img{
+  width: 50%;
+}
+
+.list-img-students{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.list-img-students a{
+  display: block;
+  margin-top: 5px;
+}
 
 @keyframes  showFromBottom {
   0% {

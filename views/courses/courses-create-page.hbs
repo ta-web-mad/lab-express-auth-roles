@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h2>CREAR UN CURSO</h2>
+            <hr>
+
+            <form action="/courses-create" method="POST">
+                <div class="mb-3">
+                    <label for="courseTitle" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="courseTitle" name="title">
+                </div>
+                {{!--
+                <div class="mb-3">
+                    <label for="courseLeadTeacher" class="form-label">leadTeacher</label>
+                    <input type="password" class="form-control" id="courseLeadTeacher" name="leadTeacher">
+                </div> --}}
+
+
+                {{!-- <div class="mb-3">
+                    <label for="courseTA" class="form-label">TA</label>
+                    <input type="password" class="form-control" id="courseTA" name="ta">
+                </div> --}}
+
+
+                <div class="mb-3">
+                    <label for="courseImg" class="form-label">description</label>
+                    <input type="password" class="form-control" id="courseImg" name="description">
+                </div>
+
+                {{!-- <div class="mb-3">
+                    <label for="courseStatus" class="form-label">status</label>
+                    <input type="password" class="form-control" id="courseStatus" name="status">
+                </div> --}}
+
+                <div class="mb-3">
+                    <label for="courseStudents" class="form-label">students</label>
+                    <input type="password" class="form-control" id="courseStatus" name="students">
+                </div>
+
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Acceder</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

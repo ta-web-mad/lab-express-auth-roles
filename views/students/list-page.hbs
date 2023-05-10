@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>List students</h2>
+    <hr>
+    <div class="row">
+
+        {{#each students}}
+
+        <div class="col-4 ">
+            <div class="card list-img-students" style="width: 25rem;">
+                <img src="{{profileImg}}" class="card-img-top" alt="...">
+                <div class="card-body">
+
+                    <h5 class="card-title"><strong>username: </strong> {{username}}</h5>
+                    <h5 class="card-title"><strong>email: </strong> {{email}}</h5>
+                    <h5 class="card-title"><strong>description: </strong> {{description}}</h5>
+                    <h5 class="card-title"><strong>role: </strong> {{role}}</h5>
+
+                    <div class="card-body">
+                        <a href="/student/{{id}}" class="btn btn-dark">View profile</a>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+
+
+
+
+    </div>
+</div>
