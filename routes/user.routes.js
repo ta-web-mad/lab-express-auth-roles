@@ -46,7 +46,7 @@ router.get('/students/:id/edit', isLoggedIn, checkRoles('PM'), (req, res, next) 
 })
 
 //edit (handler) 
-router.post("/students/:id/edit", isLoggedIn, checkRoles('PM'), (req, res, next) => {
+router.post("/students/:id/edit", isLoggedIn, checkRoles('PM', 'STUDENT'), (req, res, next) => {
 
     const { username, email, profileImg, description } = req.body
     const { id } = req.params
@@ -57,7 +57,7 @@ router.post("/students/:id/edit", isLoggedIn, checkRoles('PM'), (req, res, next)
         .catch(err => console.log(err))
 })
 
-router.post('/students/dev/:id', isLoggedIn, checkRoles('PM'), (req, res, next) => {
+router.post('/students/dev/:id', isLoggedIn, checkRoles('PM', 'STUDENT'), (req, res, next) => {
     const { id } = req.params
 
     User
