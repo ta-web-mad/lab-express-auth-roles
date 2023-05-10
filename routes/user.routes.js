@@ -32,8 +32,8 @@ router.get('/students/:id', isLoggedIn, (req, res, next) => {
 })
 
 
-router.get('/students/edit/:id', isLoggedIn, checkRoles('PM'), (req, res, next) => {
-    //console.log(req.params)
+/* router.get('/students/edit/:id', isLoggedIn, checkRoles('PM'), (req, res, next) => { */
+router.get('/students/edit/:id', isLoggedIn, checkOwner, (req, res, next) => {
 
     const { id } = req.params
 
@@ -45,7 +45,7 @@ router.get('/students/edit/:id', isLoggedIn, checkRoles('PM'), (req, res, next) 
 
 
 router.post('/students/edit/:id', isLoggedIn, checkRoles('PM'), (req, res, next) => {
-
+    //console.log(req.params)
     const { username, mail, profileImg, description } = req.body
     const { id } = req.params
 
@@ -65,7 +65,6 @@ router.post('/students/delete/:id', isLoggedIn, checkRoles('PM'), (req, res, nex
         .then(() => res.redirect('/students'))
         .catch(err => console.log(err))
 })
-
 
 
 router.post('/students/mark-as-dev/:id', isLoggedIn, checkRoles('PM'), (req, res, next) => {
@@ -96,7 +95,6 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
 })
 
 
-
 router.get('/students/edit/:id', isLoggedIn, checkOwner, (req, res, next) => {
 
     const { id } = req.params
@@ -110,8 +108,6 @@ router.get('/students/edit/:id', isLoggedIn, checkOwner, (req, res, next) => {
 
 
 
-
-/* 
 router.post('/students/edit/:id', isLoggedIn, checkOwner, (req, res, next) => {
 
     const { username, mail, profileImg, description } = req.body
@@ -122,7 +118,7 @@ router.post('/students/edit/:id', isLoggedIn, checkOwner, (req, res, next) => {
         .then(() => res.redirect(`/students/students-profile`))
         .catch(err => console.log(err))
 })
- */
+
 
 
 module.exports = router

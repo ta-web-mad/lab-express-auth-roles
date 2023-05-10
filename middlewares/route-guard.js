@@ -20,9 +20,10 @@ const checkRoles = (...admittedRoles) => (req, res, next) => {
     }
 }
 
+
 const checkOwner = (req, res, next) => {
 
-    if (req.params.id === req.session.currentUser.id || req.session.currentUser.role === 'PM') {
+    if (req.params.id === req.session.currentUser._id || req.session.currentUser.role === 'PM') {
         next()
 
     } else {
