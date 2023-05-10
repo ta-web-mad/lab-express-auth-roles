@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4">
+            <img src="{{student.profileImg}}" alt="">
+        </div>
+
+        <div class="col-md-8">
+            <h3><strong>¡Bienvenido a tu perfil!</strong></h3>
+            <hr>
+            <p>username: {{student.username}}</p>
+            <p>email: {{student.email}}</p>
+            <p>description: {{student.description}}</p>
+            <p>Role: {{student.role}}</p>
+
+
+            {{#if userRole.isProjectManager}}
+            <a href="/student/{{student.id}}/edit" class="btn btn-info">edit</a>
+
+            <form action="/student/{{student.id}}/delete" method="POST" style="display: inline">
+                <input type="submit" value="eliminar" class="btn btn-danger">
+            </form>
+
+            {{!-- cambiar a DEV --}}
+            <form action="/student/{{student.id}}/dev" method="POST" style="display: inline">
+                <input type="submit" value="cambiar a DEV" class="btn btn-warning">
+            </form>
+
+            {{!-- cambiar a TA --}}
+            <form action="/student/{{student.id}}/ta" method="POST" style="display: inline">
+                <input type="submit" value="cambiar a TA" class="btn btn-success">
+            </form>
+
+            {{/if}}
+
+
+            {{#if userRole.isOwner}}
+            <a href="/student/{{student.id}}/edit" class="btn btn-info">edit</a>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
