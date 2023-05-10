@@ -1,0 +1,15 @@
+<h1>Listado de estudiantes</h1>
+
+<div class="row">
+
+    {{#each userFromDB}}
+    <div class="col-12 col-md-4 mt-4">
+        <div class="card px-2 py-4">
+            <img src="{{profileImg}}" alt="" class="mb-4">
+            <p>{{username}}</p>
+            <a href="/students/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
+        </div>
+    </div>
+    {{/each}}
+
+</div>

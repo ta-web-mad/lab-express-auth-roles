@@ -1,16 +1,19 @@
+img {
+  width: 100%;
+}
+
 body {
-  font-weight: 200;
   font-family: sans-serif;
-}
-
-
-h1, h2, h3 {
   font-weight: 200;
 }
 
-.navbar {
-  margin-bottom: 80px;
+
+h1,
+h2,
+h3 {
+  font-weight: 200;
 }
+
 
 .navbar form button {
   background: transparent;
@@ -18,18 +21,18 @@ h1, h2, h3 {
 }
 
 #errorMessage {
+  animation: showFromBottom 6s forwards;
   background-color: rgb(255, 202, 202);
-  width: 400px;
-  position: fixed;
-  right: 10px;
   bottom: 10px;
   padding: 5px;
+  position: fixed;
+  right: 10px;
   text-align: center;
-  animation: showFromBottom 6s forwards;
+  width: 400px;
 }
 
 
-@keyframes  showFromBottom {
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }
