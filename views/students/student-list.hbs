@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h2>USER LIST</h2>
+
+    <hr>
+    <div class="row">
+
+        {{#each allStudents}}
+        <div class="col-4">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>NAME: </strong> {{username}}</h5>
+                    <a href="/students/{{_id}}" class="btn btn-sm btn-info">Details</a>
+
+                    {{!-- <p class="card-text"> <strong>EMAIL: </strong> {{email}}</p>
+                    <p class="card-text"> <strong>DESC: </strong> {{description}}</p> --}}
+                    {{!-- <a href="/drones/{{_id}}/edit" class="btn btn-sm btn-info">EDIT</a>
+                    <form action="/drones/{{id}}/delete" method="POST" style="display: inline">
+                        <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+                    </form> --}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+
+    <hr>
+
+    {{!-- <a href="/drones/create" class="btn btn-sm btn-info">CREATE</a> --}}
+    {{!-- BOTÓN PARA ELIMINAR (ES UN FORMULARIO DISIMULADO PARA ASEGURAR QUE SEA UN ENDPOINT DE POST, INACCESIBLE A
+    TRAVÉS DE LA URL) --}}
+
+
+
+
+
+    <a href="/" class="btn btn-dark mt-3 mb-5">Home</a>
+
+</div>
