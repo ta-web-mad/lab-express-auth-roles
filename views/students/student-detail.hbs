@@ -1,0 +1,53 @@
+<div class="container">
+
+    <h1>
+        {{student.username}}
+    </h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <img src='https://i.stack.imgur.com/l60Hf.png' alt="">
+
+        </div>
+        <div class="col-8">
+
+            <h5 class="card-title">Email: {{student.email}}</h5>
+            <p><strong>Desc: </strong>{{student.description}}</p>
+            <p><strong>Role: </strong>{{student.role}}</p>
+
+
+        </div>
+        {{#if userRole.isOwner}}
+        <p class="text-center">
+            <a href="/students/edit/{{student.id}}" class="btn btn-info">Edit Profile</a>
+        </p>
+        {{/if}}
+
+        {{#if userRole.isAdmin}}
+        <p class="text-center">
+            <a href="/students/edit/{{student.id}}" class="btn btn-info">Edit Profile</a>
+
+        <form action="/students/{{student.id}}/dev" method="POST" style="display: inline">
+            <input type="submit" value="Convert DEV" class="btn btn-sm btn-success">
+        </form>
+
+        <form action="/students/{{student.id}}/ta" method="POST" style="display: inline">
+            <input type="submit" value="Convert TA" class="btn btn-sm btn-success">
+        </form>
+
+        </p>
+        <form action="/students/delete/{{student.id}}" method="POST" style="display: inline">
+            <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+        </form>
+        {{/if}}
+        <p class="text-center"><a href="/student-list" class="btn btn-dark">Go back</a></p>
+
+    </div>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark mt-3 mb-5">Home</a>
+
+</div>
