@@ -1,0 +1,37 @@
+<h1>{{user.username}}: Full Info</h1>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="{{user.profileImg}}" alt="{{user.username}}">
+        </div>
+
+        <div class="col-md-8">
+            <p class="student-deets"><strong>{{user.username}}</strong></p>
+            <p><strong>Description:</strong> {{user.description}}</p>
+            <p><strong> Role: </strong> {{user.role}}</p>
+            <p>{{user.email}}</p>
+        </div>
+        {{#if user.canEdit}}
+        <a href="/students/edit/{{user._id}}" class="btn btn-sm btn-outline-danger custom-button edit-button">Edit</a>
+        {{/if}}
+    </div>
+</div>
+
+<hr>
+<div>
+
+    {{#if userRole.isPM}}
+    <form action="/students/makeDEV/{{user._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Mark as Developer" class="btn btn-sm btn-success custom-button dev-button">
+    </form>
+
+    <form action="/students/makeTA/{{user._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Mark as TA" class="btn btn-sm btn-outline-success custom-button ta-button">
+    </form>
+    {{/if}}
+</div>
+
+<a href="/students" class="btn btn-outline-danger">Back to student list</a>
