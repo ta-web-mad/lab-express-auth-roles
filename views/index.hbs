@@ -4,5 +4,11 @@
   <hr>
   <p>La plataforma de aprendizaje de IronHack</p>
   <p>Ahora con MÁS seguridad!</p>
-  
+
+  {{#if errorMessage}}
+  <div id="errorMessage">
+    <p>{{errorMessage}}</p>
+  </div>
+  {{/if}}
+
 </div>
