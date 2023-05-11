@@ -1,0 +1,61 @@
+<div class="container">
+
+    <h1> {{title}} </h1>
+
+    <hr>
+
+    <div class="container mb-5 mt-5">
+
+        <div class="container mb-3">
+            <p><strong>DESCRIPTION:</strong> {{description}} </p>
+        </div>
+
+        <div class="container mb-3">
+            <p><strong>LEAD TEACHER:</strong></p>
+            {{#each leadTeacher}}
+            <p> {{this.username}} </p>
+            {{/each}}
+        </div>
+
+        <div class="container mb-3">
+            <p><strong>TEACHER ASSISTANTS:</strong></p>
+            {{#each ta}}
+            <p> {{this.username}} </p>
+            {{/each}}
+        </div>
+
+        <div class="container mb-3">
+            <p><strong>START DATE:</strong> {{startDate}} </p>
+        </div>
+
+        <div class="container mb-3">
+            <p><strong>END DATE:</strong> {{endDate}} </p>
+        </div>
+
+        <div class="container mb-3">
+            <p><strong>STUDENTS:</strong></p>
+            {{#each students}}
+            <p> {{this.username}} </p>
+            {{/each}}
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="container mt-5">
+
+        <div class="container mb-3">
+            <a href="/courses/{{id}}/edit" class="btn btn-dark"> EDIT COURSE </a>
+        </div>
+
+        <div class="container mb-3">
+            <form action="/courses/{{id}}/delete" method="POST">
+                <button class="btn btn-danger"> DELETE COURSE </button>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

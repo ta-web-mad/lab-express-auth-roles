@@ -1,0 +1,74 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Edit Course</h1>
+            <hr>
+
+            <form action="/courses/create" method="POST">
+
+                <div class="mb-3">
+                    <label for="" class="form-label">TITLE</label>
+                    <input type="text" class="form-control" id="" name="title" value="{{course.title}}">
+                </div>
+
+                <div class="mb-4">
+                    <label for=""> LEAD TEACHERS: </label>
+                    <select class="form-select" multiple name="leadTeacher">
+                        {{#each pms}}
+                        <option value="{{id}}" {{#if (inArray id ../course.leadTeacher)}}selected{{/if}}> {{username}}
+                        </option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for=""> TEACHER ASSISTANTS: </label>
+                    <select class="form-select" multiple name="ta">
+                        {{#each tas}}
+                        <option value="{{id}}" {{#if (inArray id ../course.ta)}}selected{{/if}}> {{username}} </option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">START DAY</label>
+                    <input type="date" class="form-control" id="" name="startDate" value="{{course.startDate}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">END DAY</label>
+                    <input type="date" class="form-control" id="" name="endDate" value="{{course.endDate}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">IMAGE</label>
+                    <input type="text" class="form-control" id="" name="courseImg" value="{{course.courseImg}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">DESCRIPTION</label>
+                    <input type="textarea" class="form-control" id="" name="description" value="{{course.description}}">
+                </div>
+
+                <div class="mb-4">
+                    <label for=""> STUDENTS: </label>
+                    <select class="form-select" multiple name="students">
+                        {{#each students}}
+                        <option value="{{id}}" {{#if (inArray id ../course.students)}}selected{{/if}}> {{username}}
+                        </option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="d-grid gap-2 mb-5">
+                    <button type="submit" class="btn btn-dark block">Update course</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

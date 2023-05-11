@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h1> Course List </h1>
+
+    <hr>
+
+    <a href="/courses/create" class="btn btn-primary"> CREATE COURSE </a>
+
+    <hr>
+
+    {{#each courseList}}
+    <div class="mb-2">
+
+        <a href="/courses/{{id}}" class="btn btn-sm btn-info mt-2"> {{title}} </a>
+
+    </div>
+    {{/each}}
+
+</div>

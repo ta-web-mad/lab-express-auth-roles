@@ -1,0 +1,63 @@
+<div class="container">
+
+    <h1> {{user.username}} </h1>
+
+    <hr>
+
+    <div class="container mt-5">
+
+        <div class="container mb-5">
+            <img src="{{user.profileImg}}" alt="stu-img">
+        </div>
+
+        <div class="container mb-3">
+            <p><strong>EMAIL:</strong> {{user.email}} </p>
+        </div>
+
+        <div class="container mb-3">
+            <p><strong>DESCRIPTION:</strong> {{user.description}} </p>
+        </div>
+
+        <div class="container mb-5">
+
+            {{#if userRole.isPM}}
+            <div class="container mb-3">
+                <form action="/changeToDev/{{user.id}}" method="POST">
+                    <button class="btn btn-sm btn-danger"> CHANGE TO DEV </button>
+                </form>
+            </div>
+
+            <div class="container mb-3">
+                <form action="/changeToTA/{{user.id}}" method="POST">
+                    <button class="btn btn-sm btn-danger"> CHANGE TO TA </button>
+                </form>
+            </div>
+
+            <div class="container mb-3">
+                <a href="/edit-student/{{user.id}}" class="btn btn-sm btn-dark"> EDIT STUDENT </a>
+            </div>
+
+            <div class="container mb-3">
+                <form action="/delete-student/{{user.id}}" method="POST">
+                    <button class="btn btn-sm btn-danger"> DELETE STUDENT </button>
+                </form>
+            </div>
+            {{/if}}
+
+            {{#if userRole.isProfile}}
+            <div class="container mb-3">
+                <a href="/edit-profile" class="btn btn-sm btn-dark"> EDIT STUDENT </a>
+            </div>
+
+            <div class="container mb-3">
+                <form action="/delete-student/{{user.id}}" method="POST">
+                    <button class="btn btn-sm btn-danger"> DELETE STUDENT </button>
+                </form>
+            </div>
+            {{/if}}
+
+        </div>
+
+    </div>
+
+</div>
