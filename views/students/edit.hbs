@@ -1,0 +1,55 @@
+<div class='container'>
+
+  <div class='row justify-content-center'>
+
+    <div class='col-md-6'>
+
+      <h1>Edit {{username}}</h1>
+      <hr />
+
+      <form action='/students/details/{{_id}}/edit' method='POST'>
+
+        <label for='emailInput' class='form-label'>E-mail</label>
+        <input type='email' class='form-control' id='emailInput' name='email' value='{{email}}' />
+        <div class='form-text'>Required</div>
+
+        <div class='mb-3'>
+          <label for='usernameInput' class='form-label'>Username</label>
+          <input type='text' class='form-control' id='usernameInput' name='username' value='{{username}}' />
+        </div>
+
+        <div class='mb-3'>
+          <label for='imageInput' class='form-label'>Image</label>
+          <input type='url' class='form-control' id='imageInput' name='profileImg' value='{{profileImg}}' />
+          <div class='form-text'>Enter the URL to the profile image you want</div>
+        </div>
+
+        <div class='mb-3'>
+          <label for='descriptionInput' class='form-label'>Description</label>
+          <textarea class='form-control' id='descriptionInput' rows='3' name='description' value='{{description}}'></textarea>
+        </div>
+
+        <div class='row gap-2 d-flex justify-content-around'>
+          <div class='col'>
+            <div class='d-grid'>
+              <a href='/students/details/{{_id}}' class='btn btn-dark'>Back</a>
+            </div>
+          </div>
+          <div class='col'>
+            <div class='d-grid'>
+              <button type='submit' class='btn btn-success block'>Submit</button>
+            </div>
+          </div>
+        </div>
+
+        {{#if errorMessage}}
+          <div id='errorMessage'>
+            <p>{{errorMessage}}</p>
+          </div>
+        {{/if}}
+
+      </form>
+    </div>
+  </div>
+
+</div>

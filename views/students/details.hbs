@@ -1,0 +1,64 @@
+<div class='container'>
+  <div class='row'>
+
+    <div class='col-4'>
+
+      <div class='profile-image'>
+        <img src='{{student.profileImg}}' alt='{{student.username}}' />
+      </div>
+
+      <div class='row'>
+        <div class='col'>
+          <div class='mt-1'>
+            <a href='/students/list' class='btn btn-dark'>Back</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class='col-8'>
+
+      <h2 class='mt-2'><strong>{{student.username}}</strong></h2>
+      <hr />
+      <br />
+      <h3><strong>E-mail:</strong> {{student.email}}</h3>
+      <br />
+      <h3><strong>Role:</strong> {{student.role}}</h3>
+
+      {{#if userRoles.isPM}}
+
+        <div class='row'>
+
+          <div class='col mt-3 pb-0'>
+            <form action='/students/details/{{student._id}}' method='POST'>
+              <input class='btn btn-primary' type='submit' name='role' value='STUDENT' />
+              <input class='btn btn-primary' type='submit' name='role' value='DEV' />
+              <input class='btn btn-primary' type='submit' name='role' value='TA' />
+            </form>
+          </div>
+
+        </div>
+
+        <div class='row mt-4'>
+
+          <div class='col'>
+            <div class='d-grid'>
+              <a href='/students/details/{{student._id}}/edit' type='submit' class='btn btn-success block'>Edit</a>
+            </div>
+          </div>
+
+          <div class='col'>
+            <form action='/students/details/{{student._id}}/delete' method='POST'>
+              <input type='submit' value='Delete' class='btn btn-danger block' />
+            </form>
+          </div>
+
+        </div>
+      {{/if}}
+
+    </div>
+
+  </div>
+</div>
