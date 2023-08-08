@@ -14,7 +14,7 @@ router.get("/students", isLoggedIn, (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.get('/students-details/:user_id', isLoggedIn, checkRoles('PM'), (req, res, next) => {
+router.get('/students-details/:user_id', isLoggedIn, checkRoles('PM', 'STUDENT'), (req, res, next) => {
 
   const { user_id } = req.params
 
@@ -25,6 +25,8 @@ router.get('/students-details/:user_id', isLoggedIn, checkRoles('PM'), (req, res
   const currentUserId = req.session.currentUser._id
   const isCurrentUser = currentUserId === user_id
 
+
+
   User
     .findById(user_id)
     .then(student => {
@@ -34,15 +36,30 @@ router.get('/students-details/:user_id', isLoggedIn, checkRoles('PM'), (req, res
     .catch(err => next(err))
 })
 
-router.get('/editar-alumno/:user_id', isLoggedIn, (req, res, next) => {
+router.get('/editar-alumno/:user_id', isLoggedIn, checkRoles('PM', 'STUDENT'), (req, res, next) => {
 
 
   const { user_id } = req.params
 
-  User
-    .findById(user_id)
-    .then(student => res.render("students/edit-profile", student))
-    .catch(err => next(err))
+  const rolPM = {
+
+    isPM: req.session.currentUser.role === 'PM'
+  }
+
+  const rolOwner = {
+
+    isOwner: req.session.currentUser._id === user_id
+  }
+
+  if (rolPM.isPM || rolOwner.isOwner) {
+
+    User
+      .findById(user_id)
+      .then(student => res.render("students/edit-profile", student))
+      .catch(err => next(err))
+  }
+
+  else { res.redirect('inicar-sesion?.No tienes autorización para entrar') }
 })
 
 router.post('/editar-alumno/:user_id', isLoggedIn, (req, res, next) => {
