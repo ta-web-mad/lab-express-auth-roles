@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card ms-5" style="width: 18rem;">
+        <img src="{{user.profileImg}}" class="card-img-top" alt="{{user.username}}">
+        <div class="card-body">
+            <h5 class="card-title">{{user.username}}</h5>
+            <p class="card-text">{{user.role}}</p>
+            <p>{{user.email}}</p>
+            <p>{{user.description}}</p>
+
+
+            {{#if userRoles.isPm}}
+            <a href="/student/edit/{{user._id}}">Edit</a>
+
+            <form action="/student/delete/{{user._id}}" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+
+            <form action="/student/todeveloper/{{user._id}}" method="POST">
+                <input type="submit" value="Mark as developer">
+            </form>
+
+            <form action="/student/toTA/{{user._id}}" method="POST">
+                <input type="submit" value="Mark as TA">
+            </form>
+            {{/if}}
+
+            {{#if userRoles.isStudentId}}
+            <a href="/student/edit/{{user._id}}">Edit</a>
+            {{/if}}
+
+
+        </div>
+
+    </div>
+</div>
