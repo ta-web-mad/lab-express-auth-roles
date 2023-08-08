@@ -11,4 +11,11 @@ module.exports = app => {
   //User routes añadida por mi
   const userRouter = require("./user.routes");
   app.use("/", userRouter);
+
+  //Pm routes añadida por mi
+  const pmRouter = require("./pm.routes");
+  app.use("/", pmRouter);
+
+
 }
+
