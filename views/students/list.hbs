@@ -1,0 +1,27 @@
+<div class='container'>
+
+  <h1><strong>Students list</strong></h1>
+  <hr />
+
+  <div class='list-group'>
+
+    {{#each students}}
+      <a href='/students/details/{{_id}}' class='list-group-item list-group-item-action list-group-item-light' aria-current='true'>
+        <div class='row'>
+          <div class='col-2'>
+            <div class='profile-image'>
+              <img src='{{profileImg}}' alt='{{username}}' />
+            </div>
+          </div>
+          <div class='col-10'>
+            <h2 class='mt-2'>{{username}}</h2>
+            <br />
+            <h3 class='mb-2'>{{email}}</h3>
+          </div>
+        </div>
+      </a>
+    {{/each}}
+
+  </div>
+
+</div>
