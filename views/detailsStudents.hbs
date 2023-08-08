@@ -1,0 +1,35 @@
+<div>
+    <h1>{{user.username}}</h1>
+
+    <p>EMAIL:</p>
+
+    <p>{{user.email}}</p>
+
+    <p>DESCRIPTION:</p>
+
+    <p>{{user.description}}</p>
+
+    <p>ROL:</p>
+
+    <p>{{user.role}}</p>
+
+    {{#if userRoles.isPM}}
+
+    <form action='/PmEdit/{{user._id}}' method="post">
+        <input type="submit" value="edit">
+    </form>
+
+    <form action='/delete/{{user._id}}' method="post">
+        <input type="submit" value="delete">
+    </form>
+
+    <form action='/TA/{{user._id}}' method="post">
+        <button type="submit" name="role" value="TA">TA</button>
+
+    </form>
+
+    <form action='/DEV/{{user._id}}' method="post">
+        <input type="submit" name="role" value="DEV">
+    </form>
+    {{/if}}
+</div>
