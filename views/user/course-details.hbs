@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-12 text-center">
+        <h2>{{title}}</h2>
+        <hr>
+    </div>
+    <div class="col-6">
+        <h3>Dev</h3>
+        {{#each leadTeacher}}
+        <h4>{{username}}</h4>
+        {{/each}}
+        <hr>
+    </div>
+    <div class="col-6">
+        <h3>TA</h3>
+        {{#each ta}}
+        <h4>{{username}}</h4>
+        {{/each}}
+        <hr>
+    </div>
+
+
+    <div class="col-6">
+        <h3>Start Date</h3>
+        <h5>{{formattedStartDate}}</h5>
+        <hr>
+    </div>
+    <div class="col-6">
+        <h3>End Date</h3>
+        <h5>{{formattedEndDate}}</h5>
+        <hr>
+    </div>
+
+    <div class="col-6">
+        <h3>Students</h3>
+        <ul>
+            {{#each students}}
+            <li>{{username}}</li>
+            {{/each}}
+        </ul>
+
+    </div>
+    <div class="col-6">
+        <img class="w-100" src="{{courseImg}}" alt="course pic">
+    </div>
+
+
+    <div class="col-12">
+        <hr>
+        <h3>Description</h3>
+        <h5>{{description}}</h5>
+        <hr>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-3 d-grid">
+            <form action="/courses/{{_id}}/delete" method="POST">
+                <button type="submit" class="btn btn-dark mt-3 mb-5" href=>Delete</button>
+            </form>
+
+        </div>
+        <div class="col-3 d-grid">
+            <a href="/courses/{{_id}}/edit" class="btn btn-dark mt-3 mb-5" href=>Edit</a>
+
+
+        </div>
+
+        <div class="col-3">
+            <a class="btn btn-dark mt-3 mb-5" href="/courses">Cancel</a>
+        </div>
+
+
+
+    </div>
+
+</div>

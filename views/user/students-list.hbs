@@ -1,0 +1,11 @@
+<div class="row">
+
+    {{#each students}}
+    <div class="col-3">
+        {{username}}
+        <a class="btn btn-dark" href="/students/{{_id}}">View student profile</a>
+        <hr>
+    </div>
+
+    {{/each}}
+</div>
