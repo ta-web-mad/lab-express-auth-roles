@@ -1,0 +1,13 @@
+<h1>Students</h1>
+<div class="container d-flex justify-content-between">
+
+    {{#each students}}
+    <div>
+        {{username}}
+        <a class="btn btn-dark" href="/students/{{_id}}">Profile</a>
+
+    </div>
+
+    {{/each}}
+
+</div>

@@ -1,0 +1,27 @@
+<h1>Edit {{username}} Profile</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form action="/students/{{id}}/edit" method="POST">
+                <div>
+                    <label class="form-label" for="username">New Username:</label>
+                    <input class="form-control" type="text" name="username" id="username" value="{{username}}">
+                </div>
+
+                <div>
+                    <label class="form-label" for="profileImg">New Profile Image Url:</label>
+                    <input class="form-control" type="text" name="profileImg" id="profileImg" value="{{profileImg}}">
+                </div>
+
+                <div>
+                    <label class="form-label" for="description">New Description:</label>
+                    <input class="form-control" type="text" name="description" id="description" value="{{description}}">
+                </div>
+                <div class="d-grid mt-3">
+                    <button class="btn btn-dark" type="submit">Update User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
