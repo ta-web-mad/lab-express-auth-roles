@@ -1,0 +1,31 @@
+<body>
+    <div class="container">
+        <h1 class="username">{{user.username}}</h1>
+        <hr>
+        <p class="description">Descripción: {{user.description}}</p>
+        <hr>
+        <p class="email">Email: {{user.email}}</p>
+        <hr>
+
+        {{#if userRoles.isPM }}
+        <div class="user-actions">
+            <a href="/editar/{{user._id}}" class="action-button">Editar</a>
+            <form action="/ascenderDesarrollador/{{user._id}}" method="POST" class="d-inline">
+                <button type="submit" name="role" value="DEV" class="action-button">Convertir en DEV</button>
+            </form>
+            <form action="/ascenderTA/{{user._id}}" method="POST" class="d-inline">
+                <button type="submit" name="role" value="TA" class="action-button">Convertir en TA</button>
+            </form>
+            <form action="/eliminar/{{user._id}}" method="POST" class="d-inline">
+                <input type="submit" value="Eliminar" class="action-button delete-button">
+            </form>
+        </div>
+        {{/if}}
+
+        {{#if isCurrentUser}}
+        <a href="/editar/{{user._id}}" class="action-button">Editar</a>
+        {{/if}}
+
+        <a href="/listado-alumnos" class="back-link">Volver al listado</a>
+    </div>
+</body>
