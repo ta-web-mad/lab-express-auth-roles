@@ -1,0 +1,38 @@
+<h2>Detalles de {{student.username}}</h2>
+<hr>
+
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{{student.profileImg}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> {{student.username}}</h5>
+                <hr>
+                <p class="card-text">{{student.description}}</p>
+                <hr>
+                <p class="card-text">{{student.role}}</p>
+
+                {{#if userRole.isPm}}
+
+                <a href="/edit/{{student._id}}" class="btn btn-success">Editar</a>
+                <form action="/delete/{{student._id}}" method="post">
+                    <input type="submit" class="btn btn-danger mt-2" value="Eliminar">
+                </form>
+
+                <form action="/dev/{{student._id}}" method="post">
+                    <input type="submit" class="btn btn-info mt-2" value="Mark as DEV">
+                </form>
+
+                <form action="/ta/{{student._id}}" method="post">
+                    <input type="submit" class="btn btn-info mt-2" value="Mark as TA">
+                </form>
+                {{/if}}
+
+                {{#if owner}}
+                <a href="/edit/{{student._id}}" class="btn btn-success">Editar</a>
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</div>

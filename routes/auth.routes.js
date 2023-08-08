@@ -20,7 +20,13 @@ router.post('/registro', (req, res, next) => {
 
 
 // Login
-router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
+router.get('/iniciar-sesion', (req, res, next) => {
+  const { err: errorMessage } = req.query
+
+  res.render('auth/login', { errorMessage })
+})
+
+
 router.post('/iniciar-sesion', (req, res, next) => {
 
   const { email, userPwd } = req.body
