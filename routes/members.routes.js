@@ -19,24 +19,18 @@ router.get('/profile/edit', isLoggedIn, (req, res) => {
 })
 
 router.post('/profile/edit', isLoggedIn, (req, res) => {
-  const { _id, username, email, profileImg, description } = req.session.currentUser
+  const { _id } = req.session.currentUser
+  const { username, email, profileImg, description } = req.body
 
   if (!email.length) {
-    res.render('auth/signup', { errorMessage: 'E-mail required' })
+    res.render('members/edit', { errorMessage: 'E-mail required' })
     return
   }
 
   if (!username.length) {
-    res.render('auth/signup', { errorMessage: 'Username required' })
+    res.render('members/edit', { errorMessage: 'Username required' })
     return
   }
-
-  User.findOne({ email }).then(foundUser => {
-    if (foundUser) {
-      res.render('auth/signup', { errorMessage: 'This e-mail alredy exists' })
-      return
-    }
-  })
 
   User.findByIdAndUpdate(_id, { username, email, profileImg, description })
     .then(() => res.redirect('/members/profile'))

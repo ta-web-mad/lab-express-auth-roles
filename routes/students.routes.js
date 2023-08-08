@@ -54,13 +54,6 @@ router.post('/details/:student_id/edit', isLoggedIn, checkRoles('PM'), (req, res
     return
   }
 
-  User.findOne({ email }).then(foundUser => {
-    if (foundUser) {
-      res.render('students/edit', { errorMessage: 'This e-mail alredy exists' })
-      return
-    }
-  })
-
   User.findByIdAndUpdate(student_id, { username, email, profileImg, description })
     .then(student => res.redirect(`/students/details/${student._id}`))
     .catch(err => console.log(err))
