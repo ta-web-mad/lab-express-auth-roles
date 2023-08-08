@@ -1,0 +1,27 @@
+<h1>Create course</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <form action="/course/create" method="POST">
+                <div>
+                    <label class="form-label" for="title">Course Title:</label>
+                    <input class="form-control" type="text" name="title" id="title">
+                </div>
+
+                <div>
+                    <label class="form-label" for="profileImg">New Profile Image Url:</label>
+                    <input class="form-control" type="text" name="profileImg" id="profileImg">
+                </div>
+
+                <div>
+                    <label class="form-label" for="description">New Description:</label>
+                    <input class="form-control" type="text" name="description" id="description">
+                </div>
+                <div class="d-grid mt-3">
+                    <button class="btn btn-dark" type="submit">Update User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
