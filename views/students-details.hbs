@@ -1,0 +1,53 @@
+<div class="container">
+
+    <h3> DETALLE DEL ESTUDIANTES</h3>
+
+
+
+    <div class="card" style="width: 38rem;">
+        <img src="{{profileImg}}" class="card-img-top" alt="{{username}}">
+        <div class="card-body">
+            <h5 class="card-title">{{student.username}}</h5>
+            <h6 class="card-title">{{student.email}}</h6>
+            <p class="card-text">{{student.description}}</p>
+            {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+
+            {{#if userRoles.isPm}}
+
+            <p class="card-text">{{student.role}}</p>
+            <form action="/students/delete/{{student._id}}" method="POST" class="mt-2">
+                <input type="submit" value="Eliminar" class="btn btn-outline-secondary">
+            </form>
+
+
+            <a href="/students/edit/{{student._id}}">Editar</a>
+
+
+
+            <form action="/students/details/{{student._id}}/DEV" method="POST" class="mt-2">
+                <input type="submit" value="DEV" class="btn btn-outline-secondary">
+            </form>
+            
+            <form action="/students/details/{{student._id}}/TA" method="POST" class="mt-2">
+                <input type="submit" value="TA" class="btn btn-outline-secondary">
+            </form>
+            {{/if}}
+
+
+                {{#if userRoles.isidStudent}}
+
+                <p class="card-text">{{student.role}}</p>
+                <form action="/students/delete/{{student._id}}" method="POST" class="mt-2">
+                    <input type="submit" value="Eliminar" class="btn btn-outline-secondary">
+                </form>
+
+
+                <a href="/students/edit/{{student._id}}">Editar</a>
+
+                {{/if}}
+            
+            </form>
+        </div>
+    </div>
+   
+</div>
