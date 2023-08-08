@@ -1,0 +1,10 @@
+{{student}}
+<h1>Detalles del Estudiante</h1>
+<p>Nombre de usuario: {{student.username}}</p>
+
+{{#if userRoles.isPM}}
+<a href="/students/{{student._id}}/edit">Editar</a>
+<a href="/students/{{student._id}}/delete">Eliminar</a>
+{{/if}}
+
+<a href="/students">Volver</a>
