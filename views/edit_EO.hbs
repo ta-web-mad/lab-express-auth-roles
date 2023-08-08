@@ -1,0 +1,27 @@
+<h1> EDIT {{Username}}</h1>
+<hr>
+<div class="row justify-content-center">
+    <form action="/edit_EO/{{_id}}" method="post">
+
+        <div>
+            <label for="field1" class="form-label">Username</label>
+            <input type="text" class="form-control" id="field1" name="username" value="{{username}}">
+        </div>
+
+        <div>
+            <label for="field2" class="form-label">Email</label>
+            <input type="text" class="form-control" id="field2" name="email" value="{{email}}">
+        </div>
+
+        <div>
+            <label for="field3" class="form-label">Description</label>
+            <input type="text" class="form-control" id="field3" name="description" value="{{description}}">
+        </div>
+        <input type="text" name="" hidden value="{{_id}}">
+        <div class="d-grid">
+            <button type="submit" class="btn btn-dark">Save</button>
+        </div>
+
+
+    </form>
+</div>
