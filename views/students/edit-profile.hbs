@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <form action="/editar-alumno/{{_id}}" method="POST">
+
+                <img src="{{profileImg}}" alt="profileImg" style="width: 200px; margin-left:320px">>
+
+                <div class="mb-3">
+                    <label for="field1" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="field1" name="username" value="{{username}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="field1" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="field1" name="description" value="{{description}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="field2" class="form-label">Rol</label>
+                    <input type="text" class="form-control" id="field2" name="role" value="{{role}}">
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Guardar edición</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

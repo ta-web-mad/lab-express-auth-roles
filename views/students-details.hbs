@@ -1,0 +1,51 @@
+<h1 style="margin-left: 50px;">Detalles del Alumno </h1>
+<hr>
+
+<div class="card mb-3" style=" max-width: 650px; margin-left:50px; margin-top:20px">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{student.profileImg}}" style="width: 200px;" alt="profileImg">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Nombre: {{student.username}}</h5>
+                <p class="card-text">Descripción: {{student.description}}</p>
+                <p class="card-text">Rol en Ironhack: {{student.role}}</p>
+            </div>
+
+            {{#if isCurrentUser}}
+            <a href="/editar-alumno/{{student._id}}" class="btn btn-dark" style="margin-left: 20px;">Editar
+                alumno</a>
+            {{/if}}
+
+            {{#if userRoles.isPM}}
+            <div>
+                <hr>
+                <form action="/eliminar-alumno/{{student._id}}" method="POST">
+                    <input type="submit" name="Eliminar" class="btn btn-dark" style="margin-left: 20px"
+                        value="Eliminar">
+                </form>
+
+                <hr>
+
+                <a href="/editar-alumno/{{student._id}}" class="btn btn-dark" style="margin-left: 20px;">Editar
+                    alumno</a>
+                <hr>
+                <form action="/actualizar-rol/{{student._id}}/dev" method="POST">
+                    <input type="submit" name="Actualizar" class="btn btn-dark" style="margin-left: 20px;"
+                        value="Actualiar a DEV">
+                </form>
+                <hr>
+                <form action="/actualizar-rol/{{student._id}}/ta" method="POST">
+                    <input type="submit" name="Actualizar" class="btn btn-dark" style="margin-left: 20px;"
+                        value="Actualizar a TA">
+                </form>
+                {{/if}}
+                <hr>
+                <div>
+                    <a href="/" class="btn btn-dark" style="margin-left: 20px;">Volver a inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
