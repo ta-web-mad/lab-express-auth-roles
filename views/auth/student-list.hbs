@@ -1,0 +1,32 @@
+<h1>Students</h1>
+<hr>
+
+{{#each users}}
+<div class="fw-bold">{{username}}</div>
+<a href="/students/{{id}}">View student profile</a>
+
+{{#if ../userRoles.isPM || ../userRoles.isStudent}}
+
+<a href="/edit-student/{{id}}">Edit</a>
+
+<form action="/modify-role/{{id}}/DEVELOPER" method="POST">
+    <button type="submit" name="role" value="DEV">DEVELOPER</button>
+</form>
+
+<form action="/modify-role/{{id}}/TA" method="POST">
+    <button type="submit" name="role" value="TA">TA</button>
+</form>
+
+<form action="/students/delete/{{id}}" method="POST">
+    <input type="submit" value="Delete">
+</form>
+
+{{/if}}
+
+<hr>
+
+{{/each}}
+
+
+<hr>
+<a href="/" class="btn btn-dark mb-5">Home</a>
