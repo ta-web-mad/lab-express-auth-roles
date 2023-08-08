@@ -1,8 +1,11 @@
 <div class="container">
 
-  <h1>{{siteTitle}} 🚀</h1>
-  <hr>
-  <p>La plataforma de aprendizaje de IronHack</p>
-  <p>Ahora con MÁS seguridad!</p>
-  
+	<h1>{{siteTitle}} 🚀</h1>
+	<hr>
+	<p>La plataforma de aprendizaje de IronHack</p>
+	<p>Ahora con MÁS seguridad!</p>
+	<a href="/students" class="btn btn-dark">Listado estudiantes</a>
+	{{#if isTA}}
+	<a href="/courses" class="btn btn-dark">Cursos</a>
+	{{/if}}
 </div>

@@ -1,0 +1,82 @@
+<div class="container mb-5">
+
+	<div class="row justify-content-center">
+
+		<div class="col-md-6">
+
+			<h1>Nuevo curso</h1>
+			<hr>
+
+			<form action="/crear-curso" method="POST">
+
+				<div class="mb-3 row">
+					<div class="col">
+						<label for="nameInput" class="form-label">Nombre del curso</label>
+						<input type="text" class="form-control" id="nameInput" name="title">
+					</div>
+					<div class="col">
+						<label for="leadInput" class="form-label">Lead Teacher del curso</label>
+						<select size="{{devUsers.length}}" class="form-select" id="leadInput" name="leadTeacher">
+							<option value="">Seleccione el Lead Teacher</option>
+							{{#each devUsers}}
+							<option value="{{id}}">{{username}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<div class="col">
+						<label for="startDateInput" class="form-label">Inicio del curso</label>
+						<input type="date" class="form-control" id="startDateInput" name="startDate">
+					</div>
+					<div class="col">
+						<label for="endDateInput" class="form-label">Final del curso</label>
+						<input type="date" class="form-control" id="endDateInput" name="endDate">
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="taInput" class="form-label">TA del curso</label>
+					<select size="{{taUsers.length}}" class="form-select" id="taInput" name="ta">
+						{{#each taUsers}}
+						<option value="{{id}}">{{username}}</option>
+						{{/each}}
+					</select>
+				</div>
+
+				<div class="mb-3">
+					<label for="studentsInput" class="form-label">Students del curso</label>
+					<select multiple size="{{studentUsers.length}}" class="form-select" id="studentsInput"
+						name="students">
+						{{#each studentUsers}}
+						<option value="{{id}}">{{username}}</option>
+						{{/each}}
+					</select>
+				</div>
+
+				<div class="mb-3">
+					<label for="imgInput" class="form-label">Imagen del curso</label>
+					<input type="text" class="form-control" id="imgInput" name="courseImg">
+					<div class="form-text">Introduce la URL a la imagen que desees para el curso.</div>
+				</div>
+
+				<div class="mb-3">
+					<label for="descriptionInput" class="form-label">Descripción</label>
+					<textarea class="form-control" id="descriptionInput" rows="3" name="description"></textarea>
+				</div>
+
+				<div class="d-grid gap-2">
+					<button type="submit" class="btn btn-success block">Completar registro</button>
+				</div>
+
+				{{#if errorMessage}}
+				<div id="errorMessage">
+					<p>{{errorMessage}}</p>
+				</div>
+				{{/if}}
+
+			</form>
+		</div>
+	</div>
+
+</div>
