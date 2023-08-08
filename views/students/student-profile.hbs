@@ -1,0 +1,31 @@
+<div class="container">
+
+    <h1>Wellcome {{student.username}}</h1>
+    <hr>
+
+    <p> Your email: {{student.email}}</p>
+    <hr>
+    <img src="{{student.profileImg}}" alt="student image"></p>
+    <hr>
+    <p>Bio: {{student.description}}</p>
+
+    {{!-- Iteración#2: para que sea el usuario con role PM el único que pueda ver estos botone => IF --}}
+    {{#if isPM}}
+
+    <a href="/students/{{student._id}}/edit" class="col-md-3 btn btn-dark">Edit Student</a>
+
+    <form action="/students/{{student._id}}/delete" method="POST">
+        <button class="col-md-3 btn btn-danger"> Delete Student </button>
+    </form>
+
+    <form action="/students/{{student._id}}/upgradeDEV" method="post">
+        <button class="col-md-3 btn btn-dark">Upgrade to DEV </button>
+    </form>
+
+    <form action="/students/{{student._id}}/upgradeTA" method="post">
+        <button class="col-md-3 btn btn-dark">Upgrade to TA </button>
+    </form>
+
+
+
+    {{/if}}
