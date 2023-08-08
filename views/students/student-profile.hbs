@@ -1,0 +1,29 @@
+<h1>Student Profile</h1>
+
+<hr>
+
+<p>Username: {{user.username}}</p>
+<p> Picture: {{user.profileImg}}</p>
+<p>E-mail: {{user.email}}</p>
+<p>Description: {{user.description}}</p>
+<p>Role: {{user.role}}</p>
+
+<hr>
+
+{{#if pmRole.isPM}}
+
+<a href="/students/{{user.id}}/mark-TA"> Mark as TA</a>
+<hr>
+<a href="/students/{{user.id}}/mark-DEV"> Mark as Developer</a>
+<hr>
+<a href="/students/{{user.id}}/edit"> Edit student</a>
+<hr>
+<a href="/students/{{user.id}}/delete"> Delete student</a>
+
+{{/if}}
+
+{{#if ownerRole.isOwner}}
+
+<a href="/students/{{user.id}}/edit"> Edit student</a>
+
+{{/if}}
