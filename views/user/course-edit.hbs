@@ -1,0 +1,84 @@
+<form action="/courses/{{course._id}}/edit" method="POST">
+
+
+
+
+    <div class="row justify-content-center text-center">
+        <div class="col-6">
+            <h2>
+                <label for="titleInput" class="form-label">Course Title</label>
+            </h2>
+            <input type="text" class="form-control" id="titleInput" name="title" value="{{course.title}}">
+
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center text-center">
+        <div class="col-3 mt-3">
+            <label for="dateInput" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="dateInput" name="startDate"
+                value="{{course.formattedStartDate}}">
+        </div>
+        <div class="col-3 mt-3">
+            <label for="dateInput" class="form-label">End Date</label>
+            <input type="date" class="form-control" id="dateInput" name="endDate" value="{{course.formattedEndDate}}">
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-6 mt-3">
+            <select class="form-select" aria-label="Default select example" name="leadTeacher">
+                <option selected>Select DEV</option>
+                {{#each devs}}
+                <option value="{{_id}}">{{username}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-6 mt-3">
+            <select class="form-select" aria-label="Default select example" name="ta">
+                <option selected>Select TA</option>
+                {{#each tas}}
+                <option value="{{_id}}">{{username}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center mt-3">
+        <div class="col-6">
+            <label for="imageUrlInput" class="form-label">Course Image URL</label>
+            <input type="text" class="form-control" id="imageUrlInput" name="courseImg" value="{{course.courseImg}}">
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-6 mt-3">
+            <label for="descriptionInput" class="form-label">Description</label>
+            <textarea class="form-control" id="descriptionInput" rows="3"
+                name="description">{{course.description}}</textarea>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-6 mt-3">
+            <p>Select Students</p>
+            <select class="form-select" multiple aria-label="Default select example" name="students">
+                {{#each students}}
+                <option value="{{_id}}">{{username}}</option>
+                {{/each}}
+            </select>
+
+            <button class="btn btn-info mt-2 mb-2" type="submit">Confirm Edit</button>
+        </div>
+    </div>
+</form>
+
+<div class="row justify-content-center text-center mb-5">
+    <div class="col-1 d-grid">
+        <a class="btn btn-dark d-grid" href="/courses">Cancel</a>
+    </div>
+</div>
