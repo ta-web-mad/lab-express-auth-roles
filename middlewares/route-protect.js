@@ -6,7 +6,8 @@ const isLoggedIn = (req, res, next) => {
         res.redirect('/login?err=Identifícate para acceder')
     }
 }
-// parte de la iteración#2: usuario PM el único capaz de v los botones de editar y borrar usuario
+// parte de la iteración#2: usuario PM el único capaz de ver los botones de editar y borrar usuario
+
 const checkRoles = (...admittedRoles) => (req, res, next) => {
 
     const { role } = req.session.currentUser
@@ -17,8 +18,6 @@ const checkRoles = (...admittedRoles) => (req, res, next) => {
         res.redirect('/login?err=No estás autorizado')
     }
 }
-
-
 
 
 module.exports = {

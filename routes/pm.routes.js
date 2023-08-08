@@ -4,7 +4,7 @@ const User = require("../models/User.model")
 const { isLoggedIn } = require("../middlewares/route-protect")
 
 
-
+//EDIT
 router.get('/students/:users_id/edit', isLoggedIn, (req, res) => {
 
     const { users_id } = req.params
@@ -29,6 +29,7 @@ router.post('/students/:users_id/edit', isLoggedIn, (req, res) => {
 })
 
 
+//DELETE
 router.post('/students/:users_id/delete', isLoggedIn, (req, res) => {
 
     const { users_id } = req.params
@@ -38,5 +39,30 @@ router.post('/students/:users_id/delete', isLoggedIn, (req, res) => {
         .then(() => res.redirect(`/students`))
         .catch(err => console.log(err))
 })
+
+
+// UPGRADE
+router.post('/students/:users_id/upgradeDEV', isLoggedIn, (req, res) => {
+
+    const { users_id } = req.params
+
+    User
+        .findByIdAndUpdate(users_id, { role: "DEV" })
+        .then(() => res.redirect(`/students`))
+        .catch(err => console.log(err))
+
+})
+
+router.post('/students/:users_id/upgradeTA', isLoggedIn, (req, res) => {
+
+    const { users_id } = req.params
+
+    User
+        .findByIdAndUpdate(users_id, { role: "TA" })
+        .then(() => res.redirect(`/students`))
+        .catch(err => console.log(err))
+
+})
+
 
 module.exports = router
