@@ -1,0 +1,13 @@
+{{#each students}}
+
+<ul>
+    <p>{{username}}</p>
+    <a href="/students/{{id}}"><button>View student profile</button></a>
+
+    {{#if isPM}}
+    <a href="/students/{{id}}/edit"><button>Edit</button></a>
+    <a href="/students/{{id}}/delete"><button>Delete</button></a>
+    {{/if}}
+</ul>
+
+{{/each}}
