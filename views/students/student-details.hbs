@@ -1,0 +1,39 @@
+<div class="container">
+	<a href="/students" class="btn btn-dark mb-3">Vovler</a>
+
+	<div class="card" style="width: 18rem;">
+		<img src="{{userFound.profileImg}}" class="card-img-top" alt="{{username}}">
+		<div class="card-body">
+			<h5 class="card-title">{{userFound.username}}</h5>
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">{{userFound.role}}</li>
+			{{#if userRoles.isPM}}
+			<li class="list-group-item d-flex">
+				<form action="/promote/{{userFound.id}}/DEV" method="POST">
+					<input class="btn btn-success" type="submit" value="Hacer DEV">
+				</form>
+				<form class="px-1" action="/promote/{{userFound.id}}/TA" method="POST">
+					<input class="btn btn-success" type="submit" value="Hacer TA">
+				</form>
+			</li>
+			{{/if}}
+			<li class="list-group-item">{{userFound.email}}</li>
+			<li class="list-group-item">{{userFound.description}}</li>
+			{{#if userRoles.isPM}}
+			<li class="list-group-item">
+				<a href="/delete/{{userFound.id}}" class="btn btn-danger">Eliminar</a>
+				<a href="/edit/{{userFound.id}}" class="btn btn-info">Editar</a>
+			</li>
+			{{/if}}
+
+			{{#if userRoles.isMySelf}}
+			<li class="list-group-item">
+				<a href="/edit/{{userFound.id}}" class="btn btn-info">Editar</a>
+			</li>
+			{{/if}}
+
+		</ul>
+	</div>
+
+</div>

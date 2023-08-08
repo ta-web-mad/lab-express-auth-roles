@@ -1,0 +1,36 @@
+<div class="container mb-5">
+	<a href="/courses" class="btn btn-dark mb-3">Vovler</a>
+
+	<div class="card" style="width: 18rem;">
+		<img src="{{courseImg}}" class="card-img-top" alt="{{title}}">
+		<hr>
+		<div class="card-body">
+			<h5 class="card-title">{{title}}</h5>
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item"><strong>Inicio: </strong>{{formattedStartDate}}</li>
+			<li class="list-group-item"><strong>Fin: </strong>{{formattedEndDate}}</li>
+			{{#each leadTeacher}}
+			<li class="list-group-item">
+				<strong>Lead Teacher:</strong> {{username}}
+			</li>
+			{{/each}}
+			{{#each ta}}
+			<li class="list-group-item">
+				<strong>TA:</strong> {{username}}
+			</li>
+			{{/each}}
+			<li class="list-group-item">{{description}}</li>
+			<li class="list-group-item">
+				{{#each students}}
+				{{username}} |
+				{{/each}}
+			</li>
+			<li class="list-group-item">
+				<a href="/delete-course/{{id}}" class="btn btn-danger">Eliminar</a>
+				<a href="/edit-course/{{id}}" class="btn btn-info">Editar</a>
+			</li>
+		</ul>
+	</div>
+
+</div>
