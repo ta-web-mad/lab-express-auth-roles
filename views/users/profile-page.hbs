@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Student Profile</h1>
+    <hr>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">{{userProfile.username}}</div>
+            <div class="fw-bold">{{userProfile.email}}</div>
+            <div class="fw-bold">{{userProfile.description}}</div>
+            <img src="{{userProfile.profileImg}}" alt="profile photo">
+        </div>
+
+        {{#if isPM}}
+
+        <a href="/students/{{userProfile._id}}/edit" class="btn btn-dark">Edit User</a>
+        <hr>
+        <a href="/students/{{userProfile._id}}/delete" class="btn btn-dark">Delete User</a>
+        <hr>
+        <a href="/students/{{userProfile._id}}/edit" class="btn btn-dark">Mark as developer</a>
+        <hr>
+        <a href="/students/{{userProfile._id}}/delete" class="btn btn-dark">Mark as TA</a>
+
+
+        {{/if}}
+    </li>
+</div>
