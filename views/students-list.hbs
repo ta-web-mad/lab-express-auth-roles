@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Listado de alumnos</h1>
+    <div class="card" style="width: 24rem;">
+        {{#each students}}
+        <img src="{{profileImg}}" class="card-img-top" alt="profileImg">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center">Nombre: {{username}}</h5>
+            <div class="card-body">
+                <a href="/students-details/{{id}}" class="btn btn-dark">Ver detalles</a>
+                <hr>
+            </div>
+            {{/each}}
+
+        </div>
+        <hr>
+        <a href="/" class="btn btn-dark ml-5">Volver a inicio</a>
+    </div>
