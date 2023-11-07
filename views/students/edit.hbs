@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h1>Editar {{username}}</h1>
+
+            <hr>
+
+            <form action="/students/{{_id}}/edit" method="POST">
+                <div class="mb-3">
+                    <label for="tit" class="form-label">UserName</label>
+                    <input type="text" class="form-control" id="tit" name="username" value="{{username}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="rat" class="form-label">ProfileImg</label>
+                    <input type="text" class="form-control" id="rat" name="profileImg" value="{{profileImg}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="rat" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="rat" name="description" value="{{description}}">
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Editar Usuario</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
