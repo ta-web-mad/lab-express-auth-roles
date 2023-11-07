@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <img src="{{formatedStudent.profileImg}}" alt="{{username}}">
+        </div>
+        <div class="col-md-4">
+            <h2>{{formatedStudent.username}}</h2>
+            <hr>
+            <p>{{formatedStudent.email}}</p>
+            <h4>descripcion:</h4>
+            <p>{{formatedStudent.description}}</p>
+            <h4>Función:</h4>
+            <p>{{formatedStudent.role}}</p>
+            <div class="row ">
+                <div class="col-md-6 text-center">
+                    {{#if isOwner}}
+                    <a class="btn btn-warning mb-3" href="/students/editar/{{formatedStudent.id}}">Cambiar mis datos</a>
+                    {{/if}}
+
+                    {{#if isPM}}
+                    <a class="btn btn-warning mb-3" href="/students/editar/{{formatedStudent.id}}">Editar</a>
+                    <form action="/students/eliminar/{{formatedStudent.id}}" method="POST">
+
+                        <input type="submit" value="eliminar" class="btn btn-danger">
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <form class="mb-3" action="/students/promote/{{formatedStudent.id}}" method="POST">
+                        <input type="hidden" id="role" name="role" value="DEV" />
+                        <input type="submit" value="change to Developer" class="btn btn-warning">
+                    </form>
+
+                    <form action="/students/promote/{{formatedStudent.id}}" method="POST">
+                        <input type="hidden" id="role" name="role" value="TA" />
+                        <input type="submit" value="change to Teacher assistant" class="btn btn-warning">
+                    </form>
+                </div>
+                {{/if}}
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</div>
