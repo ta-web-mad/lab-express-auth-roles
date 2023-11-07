@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row justify-content-around">
+        <h3 class="mb-3">Listado de estudiantes</h3>
+        <div class="col-3">
+            <h5>Email</h5>
+        </div>
+        <div class="col-3">
+            <h5>Username</h5>
+        </div>
+        <div class="col-2">
+            <h5>Role</h5>
+        </div>
+        {{#if isPM}}
+        <div class="col-2">
+
+        </div>
+        <div class="col-2">
+
+        </div>
+        {{/if}}
+        <hr>
+    </div>
+    {{#each users}}
+    <div class="row justify-content-around align-items-center">
+        <div class="col-3">
+            <p> {{email}}</p>
+        </div>
+        <div class="col-3">
+            <p> {{username}}</p>
+        </div>
+        <div class="col-2">
+            <p> {{role}}</p>
+        </div>
+        {{#if ../isPM}}
+        <div class="col-2">
+            <a class="btn btn-warning" href="/editar-estudiante/{{_id}}" role="button">Editar</a>
+        </div>
+        <div class="col-2">
+            <form action="/eliminar-estudiante/{{_id}}" method="POST">
+                <input type="submit" value="eliminar" class="btn btn-danger btn-sm">
+            </form>
+        </div>
+        {{/if}}
+
+
+
+    </div>
+    <hr>
+
+    {{/each}}
+</div>

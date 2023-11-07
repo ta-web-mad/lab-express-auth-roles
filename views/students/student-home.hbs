@@ -1,0 +1,31 @@
+{{#if isStudent}}
+<div class="container">
+    <h4>Hola {{user.username}}</h4>
+    <h5>¿A dónde quieres ir?</h5>
+    <div class="row">
+        <div class="col-2">
+            <a class="btn btn-dark" href="estudiantes/{{user._id}}" role="button">Mi perfil</a>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-outline-dark" href="/estudiantes/listado" role="button">Listado de estudiantes</a>
+        </div>
+    </div>
+</div>
+</div>
+{{/if}}
+
+{{#if isPM}}
+<div class="container">
+    <h4>Hola {{user.username}}</h4>
+    <h5>¿A dónde quieres ir PM?</h5>
+    <div class="row">
+        {{!-- <div class="col-2">
+            <a class="btn btn-dark" href="estudiantes/{{user._id}}" role="button">Mi perfil</a>
+        </div> --}}
+        <div class="col-2">
+            <a class="btn btn-outline-dark" href="/estudiantes/listado" role="button">Listado de estudiantes</a>
+        </div>
+    </div>
+</div>
+</div>
+{{/if}}

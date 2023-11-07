@@ -36,7 +36,8 @@ router.post('/iniciar-sesion', (req, res, next) => {
         return
       } else {
         req.session.currentUser = user
-        res.redirect('/')
+        console.log('SESION INICIADA-->', req.session)
+        res.redirect('/estudiantes')
       }
     })
     .catch(error => next(error))
