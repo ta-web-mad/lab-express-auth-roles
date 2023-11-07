@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h1>Nuevo curso</h1>
+
+            <hr>
+
+            <form action="/courses/crear" method="POST">
+                <div class="mb-3">
+                    <label for="tit" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="tit" name="title">
+                </div>
+
+                <div class="mb-3">
+                    <label for="start" class="form-label">Fecha de comienzo</label>
+                    <input type="date" class="form-control" id="start" name="startDate">
+                </div>
+
+                <div class="mb-3">
+                    <label for="end" class="form-label">Fecha de finalización</label>
+                    <input type="date" class="form-control" id="end" name="endDate">
+                </div>
+
+                <div class="mb-3">
+                    <label for="tas" class="form-label">Asistentes de profesor</label>
+                    <select multiple id="tas" class="form-select" name="ta" style="width: 635px;">
+                        {{#each ta}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="img" class="form-label">Imagen del curso</label>
+                    <input type="text" class="form-control" id="img" name="courseImg">
+                </div>
+
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="desc" name="description">
+                </div>
+
+                <div class="mb-3">
+                    <label for="student" class="form-label">Estudiantes</label>
+                    <select multiple id="student" class="form-select" name="students" style="width: 635px;">
+                        {{#each student}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Crear Curso</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

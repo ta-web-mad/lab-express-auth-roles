@@ -1,0 +1,53 @@
+<div class="container">
+    <h1>Detalles de {{title}}</h1>
+    <hr>
+
+    <table class="table">
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    <p>Fecha de comienzo:</p>
+                    {{startDate}}
+                </td>
+
+                <td>
+                    <p>Fecha de finalización:</p>
+                    {{endDate}}
+                </td>
+
+                <td>
+                    <p>Asistentes de profesor:</p>
+                    {{#each ta}}
+                    {{username}}
+                    {{/each}}
+                </td>
+
+                <td>
+                    <p>Descripción:</p>
+                    {{description}}
+                </td>
+
+                <td>
+                    <p>Estado:</p>
+                    {{status}}
+                </td>
+
+                <td>
+                    <p>Estudiantes:</p>
+                    {{#each students}}
+                    {{username}}
+                    {{/each}}
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <a href="/courses" class="btn btn-dark">Volver a Cursos</a>
+
+</div>

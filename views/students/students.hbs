@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Lista de estudiantes</h1>
+    <hr>
+
+    <table class="table">
+
+        <tbody>
+
+            {{#each student}}
+
+            <tr>
+
+                <td>
+                    <a href="/students/{{_id}}">
+                        {{username}}
+                    </a>
+                </td>
+
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+
+    </table>
+
+    <a href="/" class="btn btn-dark">Volver a Inicio</a>
+
+</div>

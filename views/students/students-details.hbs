@@ -1,0 +1,52 @@
+<div class="container">
+    <h1>Detalles de {{student.username}}</h1>
+    <hr>
+
+    <table class="table">
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    {{student.username}}
+                </td>
+
+                <td>
+                    {{student.email}}
+                </td>
+
+                <td>
+                    {{student.role}}
+                </td>
+
+                <td>
+                    {{student.description}}
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <a href="/" class="btn btn-dark">Volver a Inicio</a>
+
+    {{#if isPm}}
+
+    <a href="/students/{{student._id}}/set-dev" class="btn btn-dark gap-3">Hacer DEV</a>
+    <a href="/students/{{student._id}}/set-ta" class="btn btn-dark gap-3">Hacer TA</a>
+    <a href="/students/{{student._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
+    <form action="/students/{{student._id}}/eliminar" method="POST">
+        <input type="submit" value="Borrar perfil" class="btn btn-danger gap-3 mt-2">
+    </form>
+
+    {{/if}}
+
+    {{#if isUser}}
+
+    <a href="/students/{{student._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
+
+    {{/if}}
+
+</div>
