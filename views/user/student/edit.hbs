@@ -1,0 +1,57 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Editar</h1>
+            <hr>
+
+            <form action="/alumnos/editar/{{student._id}}" method="post">
+                
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                    <input type="text" class="form-control" id="usernameInput" name="username" value="{{student.username}}">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="imageInput" name="profileImg" value="{{student.profileImg}}">
+                    <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="descriptionInput" class="form-label">Descripción</label>
+                  <textarea class="form-control" id="descriptionInput" rows="3" name="description">{{student.description}}</textarea>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Guardar</button>
+                </div>
+                
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+
+            {{#if isPm}}
+                <div class="row">
+                    <form class="col-md-6 mt-2" action="/alumnos/editar/rol/{{student._id}}" method="post">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-warning btn-sm" type="submit" name="role" value="DEV">DEV</button>
+                        </div>
+                    </form>
+                    <form class="col-md-6 mt-2" action="/alumnos/editar/rol/{{student._id}}" method="post">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-warning btn-sm" type="submit" name="role" value="TA">TA</button>
+                        </div>
+                    </form>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+
+</div>
