@@ -1,0 +1,38 @@
+<div class="container">
+<h2>DETALLE PERFIL</h2>
+
+<p>{{user.username}}</p>
+<hr>
+<p>{{user.email}}</p>
+<hr>
+<p>{{user.profileImg}}</p>
+<hr>
+<p>{{user.description}}</p> 
+
+
+{{#if isOwner}}
+     <button type="button" class="btn btn-info mt-3">
+        <a href="/editar-perfil/{{user._id}}">Editar perfil</a>
+    </button>
+{{/if}}
+
+{{#if isPm}}
+   
+    <form action="/eliminar/{{user._id}}" method="POST">
+        <input type="submit" value="Eliminar perfil" class="btn btn-info">
+    </form>
+
+    <button type="button" class="btn btn-info mt-3">
+        <a href="/editar-perfil/{{user._id}}">Editar perfil</a>
+    </button>
+
+     <form action="/convertirTA/{{user._id}}" method="POST">
+        <input type="submit" value="Convertir en TA" class="btn btn-info mt-3">
+    </form>
+
+     <form action="/convertirDEV/{{user._id}}" method="POST">
+        <input type="submit" value="Convertir en DEV" class="btn btn-info mt-3">
+    </form>
+
+{{/if}}
+</div>
