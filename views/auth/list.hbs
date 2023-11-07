@@ -1,0 +1,17 @@
+<div class="container">
+
+
+    <div class="center">
+        <div class="col">
+            {{#each user}}
+            <ul class="list-group list-group-horizontal mb-1">
+
+                <li class="list-group-item  whiteBG ">{{username}}</li>
+                <li class="list-group-item  whiteBG"><a href="/auth/details/{{_id}}">View details</a></li>
+
+            </ul>
+            {{/each}}
+        </div>
+    </div>
+
+</div>

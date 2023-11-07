@@ -1,11 +1,33 @@
 body {
-  font-weight: 200;
+  background-image: url('../images/miau.jpg');
+  background-size: cover;
   font-family: sans-serif;
 }
 
 
-h1, h2, h3 {
-  font-weight: 200;
+
+
+.inicio {
+
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 800px;
+  margin-top: 0px;
+  align-items: center;
+}
+
+.whiteBG {
+  background-color: white;
+  opacity: 80%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+}
+
+.inicio h1 {
+  padding: 40;
+  font-weight: 800;
+  margin-bottom: 10;
 }
 
 .navbar {
@@ -15,6 +37,11 @@ h1, h2, h3 {
 .navbar form button {
   background: transparent;
   border: none;
+}
+
+.center {
+  align-items: center;
+  display: flex;
 }
 
 #errorMessage {
@@ -29,7 +56,8 @@ h1, h2, h3 {
 }
 
 
-@keyframes  showFromBottom {
+
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }
