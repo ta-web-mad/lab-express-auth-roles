@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <img src="{{courseImg}}" alt="{{title}}">
+        </div>
+        <div class="col-md-4">
+            <h2>{{course.title}}</h2>
+            <hr>
+            {{#each course.leadTeacher}}
+            <p>lead teacher: {{username}}</p>
+            {{/each}}
+            {{#each course.ta}}
+            <p>teacher assistant: {{username}}</p>
+            {{/each}}
+            <hr>
+            <h4>descripcion:</h4>
+            <p>{{course.description}}</p>
+            <h4>STATUS:</h4>
+            <p>{{course.status}}</p>
+            <hr>
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <p>fecha de inicio: {{course.startDate}}</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <p>fecha de fin: {{course.endDate}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row ">
+        <div class="col-md-6 text-center">
+            {{#if isTA}}
+            <a class="btn btn-warning mb-3" href="/cursos/editar/{{course._id}}">Editar</a>
+            <form action="/cursos/eliminar/{{course._id}}" method="POST">
+
+                <input type="submit" value="eliminar" class="btn btn-danger">
+            </form>
+        </div>
+        {{/if}}
+
+
+    </div>
+</div>
+
+
+</div>

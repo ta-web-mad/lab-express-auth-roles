@@ -1,0 +1,102 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Crear curso</h1>
+            <hr>
+
+            <form action="/cursos/crear" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="title" class="form-label">Título</label>
+                        <input type="title" class="form-control" id="title" name="title">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Fecha de inicio</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="endDate" class="form-label">Fecha de fin</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="status">Lead teacher:</label><br>
+                            <select class="form-select" id="cars" id="status" name="leadTeacher">
+                                {{#each arrTA}}
+                                <option value="{{_id}}">{{username}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="imageInput" name="courseImg">
+                    <div class=" form-text">Introduce la URL a la imagen que desees.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3"
+                        placeholder="Introduce descripción del curso" name="description"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="status">Estado del curso:</label><br>
+                            <input type="text" id="status" rows="3" name="status" value="ON">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="status">Listado de TA:</label><br>
+                            <select class="form-select" id="ta" id="status" multiple name="ta">
+                                {{#each arrTA}}
+                                <option value="{{_id}}">{{username}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="status">Listado de estudiantes:</label><br>
+                            <select class="form-select" id="cars" id="status" multiple name="students">
+                                {{#each arrSTU}}
+                                <option value="{{_id}}">{{username}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Guardar cambios</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>
