@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>LISTADO DE ESTUDIANTES</h1>
+    <hr>
+
+    <table class="table">
+
+        <tbody>
+
+            {{#each user}}
+
+            <tr>
+
+                <td>
+                    <a href="/students/{{_id}}">
+                        {{username}}
+                    </a>
+                </td>
+
+
+                {{#if ../isPM}}
+                <td>
+                    <a href="/students/{{_id}}/edit" class="btn btn-warning btn-sm">editar</a>
+                </td>
+
+                <td>
+                    <form action="/eliminar/{{_id}}" method="POST">
+                        <input type="submit" value="eliminar" class="btn btn-danger btn-sm">
+                    </form>
+
+                </td>
+                {{/if}}
+
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+
+    </table>
+</div>

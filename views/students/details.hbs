@@ -1,0 +1,38 @@
+{{#with user}}
+<div class="container">
+
+    <h1>Detalle de {{username}}</h1>
+
+    <hr>
+
+
+    <p>profileImg: {{profileImg}}</p>
+    <p>description: {{description}}</p>
+    <p>role: {{role}}</p>
+
+
+    <hr>
+    <div class="mb-3">
+        {{#if ../isPM}}
+        <td>
+            <form action="/students/{{_id}}/edit/TA" method="POST">
+                <input type="submit" value="Marcar como TA" class="btn btn-dark btn-sm">
+            </form>
+        </td>
+        {{/if}}
+    </div>
+
+    <div class="mb-3">
+        {{#if ../isPM}}
+        <td>
+            <form action="/students/{{_id}}/edit/DEV" method="POST">
+                <input type="submit" value="Marcar como Dev" class="btn btn-dark btn-sm">
+            </form>
+        </td>
+        {{/if}}
+    </div>
+
+    <a class="btn btn-dark" href="/list">volver al listado</a>
+
+</div>
+{{/with}}
