@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h1>Editar {{course.title}}</h1>
+
+            <hr>
+
+            <form action="/courses/{{course._id}}/editar" method="POST">
+                <div class="mb-3">
+                    <label for="tit" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="tit" name="title" value="{{course.title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="tas" class="form-label">Asistentes de profesor</label>
+                    <select multiple id="tas" class="form-select" name="ta" style="width: 635px;">
+                        {{#each ta}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="img" class="form-label">Imagen del curso</label>
+                    <input type="text" class="form-control" id="img" name="courseImg" value="{{course.courseImg}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="desc" name="description" value="{{course.description}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="student" class="form-label">Estudiantes</label>
+                    <select multiple id="student" class="form-select" name="students" style="width: 635px;">
+                        {{#each student}}
+                        <option value="{{_id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Editar Curso</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
