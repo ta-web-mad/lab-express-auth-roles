@@ -4,42 +4,38 @@
 
         <div class="col-md-6">
 
-            <h1>Registro</h1>
+            <h1>Editar</h1>
             <hr>
 
-            <form action="/registro" method="POST">
+            <form action="/alumnos/editar/{{_id}}" method="POST">
 
                 <div class="mb-3 row">
                     <div class="col">
                         <label for="emailInput" class="form-label">Dirección de email</label>
-                        <input type="email" class="form-control" id="emailInput" name="email">
-                        <div class="form-text">Requerido.</div>
-                    </div>
-                    <div class="col">
-                        <label for="pwdInput" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="pwdInput" name="userPwd">
+                        <input type="email" class="form-control" id="emailInput" value="{{email}}" name="email">
                         <div class="form-text">Requerido.</div>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="usernameInput" class="form-label">Nombre de usuario</label>
-                    <input type="text" class="form-control" id="usernameInput" name="username">
+                    <input type="text" class="form-control" id="usernameInput" value="{{username}}" name="username">
                 </div>
 
                 <div class="mb-3">
                     <label for="imageInput" class="form-label">Imagen</label>
-                    <input type="url" class="form-control" id="imageInput" name="profileImg">
+                    <input type="url" class="form-control" id="imageInput" value="{{profileImg}}" name="profileImg">
                     <div class="form-text">Introduce la URL a la imagen que desees de perfil.</div>
                 </div>
 
                 <div class="mb-3">
                     <label for="descriptionInput" class="form-label">Descripción</label>
-                    <textarea class="form-control" id="descriptionInput" rows="3" name="description"></textarea>
+                    <textarea class="form-control" id="descriptionInput" rows="3" value="{{description}}"
+                        name="description">{{description}}</textarea>
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-dark block">Completar registro</button>
+                    <button type="submit" class="btn btn-dark block">Editar registro</button>
                 </div>
 
                 {{#if errorMessage}}
