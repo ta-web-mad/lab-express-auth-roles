@@ -1,0 +1,51 @@
+<div class="container ">
+    <div class="title text-center mb-3">
+        <h5>Hola {{user.username}} este es tu perfil</h5>
+    </div>
+    <div class="row align-items-center justify-content-center ">
+
+        <div class="col-3">
+            <img src="https://i.stack.imgur.com/l60Hf.png" alt="">
+        </div>
+        <div class="col-5">
+            <div class="row align-items-center justify-content-around">
+                <div class="col-1">
+                    <h6>Email</h6>
+                </div>
+                <div class="col-7">
+                    <p>{{user.email}}</p>
+                </div>
+
+            </div>
+            <div class="row align-items-center justify-content-around">
+                <div class="col-1">
+                    <h6>Username</h6>
+                </div>
+                <div class="col-7">
+                    <p>{{user.username}}</p>
+                </div>
+
+            </div>
+            <div class="row align-items-center justify-content-around">
+                <div class="col-1">
+                    <h6>Descripción</h6>
+                </div>
+                <div class="col-7">
+                    <p>{{user.description}}</p>
+                </div>
+
+            </div>
+            <div class="row align-items-center justify-content-around">
+                <div class="col-1">
+                    <h6>Ocupación</h6>
+                </div>
+                <div class="col-7">
+                    <p>{{user.role}}</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
