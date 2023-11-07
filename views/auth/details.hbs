@@ -1,0 +1,74 @@
+<div class="container ">
+    <div class="center">
+        <div class="row">
+
+            <div class="col whiteBG md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{user.profileImg}}" class="card-img-top mt-3" alt="{{user.username}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{user.username}}</h5>
+                        <hr>
+                        <p>{{user.role}}</p>
+                        <p class="card-text">{{user.description}}</p>
+                        <a href="/listado" class="btn btn-primary">Go back</a>
+
+
+                    </div>
+                </div>
+            </div>
+            {{!-- render de usuario --}}
+
+
+
+
+            {{#if profile}}
+            <div class="col md-4 whiteBG">
+                <form action="/edita/{{user._id}}" method="POST">
+                    <div class="mb-3">
+                        <label for="usernameInput" class="form-label">Edita tu usuario</label>
+                        <input type="text" class="form-control" value="{{user.username}}" id="usernameInput"
+                            name="username">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="imageInput" class="form-label">Edita la url de tu imagen</label>
+                        <input type="url" class="form-control" id="imageInput" value="{{user.profileImg}}"
+                            name="profileImg">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descriptionInput" class="form-label">Cambia tu descripción</label>
+                        <input type="text" value="{{user.description}}" class="form-control" id="descriptionInput"
+                            rows="3" name="description">
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-dark block">Hacer cambios</button>
+                    </div>
+                </form>
+            </div>
+
+
+            {{/if}}
+            {{#if isPM}}
+            <div class="col md-4 whiteBG">
+
+                <form class="mt-4" action="/edit/{{user._id}}" method="POST">
+                    <select name="role">
+                        <option value="STUDENT">STUDENT</option>
+                        <option value="DEV">DEV</option>
+                        <option value="TA">TA</option>
+                    </select>
+                    <input type="submit" class="btn btn-primary" value="Change role">
+                </form>
+                <form action="/auth/delete/{{user._id}}" method="POST" class="mt-2">
+                    <input type="submit" value="eliminar" class="btn btn-danger btn-sm">
+                </form>
+
+            </div>
+            {{/if}}
+
+        </div>
+
+    </div>
+</div>
