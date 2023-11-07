@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h1> Edit {{username}} </h1>
+        <hr>
+        <form action="/student/editar/{{_id}}" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" value="{{email}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label"> Description </label>
+                <input type="text" class="form-control" id="description" name="description" value="{{description}}">
+            </div>
+
+
+
+            <button type="submit" class="btn btn-dark"> Edit student </button>
+        </form>
+    </div>
+    <hr>
+    <form action="/student/editar/{{_id}}/change" method="POST">
+        <div class="mb-3">
+            <button type="submit" value="DEV" name="role" class="btn btn-success"> Change to DEV</button>
+        </div>
+    </form>
+    <form action="/student/editar/{{_id}}/change" method="POST">
+        <div class="mb-3">
+            <button type="submit" value="TA" name="role" class="btn btn-success"> Change to TA</button>
+        </div>
+    </form>
+</div>
