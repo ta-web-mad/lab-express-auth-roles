@@ -1,0 +1,30 @@
+<div class="container mt-5">
+
+    <h2>Student list</h2>
+    <hr>
+
+
+    <div class="row">
+
+        {{#each student}}
+        <div class="col-lg-4">
+            <div>{{username}}</div>
+            <a href="/student/{{id}}">Ver perfil</a>
+        </div>
+
+        {{#if ../isPM}}
+
+        <form action="/student/{{id}}/dev" method="POST">
+            <input type="submit" value="Mark as Developer" class="btn btn-warning btn-sm">
+        </form>
+        <form action="/student/{{id}}/ta" method="POST">
+            <input type="submit" value="Mark as TA" class="btn btn-danger btn-sm">
+        </form>
+        {{/if}}
+
+
+        {{/each}}
+    </div>
+
+
+</div>
