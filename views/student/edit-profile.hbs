@@ -1,0 +1,54 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <h1>Editar perdil de {{username}}</h1>
+        <hr>
+
+
+        <form action="/student/{{id}}/editar" method="POST">
+            <div class="mb-3 row">
+                <div class="col-md-3 ">
+                    <figure class="profilePic">
+                        <img src="{{profileImg}}" alt="{{username}}">
+                    </figure>
+                    <div class="mb-3">
+                        <label for="foto" class="form-label">Enlace a la foto</label>
+                        <input type="text" class="form-control" id="foto" value="{{profileImg}}" name="profileImg">
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-3">
+
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label for="emailInput" class="form-label">Dirección de email</label>
+                            <input type="email" class="form-control" id="emailInput" value="{{email}}" name="email">
+                            <div class="form-text">Requerido.</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="usernameInput" value="{{username}}" name="username">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descriptionInput" class="form-label">Descripción</label>
+                        <input type="text" class="form-control" id="descriptionInput" value="{{description}}"
+                            name="description"></input>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-dark block">Actualizar registro</button>
+                    </div>
+
+                    {{#if errorMessage}}
+                    <div id="errorMessage">
+                        <p>{{errorMessage}}</p>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

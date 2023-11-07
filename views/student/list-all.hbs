@@ -1,0 +1,78 @@
+<div class="container">
+    <h1>Te damos bienvenida a tu portal de estudiante</h1>
+    <hr>
+    <div class="row ">
+        <h4>Alumnos registrados en la plataforma</h4>
+        <div class="col mt-5 ">
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th />
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each all}}
+                    <tr>
+                        <td>{{username}}</td>
+                        <td>{{description}}</td>
+                        <div>
+                            {{#if ../isOwner}}
+                            <td>
+                                <a href="/student/{{id}}/editar" class="link">Editar</a>
+                            </td>
+                            {{/if}}
+                            {{#if ../isPM}}
+                            <td>
+                                <div class="dropdown">
+
+                                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Asignar Rol
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <form action="/student/{{id}}/role" method="post">
+                                                <input type="submit" value="STUDENT" class="dropdown-item" name="role">
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <form action="/student/{{id}}/role" method="post">
+                                                <input type="submit" value="TA" class="dropdown-item" name="role">
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <form action="/student/{{id}}/role" method="post">
+                                                <input type="submit" value="DEV" class="dropdown-item" name="role">
+                                            </form>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+                            </td>
+                            <td>
+                                <a href="/student/{{id}}/editar" class="link">Editar</a>
+
+
+                            </td>
+                            <td>
+                                <form action="/student/{{id}}/eliminar" method="post">
+                                    <input type="submit" value="Eliminar" class="link">
+                                </form>
+                            </td>
+                            {{/if}}
+                            <td> <a href='/student/{{id}}' class="link">Ver Perfil</a></td>
+                        </div>
+                    </tr>
+                    {{/each}}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+
+const isLogged = (req, res, next) => {
+    //console.log("chequeo metodo islogged")
+    if (req.session.currentUser) {
+        next()
+    } else {
+        res.redirect('/iniciar-sesion')
+    }
+}
+
+const checkRole = (...admitted) => (req, res, next) => {
+    const user = req.session.currentUser
+    if (user.role === "PM") {
+        next()
+    } else {
+        res.redirect('/student')
+    }
+}
+
+const checkOwner = (req, res, next) => {
+
+    const currentID = req.session.currentUser
+    if (currentID._id == req.params.id || currentID.role === "PM") {
+        // console.log("POR FIN")
+        next()
+    } else {
+        console.log("estoy en else")
+        res.redirect('/student')
+    }
+}
+
+
+module.exports = {
+    isLogged,
+    checkRole,
+    checkOwner
+}
