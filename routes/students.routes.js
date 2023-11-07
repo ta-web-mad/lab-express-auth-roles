@@ -16,7 +16,8 @@ router.get("/list", isLoggedIn, (req, res) => {
         .then(student => res.render("list",
             {
                 student: student,
-                isAdminOrOwner: req.session.currentUser.role === "PM" || req.session.currentUser._id === student._id,
+                isAdmin: req.session.currentUser.role === "PM",
+                isOwner: req.session.currentUser._id === _id
             }
         ))
         .catch(err => console.log("ERROR", err))
