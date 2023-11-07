@@ -1,13 +1,28 @@
 const router = require("express").Router()
 const bcrypt = require('bcryptjs')
-const User = require("../models/User.model")
+const User = require('../models/User.model')
 const saltRounds = 10
 
-// Signup
-router.get('/registro', (req, res, next) => res.render('auth/signup'))
-router.post('/registro', (req, res, next) => {
+const { isLoggedOut } = require('../middleware/route-guard')
 
-  const { email, userPwd, username, profileImg, description } = req.body
+// Signup
+router.get('/registro', isLoggedOut, (req, res, next) => res.render('auth/signup'))
+router.post('/registro', isLoggedOut, (req, res, next) => {
+
+  let { email, userPwd, username, profileImg, description } = req.body
+
+  if (email.length === 0 || userPwd.length === 0 || username.length === 0) {
+    res.render('auth/signup', { errorMessage: 'Complete email, password and username the fields' })
+    return
+  }
+
+  if (profileImg.length === 0) {
+    profileImg = 'https://i.stack.imgur.com/l60Hf.png'
+  }
+
+  if (description.length === 0) {
+    description = 'No existe descripción.'
+  }
 
   bcrypt
     .genSalt(saltRounds)
@@ -20,8 +35,8 @@ router.post('/registro', (req, res, next) => {
 
 
 // Login
-router.get('/iniciar-sesion', (req, res, next) => res.render('auth/login'))
-router.post('/iniciar-sesion', (req, res, next) => {
+router.get('/iniciar-sesion', isLoggedOut, (req, res, next) => res.render('auth/login'))
+router.post('/iniciar-sesion', isLoggedOut, (req, res, next) => {
 
   const { email, userPwd } = req.body
 

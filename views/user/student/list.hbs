@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        {{#each students}}
+        <!-- <div class="container col-sm-3"> -->
+            <div class="card m-1" style="width: 18rem;">
+                <img src="{{profileImg}}" class="card-img-top" alt="Profile image">
+                <div class="card-body">
+                    <h5 class="card-title">{{username}}</h5>
+                    <p class="card-text">{{email}}</p>
+                    <a href="/alumnos/detalles/{{_id}}" class="btn btn-primary">Ver Alumno</a>
+                </div>
+            </div>
+        <!-- </div> -->
+        {{/each}}
+    </div>
+</div>
