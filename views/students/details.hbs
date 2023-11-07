@@ -1,0 +1,49 @@
+<div class="container">
+
+    <a href="/alumnos">
+        < volver a listado</a>
+
+
+            <h1 class="mt-3">{{student.username}}</h1>
+            <hr>
+
+            <div class="profPic">
+                <img src="{{profileImg}}" alt="student pic">
+            </div>
+            <h3>
+                email: {{student.email}}
+            </h3>
+            <h3>
+                notes: {{student.description}}
+            </h3>
+
+            {{#if isPM}}
+            <div class="btn-group">
+                <a href="/alumnos/editar/{{student._id}}" class="btn btn-dark btn-sm">editar</a>
+
+                <form action="/alumnos/eliminar/{{student._id}}" method="POST">
+                    <button type="submit" class="btn btn-danger btn-sm">eliminar</button>
+                </form>
+
+                <form action="/alumnos/roles/{{student._id}}/TA" method="POST">
+                    <button type="submit" class="btn btn-warning btn-sm">hacer TA</button>
+                </form>
+
+                <form action="/alumnos/roles/{{student._id}}/DEV" method="POST">
+                    <button type="submit" class="btn btn-warning btn-sm">hacer DEV</button>
+                </form>
+            </div>
+            {{/if}}
+
+            {{#if isUser}}
+            <div class="btn-group">
+                <a href="/alumnos/editar/{{student._id}}" class="btn btn-dark btn-sm">editar</a>
+                </form>
+            </div>
+            {{/if}}
+
+
+
+
+
+</div>

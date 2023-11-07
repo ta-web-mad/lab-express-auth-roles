@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Current Ironhack students</h1>
+    <hr>
+
+    <table class="table">
+
+        <tbody>
+            {{#each students}}
+            <tr>
+
+                <td>
+                    {{username}}
+                </td>
+                <td>
+                    <a href="/alumnos/{{_id}}" class="btn btn-dark btn-sm">ver perfil</a>
+                </td>
+
+            </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+</div>
