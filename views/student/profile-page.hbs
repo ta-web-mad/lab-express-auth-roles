@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <h1>{{usr.username}}</h1>
+            <figure class="profilePic">
+                <img src="{{usr.profileImg}}" alt="{{usr.username}}">
+            </figure>
+        </div>
+        <div class="col-9">
+            <p>{{usr.description}}</p>
+            <p>{{usr.email}}</p>
+        </div>
+    </div>
+    <a href="/student" class="btn btn-dark">Volver a la lista</a>
+
+    {{#if isOwner}}
+
+    <a href="/student/{{usr.id}}/editar" class="btn btn-dark">EDITAR</a>
+    {{/if}}
+</div>
