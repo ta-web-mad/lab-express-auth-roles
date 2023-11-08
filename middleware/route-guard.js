@@ -26,18 +26,19 @@ const checkRole = (...admittedRoles) => (req, res, next) => {
     }
 }
 
-const checkOwnerOrPm = (...roles) => (req, res, next) => {
-
-
-
-    console.log("el id del perfil en el que estoy")
-    console.log("el id del que esta conectado")
-
+const checkOwner = (req, res, next) => {
+    const { id } = req.params
+    if (id === req.session.currentUser._id || req.session.currentUser.role === 'PM') {
+        next()
+    } else {
+        res.redirect('/listado-estudiante')
+    }
 }
 
 
 module.exports = {
     isLoggedIn,
     isLoggedOut,
-    checkRole
+    checkRole,
+    checkOwner
 }

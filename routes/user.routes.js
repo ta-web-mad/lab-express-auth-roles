@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const User = require('./../models/User.model')
 
-const { isLoggedIn, checkRole } = require('./../middleware/route-guard')
+const { isLoggedIn, checkRole, checkOwner } = require('./../middleware/route-guard')
 
 router.get('/listado-estudiante', isLoggedIn, checkRole('PM', 'STUDENT'), (req, res) => {
     User
@@ -16,17 +16,19 @@ router.get('/listado-estudiante', isLoggedIn, checkRole('PM', 'STUDENT'), (req, 
 })
 
 router.get('/student/:id', isLoggedIn, checkRole('PM', 'STUDENT'), (req, res) => {
-
+    //checkOwnerOrPm
     const { id } = req.params
     User
         .findById(id)
         .then(student => {
             res.render('user/student-profile', {
                 student,
-                isPM: req.session.currentUser.role === 'PM'
+                isPM: req.session.currentUser.role === 'PM',
+                isStudent: req.session.currentUser.role === 'STUDENT'
             })
         })
         .catch(error => console.log(error))
+
 })
 
 router.get('/student/:id/edit', isLoggedIn, checkRole('PM'), (req, res) => {
@@ -74,7 +76,7 @@ router.post('/student/:id/ta', isLoggedIn, checkRole('PM'), (req, res) => {
         .catch(error => console.log(error))
 })
 
-router.get('/edit-your-profile', isLoggedIn, checkRole('STUDENT'), (req, res) => {
+router.get('/edit-your-profile', isLoggedIn, (req, res) => {
 
 
     User
@@ -86,7 +88,7 @@ router.get('/edit-your-profile', isLoggedIn, checkRole('STUDENT'), (req, res) =>
 
 })
 
-router.post('/edit-your-profile/:id', isLoggedIn, checkRole('STUDENT'), (req, res) => {
+router.post('/edit-your-profile/:id', isLoggedIn, (req, res) => {
 
     const { id } = req.params
     const { username, email, profileImg, description } = req.body
@@ -94,6 +96,7 @@ router.post('/edit-your-profile/:id', isLoggedIn, checkRole('STUDENT'), (req, re
         .findByIdAndUpdate(id, { username, email, profileImg, description })
         .then(() => res.redirect('/listado-estudiante'))
         .catch(error => console.log(error))
+
 })
 
 module.exports = router

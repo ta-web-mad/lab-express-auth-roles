@@ -12,6 +12,15 @@
                 <p>Email: {{student.email}}</p>
                 <p>Descripción: {{student.description}}</p>
         </div>
+        {{!--
+        {{#if isStudent}}
+
+        <form action="/edit-your-profile/{{student.id}}" method="POST">
+            <input type="submit" value="Borrar" class="btn btn-danger btn-sm">
+        </form>
+
+        {{/if}} --}}
+
 
         {{#if isPM}}
 
@@ -22,10 +31,11 @@
             <form action="/student/{{student.id}}/delete" method="POST">
                 <input type="submit" value="Borrar" class="btn btn-danger btn-sm">
             </form>
-
         </div>
 
         {{/if}}
+
+
 
     </div>
 </div>

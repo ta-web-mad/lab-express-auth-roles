@@ -1,0 +1,68 @@
+<div class="container">
+    <h2>Crear curso</h2>
+    <hr>
+
+    <form action="/courses/crear" method="POST">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="leadTeacher" class="form-label">Profesor</label>
+            <input type="text" class="form-control" id="leadTeacher" name="leadTeacher" value="{{leadTeacher}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="startDate">Start date:</label>
+            <input type="date" id="startDate" name="startDate" value="{{startDate}}" min="2023-11-08"
+                max="2030-12-31" />
+        </div>
+
+        <div class="mb-3">
+            <label for="endDate">End date:</label>
+            <input type="date" id="endDate" name="endDate" value="{{endDate}}" min="2023-11-08" max="2030-12-31" />
+        </div>
+
+        <div class="mb-3">
+            <label for="ta" class="form-label">TA disponibles</label>
+            <select multiple id="ta" class="form-select" name="ta">
+                {{#each user}}
+                <option value="{{id}}">{{this.username}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="courseImg" class="form-label">Imagen curso</label>
+            <input type="text" class="form-control" id="courseImg" name="courseImg" value="{{courseImg}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="description" name="description" value="{{description}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select name="status">
+                <option value="ON" selected>ON</option>
+                <option value="OFF">OFF</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="students" class="form-label">Cast</label>
+            <select multiple id="students" class="form-select" name="students">
+                {{#each celebrity}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-dark">Editar</button>
+        </div>
+    </form>
+</div>
