@@ -7,14 +7,27 @@ const saltRounds = 10
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
 router.post('/registro', (req, res, next) => {
 
-  const { email, userPwd, username, profileImg, description } = req.body
+  let { email, userPwd, username, profileImg, description } = req.body
+
+  if (profileImg.length === 0) {
+    profileImg = 'https://i.stack.imgur.com/l60Hf.png'
+  }
+
+  if (description.length === 0) {
+    description = 'No existe descripción.'
+  }
 
   bcrypt
     .genSalt(saltRounds)
     .then(salt => bcrypt.hash(userPwd, salt))
     .then(hashedPassword => User.create({ email, username, profileImg, description, password: hashedPassword }))
-    .then(createdUser => res.redirect('/'))
+    .then(createdUser => {
+
+      res.redirect('/')
+    })
     .catch(error => next(error))
+
+
 })
 
 
