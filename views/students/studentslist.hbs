@@ -1,0 +1,30 @@
+<h1>Listado de estudiantes</h1>
+
+{{#each students}}
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p class="fw-bold">{{username}}</p>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <a href="/students/{{_id}}" class="btn btn-dark">View profile</a>
+
+                </div>
+                {{#if ../isPM}}
+                <div class="col">
+                    <a href="/students/{{_id}}/edit" class="btn btn-warning">Edit</a>
+                </div>
+                <div class="col">
+                    <form action="/students/{{_id}}/delete" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
