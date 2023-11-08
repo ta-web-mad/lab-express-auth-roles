@@ -1,0 +1,15 @@
+<div class="container">
+<div class="row">
+{{student}}
+<h1>Student's Details</h1>
+<p>Username: {{student.username}}</p>
+
+{{#if userRoles.isPM}}
+<a href="/students/{{student._id}}/edit">Editar</a>
+<a href="/students/{{student._id}}/delete">Eliminar</a>
+{{/if}}
+
+<a href="/students">Volver</a>
+{{!-- <a href="/students">Delete</a> --}}
+</div>
+</div>
