@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Student Update</h1>
+    <form action="/students/{{_id}}/edit" method="POST">
+
+        <div class="mb-3 row">
+            <div class="col">
+                <label for="emailInput" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="emailInput" name="email" value="{{email}}">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="usernameInput" class="form-label">Username</label>
+            <input type="text" class="form-control" id="usernameInput" name="username" value="{{username}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="descriptionInput" class="form-label">Description</label>
+            <textarea class="form-control" id="descriptionInput" rows="3" name="description"
+                value="{{description}}"></textarea>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-dark block">Finish Edit</button>
+        </div>
+</div>

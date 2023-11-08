@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h1>Student details from {{username}}</h1>
+    <p>Student Photograph</p>
+    <img src="/images/avatar.jpg">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle btn btn-info" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Edit Role
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">{{role}} to PM</a></li>
+            <li><a class="dropdown-item" href="#">{{role}} to DEV</a></li>
+            <li><a class="dropdown-item" href="#">{{role}} to TA</a></li>
+        </ul>
+    </div>
+    <hr>
+    <p>Contact:{{email}}</p>
+    <p>Rol:{{role}}</p>
+    <p>Description:{{description}}</p>
+    <hr>
+
+    <a class="btn btn-dark" href="/students-list">volver atras</a>
+
+</div>
