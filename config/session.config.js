@@ -3,7 +3,7 @@ const MongoStore = require('connect-mongo')  // instalar
 const mongoose = require('mongoose')
 
 module.exports = app => {
-    app.set('trust proxy', 1);
+    app.set('trust proxy', 1)
 
     app.use(
         session({
@@ -14,11 +14,11 @@ module.exports = app => {
                 sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
                 secure: process.env.NODE_ENV === 'production',
                 httpOnly: true,
-                maxAge: 60000
+                maxAge: 6000000000
             },
             store: MongoStore.create({
                 mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/basic-auth'
             })
         })
-    );
-};
+    )
+}

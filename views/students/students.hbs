@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {{#each students}}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{{profileImg}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{username}}</h5>
+
+
+                </div>
+                <div class="card-footer">
+
+                    <a href="/estudiantes/lista/{{_id}}" class="btn btn-dark d-inline-block">Ver</a>
+
+                    {{#if ../isAdmin}}
+                    <form action="/estudiantes/eliminar/{{_id}}" method="POST" class="d-inline-block ml-2">
+                        <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                    </form>
+
+                    {{/if}}
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+{{!-- username: { type: String, required: true },
+email: { type: String, unique: true, required: true },
+password: String,
+profileImg: { type: String, default: 'https://i.stack.imgur.com/l60Hf.png' },
+description: --}}

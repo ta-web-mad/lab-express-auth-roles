@@ -1,3 +1,15 @@
+{{!-- title: String,
+leadTeacher: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+startDate: Date,
+endDate: Date,
+ta: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+courseImg: String,
+description: String,
+status: { type: String, enum: ['ON', 'OFF'], default: 'ON' },
+students: --}}
+
+
+
 <div class="container">
 
     <div class="row justify-content-center">
@@ -7,7 +19,7 @@
             <h1>Registro</h1>
             <hr>
 
-            <form action="/registro" method="POST">
+            <form action="/cursos/crear" method="POST">
 
                 <div class="mb-3 row">
                     <div class="col">
