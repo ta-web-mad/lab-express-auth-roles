@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+
+            <form action="/students/edit/{{student._id}}" method="POST">
+                <div class="mb-3">
+                    <label for="userName" class="form-label">Username: </label>
+                    <input type="text" class="form-control" id="userName" name="username" value="{{student.username}}">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email: </label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{student.email}}">
+                </div>
+                <div class="mb-3">
+                    <label for="img" class="form-label">Foto de perfil: </label>
+                    <input type="text" class="form-control" id="img" name="profileImg" value="{{student.profileImg}}">
+                </div>
+                <div class="mb-3">
+                    <label for="descr" class="form-label">Descripción: </label>
+                    <input type="text" class="form-control" id="descr" name="description"
+                        value="{{student.description}}">
+                </div>
+                <div class="d-grid mt-5">
+                    <input type="submit" class="btn btn-dark" value="Editar">
+                </div>
+                <div class="d-flex justify-content-around mt-5">
+
+                    {{#if isPM}}
+                    <input type="submit" class="btn btn-primary" name="role" value="DEV">
+
+
+                    <input type="submit" class="btn btn-primary" name="role" value="TA">
+
+                    {{/if}}
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

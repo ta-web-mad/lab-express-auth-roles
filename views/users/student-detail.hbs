@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-4">
+            <img src="{{student.profileImg}}" alt="{{username}}">
+        </div>
+        <div class="col-8">
+            <h3>{{student.username}}</h3>
+            <h5>{{student.email}}</h5>
+            <p>{{student.description}}</p>
+            <p>{{student.role}}</p>
+        </div>
+
+        <div class="mt-5 justify-content-between">
+
+            {{#if isPM}}
+            <a href="/students/edit/{{student._id}}" class="btn btn-warning">Editar</a>
+            <form action="/students/delete/{{student._id}}" method="POST">
+                <input type="submit" class="btn btn-danger" value="Eliminar">
+            </form>
+            {{/if}}
+
+            {{#if isOwner}}
+            <a href="/students/edit/{{student._id}}" class="btn btn-warning">Editar</a>
+            {{/if}}
+
+
+            <a href="/students" class="btn btn-dark">Volver a estudiantes</a>
+
+        </div>
+
+    </div>
+</div>
