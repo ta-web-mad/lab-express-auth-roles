@@ -1,0 +1,48 @@
+<div class="container text-center">
+    <h2> students list </h2>
+
+
+
+    <hr>
+    {{#each user}}
+    <div class="row text-center align-items-center">
+        <div class="col-2">
+            <ul>
+                <li>
+                    <p class="mb-0">{{username}}</p>
+                </li>
+                <li>
+                    <p class="mb-0">{{email}}</p>
+                </li>
+        </div>
+        <div class="col-2">
+            <p class="mb-0"> {{description}}</p>
+        </div>
+
+        <div class="col-2">
+            <a class="btn btn-warning" href="/students/{{id}}" role="button">View profile</a>
+
+            <a class="btn btn-warning" href="/students/{{id}}/editar" role="button">Editar</a>
+
+            <a class="btn btn-dark color:black" href="/students/{{id}}/borrar" role="button">Borrar</a>
+            {{!--
+        </div>
+        <div class="d-grid">
+            <form action="/list" method="POST">
+                <button type="submit" class="btn btn-dark">Editar</button>
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-dark">Borrar</button>
+        </div>
+        </form> --}}
+
+
+
+
+
+
+        </ul>
+    </div>
+    {{/each}}
+</div>
