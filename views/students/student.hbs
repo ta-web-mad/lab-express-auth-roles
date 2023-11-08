@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card text-center">
+        {{#with student}}
+        <div class="card-header">
+            {{username}}
+        </div>
+        <div class="card-img-container">
+            <img src="{{profileImg}}" class="img-thumbnail" style="max-width: 300px; max-height: 300px;" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">DESCRIPTION</h5>
+            <p class="card-text">{{description}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card-footer text-body-secondary">
+            2 days ago
+        </div>
+        <div class="row">
+            <div class="col">
+                {{#if ../isOwner}}
+                <a href="/estudiantes/lista/editar/{{_id}}" class="btn btn-dark d-inline-block">Editar</a>
+                {{/if}}
+                {{#if ../isAdmin}}
+                <form action="/estudiantes//lista/{{_id}}/DEV" method="POST" class="d-inline-block ml-2">
+                    <input type="submit" value="DAV" class="btn btn-warning btn-sm">
+                </form>
+                <form action="/estudiantes//lista/{{_id}}/DEV" method="POST" class="d-inline-block ml-2">
+                    <input type="submit" value="TA" class="btn btn-warning btn-sm">
+                </form>
+                {{/if}}
+            </div>
+        </div>
+        {{/with}}
+    </div>
+</div>
+
+
+
+
+{{!-- username: { type: String, required: true },
+email: { type: String, unique: true, required: true },
+password: String,
+profileImg: { type: String, default: 'https://i.stack.imgur.com/l60Hf.png' },
+description: { type: String, default: 'No existe descripción.' },
+
+role: {
+type: String,
+enum: ['STUDENT', 'DEV', 'TA', 'PM'],
+default: 'STUD --}}
