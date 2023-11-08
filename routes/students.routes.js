@@ -4,9 +4,10 @@ const { isLoggedIn, checkRole, isOwner } = require('../middleware/route.guard')
 
 router.get('/', isLoggedIn, (req, res, next) => {
 
+    const { role } = req.query
 
     User
-        .find()
+        .find({ role: "STUDENT" })
         .then(students => {
             res.render('users/students', { students })
         })
