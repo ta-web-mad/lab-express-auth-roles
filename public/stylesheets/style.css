@@ -3,8 +3,14 @@ body {
   font-family: sans-serif;
 }
 
+img {
+  width: 100%;
+}
 
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
   font-weight: 200;
 }
 
@@ -28,8 +34,12 @@ h1, h2, h3 {
   animation: showFromBottom 6s forwards;
 }
 
+.photo-student {
+  height: 200px;
+}
 
-@keyframes  showFromBottom {
+
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }
