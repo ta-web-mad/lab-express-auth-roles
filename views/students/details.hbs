@@ -1,0 +1,42 @@
+<div>
+
+    <img src="{{user.profileImg}}" alt="imagen">
+    <h1> {{user.username}}</h1>
+    <h2>{{user.email}}</h2>
+    <p>{{user.description}}</p>
+    <td>
+
+        {{#if isPM}}
+
+    <td>
+        <form action="/students/categorydev/{{user._id}}" method="POST">
+            <input type="submit" value="DEV" class=" btn-white btn-xlm">
+        </form>
+        <form action="/students/categoryta/{{user._id}}" method="POST">
+            <input type="submit" value="TA" class="btn-white btn-lm">
+        </form>
+    </td>
+    <td>
+        <form action="/students/eliminar/{{user._id}}" method="POST">
+            <input type="submit" value="eliminar" class="btn btn-danger btn-lm">
+        </form>
+    </td>
+    {{/if}}
+
+    {{#if isPM}}
+    <td>
+        <a href="/students/editar/{{user._id}}" class="btn btn-warning btn-lm">editar</a>
+    </td>
+
+    {{else}}
+
+    {{#if isOwner}}
+    <td>
+        <a href="/students/editar/{{user._id}}" class="btn btn-warning btn-lm">editar</a>
+    </td>
+    {{/if}}
+    {{/if}}
+
+    <a href="/students">volver al listado</a>
+
+</div>
