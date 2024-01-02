@@ -1,0 +1,22 @@
+<h1>Aquí encontrarás todos los perfiles de los estudiantes</h1>
+<div class="students">
+    {{#each students}}
+        <div class="card" style="width: 18rem;">
+        <img src="{{profileImg}}" class="card-img-top" alt="{{username}}">
+            <div class="card-body">
+                <h2 class="card-title">Nombre de usuario: {{username}}</h2>
+                <a href="/students/{{_id}}" type="submit" class="btn btn-primary">Más detalles</a>
+                {{#if ../isPM}}
+                <div class="references">
+                    <a href="/students/{{_id}}/edit" class="btn btn-primary">Editar usuario</a>
+                    <form action="/students/{{_id}}/delete" method="post">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </div>
+                {{/if}}
+
+
+            </div>
+        </div>
+    {{/each}}
+</div>

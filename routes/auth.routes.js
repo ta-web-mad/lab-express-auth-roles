@@ -1,6 +1,9 @@
 const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
+const { isLogged, checkRoles, userCreatedIt } = require('./../middlewares/auth.middleware')
+const { userIsPM } = require('./../utils/index')
+
 const saltRounds = 10
 
 // Signup
@@ -47,5 +50,66 @@ router.post('/iniciar-sesion', (req, res, next) => {
 router.post('/cerrar-sesion', (req, res, next) => {
   req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
+
+// List of students
+router.get('/students', isLogged, (req, res, next) => {
+  const isPM = userIsPM(req.session.currentUser);
+  User
+  .find()
+  .then(students => {
+    res.render('students/list', {isPM, students})
+  })
+  .catch(error => next(error))
+})
+
+// Students details
+router.get('/students/:id', isLogged, (req, res, next) => {
+  const isPM = userIsPM(req.session.currentUser);
+  const { id } = req.params
+  const isItsProfile = id === req.session.currentUser._id 
+
+  User
+  .findById(id)
+  .then(details => {
+    res.render('students/details', { isPM, isItsProfile, details })
+  })
+  .catch(error => next(error))
+})
+
+// Delete
+
+router.post('/students/:id/delete', checkRoles('PM'),(req, res, next) => {
+  const { id } = req.params
+  User
+  .findByIdAndRemove(id)
+  .then(()=>{
+    res.redirect('/students')
+  })
+  .catch(error => next(error))
+})
+
+// Edit
+router.get('/students/:id/edit', checkRoles('PM'), userCreatedIt, (req, res, next) => {
+  const isPM = userIsPM(req.session.currentUser);
+  const { id } = req.params
+
+  User
+  .findById(id)
+  .then(details=>{
+    res.render('students/update-form', {isPM, details})
+  })
+  .catch(error => next(error))
+});
+
+router.post('/students/:id/edit', checkRoles('PM'), userCreatedIt, (req, res, next) => {
+  const { id } = req.params
+  const { profileImg, username, email, role, description } = req.body
+  User
+  .findByIdAndUpdate(id, { profileImg, username, email, role, description })
+  .then(()=>{
+    res.redirect(`/students/${id}`)
+  })
+  .catch(error => next(error))
+});
 
 module.exports = router
