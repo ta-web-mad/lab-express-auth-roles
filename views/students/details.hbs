@@ -1,0 +1,28 @@
+<div class="card" style="width: 18rem;">
+    <img src="{{details.profileImg}}" class="card-img-top" alt="{{details.username}}">
+    <div class="card-body">
+        <h2 class="card-title">Nombre de usuario: {{details.username}}</h2>
+        <p class="card-text">Dirección de email: {{details.email}}</p>
+        <p class="card-text">Rol: {{details.role}}</p>
+        <p class="card-text">Descripción: {{details.description}}</p>
+    </div>
+
+    {{#if isItsProfile}}
+        <div class="references">
+            <a href="/students/{{_id}}/edit" class="btn btn-primary">Editar usuario</a>
+        </div>
+    {{/if}}
+    {{#if isPM}}
+        {{#unless isItsProfile}}
+            <div class="references">
+                <a href="/students/{{_id}}/edit" class="btn btn-primary">Editar usuario</a>
+            </div>
+        {{/unless}}
+        <div class="references">
+            <form action="/students/{{_id}}/delete" method="post">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+        </div>  
+    {{/if}}
+
+</div>
