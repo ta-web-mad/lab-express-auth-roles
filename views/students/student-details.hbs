@@ -1,0 +1,39 @@
+<h1>Student details</h1>
+<div>
+    <h3>username: {{student.username}}</h3>
+    <p>email: {{student.email}}</p>
+    <p>description: {{student.description}}</p>
+
+    {{#if canEditMyself}}
+    <form action="/students/edit/{{student._id}}" method="get">
+        <button type="submit">Edit</button>
+    </form>
+    {{/if}}
+    {{#if isPM}}
+    <form action="/students/edit/{{student._id}}" method="get">
+        <button>Edit</button>
+    </form>
+
+    <form action="/students/delete/{{student._id}}" method="post">
+        <button>Delete</button>
+    </form>
+
+    <form action="/students/upgrade/{{student._id}}" method="post">
+        {{!-- <button type="submit" value="PM">Upgrade</button> --}}
+
+        <select name="newRole" id="pet-select">
+            <option value="">--Please choose an option--</option>
+            <option value="TA">TA</option>
+            <option value="DEV">DEV</option>
+        </select>
+        <button type="submit">Upgrade</button>
+    </form>
+    {{/if}}
+</div>
+
+{{!-- TODO: access variable outside the scope --}}
+{{!-- {array, cosa} --}}
+{{!-- 
+{{#each array}}
+{{../../cosa}}
+ --}}

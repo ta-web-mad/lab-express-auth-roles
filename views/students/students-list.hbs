@@ -1,0 +1,19 @@
+<h1>List students</h1>
+{{#each students}}
+<div>
+    <h3>username: {{this.username}}</h3>
+    <p>email: {{this.email}}</p>
+    {{!-- {{#if isPM}}
+    <h1>Eres el PM</h1>
+    {{/if}} --}}
+    <form action="/students/{{this._id}}" method="get">
+        <button type="submit">Details</button>
+    </form>
+
+</div>
+{{/each}}
+{{!-- <div>
+    {{#if isPM}}
+    <h1>Eres el PM</h1>
+    {{/if}}
+</div> --}}
