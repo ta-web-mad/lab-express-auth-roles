@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+      <h1>Editar estudiante</h1>
+      <hr>
+
+      <form action="/student/details/{{_id}}/edit" method="POST">
+
+        <div class="mb-3 row">
+          <div class="col">
+            <label for="email" class="form-label">Dirección de email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{email}}">
+            <div class="form-text"></div>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="username" class="form-label">Nombre de usuario</label>
+          <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+        </div>
+
+        <div class=" mb-3">
+          <label for="profileImg" class="form-label">Imagen</label>
+          <input type="url" class="form-control" id="profileImg" name="profileImg" value="{{profileImg}}">
+          <div class=" form-text">Introduce la URL a la imagen que desees de perfil.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripción</label>
+          <textarea class="form-control" id="description" rows="3" name="description">{{description}}</textarea>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-dark block">Completar Edicion</button>
+        </div>
+
+        {{#if errorMessage}}
+        <div id="errorMessage">
+          <p>{{errorMessage}}</p>
+        </div>
+        {{/if}}
+    </div>
+    </form>
+  </div>
+</div>
+
+</div>
