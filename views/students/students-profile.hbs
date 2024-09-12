@@ -1,0 +1,43 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+
+        <div class="col-4 card students-card">
+            <div class="card-body">
+                <h5 class="username text-center"><b>Username:</b> {{students.username}}</h5>
+                <p class="email text-center"><b>email:</b> {{students.email}}</p>
+                <img class="image text-center img-fluid" src="{{students.profileImg}}"
+                    alt="{{students.username}}"></img>
+                <p class="description text-center"><b>Description:</b> {{students.description}}</p>
+                <p class="role text-center"><b>Role:</b> {{students.role}}</p>
+                <div class="col-12 p-2 mb-2 text-center">
+                    {{#if isPm}}
+                    <form action="/students/delete/{{students.id}}" method="POST">
+                        <input type="submit" value="delete" class="btn btn-danger">
+                    </form>
+                    <a class=" mt-2 editMovie btn btn-warning justify-content-center"
+                        href="/students/edit/{{students.id}}">Edit
+                        Student</a>
+                    <div class="d-flex col-4 m-2">
+                        <form action="/students/updateRole/{{students.id}}/TA" method="POST">
+                            <input type="submit" value="Change to TA" class="btn btn-dark">
+                        </form>
+                        <form action="/students/updateRole/{{students.id}}/DEV" method="POST">
+                            <input type="submit" value="Asign to DEV" class="btn btn-dark">
+                        </form>
+                    </div>
+                    {{/if}}
+                    {{!-- {{#if isStudent}}
+                    <a class=" mt-2 editMovie btn btn-warning justify-content-center"
+                        href="/students/edit/{{students.id}}">Edit
+                        Student</a>
+                    {{/if}} --}}
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

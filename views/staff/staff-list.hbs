@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        {{#each staff}}
+        <div class="col-4 card students-card">
+            <div class="card-body">
+                <h5 class="username text-center"><b>Username:</b> {{username}}</h5>
+                <img class="image text-center img-fluid" src="{{profileImg}}" alt="{{username}}"></img>
+                <p class="role"><b>email</b>{{email}}</p>
+                <p class="role"><b>description</b>{{description}}</p>
+                <p class="role"><b>Role</b>{{role}}</p>
+                {{#if ../isPm}}
+                <form action="/students/delete/{{id}}" method="POST">
+                    <input type="submit" value="delete" class="btn btn-danger">
+                </form>
+                <a class=" mt-2 editMovie btn btn-warning justify-content-center" href="/students/edit/{{id}}">Edit
+                    Student</a>
+                <form action="/staff/updateRole/{{id}}/STUDENT" method="POST">
+                    <input type="submit" value="Asign to STUDENT" class="btn btn-dark">
+                </form>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>
