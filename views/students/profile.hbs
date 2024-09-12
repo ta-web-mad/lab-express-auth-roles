@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{user.profileImg}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{user.username}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Description: {{user.description}}</li>
+            <li class="list-group-item">Role: {{user.role}}</li>
+        </ul>
+        <div class="card-body">
+            {{#if isPM}}
+            <a href="/students/edit/{{user.id}}" class="card-link">EDIT</a>
+            <form action="/students/delete/{{user.id}}" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+            </form>
+            <form action="/students/changeroleta/{{user.id}}" method="POST">
+                <input type="submit" value="TA" class="btn btn-primary btn-sm">
+            </form>
+            <form action="students/changeroledev/{{user.id}}" method="POST">
+                <input type="submit" value="DEV" class="btn btn-primary btn-sm">
+            </form>
+
+
+            {{/if}}
+        </div>
+    </div>
+
+
+</div>

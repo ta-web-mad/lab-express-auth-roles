@@ -1,0 +1,37 @@
+<div class="container">
+
+
+    <h1>Staff List</h1>
+    <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Staff</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each user}}
+
+            <tr>
+
+                <td>Nombre:{{username}}</td>
+                <td>Role:{{role}}</td>
+
+                <td>
+                    <a href="/students/{{_id}}" class="btn btn-dark btn-sm">Ver</a>
+                </td>
+
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>
+</div>
+
+<hr>
+
+<a href="/" class="btn btn-dark">Go back to main page.</a>
