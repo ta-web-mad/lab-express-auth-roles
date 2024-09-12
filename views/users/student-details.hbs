@@ -1,0 +1,27 @@
+<div class="row p-5 justify-content-between">
+    <div class="col-3">
+        <img src="{{user.profileImg}}" class="card-img-top" alt="{{user.username}}">
+    </div>
+    <div class="col-9">
+        <h1>{{user.username}}</h1>
+        <span class="badge rounded-pill text-bg-secondary">{{user.role}}</span>
+        <hr>
+        <p>{{user.description}}</p>
+        <p>{{user.email}}</p>
+    </div>
+</div>
+<hr>
+{{#if isPM}}
+<div class="d-flex justify-content-center p-1">
+    <a class="btn btn-outline-warning mx-2" href="/students/{{user.id}}/edit" role="button">Editar</a>
+    <form action="/students/{{user.id}}/delete" method="POST">
+        <input type="submit" value="Eliminar" class="btn btn-outline-danger mx-2">
+    </form>
+</div>
+{{/if}}
+
+{{#if isOwner}}
+<div class="d-flex justify-content-center p-1">
+    <a class="btn btn-outline-warning mx-2" href="/students/{{user.id}}/edit" role="button">Editar</a>
+</div>
+{{/if}}

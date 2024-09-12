@@ -4,17 +4,24 @@ body {
 }
 
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 200;
 }
 
-.navbar {
+/* .navbar {
   margin-bottom: 80px;
-}
+} */
 
 .navbar form button {
   background: transparent;
   border: none;
+}
+
+.user-list-img {
+  height: 300px;
+  object-fit: cover;
 }
 
 #errorMessage {
@@ -29,7 +36,7 @@ h1, h2, h3 {
 }
 
 
-@keyframes  showFromBottom {
+@keyframes showFromBottom {
   0% {
     bottom: -50px
   }
