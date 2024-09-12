@@ -1,0 +1,26 @@
+<div>
+    <h1>Student details</h1>
+    <div>
+        <img src="{{student.profileImg}}">
+        <div>
+            <h5>{{student.username}}</h5>
+            <p>Email: {{student.email}}</p>
+            <p>Role: {{student.role}}</p>
+            <p>Description: {{student.description}}</p>
+            {{#if isPm}}
+            <form action="/students/{{student._id}}/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+            <form action="/students/{{student._id}}/edit" method="get">
+                <button type="submit">Edit</button>
+            </form>
+            {{/if}}
+            {{#if isStudent}}
+            <form action="/students/{{student._id}}/edit" method="get">
+                <button type="submit">Edit</button>
+            </form>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
