@@ -1,0 +1,21 @@
+<div class='container '>
+    <div class="position-relative">
+        <div class="position-absolute  start-50 translate-middle">
+            <h1>Lista de estudiantes</h1>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        {{#each students}}
+
+        <div class="card mt-5 p-3 m-3" style="width: 18rem;">
+            <img src="{{profileImg}}" class="card-img-top" alt="foto de perfil">
+            <div class="card-body">
+                <h5 class="card-title">Nombre: {{username}}</h5>
+                <a href="/students/{{_id}}" class="btn btn-dark">Perfil</a>
+            </div>
+        </div>
+
+        {{/each}}
+    </div>
+</div>
