@@ -1,0 +1,15 @@
+<h1>Role Access View</h1>
+
+<p>Username: {{user.username}}</p>
+<p>Role : {{user.role}}</p>
+
+    {{!-- RENDERIZADO PARA ROL PM --}}
+    {{#if isProductManager}}
+    <a href="/students">
+        <button class="btn btn-warning">Edit Students</button>
+    </a>
+    <button class="btn btn-warning">Delete Students</button>
+    {{/if}}
+
+
+

@@ -36,12 +36,12 @@ router.post('/iniciar-sesion', (req, res, next) => {
         return
       } else {
         req.session.currentUser = user
-        res.redirect('/')
+        res.redirect('/students')
+        //res.redirect('/')
       }
     })
     .catch(error => next(error))
 })
-
 
 // Logout
 router.post('/cerrar-sesion', (req, res, next) => {
@@ -49,3 +49,7 @@ router.post('/cerrar-sesion', (req, res, next) => {
 })
 
 module.exports = router
+
+
+
+
