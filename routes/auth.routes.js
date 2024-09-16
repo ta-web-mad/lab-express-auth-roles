@@ -2,6 +2,8 @@ const router = require("express").Router()
 const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
+const isLogedin = require('../middleware/is_logedin.middleware')
+
 
 // Signup
 router.get('/registro', (req, res, next) => res.render('auth/signup'))
@@ -35,12 +37,15 @@ router.post('/iniciar-sesion', (req, res, next) => {
         res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
         return
       } else {
-        req.session.currentUser = user
+        req.session.user = user
         res.redirect('/')
       }
     })
     .catch(error => next(error))
 })
+
+
+
 
 
 // Logout

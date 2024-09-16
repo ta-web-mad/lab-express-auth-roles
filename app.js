@@ -1,7 +1,7 @@
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require("dotenv/config");
-
+const isLogedin = require('./middleware/is_logedin.middleware');
 // ℹ️ Connects to the database
 require("./db");
 
@@ -22,9 +22,23 @@ app.locals.siteTitle = `IronLearn`;
 
 // Session config
 require('./config/session.config')(app)
-
+require('./utils/utils')
 // Routes
 require("./routes")(app)
+// app.use((req, res, next) => {
+//     if (req.session.user) {
+//         app.locals.username = req.session.user.username;
+//         app.locals.description = req.session.user.description;
+//     } else {
+//         app.locals.username = null;
+//         app.locals.description = null;
+//     }
+//     next();
+// })
+
+
+
+// app.use('/', isLogedin);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
