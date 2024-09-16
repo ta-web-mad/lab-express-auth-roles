@@ -1,0 +1,14 @@
+<div class="container">
+    <h2 class="mb-4">Estudiantes</h2>
+    {{#each students}}
+    <div class="p-3 d-flex align-items-center">
+        <div class="p-3">
+            <h3 class="h4 text-muted">{{username}}</h3>
+            <p>{{email}}</p>
+        </div>
+        <div class="p-3">
+            <a class="btn btn-outline-secondary" href="/students/{{id}}/view">View Profile</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
