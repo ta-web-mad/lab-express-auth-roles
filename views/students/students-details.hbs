@@ -1,0 +1,28 @@
+<div class="card">
+    <img src="{{studentId.profileImg}}" class="card-img-top" alt="Imagen de perfil">
+
+    <h5 class="card-title">{{studentId.username}}</h5>
+    <h7 class="card-title">{{studentId.email}}</h7>
+    <h5 class="card-title">{{studentId.description:}}</h5>
+    {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+    {{#if isPm}}
+    <a href="/students/edit/{{studentId._id}}" class="btn btn-warning">Editar Estudiante</a>
+    <form action="/students/delete/{{studentId._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Eliminar estudiante" class="btn btn-danger">
+    </form>
+
+
+    <form action="/students/{{studentId._id}}/updaterole/TA" method="POST" style="display: inline">
+        <input type="submit" value="Hacer TA" class="btn btn-danger">
+    </form>
+    <form action="/students/{{studentId._id}}/updaterole/DEV" method="POST" style="display: inline">
+        <input type="submit" value="Hacer DEV" class="btn btn-danger">
+    </form>
+
+
+
+
+
+
+    {{/if}}
+</div>
