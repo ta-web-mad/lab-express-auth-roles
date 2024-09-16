@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Ficha del Estudiante</h1>
+    <hr>
+    <p>{{student.username}}</p>
+    <img src={{student.profileImg}} alt="foto estudiante">
+    <p>Email: {{student.email}}</p>
+
+
+    {{#if isPM}}
+
+
+    <a href="/students/edit-student/{{student._id}}" class="btn btn-success">Editar estudiante</a>
+
+    <form action="/students/delete/{{student._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Eliminar estudiante" class="btn btn-danger">
+    </form>
+
+    <a href="/students/newRole/{{student._id}}/DEV" class="btn btn-warning">Marcar como DEV</a>
+    <a href="/students/newRole/{{student._id}}/TA" class="btn btn-warning">Marcar como TA</a>
+
+    {{/if}}
+
+    {{#if isSTUDENT}}
+    <a href="/students/edit-student/{{student._id}}" class="btn btn-success">Editar estudiante</a>
+    {{/if}}
+
+    <hr>
+
+    <a href="/students" class="btn btn-dark">Volver al listado</a>
+
+
+
+
+</div>
