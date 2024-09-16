@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <hr>
+    <div class="row">
+        <h2>Estudiantes</h2>
+        <br>
+        {{#each user}}
+        <div class="col-md-4 mb-3 ">
+            <div>
+                <h5 class="card-title mt-2">{{username}} </h5>
+
+                <a href="/students/profile/{{id}}" class="btn btn-warning">Entrar al Perfil</a>
+
+            </div>
+        </div>
+
+
+        {{/each}}
+
+        </row>
+        <a href="/" class="btn btn-dark mt-2">Home</a>
+    </div>
