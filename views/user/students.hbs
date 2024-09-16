@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        {{#each users}}
+
+        <div class="col-md-4">
+            <div class="card text-center img-profile">
+                <div class="card-header">
+                    {{email}}
+                </div>
+                <div class="card-body">
+                    <img src="{{profileImg}}" class="card-img-top" alt="{{username}} image">
+                    <h5 class="card-title">{{username}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <a href="students/{{_id}}" class="btn btn-dark">Ver Perfil</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Your role is {{role}}
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+    </div>
+</div>
