@@ -1,0 +1,48 @@
+<h2>STUDENT PROFILE</h2>
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{student.profileImg}}" class="card-img-top object-fit-scale img" alt="{{student.username}}">
+
+            </div>
+        </div>
+        <div class=" col-md-6">
+            <div class="card-body">
+                <h5 class="card-title"> <span>{{student.username}}</span></h5>
+                <p class="card-text"> <span>EMAIL: </span> {{student.email}}</p>
+
+                <p class="card-text"> <span>DESCRIPTION: </span> {{student.description}}</p>
+                <p class="card-text"><span>ROLE:</span> {{student.role}}
+
+                    {{#if isAdmin}}
+                <div class="card-text">
+
+                    <a href="/students/{{student._id}}/edit" class="btn btn-dark btn-sm">EDIT STUDENT</a>
+
+
+                    <form action="/students/{{student._id}}/delete" method="POST">
+                        <input type="submit" value="DELETE STUDENT" class="btn btn-danger btn-sm">
+                    </form>
+
+                    <form action="/students/{{student._id}}/mark-dv" method="POST">
+                        <input type="submit" value="MARK AS DEVELOPER" class="btn btn-dark btn-sm">
+                    </form>
+
+                    <form action="/students/{{student._id}}/mark-ta" method="POST">
+                        <input type="submit" value="MARK AS TA" class="btn btn-dark btn-sm">
+                    </form>
+                </div>
+
+                {{/if}}
+
+                {{#if isUser}}
+                <a href="/students/{{student._id}}/edit" class="btn btn-dark btn-sm">EDIT STUDENT</a>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+
+</div>
