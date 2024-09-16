@@ -1,0 +1,34 @@
+<div class="container">
+
+    <h2>Detalles de {{username}}!</h2>
+    <p>Esta es la información disponible</p>
+    <hr>
+
+    <div class="row">
+        <div class="col">
+            <img src="{{profileImg}}" alt="foto de perfil">
+            <br>
+            <p>Username: {{username}}</p>
+            <br>
+            <p>Descripción: {{description}}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/estudiantes" class="btn btn-info mb-10">Volver al listado general</a>
+
+    {{#if isPM}}
+    <a href="/estudiantes/editar/{{_id}}" class="btn btn-warning mb-10">Editar Estudiante</a>
+
+    <form action="/estudiantes/eliminar/{{_id}}" method="POST" style="display: inline">
+        <input type="submit" value="Eliminar estudiante" class="btn btn-danger">
+
+        <a href="/estudiantes/to-dev" class="btn btn-dark mb-10">Convertir en Developer</a>
+        <a href="/estudiantes/to-ta" class="btn btn-dark mb-10">Convertir en TA</a>
+    </form>
+    {{/if}}
+
+
+
+</div>

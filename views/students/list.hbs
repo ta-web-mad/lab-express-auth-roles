@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Estudiantes</h1>
+    <hr>
+
+    {{#each users}}
+    <div>
+        <p>Estudiante: {{username}}</p>
+        <a href="/estudiantes/detalles/{{_id}}" class="btn btn-dark mb-5">Info</a>
+    </div>
+    {{/each}}
+
+    <a href="/" class="btn btn-warning mt-3">Volver a inicio</a>
+
+</div>
