@@ -1,0 +1,45 @@
+<H1>DETALLES DE LOS ESTUDIANTES</h1>
+<div class="card" style="width: 18rem;">
+
+    <div class="card-body">
+        <h5 class="card-title">{{student.username}}</h5>
+        <img src="{{student.profileImg}}" class="card-img-top" alt="...">
+
+        <p class="card-text">{{student.email}}</p>
+        <p class="card-text">{{student.description}}</p>
+
+        {{#if isDEV}}
+        <td>
+            <a href="/students/edit/{{student.id}}" class="btn btn-warning btn-sm">Editar</a>
+        </td>
+        {{/if}}
+        {{#if isPM}}
+        <td>
+            <a href="/students/edit/{{student.id}}" class="btn btn-warning btn-sm">Editar</a>
+        </td>
+
+        <td>
+            <form action="/students/eliminar/{{student.id}}" method="POST">
+                <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+            </form>
+        </td>
+
+        <hr>
+
+        <td>
+            <form action="/students/DEV/edit_role/{{student.id}}" method="POST">
+                <input type="submit" value="Mark as Developer" class="btn btn-danger btn-sm">
+            </form>
+
+        </td>
+        <td>
+            <form action="/students/TA/edit_role/{{student.id}}" method="POST">
+                <input type="submit" value="Mark as TA" class="btn btn-danger btn-sm">
+            </form>
+
+        </td>
+
+        {{/if}}
+
+    </div>
+</div>
