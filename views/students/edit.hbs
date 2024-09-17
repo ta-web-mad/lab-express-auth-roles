@@ -1,0 +1,46 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2>Edición del perfil de {{username}}</h2>
+            <hr>
+
+            <form action="/editar" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" value="{{email}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="description" name="description" value="{{description}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="profileImg" class="form-label">Foto</label>
+                    <input type="text" class="form-control" id="profileImg" name="profileImg" value="{{profileImg}}">
+                </div>
+
+                <div class="mb-3">
+                    <img src="{{profileImg}}" class="img-fluid" alt="Profile image">
+                </div>
+
+                <input type="hidden" name="user_id" value="{{_id}}">
+
+                <div class="d-grid mt-5">
+                    <button type="submit" class="btn btn-dark btn-lg">Guardar edición</button>
+                </div>
+
+                <br><br>
+
+            </form>
+        </div>
+    </div>
+</div>
