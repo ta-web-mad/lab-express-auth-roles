@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h2 class="title">Edit your profile, {{user.username}}</h2>
+    <hr>
+
+
+    <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{user.username}}</h5>
+                <img src="{{user.profileImg}}" class="card-img-top" alt="{{user.username}}">
+                <p>{{user.email}}</p>
+                <p>{{user.role}}</p>
+                <p>{{user.description}}</p>
+                <a href="/edit/{{user._id}}" class="btn btn-warning btn-sm">Edit Student Profile</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>

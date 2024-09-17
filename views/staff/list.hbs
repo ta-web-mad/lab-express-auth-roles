@@ -1,0 +1,40 @@
+<div class=" container">
+    <h2 class="title">Staff</h2>
+    <hr>
+    <div class="row">
+
+        {{#each staff}}
+
+        <div class="col-md-4 d-flex align-items-stretch">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{username}}</h5>
+                    <img src="{{profileImg}}" class="card-img-top" alt="{{username}}">
+                    <p>{{email}}</p>
+                    <p>{{role}}</p>
+                    <p>{{description}}</p>
+                    {{#if ../isPM}}
+                    <a href="/edit/{{id}}" class="btn btn-warning btn-sm">Edit Profile</a>
+                    <br>
+                    <br>
+                    <form action="/delete/{{_id}}" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                    </form>
+                    <br>
+                    <form action="/markDev/{{_id}}" method="POST">
+                        <input type="submit" value="Mark as DEV" class="btn btn-warning btn-sm">
+                    </form>
+                    <br>
+                    <form action="/markTA/{{_id}}" method="POST">
+                        <input type="submit" value="Mark as TA" class="btn btn-warning btn-sm">
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+
+        {{/each}}
+
+    </div>
+</div>
