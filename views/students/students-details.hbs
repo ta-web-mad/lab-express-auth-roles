@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <h2>Detalles de {{student.username}}</h2>
+    <div class="row justify-content-center">
+        <div class="col-6 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{student.profileImg}}" class="card-img-top mb-2" alt={{student.username}}>
+                    <p>Nombre: {{student.username}}</p>
+                    <p>Email: {{student.email}}</p>
+                    <p>Descripción: {{student.description}}</p>
+                    <p>Rol: {{student.role}}</p>
+                    {{#if isPM}}
+                    <div class="row">
+                        <div class="col-3">
+                            <form action="/students/{{student.id}}/delete" method="POST">
+                                <input type="submit" value="Borrar estudiante" class="btn btn-danger btn-sm mt-2">
+                            </form>
+                        </div>
+                        <div class=" col-12 col-xl-3">
+                            <a href="/students/{{student.id}}/edit" class="btn btn-warning btn-sm mt-2">Editar
+                                estudiante</a>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 col-xl-4 d-grid">
+                            <form action="/students/{{student.id}}/STUDENT" method="POST">
+                                <input type="submit" value="Cambiar rol a estudiante" class="btn btn-dark btn-sm mt-2">
+                            </form>
+                        </div>
+                        <div class="col-12 col-xl-4 d-grid">
+                            <form action="/students/{{student.id}}/DEV" method="POST">
+                                <input type="submit" value="Cambiar rol a Dev" class="btn btn-dark btn-sm mt-2">
+                            </form>
+                        </div>
+                        <div class="col-12 col-xl-4 d-grid">
+                            <form action="/students/{{student.id}}/TA" method="POST">
+                                <input type="submit" value="Cambiar rol a TA" class="btn btn-dark btn-sm mt-2">
+                            </form>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if isUser}}
+                    <div class="row">
+                        <div class=" col-12 col-xl-3">
+                            <a href="/students/{{student.id}}/edit" class="btn btn-warning btn-sm mt-2">Editar tu
+                                perfil</a>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/students" class="btn btn-dark btn-lg mb-4 mt-1">Volver a estudiantes</a>

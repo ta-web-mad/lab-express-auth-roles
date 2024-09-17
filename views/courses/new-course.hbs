@@ -1,0 +1,78 @@
+<div class="container mt-3">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Crear curso</h1>
+            <hr>
+
+            <form action="/courses/create" method="POST">
+                <div class="mb-3">
+                    <label for="titleInput" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" id="titleInput" name="title">
+                </div>
+                <div class="mb-3">
+                    <label for="leadTeacherInput" class="form-label">Lead Teacher</label>
+                    <select id="leadTeacherInput" name="leadTeacher" class="form-select"
+                        aria-label="Default select example">
+                        {{#each userDev}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="startDateInput" class="form-label">Empieza el:</label>
+                    <input type="date" class="form-control" id="startDateInput" name="startDate">
+                </div>
+                <div class="mb-3">
+                    <label for="endDateInput" class="form-label">Termina el:</label>
+                    <input type="date" class="form-control" id="endDateInput" name="endDate">
+                </div>
+                <div class="mb-3">
+                    <label for="taInput" class="form-label">Teacher assistant</label>
+                    <select id="taInput" name="ta" class="form-select" aria-label="Default select example">
+                        {{#each userTa}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="courseImgInput" class="form-label">Imagen del curso</label>
+                    <input type="url" class="form-control" id="courseImgInput" name="courseImg">
+                </div>
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3" name="description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="statusInput" class="form-label">Status</label>
+                    <select id="statusInput" class="form-select" aria-label="Default select example" name="status">
+                        <option value="ON">ON</option>
+                        <option value="OFF">OFF</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="studentsInput" class="form-label">Selecciona los alumnos</label>
+                    <select id="studentsInput" name="students" class="form-select" multiple
+                        aria-label="multiple select">
+                        {{#each userStudent}}
+                        <option value="{{id}}">{{username}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Crear curso</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>

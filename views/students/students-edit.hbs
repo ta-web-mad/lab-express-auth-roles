@@ -1,0 +1,41 @@
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Editar {{username}}</h1>
+            <hr>
+
+            <form action="/students/{{id}}/edit" method="POST">
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Dirección de email</label>
+                    <input type="email" class="form-control" id="emailInput" name="email" value="{{email}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label">Nombre de usuario</label>
+                    <input type="text" class="form-control" id="usernameInput" name="username" value="{{username}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Imagen</label>
+                    <input type="url" class="form-control" id="imageInput" name="profileImg" value="{{profileImg}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="descriptionInput" rows="3"
+                        name="description">{{description}}</textarea>
+                </div>
+
+                <input type="hidden" name="id" value="{{id}}">
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Editar estudiante</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a href="/students" class="btn btn-dark btn-lg mt-4">Volver a estudiantes</a>
+</div>

@@ -1,0 +1,52 @@
+<div class="container mt-5">
+    <h2>Detalles de {{staff.username}}</h2>
+    <div class="row justify-content-center">
+        <div class="col-6 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{staff.profileImg}}" class="card-img-top mb-2" alt={{staff.username}}>
+                    <p>Nombre: {{staff.username}}</p>
+                    <p>Email: {{staff.email}}</p>
+                    <p>Descripción: {{staff.description}}</p>
+                    <p>Rol: {{staff.role}}</p>
+                    {{#if isPM}}
+                    <div class="row">
+                        <div class="col-3">
+                            <form action="/staff/{{staff.id}}/delete" method="POST">
+                                <input type="submit" value="Borrar staff" class="btn btn-danger btn-sm mt-2">
+                            </form>
+                        </div>
+                        <div class=" col-12 col-xl-3">
+                            <a href="/staff/{{staff.id}}/edit" class="btn btn-warning btn-sm mt-2">Editar staff</a>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 col-xl-4 d-grid">
+                            <form action="/staff/{{staff.id}}/STUDENT" method="POST">
+                                <input type="submit" value="Cambiar rol a estudiante" class="btn btn-dark btn-sm mt-2">
+                            </form>
+                        </div>
+                        <div class="col-12 col-xl-4 d-grid">
+                            <form action="/staff/{{staff.id}}/DEV" method="POST">
+                                <input type="submit" value="Cambiar rol a Dev" class="btn btn-dark btn-sm mt-2">
+                            </form>
+                        </div>
+                        <div class="col-12 col-xl-4 d-grid">
+                            <form action="/staff/{{staff.id}}/TA" method="POST">
+                                <input type="submit" value="Cambiar rol a TA" class="btn btn-dark btn-sm mt-2">
+                            </form>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#if isUser}}
+                    <div class="row">
+                        <div class=" col-12 col-xl-3">
+                            <a href="/staff/{{staff.id}}/edit" class="btn btn-warning btn-sm mt-2">Editar tu perfil</a>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/staff" class="btn btn-dark btn-lg mb-4 mt-1">Volver a staff</a>
