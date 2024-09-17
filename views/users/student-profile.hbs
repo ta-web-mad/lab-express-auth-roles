@@ -1,0 +1,46 @@
+<div class="container">
+
+    <h4>Detalles de {{users.username}}</h4>
+    <hr>
+    <img src={{users.profileImg}} alt="fotografia">
+    <hr>
+    <p>Descripción: {{users.description}}</p>
+    <hr>
+    <p>Correo electrónico: {{users.email}}</p>
+    <hr>
+    <p>Rol: {{users.role}}</p>
+    <hr>
+    {{#if isMyId}}
+    <a href="/edit/{{users.id}}" class="btn btn-dark btn-sm">Edit</a>
+    {{/if}}
+    {{#if isPM}}
+    <form action="/eliminar/{{users.id}}" method="POST">
+        <div>
+            <input type="submit" value="Delete" class="btn btn-danger">
+        </div>
+    </form>
+    <a href="/edit/{{users.id}}" class="btn btn-dark btn-sm">Edit</a>
+
+    <form action="/edit-role/{{users.id}}/DEV" method="POST">
+        <div>
+            <input type="submit" value="Mark as DEV" class="btn btn-dark">
+        </div>
+    </form>
+
+    <form action="/edit-role/{{users.id}}/TA" method="POST">
+        <div>
+            <input type="submit" value="Mark as TA" class="btn btn-dark">
+        </div>
+    </form>
+
+    <form action="/edit-role/{{users.id}}/STUDENT" method="POST">
+        <div>
+            <input type="submit" value="Mark as Student" class="btn btn-dark">
+        </div>
+    </form>
+    {{/if}}
+
+    <hr>
+    <a href='/users/students' class="btn btn-dark">Volver al listado</a>
+
+</div>
