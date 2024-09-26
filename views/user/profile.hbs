@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h1>Detalles de {{user.username}}</h1>
+    <hr>
+    <p>{{user.description}}</p>
+    <p> <img src="{{user.profileImg}}" alt=""></p>
+    <p>e-mail: {{user.email}}</p>
+
+    <hr>
+
+    <a href="/students/listado" class="btn btn-dark">Volver al listado</a>
+
+    {{#if isPM}}
+        <a href="/students/user/edit/{{user._id}}">Editar User</a>
+        <a href="/student/updateRole/DEV/{{users._id}}" class="btn btn-success"> DEV</a>
+        <a href="/student/updateRole/TA/{{users._id}}" class="btn btn-success"> TA</a>
+        <form action="/students/delete/{{user._id}}" method="POST" style="display: inline">
+            <input type="submit" value="Eliminar usuario" class="btn btn-danger">
+        </form>
+    {{/if}}
+
+    {{#if isTA}}
+        <a href="/students/user/edit/{{user._id}}" class="btn btn-warning">Editar user</a>
+        <a href="/student/updateRole/DEV/{{users._id}}" class="btn btn-success"> DEV</a>
+        <a href="/student/updateRole/TA/{{users._id}}" class="btn btn-success"> TA</a>
+        <form action="/students/delete/{{user._id}}" method="POST" style="display: inline">
+            <input type="submit" value="Eliminar usuario" class="btn btn-danger">
+        </form>
+    {{/if}}
+
+    {{#if isDEV}}
+        <a href="/students/user/edit/{{user._id}}" class="btn btn-warning">Editar libro</a>
+    {{/if}}
+
+</div>
