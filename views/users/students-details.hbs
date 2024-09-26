@@ -1,0 +1,21 @@
+<h3>Detalles de username</h3>
+<p>{{student.username}}</p>
+
+<h3>Dirección de email</h3>
+<p>{{student.email}}</p>
+
+<h3>profile del student</h3>
+<p>{{student.profileImg}}</p>
+
+<h3>description del student</h3>
+<p>{{student.description}}</p>
+
+<h3>role del student</h3>
+<p>{{student.role}}</p>
+
+{{#if isPM}}
+
+<a href="/users/edit/{{student._id}}"><button class="submit">edit</button></a>
+<a href="/users/edit/{{student._id}}"><button class="submit">delete</button></a>
+
+{{/if}}

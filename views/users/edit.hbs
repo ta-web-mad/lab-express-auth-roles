@@ -1,0 +1,38 @@
+<form action="/users/edit/:students_id" method="POST">
+
+
+    <label for="usernameInput" class="form-label">Detalles de username</label>
+    <input type="usernameInput" class="form-control" id="usernameInput" name="username" value="{{username}}">
+
+
+
+    <label for="emailInput" class="form-label">email</label>
+    <input type="emaiInput" class="form-control" id="emailInput" name="email" value="{{email}}">
+
+
+
+
+    <label for="descriptionInput" class="form-label">description del student</label>
+    <input type="text" class="form-control" id="descriptionInput" name="description" value="{{desciption}}">
+
+
+
+    <label for="roleInput" class="form-label">Rol del student</label>
+    <input type="text" class="form-control" id="roleInput" name="role" value={{role}}>
+
+    <a href="/users/edit/{{_id}}"><button class="submit">Editar perfil del student</button></a>
+
+    <a href="/users/edit/{{_id}}"><button class="submit">Delete perfil del student</button></a>
+
+
+
+
+
+
+    {{#if errorMessage}}
+    <div id="errorMessage">
+        <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
+
+</form>
