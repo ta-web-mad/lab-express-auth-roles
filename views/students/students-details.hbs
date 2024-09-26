@@ -1,0 +1,28 @@
+<h2>Estas en students details!</h2>
+
+
+<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{currentUser.role}}</div>
+    <div class="card-body">
+        <h5 class="card-title">Name: {{currentUser.username}}</h5>
+        <p class="card-text">Email: {{currentUser.email}}</p>
+        <p class="card-text">Descripcion: {{currentUser.description}}</p>
+        {{#if isPM}}
+        <div class="d-flex">
+            <form action="/students/{{currentUser._id}}/edit" method="get">
+                <button class="btn btn-primary mb-3 me-3" type="submit">UPDATE</button>
+            </form>
+            <form action="/students/{{currentUser._id}}/delete" method="post">
+                <button class="btn btn-danger" type="submit">DELETE</button>
+            </form>
+        </div>
+        {{/if}}
+        {{#if isStudent}}
+        <div class="d-flex">
+            <form action="/students/{{currentUser._id}}/edit" method="get">
+                <button class="btn btn-primary mb-3 me-3" type="submit">UPDATE</button>
+            </form>
+            {{/if}}
+        </div>
+    </div>
+</div>
