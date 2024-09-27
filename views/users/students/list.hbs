@@ -1,0 +1,69 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Students List</h1>
+            <hr>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Student</th>
+                        <th scope="col">Profile</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{#each users}}
+
+                    <tr>
+
+                        <td>{{username}}</td>
+
+                        <td>
+                            <a href="/students/{{_id}}/profile" class="btn btn-dark btn-sm">Profile</a>
+                        </td>
+
+                        {{#if ../isDEV}}
+                        <td>
+                            <a href="/students/{{_id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+                        </td>
+                        {{/if}}
+
+                        {{#if ../isTA}}
+                        <td>
+                            <a href="/students/{{_id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+                        </td>
+                        {{/if}}
+
+                        {{#if ../isPM}}
+                        <td>
+                            <a href="/students/{{_id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+                        </td>
+
+                        <td>
+                            <form action="/students/{{_id}}/delete" method="POST">
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                            </form>
+                        </td>
+                        {{/if}}
+
+
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+
+</div>

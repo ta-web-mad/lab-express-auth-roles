@@ -1,0 +1,56 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Staff List</h1>
+            <hr>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Staff</th>
+                        <th scope="col">Profile</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{#each users}}
+
+                    <tr>
+
+                        <td>{{username}}</td>
+
+                        <td>
+                            <a href="/staff/{{_id}}/profile" class="btn btn-dark btn-sm">Profile</a>
+                        </td>
+
+                        <td>
+                            <a href="/staff/{{_id}}/edit/" class="btn btn-warning btn-sm">Editar</a>
+                        </td>
+
+                        <td>
+
+                            //Dejar solo al PM
+                            <form action="/staff/{{_id}}/delete" method="POST">
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                            </form>
+                        </td>
+
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+
+</div>

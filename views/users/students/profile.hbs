@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2>Students Profile</h2>
+            <hr>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card" style="width: 50rem;">
+            <img src="{{user.profileImg}}" class="card-img-top" alt="{{user.username}}">
+            <div class="card-body">
+                <h5 class="card-title"><b>Name: </b>{{user.username}}</h5>
+                <hr>
+                <p class="card-text"><b>Description: </b>{{user.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Email: </b>{{user.email}}</li>
+                <li class="list-group-item"><b>Role: </b>{{user.role}}</li>
+            </ul>
+            {{#if isOWNER}}
+            <a>
+                <a href="/students/{{user._id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+            </a>
+            {{/if}}
+
+            {{#if isDEV}}
+            <a>
+                <a href="/students/{{user._id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+            </a>
+            {{/if}}
+
+            {{#if isTA}}
+            <a>
+                <a href="/students/{{user._id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+            </a>
+            {{/if}}
+
+            {{#if isPM}}
+            <a>
+                <a href="/students/{{user._id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+            </a>
+
+            <a>
+                <form action="/students/{{user._id}}/delete" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                </form>
+            </a>
+
+            <form action="/students/{{user._id}}/profile/TA" method="POST">
+                <input type="submit" value="Become TA" class="btn btn-light btn-sm">
+            </form>
+
+            <form action="/students/{{user._id}}/profile/DEV" method="POST">
+                <input type="submit" value="Become DEV" class="btn btn-light btn-sm">
+            </form>
+
+            <form action="/students/{{user._id}}/profile/STUDENT" method="POST">
+                <input type="submit" value="Become STUDENT" class="btn btn-light btn-sm">
+            </form>
+
+            {{/if}}
+        </div>
+    </div>
+    <hr>
+    <a href="/students" class="btn btn-dark">Volver a inicio</a>
+</div>
