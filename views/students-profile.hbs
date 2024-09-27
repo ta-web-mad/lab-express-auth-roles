@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Student Details</h1>
+            <hr>
+            <h3>Username</h3>
+            <p>{{student.username}}</p>
+
+            <h3>Email</h3>
+            <p>{{student.email}}</p>
+
+            <h3>Profile Image</h3>
+            <p>{{student.profileImg}}</p>
+
+            <h3>Description</h3>
+            <p>{{student.description}}</p>
+        </div>
+
+        {{#if isPm}}
+
+        <form action="/students/{{student.id}}/edit" method="POST">
+            <button class="btn btn-warning">Edit student</button>
+        </form>
+
+        <form action="/students/{{student.id}}/delete" method="POST">
+            <button type="submit" class="btn btn-warning">Delete student</button>
+        </form>
+
+        <form action="/students/{{student.id}}/isdev" method="POST">
+            <button class="btn btn-warning">Mark as Developer</button>
+        </form>
+
+        <form action="/students/{{student.id}}/ista" method="POST">
+            <button class="btn btn-warning">Mark as TA</button>
+        </form>
+
+        {{/if}}
+
+        {{#if isStudent}}
+
+        <form action="/students/{{student.id}}/edit" method="POST">
+            <button class="btn btn-warning">Edit student</button>
+        </form>
+
+        {{/if}}
+
+    </div>
+
+</div>

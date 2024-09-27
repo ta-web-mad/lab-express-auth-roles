@@ -1,0 +1,19 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>List of students</h1>
+            <hr>
+            <ul>
+                {{#each allStudents}}
+                <li>{{this.username}}
+                    [<a href="/students/{{id}}">Student Details</a>]
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+</div>
