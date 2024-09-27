@@ -43,6 +43,8 @@ router.post('/iniciar-sesion', (req, res, next) => {
 })
 
 
+
+
 // Logout
 router.post('/cerrar-sesion', (req, res, next) => {
   req.session.destroy(() => res.redirect('/iniciar-sesion'))
