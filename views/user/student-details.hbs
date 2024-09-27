@@ -1,0 +1,46 @@
+<h2 class="text-center m-4">Student Details</h2>
+
+<div class="container d-flex justify-content-around">
+
+    <div class="row">
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{userDetails.profileImg}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{userDetails.username}}</h5>
+                <p class="card-text">{{userDetails.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{userDetails.email}}</li>
+                <li class="list-group-item">{{userDetails.role}}</li>
+            </ul>
+            {{#if isStudent}}
+            <a href="/students/edit/{{userDetails._id}}" class="d-block btn btn-warning m-3">Edit Student</a>
+            {{/if}}
+
+            {{#if isPm}}
+            <a href="/students/edit/{{userDetails._id}}" class="d-block btn btn-warning m-3">Edit Student</a>
+
+            <form action="/students/delete/{{userDetails._id}}" method="POST" class="d-grid">
+                <input type="submit" value="Delete Student" class="btn btn-danger m-3">
+            </form>
+
+            <form action="/students/edit-role/{{userDetails._id}}/TA" method="POST" class="d-grid">
+                <input type="submit" value="Make TA" class="btn btn-secondary m-3" name="role">
+            </form>
+
+            <form action="/students/edit-role/{{userDetails._id}}/DEV" method="POST" class="d-grid">
+                <input type="submit" value="Make DEV" class="btn btn-secondary m-3" name="role">
+            </form>
+
+
+            {{/if}}
+
+
+
+        </div>
+
+
+    </div>
+
+</div>

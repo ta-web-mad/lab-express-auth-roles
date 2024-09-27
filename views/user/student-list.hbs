@@ -1,0 +1,22 @@
+<h2 class="text-center m-4">Students list</h2>
+<div class="container d-flex justify-content-around">
+
+    {{#each users}}
+
+    <div class="row">
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                {{username}}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="/students/details/{{_id}}">Show Details</a></li>
+                {{!-- <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li> --}}
+            </ul>
+        </div>
+
+
+    </div>
+    {{/each}}
+</div>
