@@ -1,0 +1,34 @@
+
+<div class="container d-flex flex wrap">
+<h1>hey</h1>
+
+
+<div class="card" style="width: 18rem;">
+    <img src={{student.profileImg}} class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{student.username}}</h5>
+        <p class="card-text">{{student.description}}</p>
+        <a href="/students" class="btn btn-primary">Go to students</a>
+    </div>
+
+    {{#if isPM}}
+    <a href="/students/editar/{{student._id}}" class="btn btn-warning">Editar Estudiante</a>
+    <a href="/students/{{student._id}}/changerole/TA" class="btn btn-primary">TA</a>
+    <a href="/students/{{student._id}}/changerole/DEV" class="btn btn-secondary">DEV</a>
+
+    
+    <form action="/students/eliminar/{{student._id}}" method="POST" style="display: inline">
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+    
+    
+    {{/if}}
+
+          
+    {{#if isCurrentUser}}
+<a href="/students/editar/{{student._id}}" class="btn btn-warning">Editar Estudiante</a>
+    {{/if}}
+
+
+</div>
+</div>
